@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <title>杉じぃ プレースホルダー</title>
+  <defs>
+    <linearGradient id="sjBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#7BA68A" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#2D5A3D" stop-opacity="0.08"/>
+    </linearGradient>
+  </defs>
+  <circle cx="256" cy="256" r="240" fill="url(#sjBg)"/>
+  <!-- cedar tree silhouette behind (giving "1000-year cedar" hint) -->
+  <path d="M256 60 L296 150 L276 150 L316 230 L286 230 L326 310 L296 310 L256 380 L216 310 L186 310 L226 230 L196 230 L236 150 L216 150 Z" fill="#2D5A3D" fill-opacity="0.18"/>
+  <!-- staff (paddle + cedar root fusion) -->
+  <line x1="370" y1="180" x2="370" y2="460" stroke="#8B6F4E" stroke-width="9" stroke-linecap="round"/>
+  <ellipse cx="370" cy="170" rx="18" ry="32" fill="#8B6F4E"/>
+  <path d="M362 200 Q358 230 370 250 Q382 230 378 200" fill="#7BA68A"/>
+  <!-- robe (heavy bark fiber) -->
+  <path d="M180 480 L170 290 Q170 250 220 240 L292 240 Q342 250 342 290 L332 480 Z" fill="#8B6F4E"/>
+  <!-- moss patches on robe -->
+  <ellipse cx="210" cy="340" rx="14" ry="8" fill="#7BA68A"/>
+  <ellipse cx="305" cy="370" rx="12" ry="7" fill="#7BA68A"/>
+  <ellipse cx="245" cy="420" rx="10" ry="6" fill="#7BA68A"/>
+  <!-- robe trim (wood grain hint) -->
+  <path d="M180 480 L182 470 L330 470 L332 480 Z" fill="#5C4528"/>
+  <!-- hood -->
+  <path d="M195 240 Q210 195 256 195 Q302 195 317 240 Z" fill="#5C4528"/>
+  <!-- head (small, cheerful) -->
+  <ellipse cx="256" cy="220" rx="42" ry="46" fill="#F1D5B0"/>
+  <!-- white beard (long) -->
+  <path d="M222 240 Q220 290 240 330 Q256 350 272 330 Q292 290 290 240 Z" fill="#F4EFE2" stroke="#D6D3C4" stroke-width="2"/>
+  <!-- white moustache -->
+  <path d="M226 232 Q256 240 286 232" stroke="#F4EFE2" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <!-- bushy white eyebrows -->
+  <path d="M222 198 Q236 192 246 200" stroke="#F4EFE2" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <path d="M266 200 Q276 192 290 198" stroke="#F4EFE2" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <!-- crinkled smiling eyes -->
+  <path d="M226 218 Q234 224 244 218" stroke="#1F3327" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <path d="M268 218 Q278 224 286 218" stroke="#1F3327" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  <!-- small sprout on shoulder -->
+  <path d="M180 248 Q175 230 185 224 Q188 232 184 244" fill="#7BA68A"/>
+  <ellipse cx="180" cy="224" rx="3" ry="6" fill="#2D5A3D"/>
+  <!-- name label -->
+  <rect x="160" y="450" width="192" height="34" rx="17" fill="#2D5A3D"/>
+  <text x="256" y="473" text-anchor="middle" font-family="'Noto Sans JP', sans-serif" font-size="18" fill="#F4EFE2" font-weight="700">杉じぃ（仮）</text>
+</svg>

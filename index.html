@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>阿波山雅 サイト プロトタイプ一覧</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="awasanga-styles.css">
+<style>
+.proto-list {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px;
+  margin-top: 32px;
+}
+@media (max-width: 768px) { .proto-list { grid-template-columns: 1fr; } }
+.proto-link {
+  background: white; border: 1px solid var(--rule); border-radius: 12px;
+  padding: 22px 26px; text-decoration: none; color: var(--charcoal);
+  display: flex; align-items: center; gap: 18px;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+.proto-link:hover {
+  transform: translateY(-3px); box-shadow: 0 10px 24px rgba(45,90,61,0.12);
+  border-color: var(--green-deep);
+}
+.proto-icon { font-size: 36px; flex-shrink: 0; }
+.proto-info h3 { font-size: 17px; color: var(--green-deep); margin-bottom: 4px; font-weight: 700; }
+.proto-info p { font-size: 13px; color: var(--gray); line-height: 1.6; }
+.tag-new { display: inline-block; background: var(--yuzu); color: var(--dark); font-size: 10px; padding: 2px 8px; border-radius: 4px; margin-left: 8px; font-weight: 700; }
+.tag-key { display: inline-block; background: var(--green-deep); color: white; font-size: 10px; padding: 2px 8px; border-radius: 4px; margin-left: 8px; font-weight: 700; }
+</style>
+</head>
+<body>
+
+<div class="proto-banner">⚙ プロトタイプ一覧 — このページは納品時には削除します</div>
+
+<header class="page-header">
+  <div class="page-header-inner">
+    <h1>阿波山雅 サイト プロトタイプ一覧</h1>
+    <p>下記の8ページがHTMLプロトタイプとして用意されています。リンクから順にご覧ください。<br>各ページのナビゲーションからも相互に行き来できます。</p>
+  </div>
+</header>
+
+<section>
+  <div class="container">
+
+    <h2 class="section-title left">ページ一覧（8ページ）</h2>
+
+    <div class="proto-list">
+
+      <a href="06_home_prototype.html" class="proto-link">
+        <div class="proto-icon">🏠</div>
+        <div class="proto-info">
+          <h3>ホーム（TOP）<span class="tag-key">主要</span></h3>
+          <p>ヒーロー・ミッション・仲間たち・新規イベント・拠点・KPI・サポーター募集・パートナーロゴ</p>
+        </div>
+      </a>
+
+      <a href="about.html" class="proto-link">
+        <div class="proto-icon">🌿</div>
+        <div class="proto-info">
+          <h3>阿波山雅について</h3>
+          <p>設立趣旨／沿革タイムライン／組合員・役員／仲間たち（ダイジェスト）／メディア素材</p>
+        </div>
+      </a>
+
+      <a href="members.html" class="proto-link">
+        <div class="proto-icon">👥</div>
+        <div class="proto-info">
+          <h3>仲間たち（4キャラ詳細）</h3>
+          <p>奥槍どん／杉じぃ／ユズリ／スギト の正式プロフィール（バイブル準拠版）</p>
+        </div>
+      </a>
+
+      <a href="facility-okuyarito.html" class="proto-link">
+        <div class="proto-icon">🏕</div>
+        <div class="proto-info">
+          <h3>奥槍戸山の家（施設・拠点）<span class="tag-key">主要</span></h3>
+          <p>営業情報・メニュー・アクセス・注意事項・取材依頼</p>
+        </div>
+      </a>
+
+      <a href="trail-guide.html" class="proto-link">
+        <div class="proto-icon">🥾</div>
+        <div class="proto-info">
+          <h3>山と林道ガイド<span class="tag-new">新設</span><span class="tag-key">SEO要</span></h3>
+          <p>剣山・次郎笈・不入山ルート／剣山スーパー林道87.7km完走ガイド／安全・装備・マナー</p>
+        </div>
+      </a>
+
+      <a href="projects.html" class="proto-link">
+        <div class="proto-icon">🌱</div>
+        <div class="proto-info">
+          <h3>活動・プロジェクト</h3>
+          <p>次郎笈トレイル再生／フードリボン／木頭クエスト／那賀町連携／奥槍戸やま日和</p>
+        </div>
+      </a>
+
+      <a href="activity-report.html" class="proto-link">
+        <div class="proto-icon">📊</div>
+        <div class="proto-info">
+          <h3>活動報告（実績）<span class="tag-new">新設</span><span class="tag-key">スポンサー説得用</span></h3>
+          <p>ヒーロー数字3つ＋ストーリーカード6枚＋信頼バッジ＋沿革タイムライン</p>
+        </div>
+      </a>
+
+      <a href="support.html" class="proto-link">
+        <div class="proto-icon">💪</div>
+        <div class="proto-info">
+          <h3>応援・参加する<span class="tag-new">再編</span></h3>
+          <p>個人サポーター／法人スポンサー／ボランティア／組合加盟 の4経路フォーム</p>
+        </div>
+      </a>
+
+    </div>
+
+    <div class="cta-banner mt-64">
+      <h3>関連ドキュメント</h3>
+      <p>プロトタイプを補完する各種仕様書・原稿は以下のMarkdownファイルにあります。</p>
+      <div style="text-align: left; max-width: 720px; margin: 24px auto 0; font-size: 14px; color: rgba(255,255,255,0.85); line-height: 2;">
+        ・awasanga_site_restructure_plan.md ― 全体プラン<br>
+        ・01_hero_visual_prompt.md ― ヒーロー画像生成プロンプト<br>
+        ・02_character_illustration_brief.md ― キャラクターイラスト発注仕様<br>
+        ・03_additional_pages_content.md ― 各ページ原稿（要記入欄付き）<br>
+        ・04_google_sites_implementation_guide.md ― Googleサイト実装手順<br>
+        ・05_brand_guide.md ― ブランドガイド<br>
+        ・07_google_forms_spec.md ― Googleフォーム作成仕様
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</body>
+</html>

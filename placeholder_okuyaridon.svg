@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <title>奥槍どん プレースホルダー</title>
+  <defs>
+    <linearGradient id="oyBg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#7BA68A" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#2D5A3D" stop-opacity="0.08"/>
+    </linearGradient>
+  </defs>
+  <!-- soft circle background -->
+  <circle cx="256" cy="256" r="240" fill="url(#oyBg)"/>
+  <!-- subtle mountain silhouette behind -->
+  <path d="M40 360 L160 240 L230 300 L320 220 L420 320 L472 280 L472 472 L40 472 Z" fill="#2D5A3D" fill-opacity="0.12"/>
+  <!-- character body (apron + shirt) -->
+  <path d="M170 480 L150 320 Q150 280 200 270 L312 270 Q362 280 362 320 L342 480 Z" fill="#3E3E3E"/>
+  <!-- apron -->
+  <path d="M210 480 L210 310 Q256 295 302 310 L302 480 Z" fill="#8B6F4E"/>
+  <!-- apron tie -->
+  <rect x="210" y="310" width="92" height="6" fill="#1F3327"/>
+  <!-- neck -->
+  <rect x="232" y="232" width="48" height="44" fill="#D9B89A"/>
+  <!-- head -->
+  <ellipse cx="256" cy="200" rx="68" ry="76" fill="#E5C3A4"/>
+  <!-- hair (salt and pepper) -->
+  <path d="M188 175 Q196 130 256 124 Q316 130 324 175 Q324 150 290 142 Q256 134 222 142 Q188 150 188 175 Z" fill="#3E3E3E"/>
+  <!-- side hair -->
+  <path d="M188 180 Q186 200 196 218 L210 218 Q200 200 200 182 Z" fill="#3E3E3E"/>
+  <path d="M324 180 Q326 200 316 218 L302 218 Q312 200 312 182 Z" fill="#3E3E3E"/>
+  <!-- eyebrows (thick) -->
+  <rect x="210" y="186" width="32" height="6" rx="3" fill="#1F3327"/>
+  <rect x="270" y="186" width="32" height="6" rx="3" fill="#1F3327"/>
+  <!-- eyes (closed/relaxed) -->
+  <path d="M212 208 Q226 214 240 208" stroke="#1F3327" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M272 208 Q286 214 300 208" stroke="#1F3327" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <!-- mouth (slight smile) -->
+  <path d="M236 240 Q256 248 276 240" stroke="#1F3327" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <!-- ladle (in right arm) -->
+  <line x1="378" y1="320" x2="430" y2="430" stroke="#8B6F4E" stroke-width="8" stroke-linecap="round"/>
+  <ellipse cx="438" cy="438" rx="22" ry="14" fill="#8B6F4E"/>
+  <!-- sleeve hint -->
+  <path d="M340 300 L380 320 L370 340 L330 320 Z" fill="#2D5A3D"/>
+  <path d="M172 300 L130 320 L140 340 L182 320 Z" fill="#2D5A3D"/>
+  <!-- name label -->
+  <rect x="160" y="450" width="192" height="34" rx="17" fill="#2D5A3D"/>
+  <text x="256" y="473" text-anchor="middle" font-family="'Noto Sans JP', sans-serif" font-size="18" fill="#F4EFE2" font-weight="700">奥槍どん（仮）</text>
+</svg>

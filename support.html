@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="協同組合 阿波山雅は、地域を次の世代へ繋いでいくための仲間を募集しています。個人サポーター／法人スポンサー／ボランティア／組合加盟、4つの応援のかたちから選んでください。">
+<title>応援・参加する｜協同組合 阿波山雅</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="awasanga-styles.css">
+<style>
+.support-block {
+  background: white; border: 1px solid var(--rule); border-radius: 16px;
+  padding: 36px 40px; margin-bottom: 28px;
+  border-left: 6px solid var(--green-deep);
+}
+.support-block h3 {
+  font-size: 22px; color: var(--green-deep); font-weight: 700; margin-bottom: 8px;
+}
+.support-block .lead {
+  font-size: 15px; color: var(--charcoal); line-height: 1.85; margin-bottom: 20px;
+}
+.support-block .fields-list {
+  background: var(--ivory); padding: 16px 20px; border-radius: 8px;
+  margin-bottom: 20px; font-size: 13px; color: var(--gray);
+}
+.support-block .fields-list strong { color: var(--charcoal); }
+.support-block ul { margin: 8px 0 0 18px; }
+.support-block li { margin-bottom: 4px; line-height: 1.7; }
+
+.choose-cards {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px;
+  margin-bottom: 48px;
+}
+@media (max-width: 880px) { .choose-cards { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .choose-cards { grid-template-columns: 1fr; } }
+.choose-card {
+  background: white; border: 1px solid var(--rule); border-radius: 12px;
+  padding: 22px 20px; text-align: center;
+  text-decoration: none; color: var(--charcoal);
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+.choose-card:hover {
+  transform: translateY(-4px); box-shadow: 0 12px 28px rgba(45,90,61,0.12);
+  border-color: var(--green-deep);
+}
+.choose-card .icon { font-size: 36px; margin-bottom: 8px; }
+.choose-card h4 { font-size: 15px; color: var(--green-deep); font-weight: 700; margin-bottom: 4px; }
+.choose-card p { font-size: 12px; color: var(--gray); line-height: 1.6; }
+</style>
+</head>
+<body>
+
+<div class="proto-banner">⚙ プロトタイプ表示 — 実画像・実数値が入ると最終形になります</div>
+
+<nav class="nav">
+  <div class="nav-logo"><a href="06_home_prototype.html">協同組合 阿波山雅</a></div>
+  <ul class="nav-links">
+    <li><a href="about.html">阿波山雅について</a></li>
+    <li><a href="facility-okuyarito.html">施設・拠点</a></li>
+    <li><a href="trail-guide.html">山と林道ガイド</a></li>
+    <li><a href="projects.html">活動・プロジェクト</a></li>
+    <li><a href="activity-report.html">活動報告</a></li>
+    <li><a href="support.html" class="active">応援する</a></li>
+    <li><a href="#">お問い合わせ</a></li>
+  </ul>
+</nav>
+
+<header class="page-header">
+  <div class="page-header-inner">
+    <div class="breadcrumb">
+      <a href="06_home_prototype.html">ホーム</a>
+      <span class="breadcrumb-sep">›</span>
+      <span>応援・参加する</span>
+    </div>
+    <h1>あなたの応援が、山を守ります</h1>
+    <p>阿波山雅は、この地域を「次の世代」へ繋いでいくための協同組合です。<br>あなたに合うかたちを、4つから選んでください。</p>
+  </div>
+</header>
+
+<section>
+  <div class="container">
+
+    <!-- ========= 4選択カード ========= -->
+    <h2 class="section-title">4つの応援のかたち</h2>
+    <p class="section-subtitle">それぞれ専用フォームを用意しています</p>
+
+    <div class="choose-cards">
+      <a href="#individual" class="choose-card">
+        <div class="icon">💚</div>
+        <h4>個人サポーター</h4>
+        <p>ファンになる、それだけで応援になります</p>
+      </a>
+      <a href="#corporate" class="choose-card">
+        <div class="icon">🤝</div>
+        <h4>法人スポンサー</h4>
+        <p>企業・団体としての連携をご検討の方へ</p>
+      </a>
+      <a href="#volunteer" class="choose-card">
+        <div class="icon">⛏</div>
+        <h4>ボランティア</h4>
+        <p>現場で一緒に動いてくれる仲間募集</p>
+      </a>
+      <a href="#join" class="choose-card">
+        <div class="icon">🌿</div>
+        <h4>組合加盟</h4>
+        <p>事業者として加盟をご検討の方へ</p>
+      </a>
+    </div>
+
+    <!-- ========= 個人サポーター ========= -->
+    <div id="individual" class="support-block">
+      <h3>① 個人サポーター</h3>
+      <p class="lead">ファンになる、それだけで応援になります。SNSで見守ってくださる方、現地でお会いできる方、奥槍戸やま日和を楽しみに待ってくださる方――どんなかたちでも、私たちの励みになります。</p>
+      <div class="fields-list">
+        <strong>フォーム項目（6項目・所要1分）：</strong>
+        <ul>
+          <li>お名前 <em>必須</em></li>
+          <li>メールアドレス <em>必須</em></li>
+          <li>お住まいの地域</li>
+          <li>応援メッセージ</li>
+          <li>奥槍戸やま日和（広報誌）の発行通知を希望する</li>
+          <li>阿波山雅をどこで知ったか</li>
+        </ul>
+      </div>
+      <div class="form-embed-stub">
+        <div class="icon">📝</div>
+        Googleフォーム埋め込みエリア<br>
+        <small>個人サポーター登録フォーム（07_google_forms_spec.md フォーム① 参照）</small>
+      </div>
+      <p style="margin-top: 16px; font-size: 13px; color: var(--gray);">フォーム作成後、ここにiframe埋め込みされます。</p>
+    </div>
+
+    <!-- ========= 法人スポンサー ========= -->
+    <div id="corporate" class="support-block">
+      <h3>② 法人スポンサー／パートナー</h3>
+      <p class="lead">一緒に「徳島の山と暮らしを次の世代へ」運んでいただける企業・団体を募集しています。商品開発・広報協力・現場支援・財政支援――形は問いません。まずはお気軽にお声がけください。</p>
+      <div class="fields-list">
+        <strong>フォーム項目（9項目・所要3分）：</strong>
+        <ul>
+          <li>企業・団体名 <em>必須</em></li>
+          <li>ご担当者様 お名前 <em>必須</em></li>
+          <li>部署・役職</li>
+          <li>メールアドレス <em>必須</em></li>
+          <li>電話番号</li>
+          <li>関心のある領域（拠点運営支援／商品開発／広報・SNS連携／イベント協賛／その他） <em>必須</em></li>
+          <li>ご検討内容 <em>必須</em></li>
+          <li>連絡希望時期</li>
+          <li>ご検討中の予算規模</li>
+        </ul>
+      </div>
+      <div class="form-embed-stub">
+        <div class="icon">🤝</div>
+        Googleフォーム埋め込みエリア<br>
+        <small>法人スポンサー相談フォーム（07_google_forms_spec.md フォーム② 参照）</small>
+      </div>
+    </div>
+
+    <!-- ========= ボランティア ========= -->
+    <div id="volunteer" class="support-block">
+      <h3>③ ボランティア募集</h3>
+      <p class="lead">次郎笈トレイルの整備、植樹、イベント運営、フードリボン――一緒に汗をかいてくれる仲間を募集しています。山の経験は問いません。「やってみたい」気持ちがあれば十分です。</p>
+      <div class="fields-list">
+        <strong>フォーム項目（10項目・所要3分）：</strong>
+        <ul>
+          <li>お名前 <em>必須</em>／年齢層／メールアドレス <em>必須</em>／電話番号</li>
+          <li>お住まいの地域／参加可能な日 <em>必須</em></li>
+          <li>興味のあるプロジェクト（トレイル整備／植樹・里山活動／イベント運営／広報・SNS／フードリボン） <em>必須</em></li>
+          <li>山の経験・スキル／自家用車で来られるか／配慮が必要なこと</li>
+        </ul>
+      </div>
+      <div class="char-quote sugito" style="margin: 16px 0;">
+        <div class="name">スギト</div>
+        <div class="text">やってみよ！山の経験なんて、無くて大丈夫。最初はオイラと一緒に動こうぜ。</div>
+      </div>
+      <div class="form-embed-stub">
+        <div class="icon">⛏</div>
+        Googleフォーム埋め込みエリア<br>
+        <small>ボランティア応募フォーム（07_google_forms_spec.md フォーム③ 参照）</small>
+      </div>
+    </div>
+
+    <!-- ========= 組合加盟 ========= -->
+    <div id="join" class="support-block">
+      <h3>④ 組合加盟相談</h3>
+      <p class="lead">木頭・那賀・剣山系で事業を営まれている方で、私たちと一緒に動きたいと感じてくださった方へ。加盟のご相談はこちらから。業種は問いません。お話だけでも大歓迎です。</p>
+      <div class="fields-list">
+        <strong>フォーム項目（9項目・所要3分）：</strong>
+        <ul>
+          <li>事業者名・屋号 <em>必須</em>／代表者氏名 <em>必須</em></li>
+          <li>業種（飲食／宿泊／加工／農林業／小売／製造／観光・体験／その他） <em>必須</em></li>
+          <li>所在地 <em>必須</em>／メールアドレス <em>必須</em>／電話番号 <em>必須</em></li>
+          <li>事業内容（簡単に）／ご相談内容 <em>必須</em>／阿波山雅をどこで知ったか</li>
+        </ul>
+      </div>
+      <div class="form-embed-stub">
+        <div class="icon">🌿</div>
+        Googleフォーム埋め込みエリア<br>
+        <small>組合加盟相談フォーム（07_google_forms_spec.md フォーム④ 参照）</small>
+      </div>
+    </div>
+
+    <!-- ========= ユズリの一言 ========= -->
+    <div class="char-quote yuzuri" style="margin-top: 48px;">
+      <div class="name">ユズリ</div>
+      <div class="text">どのかたちも、地域を次に繋ぐための一票です。歴史を辿れば、答えは見つかります。</div>
+    </div>
+
+    <div class="related-links">
+      <h4>関連ページ</h4>
+      <div class="related-grid">
+        <a href="activity-report.html" class="related-link">活動報告</a>
+        <a href="projects.html" class="related-link">活動・プロジェクト</a>
+        <a href="about.html" class="related-link">阿波山雅について</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <strong>協同組合 阿波山雅</strong>
+      徳島・剣山系のふもとから、山と地域を次の世代へ。<br>
+      所在地：<span class="placeholder-note">要記入</span><br>
+      電話：<span class="placeholder-note">要記入</span><br>
+      メール：<span class="placeholder-note">要記入</span>
+    </div>
+    <div>
+      <h5>サイト</h5>
+      <ul>
+        <li><a href="06_home_prototype.html">ホーム</a></li>
+        <li><a href="about.html">阿波山雅について</a></li>
+        <li><a href="facility-okuyarito.html">施設・拠点</a></li>
+        <li><a href="trail-guide.html">山と林道ガイド</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>関わる</h5>
+      <ul>
+        <li><a href="projects.html">活動・プロジェクト</a></li>
+        <li><a href="activity-report.html">活動報告</a></li>
+        <li><a href="support.html">応援・参加する</a></li>
+        <li><a href="#">お問い合わせ</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>SNS</h5>
+      <ul>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">Facebook</a></li>
+        <li><a href="#">YouTube</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 協同組合 阿波山雅 All Rights Reserved.</div>
+</footer>
+
+</body>
+</html>
