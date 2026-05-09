@@ -1,0 +1,75 @@
+{
+  "_comment": "お知らせデータ。新しい順に items 配列の先頭に1ブロック追加してください。日付は ISO 形式（YYYY-MM-DD）でソートに使われます。displayDate は表示用の自由フォーマットです。",
+  "items": [
+    {
+      "id": "2026-03-naga-symposium",
+      "date": "2026-03-15",
+      "displayDate": "2026/03/15",
+      "category": "行政連携",
+      "title": "那賀町賑わい課との連携協議スタート",
+      "summary": "「平の里を基点とした那賀町活性化」をテーマに、那賀町賑わい課との認識合わせ・協議を開始しました。林道走破→平の里→木頭→那賀川沿いの周回経済モデルを提案しています。",
+      "image": "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=800&q=85",
+      "url": "projects.html"
+    },
+    {
+      "id": "2025-11-16-jiroggi-trail-2",
+      "date": "2025-11-16",
+      "displayDate": "2025/11/16",
+      "category": "プロジェクト",
+      "title": "次郎笈トレイル再生プロジェクト（第二弾）活動実施中！",
+      "summary": "剣山系の名峰・次郎笈の稜線にあるトレイルを「次の世代も歩ける道」として整備するプロジェクトの第二弾を実施中です。",
+      "image": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=85",
+      "url": "projects.html"
+    },
+    {
+      "id": "2025-11-16-rindo-meeting",
+      "date": "2025-11-16",
+      "displayDate": "2025/11/16",
+      "category": "イベント",
+      "title": "剣山スーパー林道ミーティングに参加します",
+      "summary": "とくしま林道ナビ主催のミーティングに参加し、林道の現状と利用者の声を共有しました。",
+      "image": "https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=800&q=85",
+      "url": "trail-guide.html"
+    },
+    {
+      "id": "2025-11-10-yamabiyori-vol004",
+      "date": "2025-11-10",
+      "displayDate": "2025/11/10",
+      "category": "広報誌",
+      "title": "奥槍戸やま日和 vol.004（秋号）発行",
+      "summary": "木頭杉と地域の物語、組合員紹介、プロジェクト報告などを掲載した季刊広報誌の最新号を発行しました。",
+      "image": "https://images.unsplash.com/photo-1474366521946-c3d4b507abf2?auto=format&fit=crop&w=800&q=85",
+      "url": "projects.html"
+    },
+    {
+      "id": "2025-04-05-okuyarito-open",
+      "date": "2025-04-05",
+      "displayDate": "2025/04/05",
+      "category": "営業情報",
+      "title": "「奥槍戸山の家」今年度営業開始",
+      "summary": "4月5日より、奥槍戸山の家の今年度の営業がスタートしました。看板メニュー「おとこ気カレー」とともに、皆さまのお越しをお待ちしています。営業期間は11月末まで。",
+      "image": "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=800&q=85",
+      "url": "facility-okuyarito.html"
+    },
+    {
+      "id": "2025-01-11-1st-anniversary",
+      "date": "2025-01-11",
+      "displayDate": "2025/01/11",
+      "category": "団体",
+      "title": "協同組合 阿波山雅 設立1周年",
+      "summary": "2024年1月11日の設立から1年。地域のみなさま、サポーターのみなさまの応援のおかげで、活動の幅を広げることができました。これからもよろしくお願いします。",
+      "image": "https://images.unsplash.com/photo-1470770903676-69b98201ea1c?auto=format&fit=crop&w=800&q=85",
+      "url": "about.html"
+    },
+    {
+      "id": "2024-03-21-foodribbon-start",
+      "date": "2024-03-21",
+      "displayDate": "2024/03/21",
+      "category": "プロジェクト",
+      "title": "フードリボン活動 開始（徳島新聞掲載）",
+      "summary": "「お腹が空いている子も、年配の方も、誰でも一食を」というフードリボン活動を開始しました。徳島新聞でもご紹介いただいています。",
+      "image": "https://images.unsplash.com/photo-1519984388953-d2406bc725e1?auto=format&fit=crop&w=800&q=85",
+      "url": "projects.html"
+    }
+  ]
+}

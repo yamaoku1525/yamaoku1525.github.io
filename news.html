@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="協同組合 阿波山雅のお知らせ一覧。活動報告・メディア掲載・営業情報・行政連携・広報誌の発行など、過去のすべてのお知らせをご覧いただけます。">
+<title>お知らせ一覧｜協同組合 阿波山雅</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="awasanga-styles.css">
+<style>
+  /* News-specific styles */
+  .filter-bar {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    margin-bottom: 32px; padding: 16px; border-radius: 10px;
+    background: var(--ivory); border: 1px solid var(--rule);
+  }
+  .filter-btn {
+    background: white; color: var(--charcoal);
+    border: 1px solid var(--rule); border-radius: 999px;
+    padding: 7px 18px; font-size: 13px; cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: inherit;
+  }
+  .filter-btn:hover { border-color: var(--green-deep); color: var(--green-deep); }
+  .filter-btn.active {
+    background: var(--green-deep); color: white; border-color: var(--green-deep);
+  }
+  .news-year-group { margin-bottom: 56px; }
+  .news-year-heading {
+    font-size: 28px; color: var(--green-deep); font-weight: 700;
+    margin: 0 0 24px; padding-bottom: 10px;
+    border-bottom: 2px solid var(--green-soft);
+    letter-spacing: 0.04em;
+  }
+  .news-list { display: grid; gap: 16px; }
+  .news-row {
+    display: grid;
+    grid-template-columns: 110px 110px 1fr;
+    gap: 18px; align-items: start;
+    padding: 18px 20px;
+    background: white; border: 1px solid var(--rule); border-radius: 10px;
+    text-decoration: none; color: var(--charcoal);
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  }
+  .news-row:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px rgba(45,90,61,0.10);
+    border-color: var(--green-deep);
+  }
+  .news-row .date {
+    font-size: 13px; color: var(--gray);
+    font-variant-numeric: tabular-nums;
+    padding-top: 2px;
+  }
+  .news-row .badge {
+    display: inline-block; padding: 3px 10px;
+    background: var(--green-soft); color: white;
+    border-radius: 4px; font-size: 11px; font-weight: 600;
+    text-align: center;
+    width: fit-content;
+  }
+  .news-row .badge[data-cat="メディア"] { background: #c47a3d; }
+  .news-row .badge[data-cat="行政連携"] { background: #3d6b8a; }
+  .news-row .badge[data-cat="プロジェクト"] { background: #5a8c5a; }
+  .news-row .badge[data-cat="営業情報"] { background: #8b6f4e; }
+  .news-row .badge[data-cat="広報誌"] { background: #9a7b31; }
+  .news-row .badge[data-cat="イベント"] { background: #6f8a3d; }
+  .news-row .badge[data-cat="団体"] { background: #5a5a5a; }
+  .news-row .body h3 {
+    font-size: 16px; color: var(--green-deep); font-weight: 700;
+    margin-bottom: 6px; line-height: 1.5;
+  }
+  .news-row .body p {
+    font-size: 13px; color: var(--gray); line-height: 1.7;
+  }
+  .news-row .body p .read-more {
+    color: var(--green-deep); font-weight: 600; margin-left: 4px;
+  }
+  @media (max-width: 700px) {
+    .news-row { grid-template-columns: 1fr; gap: 8px; }
+    .news-row .date { padding-top: 0; }
+  }
+  #news-loading, #news-empty, #news-error {
+    text-align: center; padding: 48px 24px; color: var(--gray); font-size: 14px;
+  }
+  #news-error { color: #c47a3d; }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-logo"><a href="index.html">協同組合 阿波山雅</a></div>
+  <ul class="nav-links">
+    <li><a href="about.html">阿波山雅について</a></li>
+    <li><a href="facility-okuyarito.html">施設・拠点</a></li>
+    <li><a href="trail-guide.html">山と林道ガイド</a></li>
+    <li><a href="projects.html">活動・プロジェクト</a></li>
+    <li><a href="activity-report.html">活動報告</a></li>
+    <li><a href="support.html">応援する</a></li>
+    <li><a href="contact.html">お問い合わせ</a></li>
+  </ul>
+</nav>
+
+<header class="page-header">
+  <div class="page-header-inner">
+    <div class="breadcrumb">
+      <a href="index.html">ホーム</a>
+      <span class="breadcrumb-sep">›</span>
+      <span>お知らせ一覧</span>
+    </div>
+    <h1>お知らせ一覧</h1>
+    <p>協同組合 阿波山雅のすべてのお知らせ・活動報告・メディア掲載・営業情報をまとめてご覧いただけます。</p>
+  </div>
+</header>
+
+<section>
+  <div class="container">
+
+    <div class="filter-bar" id="filter-bar" role="toolbar" aria-label="カテゴリ絞り込み">
+      <button class="filter-btn active" data-filter="all">すべて</button>
+      <!-- カテゴリフィルタは news.json 読み込み後に動的生成 -->
+    </div>
+
+    <div id="news-loading">読み込み中…</div>
+    <div id="news-empty" style="display:none;">該当するお知らせはありません。</div>
+    <div id="news-error" style="display:none;">お知らせを読み込めませんでした。少し時間をおいて再読み込みしてください。</div>
+
+    <div id="news-content"></div>
+
+    <div class="related-links mt-64">
+      <h4>関連ページ</h4>
+      <div class="related-grid">
+        <a href="activity-report.html" class="related-link">活動報告</a>
+        <a href="projects.html" class="related-link">活動・プロジェクト</a>
+        <a href="support.html" class="related-link">応援・参加する</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <strong>協同組合 阿波山雅</strong>
+      徳島・剣山系のふもとから、山と地域を次の世代へ。<br>
+      所在地：<span class="placeholder-note">要記入</span><br>
+      電話：<span class="placeholder-note">要記入</span><br>
+      メール：<span class="placeholder-note">要記入</span>
+    </div>
+    <div>
+      <h5>サイト</h5>
+      <ul>
+        <li><a href="index.html">ホーム</a></li>
+        <li><a href="about.html">阿波山雅について</a></li>
+        <li><a href="facility-okuyarito.html">施設・拠点</a></li>
+        <li><a href="trail-guide.html">山と林道ガイド</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>関わる</h5>
+      <ul>
+        <li><a href="projects.html">活動・プロジェクト</a></li>
+        <li><a href="activity-report.html">活動報告</a></li>
+        <li><a href="news.html">お知らせ</a></li>
+        <li><a href="support.html">応援・参加する</a></li>
+        <li><a href="contact.html">お問い合わせ</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>SNS</h5>
+      <ul>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">Facebook</a></li>
+        <li><a href="#">YouTube</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 協同組合 阿波山雅 All Rights Reserved.</div>
+</footer>
+
+<script>
+  (function () {
+    var allItems = [];
+    var currentFilter = 'all';
+    var filterBar = document.getElementById('filter-bar');
+    var content = document.getElementById('news-content');
+    var loading = document.getElementById('news-loading');
+    var empty = document.getElementById('news-empty');
+    var errorEl = document.getElementById('news-error');
+
+    function esc(s) {
+      return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+        return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+      });
+    }
+
+    function buildFilterButtons(items) {
+      var cats = {};
+      items.forEach(function (it) {
+        if (it.category) cats[it.category] = (cats[it.category] || 0) + 1;
+      });
+      var sorted = Object.keys(cats).sort();
+      sorted.forEach(function (cat) {
+        var btn = document.createElement('button');
+        btn.className = 'filter-btn';
+        btn.dataset.filter = cat;
+        btn.textContent = cat + '（' + cats[cat] + '）';
+        btn.addEventListener('click', function () { setFilter(cat); });
+        filterBar.appendChild(btn);
+      });
+      filterBar.querySelector('[data-filter="all"]').addEventListener('click', function () { setFilter('all'); });
+    }
+
+    function setFilter(filter) {
+      currentFilter = filter;
+      Array.prototype.forEach.call(filterBar.querySelectorAll('.filter-btn'), function (b) {
+        b.classList.toggle('active', b.dataset.filter === filter);
+      });
+      render();
+    }
+
+    function render() {
+      var items = currentFilter === 'all'
+        ? allItems
+        : allItems.filter(function (it) { return it.category === currentFilter; });
+
+      if (!items.length) {
+        content.innerHTML = '';
+        empty.style.display = 'block';
+        return;
+      }
+      empty.style.display = 'none';
+
+      // 年でグルーピング
+      var groups = {};
+      items.forEach(function (it) {
+        var year = (it.date || '').slice(0, 4) || '不明';
+        (groups[year] = groups[year] || []).push(it);
+      });
+      var years = Object.keys(groups).sort(function (a, b) { return b.localeCompare(a); });
+
+      var html = years.map(function (year) {
+        var rows = groups[year].map(function (it) {
+          return ''
+            + '<a class="news-row" href="' + esc(it.url || 'news.html') + '">'
+            +   '<span class="date">' + esc(it.displayDate || it.date || '') + '</span>'
+            +   '<span class="badge" data-cat="' + esc(it.category || '') + '">' + esc(it.category || '') + '</span>'
+            +   '<div class="body">'
+            +     '<h3>' + esc(it.title || '') + '</h3>'
+            +     (it.summary ? '<p>' + esc(it.summary) + '<span class="read-more">詳しく見る →</span></p>' : '')
+            +   '</div>'
+            + '</a>';
+        }).join('');
+        return ''
+          + '<div class="news-year-group">'
+          +   '<h2 class="news-year-heading">' + esc(year) + '</h2>'
+          +   '<div class="news-list">' + rows + '</div>'
+          + '</div>';
+      }).join('');
+
+      content.innerHTML = html;
+    }
+
+    var url = 'news.json?_=' + Date.now();
+    fetch(url, { cache: 'no-cache' })
+      .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+      .then(function (data) {
+        allItems = (data && data.items) ? data.items.slice() : [];
+        allItems.sort(function (a, b) { return (b.date || '').localeCompare(a.date || ''); });
+        loading.style.display = 'none';
+        if (!allItems.length) {
+          empty.style.display = 'block';
+          return;
+        }
+        buildFilterButtons(allItems);
+        render();
+      })
+      .catch(function (err) {
+        console.error('news.json 読み込みエラー:', err);
+        loading.style.display = 'none';
+        errorEl.style.display = 'block';
+      });
+  })();
+</script>
+
+</body>
+</html>
