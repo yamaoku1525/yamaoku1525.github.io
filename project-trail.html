@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="次郎笈トレイル再生プロジェクト。日亜ふるさと振興財団の助成を受け、協同組合 阿波山雅が地域団体・登山者と力を合わせ、次郎笈の那賀町側登山道を再生しました。" />
+  <title>次郎笈トレイル再生プロジェクト｜協同組合 阿波山雅</title>
+  <link rel="stylesheet" href="about-styles.css" />
+  <style>
+    .proj-lead {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+    .proj-lead-card {
+      background: rgba(255,250,240,.97);
+      border-radius: 34px;
+      border: 1px solid rgba(36,75,55,.12);
+      box-shadow: var(--shadow);
+      padding: clamp(26px, 4vw, 48px);
+    }
+    .proj-lead-card h2 {
+      color: var(--green);
+      font-size: clamp(26px, 3.5vw, 44px);
+      line-height: 1.3;
+      margin: 0 0 16px;
+    }
+    .proj-lead-card p { color: var(--muted); line-height: 2; margin: 0; }
+    .proj-lead-card p + p { margin-top: 12px; }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .stat-card {
+      padding: 22px 24px;
+      border-radius: 24px;
+      background: #fff;
+      border: 1px solid rgba(36,75,55,.1);
+      box-shadow: 0 12px 30px rgba(22,50,36,.08);
+      position: relative;
+      overflow: hidden;
+    }
+    .stat-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 5px;
+      background: linear-gradient(90deg, var(--green), var(--gold));
+    }
+    .stat-num {
+      color: var(--green);
+      font-size: clamp(30px, 4vw, 48px);
+      font-weight: 900;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .stat-label { font-size: 14px; font-weight: 900; color: var(--ink); margin-bottom: 4px; }
+    .stat-sub { font-size: 12px; color: var(--muted); line-height: 1.6; }
+
+    /* before/after photo grid */
+    .ba-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+    .ba-card {
+      border-radius: 26px;
+      overflow: hidden;
+      box-shadow: 0 16px 40px rgba(22,50,36,.12);
+      position: relative;
+    }
+    .ba-card img { width: 100%; height: 340px; object-fit: cover; display: block; }
+    .ba-badge {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: .06em;
+    }
+    .ba-badge.before { background: rgba(180,60,40,.85); color: #fff; }
+    .ba-badge.after { background: rgba(36,75,55,.85); color: #fff; }
+    .ba-caption {
+      position: absolute;
+      inset: auto 0 0;
+      padding: 16px 18px;
+      color: #fff;
+      background: linear-gradient(transparent, rgba(10,30,20,.88));
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.65;
+    }
+
+    /* action photo grid */
+    .action-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .action-photo {
+      position: relative;
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(22,50,36,.1);
+    }
+    .action-photo img { width: 100%; height: 260px; object-fit: cover; display: block; }
+    .action-photo.wide { grid-column: span 2; }
+    .action-photo.wide img { height: 340px; }
+    .action-caption {
+      position: absolute;
+      inset: auto 0 0;
+      padding: 14px 16px;
+      color: #fff;
+      background: linear-gradient(transparent, rgba(22,50,36,.86));
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.6;
+    }
+
+    .achievement-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+    .achievement-card {
+      padding: 24px 20px;
+      border-radius: 24px;
+      background: #fff;
+      border: 1px solid rgba(36,75,55,.1);
+      box-shadow: 0 12px 30px rgba(22,50,36,.07);
+      text-align: center;
+    }
+    .achievement-num {
+      color: var(--green);
+      font-size: clamp(28px, 3.5vw, 44px);
+      font-weight: 900;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .achievement-label { color: var(--ink); font-size: 14px; font-weight: 900; margin-bottom: 6px; }
+    .achievement-note { color: var(--muted); font-size: 12px; line-height: 1.65; }
+
+    .point-list { display: grid; gap: 18px; }
+    .point-item {
+      display: grid;
+      grid-template-columns: 56px 1fr;
+      gap: 20px;
+      align-items: start;
+      padding: 26px;
+      border-radius: 26px;
+      background: #fff;
+      border: 1px solid rgba(36,75,55,.1);
+      box-shadow: 0 12px 30px rgba(22,50,36,.07);
+    }
+    .point-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      background: rgba(36,75,55,.08);
+      display: grid;
+      place-items: center;
+      font-size: 26px;
+    }
+    .point-item h3 { color: var(--green); font-size: 18px; margin: 0 0 10px; line-height: 1.45; }
+    .point-item p { color: var(--muted); font-size: 14px; line-height: 1.9; margin: 0; }
+
+    .quote-box {
+      padding: clamp(24px, 4vw, 40px);
+      border-radius: 30px;
+      background: rgba(36,75,55,.05);
+      border-left: 5px solid var(--green);
+      position: relative;
+    }
+    .quote-box::before {
+      content: "\201C";
+      position: absolute;
+      top: 16px;
+      left: 24px;
+      font-size: 72px;
+      color: var(--green);
+      opacity: .18;
+      line-height: 1;
+      font-family: serif;
+    }
+    .quote-box p { color: var(--ink); line-height: 2; margin: 0; font-size: clamp(15px, 2vw, 18px); }
+
+    .partner-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .partner-card {
+      padding: 20px 22px;
+      border-radius: 22px;
+      background: #fff;
+      border: 1px solid rgba(36,75,55,.1);
+      box-shadow: 0 10px 26px rgba(22,50,36,.07);
+    }
+    .partner-card b { display: block; color: var(--green); font-size: 15px; margin-bottom: 8px; }
+    .partner-card span { color: var(--muted); font-size: 13px; line-height: 1.8; }
+
+    @media (max-width: 980px) {
+      .proj-lead, .ba-grid { grid-template-columns: 1fr; }
+      .achievement-grid { grid-template-columns: 1fr 1fr; }
+      .action-grid { grid-template-columns: 1fr 1fr; }
+      .action-photo.wide { grid-column: span 2; }
+      .partner-row { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 640px) {
+      .stat-grid, .action-grid, .partner-row { grid-template-columns: 1fr; }
+      .action-photo.wide { grid-column: span 1; }
+      .action-photo.wide img { height: 260px; }
+      .point-item { grid-template-columns: 1fr; }
+      .point-icon { width: 48px; height: 48px; }
+    }
+  </style>
+  <script src="common-nav.js" defer></script>
+  <script src="common-footer.js" defer></script>
+</head>
+<body>
+  <div class="page">
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="index.html" aria-label="協同組合阿波山雅 ホーム">
+          <img src="./img/awasanga_logo_w2.png" alt="協同組合阿波山雅ロゴ" />
+          <div><small>協同組合</small><strong>阿波山雅</strong><span>あわさんが</span></div>
+        </a>
+        <nav class="nav" aria-label="メインナビゲーション" data-common-nav data-current="projects"></nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="sub-hero">
+        <div class="container sub-hero-inner">
+          <div class="breadcrumb">
+            <a href="index.html">ホーム</a><span>›</span>
+            <a href="projects.html">活動・プロジェクト</a><span>›</span>
+            <span>次郎笈トレイル再生</span>
+          </div>
+          <div class="hero-label">Trail Regeneration Project</div>
+          <h1>山を訪れる人と、<br>一緒に道を再生した。</h1>
+          <p>日亜ふるさと振興財団の助成を受け、協同組合 阿波山雅は次郎笈の那賀町側登山道を整備しました。地域団体と連携し、奥槍戸山の家を訪れる登山者延べ45人にも資材運搬を支援していただき、危険区間約400mを整備。標識設置後、道迷いは0件になりました。</p>
+        </div>
+        <div class="hero-badge" aria-hidden="true"><span>日亜ふるさと<br>振興財団<br>助成事業</span></div>
+      </section>
+
+      <section>
+        <div class="container">
+          <div class="proj-lead">
+            <div class="proj-lead-card">
+              <div class="section-kicker">Project Overview</div>
+              <h2>滑落10件以上、道迷い20件。危険な登山道を、みんなで直した。</h2>
+              <p>豪雨の影響で荒廃が進んだ次郎笈の那賀町側登山道。草に覆われて足場が見えず、崩れた路肩が滑落を招いていました。奥槍戸山の家への報告だけで年間10件以上の滑落事故、ナビアプリの誤誘導で年間約20件の道迷いが発生していました。</p>
+              <p>2025年1月から11月、日亜ふるさと振興財団の助成を受けて整備を実施。山櫻プロジェクト会、NPO法人きさわクラブと連携し、奥槍戸山の家のお客さんや登山者延べ45人にも資材運搬を担っていただきました。</p>
+            </div>
+            <div class="stat-grid">
+              <div class="stat-card">
+                <div class="stat-num">45人</div>
+                <div class="stat-label">資材運搬に参加</div>
+                <div class="stat-sub">登山者・来訪者が延べで支えてくれた</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-num">400m</div>
+                <div class="stat-label">危険区間を整備</div>
+                <div class="stat-sub">草刈り・木道・補助ロープ・標識</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-num">70本</div>
+                <div class="stat-label">丸太杭を運搬</div>
+                <div class="stat-sub">1本数kgを担いで登った</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-num" style="font-size: clamp(22px,3vw,36px);">道迷い0件</div>
+                <div class="stat-label">標識設置後の実績</div>
+                <div class="stat-sub">2026年5月時点（整備前は年間約20件）</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="members-section">
+        <div class="container">
+          <div class="section-head">
+            <div><div class="section-kicker">Before / After</div><h2 class="section-title">整備前と整備後</h2></div>
+            <p class="section-text">草に覆われ、路肩が崩れ、滑落の危険があった登山道。整備によって安全に歩ける道が戻りました。</p>
+          </div>
+          <div class="ba-grid">
+            <div class="ba-card">
+              <img src="./img/trail/01_整備前_草に覆われた登山道.jpg" alt="整備前：草に覆われた登山道" loading="lazy" />
+              <span class="ba-badge before">整備前</span>
+              <div class="ba-caption">草で足場が見えず、斜面側への滑落が多発していた区間。道幅が確認できないほど荒廃が進んでいた。</div>
+            </div>
+            <div class="ba-card">
+              <img src="./img/trail/02_整備前_崩れた路肩と狭い登山道.jpg" alt="整備前：崩れた路肩と狭い登山道" loading="lazy" />
+              <span class="ba-badge before">整備前</span>
+              <div class="ba-caption">崩れた路肩と狭い登山道。草刈り後の調査で、危険箇所が約400mに及ぶことが分かった。</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <div class="section-head">
+            <div><div class="section-kicker">Activity Photos</div><h2 class="section-title">活動の記録</h2></div>
+            <p class="section-text">登山者が「山を利用する人」から「山を守る人」として参加できる仕組みをつくった。</p>
+          </div>
+          <div class="action-grid">
+            <div class="action-photo wide">
+              <img src="./img/trail/03_杭木運搬に参加した皆さん.png" alt="杭木運搬に参加した皆さん" loading="lazy" />
+              <div class="action-caption">2025年10月18日、約20人が参加。日亜ふるさと振興財団の視察員も運搬に加わり、全丸太杭70本を運び上げた。</div>
+            </div>
+            <div class="action-photo">
+              <img src="./img/trail/04_登山者による杭木運搬.jpeg" alt="登山者による杭木運搬" loading="lazy" />
+              <div class="action-caption">1本数kgある杭木を、登山を楽しみながら担ぎ上げてもらう。参加者が自発的に動ける仕組みをつくった。</div>
+            </div>
+            <div class="action-photo">
+              <img src="./img/trail/05_登山道整備作業.jpeg" alt="登山道整備作業の様子" loading="lazy" />
+              <div class="action-caption">地域団体・登山者・財団関係者との共同作業。奥槍戸山の家を活動拠点にした。</div>
+            </div>
+            <div class="action-photo">
+              <img src="./img/trail/06_丸太杭の設置作業.jpeg" alt="丸太杭の設置作業" loading="lazy" />
+              <div class="action-caption">丸太杭を使って道の縁を守る。13〜14か所の危険箇所を改善した。</div>
+            </div>
+            <div class="action-photo">
+              <img src="./img/trail/07_木道整備作業.jpeg" alt="木道整備作業" loading="lazy" />
+              <div class="action-caption">木板で足場を確保。滑落リスクが高かった区間に木道を設置。</div>
+            </div>
+            <div class="action-photo">
+              <img src="./img/trail/08_整備箇所と作業メンバー.jpeg" alt="整備箇所と作業メンバー" loading="lazy" />
+              <div class="action-caption">山櫻プロジェクト会、NPO法人きさわクラブ、登山者たちと力を合わせた整備の成果。</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="members-section">
+        <div class="container">
+          <div class="section-head">
+            <div><div class="section-kicker">Results</div><h2 class="section-title">数字で見る成果</h2></div>
+          </div>
+          <div class="achievement-grid">
+            <div class="achievement-card">
+              <div class="achievement-num">13〜14</div>
+              <div class="achievement-label">か所を整備</div>
+              <div class="achievement-note">危険箇所を特定し、ひとつずつ改善した</div>
+            </div>
+            <div class="achievement-card">
+              <div class="achievement-num">4</div>
+              <div class="achievement-label">か所に標識を設置</div>
+              <div class="achievement-note">ナビアプリ誤誘導対策2か所、登山道案内2か所</div>
+            </div>
+            <div class="achievement-card">
+              <div class="achievement-num" style="font-size:clamp(20px,3vw,34px)">10件以上→0</div>
+              <div class="achievement-label">滑落事故の減少</div>
+              <div class="achievement-note">整備前は年間10件以上の報告があった</div>
+            </div>
+            <div class="achievement-card">
+              <div class="achievement-num" style="font-size:clamp(20px,3vw,34px)">20件→0</div>
+              <div class="achievement-label">道迷いの解消</div>
+              <div class="achievement-note">2026年5月時点で道迷い0件を実現</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <div class="section-head">
+            <div><div class="section-kicker">Why It Worked</div><h2 class="section-title">成功のポイント</h2></div>
+          </div>
+          <div class="point-list">
+            <div class="point-item">
+              <div class="point-icon">🏦</div>
+              <div>
+                <h3>日亜ふるさと振興財団の助成を、具体的な安全対策につなげた</h3>
+                <p>財団の助成によって、整備資材の調達・運搬計画・専門的な指導を伴う作業を実行できました。単発の草刈りではなく、木道・補助ロープ・標識を組み合わせ、滑落危険と道迷いの両方に対応した整備を実現しました。</p>
+              </div>
+            </div>
+            <div class="point-item">
+              <div class="point-icon">🏔️</div>
+              <div>
+                <h3>奥槍戸山の家のお客さんたちが、山を守る仲間になった</h3>
+                <p>SNSを通じて登山者・来訪者へ資材運搬を呼びかけ、1本数kgある杭木を登山を楽しみながら担いで上げてもらう参加方法をつくりました。2025年10月18日には約20人が参加し、同日午後に丸太杭70本の運搬を完了。日亜ふるさと振興財団の視察員も運搬に協力してくださいました。</p>
+              </div>
+            </div>
+            <div class="point-item">
+              <div class="point-icon">🤝</div>
+              <div>
+                <h3>地域団体・登山者・助成財団をつなぐ役割を果たした</h3>
+                <p>山櫻プロジェクト会、NPO法人きさわクラブ、登山者コミュニティ、日亜ふるさと振興財団と連携し、協同組合 阿波山雅が計画・調整・発信を担いました。奥槍戸山の家という日常的な交流拠点があったからこそ、呼びかけを実際の参加につなげることができました。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="members-section">
+        <div class="container">
+          <div class="section-head">
+            <div><div class="section-kicker">Partners</div><h2 class="section-title">連携団体</h2></div>
+          </div>
+          <div class="partner-row">
+            <div class="partner-card">
+              <b>一般財団法人 日亜ふるさと振興財団</b>
+              <span>令和7年度助成事業として採択。整備資材・運搬計画・専門的作業を支えた。2025年10月18日には視察員が資材運搬にも参加。</span>
+            </div>
+            <div class="partner-card">
+              <b>山櫻プロジェクト会</b>
+              <span>地域の自然保全・登山道整備に実績を持つ団体として、技術面・現場運営を支援。</span>
+            </div>
+            <div class="partner-card">
+              <b>NPO法人 きさわクラブ</b>
+              <span>那賀町の地域活動を支えるNPO。共同作業と地域調整に協力。</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <div class="section-head">
+            <div><div class="section-kicker">Message</div><h2 class="section-title">このプロジェクトが示すこと</h2></div>
+          </div>
+          <div class="quote-box">
+            <p>助成金と地域の力、そして山の家を訪れる人たちの善意をつなぎ、次郎笈の登山道をみんなで再生したプロジェクトです。<br><br>
+            山を楽しむ人が、山を守る活動にも参加できる仕組みをつくりました。奥槍戸山の家を起点に、人のつながりから登山道の安全を生み出すこの活動は、「利用する人と一緒に山を守る」新しいモデルとして続いていきます。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="final-cta-section">
+        <div class="container">
+          <div class="cta-panel cta-panel-wide">
+            <h2>次郎笈の道は、<br>みんなの力で生まれ変わりました。</h2>
+            <p>奥槍戸山の家から登れる次郎笈。整備された道で、ぜひ山を楽しんでください。</p>
+            <div class="cta-actions">
+              <a class="btn btn-gold" href="projects.html">活動・プロジェクトへ　→</a>
+              <a class="btn btn-dark" href="facility_guide.html">施設・林道ガイドへ　→</a>
+            </div>
+          </div>
+          <div class="related-links" aria-label="関連ページ">
+            <a class="related-link" href="project-foodribbon.html">フードリボン <span>→</span></a>
+            <a class="related-link" href="project-kitokuma.html">木頭クエスト×クマまつり <span>→</span></a>
+            <a class="related-link" href="project-ridgeway.html">剣山スーパー林道 <span>→</span></a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer" id="contact">
+      <div class="container">
+        <div class="footer-inner">
+          <div class="footer-brand">協同組合 阿波山雅</div>
+          <nav class="footer-links" aria-label="フッターナビゲーション" data-common-footer></nav>
+        </div>
+        <p class="copyright">© 協同組合阿波山雅（あわさんが） All Rights Reserved.</p>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

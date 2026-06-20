@@ -1,0 +1,341 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap");
+
+body.standard-subpage {
+  font-family: "Noto Sans JP", system-ui, -apple-system, sans-serif;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.8;
+}
+
+body.standard-subpage .site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  padding: 0;
+  color: var(--green-deep, var(--green, #244b37));
+  background: rgba(255, 250, 240, .9);
+  border-bottom: 1px solid rgba(36, 75, 55, .1);
+  backdrop-filter: blur(14px);
+}
+
+body.standard-subpage .site-header .header-inner {
+  width: min(calc(100% - 40px), 1120px);
+  max-width: none;
+  min-height: 84px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+body.standard-subpage .site-header .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-width: max-content;
+  letter-spacing: 0;
+  color: var(--green-deep, var(--green, #244b37));
+  text-decoration: none;
+}
+
+body.standard-subpage .site-header .brand img {
+  width: 80px;
+  height: auto;
+  object-fit: contain;
+}
+
+body.standard-subpage .site-header .brand small {
+  display: block;
+  font-size: 11px;
+  line-height: 1;
+  color: var(--gray, var(--muted, #6f766f));
+}
+
+body.standard-subpage .site-header .brand strong {
+  display: block;
+  font-size: 21px;
+  line-height: 1.12;
+  letter-spacing: .09em;
+}
+
+body.standard-subpage .site-header .brand span {
+  display: block;
+  color: var(--wood, var(--gold-dark, #9f751e));
+  font-size: 11px;
+  letter-spacing: .16em;
+}
+
+body.standard-subpage .site-header .nav {
+  position: static;
+  min-height: 0;
+  padding: 0;
+  background: transparent;
+  border-bottom: 0;
+  backdrop-filter: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 7px 16px;
+  font-family: inherit;
+  font-size: 13px;
+  letter-spacing: 0;
+}
+
+body.standard-subpage .site-header .nav a {
+  position: relative;
+  display: inline-block;
+  padding: 6px 0;
+  color: var(--green-deep, var(--green, #244b37));
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.5;
+  text-decoration: none;
+  white-space: nowrap;
+  opacity: .86;
+}
+
+body.standard-subpage .site-header .nav a:hover,
+body.standard-subpage .site-header .nav a.is-active,
+body.standard-subpage .site-header .nav a.active {
+  opacity: 1;
+}
+
+body.standard-subpage .site-header .nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: var(--yuzu, var(--gold, #c99b2f));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .24s ease;
+}
+
+body.standard-subpage .site-header .nav a:hover::after,
+body.standard-subpage .site-header .nav a.is-active::after,
+body.standard-subpage .site-header .nav a.active::after {
+  transform: scaleX(1);
+}
+
+body.standard-subpage .page-header,
+body.standard-subpage .sub-hero {
+  position: relative;
+  min-height: 420px;
+  display: grid;
+  align-items: center;
+  overflow: hidden;
+  color: #fff;
+  background:
+    linear-gradient(90deg, rgba(22, 50, 36, .92) 0%, rgba(36, 75, 55, .78) 58%, rgba(36, 75, 55, .5) 100%),
+    url("./img/top_yamanoie1.png") center/cover no-repeat;
+}
+
+body.standard-subpage .page-header {
+  padding: 92px 24px 112px;
+}
+
+body.standard-subpage .sub-hero {
+  padding: 0;
+}
+
+body.standard-subpage .page-header::before,
+body.standard-subpage .sub-hero::before {
+  display: none;
+}
+
+body.standard-subpage .page-header::after,
+body.standard-subpage .sub-hero::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 110px;
+  background: linear-gradient(180deg, transparent, rgba(248, 242, 232, 1));
+  pointer-events: none;
+}
+
+body.standard-subpage .page-header-inner,
+body.standard-subpage .sub-hero-inner {
+  width: min(calc(100% - 40px), 1120px);
+  max-width: none;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+body.standard-subpage .sub-hero-inner {
+  padding: 92px 0 112px;
+}
+
+body.standard-subpage .breadcrumb,
+body.standard-subpage .hero-label,
+body.standard-subpage .hero-badge,
+body.standard-subpage .sub-hero .hero-badge {
+  display: none !important;
+}
+
+body.standard-subpage .page-header h1,
+body.standard-subpage .sub-hero h1 {
+  max-width: 920px;
+  margin: 0;
+  color: #fff;
+  font-size: clamp(42px, 6vw, 72px);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: .08em;
+}
+
+body.standard-subpage .page-header p,
+body.standard-subpage .sub-hero p {
+  max-width: 760px;
+  margin: 24px 0 0;
+  color: rgba(255, 255, 255, .9);
+  font-size: clamp(16px, 2vw, 19px);
+  line-height: 1.9;
+  letter-spacing: 0;
+}
+
+body.standard-subpage .character-intro {
+  padding-top: 16px;
+}
+
+@media (max-width: 880px) {
+  body.standard-subpage .site-header .header-inner {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 16px 0;
+  }
+
+  body.standard-subpage .site-header .nav {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    gap: 0 18px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 2px;
+  }
+
+  body.standard-subpage .site-header .nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  body.standard-subpage .site-header .nav a {
+    flex: 0 0 auto;
+  }
+}
+
+@media (max-width: 640px) {
+  body.standard-subpage .site-header .header-inner,
+  body.standard-subpage .page-header-inner,
+  body.standard-subpage .sub-hero-inner {
+    width: min(calc(100% - 28px), 1120px);
+  }
+
+  body.standard-subpage .page-header {
+    min-height: 360px;
+    padding: 70px 20px 92px;
+  }
+
+  body.standard-subpage .sub-hero {
+    min-height: 360px;
+  }
+
+  body.standard-subpage .sub-hero-inner {
+    padding: 70px 0 92px;
+  }
+
+  body.standard-subpage .page-header h1,
+  body.standard-subpage .sub-hero h1 {
+    font-size: clamp(34px, 10vw, 48px);
+  }
+}
+@media (max-width: 680px) {
+  body.standard-subpage main img,
+  body.standard-subpage section img,
+  body.standard-subpage .mission-photo-grid,
+  body.standard-subpage .member-gallery,
+  body.standard-subpage .character-image,
+  body.standard-subpage .character-visual,
+  body.standard-subpage .fp-media,
+  body.standard-subpage .activity-side > img,
+  body.standard-subpage .member-photo,
+  body.standard-subpage .quote-icon {
+    display: none !important;
+  }
+
+  body.standard-subpage .page-header,
+  body.standard-subpage .sub-hero,
+  body.standard-subpage .cta-panel,
+  body.standard-subpage .projects-lead-card,
+  body.standard-subpage .path-card.dark {
+    background-image: linear-gradient(90deg, rgba(22, 50, 36, .92), rgba(36, 75, 55, .78)) !important;
+  }
+}
+body.standard-subpage .footer {
+  padding: 54px 0 30px;
+  background: var(--deep, var(--dark, #10291f));
+  color: rgba(255, 255, 255, .82);
+}
+
+body.standard-subpage .footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 28px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid rgba(255, 255, 255, .12);
+}
+
+body.standard-subpage .footer-brand {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: .1em;
+}
+
+body.standard-subpage .footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 10px 18px;
+  max-width: 760px;
+  font-size: 13px;
+  letter-spacing: .08em;
+}
+
+body.standard-subpage .footer-links a {
+  color: rgba(255, 255, 255, .78);
+  text-decoration: none;
+}
+
+body.standard-subpage .footer-links a:hover {
+  color: var(--gold, var(--yuzu, #c99b2f));
+}
+
+body.standard-subpage .copyright {
+  margin: 20px 0 0;
+  color: rgba(255, 255, 255, .52);
+  font-size: 12px;
+}
+
+@media (max-width: 640px) {
+  body.standard-subpage .footer-inner {
+    display: block;
+  }
+
+  body.standard-subpage .footer-links {
+    justify-content: flex-start;
+    margin-top: 18px;
+  }
+}

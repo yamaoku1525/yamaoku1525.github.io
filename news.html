@@ -9,6 +9,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="awasanga-styles.css">
+<link rel="stylesheet" href="site-header-standard.css">
+<script src="common-nav.js" defer></script>
+<script src="common-footer.js" defer></script>
 <style>
   /* News-specific styles */
   .filter-bar {
@@ -86,22 +89,25 @@
     text-align: center; padding: 48px 24px; color: var(--gray); font-size: 14px;
   }
   #news-error { color: #c47a3d; }
+
 </style>
 </head>
-<body>
+<body class="standard-subpage">
 
-<nav class="nav">
-  <div class="nav-logo"><a href="index.html">協同組合 阿波山雅</a></div>
-  <ul class="nav-links">
-    <li><a href="about.html">阿波山雅について</a></li>
-    <li><a href="facility-okuyarito.html">施設・拠点</a></li>
-    <li><a href="trail-guide.html">山と林道ガイド</a></li>
-    <li><a href="projects.html">活動・プロジェクト</a></li>
-    <li><a href="activity-report.html">活動報告</a></li>
-    <li><a href="support.html">応援する</a></li>
-    <li><a href="contact.html">お問い合わせ</a></li>
-  </ul>
-</nav>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="index.html" aria-label="協同組合阿波山雅 ホーム">
+      <img src="./img/awasanga_logo_w2.png" alt="協同組合阿波山雅ロゴ" />
+      <div>
+        <small>協同組合</small>
+        <strong>阿波山雅</strong>
+        <span>あわさんが</span>
+      </div>
+    </a>
+
+    <nav class="nav" aria-label="メインナビゲーション" data-common-nav data-current="news"></nav>
+  </div>
+</header>
 
 <header class="page-header">
   <div class="page-header-inner">
@@ -132,8 +138,8 @@
     <div class="related-links mt-64">
       <h4>関連ページ</h4>
       <div class="related-grid">
-        <a href="activity-report.html" class="related-link">活動報告</a>
         <a href="projects.html" class="related-link">活動・プロジェクト</a>
+        <a href="about.html" class="related-link">阿波山雅について</a>
         <a href="support.html" class="related-link">応援・参加する</a>
       </div>
     </div>
@@ -141,44 +147,14 @@
   </div>
 </section>
 
-<footer class="footer">
-  <div class="footer-grid">
-    <div class="footer-brand">
-      <strong>協同組合 阿波山雅</strong>
-      徳島・剣山系のふもとから、山と地域を次の世代へ。<br>
-      所在地：<span class="placeholder-note">要記入</span><br>
-      電話：<span class="placeholder-note">要記入</span><br>
-      メール：<span class="placeholder-note">要記入</span>
+<footer class="footer" id="contact">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">協同組合 阿波山雅</div>
+      <nav class="footer-links" aria-label="フッターナビゲーション" data-common-footer></nav>
     </div>
-    <div>
-      <h5>サイト</h5>
-      <ul>
-        <li><a href="index.html">ホーム</a></li>
-        <li><a href="about.html">阿波山雅について</a></li>
-        <li><a href="facility-okuyarito.html">施設・拠点</a></li>
-        <li><a href="trail-guide.html">山と林道ガイド</a></li>
-      </ul>
-    </div>
-    <div>
-      <h5>関わる</h5>
-      <ul>
-        <li><a href="projects.html">活動・プロジェクト</a></li>
-        <li><a href="activity-report.html">活動報告</a></li>
-        <li><a href="news.html">お知らせ</a></li>
-        <li><a href="support.html">応援・参加する</a></li>
-        <li><a href="contact.html">お問い合わせ</a></li>
-      </ul>
-    </div>
-    <div>
-      <h5>SNS</h5>
-      <ul>
-        <li><a href="#">Instagram</a></li>
-        <li><a href="#">Facebook</a></li>
-        <li><a href="#">YouTube</a></li>
-      </ul>
-    </div>
+    <p class="copyright">© 協同組合阿波山雅（あわさんが） All Rights Reserved.</p>
   </div>
-  <div class="footer-bottom">© 2026 協同組合 阿波山雅 All Rights Reserved.</div>
 </footer>
 
 <script>

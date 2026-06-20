@@ -1,254 +1,52 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="協同組合 阿波山雅は、徳島・剣山系のふもとで、山と地域を次の世代へ繋いでいくための協同組合です。設立趣旨・沿革・組合員・仲間たちのご紹介。">
-<title>阿波山雅について｜協同組合 阿波山雅</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="awasanga-styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="協同組合 阿波山雅は、徳島・剣山系のふもとで、山と地域を次の世代へ繋いでいくための協同組合です。設立趣旨・沿革・組合員・仲間たちのご紹介。" />
+  <title>阿波山雅について｜協同組合 阿波山雅</title>
+  <style>
+    :root { --green:#244b37; --deep:#163224; --leaf:#486b4e; --gold:#c99b2f; --gold-dark:#9f751e; --cream:#f6f0e4; --paper:#fffaf0; --ink:#263028; --muted:#6f766f; --line:rgba(36,75,55,.16); --shadow:0 22px 60px rgba(22,50,36,.14); --radius:26px; --container:1120px; }
+    * { box-sizing:border-box; } html { scroll-behavior:smooth; }
+    body { margin:0; color:var(--ink); font-family:"Hiragino Kaku Gothic ProN","Yu Gothic","Noto Sans JP",system-ui,sans-serif; background:radial-gradient(circle at 15% 0%,rgba(201,155,47,.14),transparent 28%),linear-gradient(180deg,#f8f2e8 0%,#fffaf0 48%,#f6f0e4 100%); line-height:1.85; letter-spacing:.04em; }
+    a { color:inherit; text-decoration:none; } img { max-width:100%; display:block; } .page { overflow:hidden; } .container { width:min(calc(100% - 40px),var(--container)); margin:0 auto; }
+    .site-header { position:sticky; top:0; z-index:20; background:rgba(255,250,240,.9); backdrop-filter:blur(14px); border-bottom:1px solid rgba(36,75,55,.1); }
+    .header-inner { min-height:84px; display:flex; align-items:center; justify-content:space-between; gap:28px; }
+    .brand { display:inline-flex; align-items:center; gap:12px; color:var(--green); min-width:max-content; } .brand img { width:80px; height:auto; } .brand small,.brand strong,.brand span { display:block; } .brand small { font-size:11px; color:var(--muted); } .brand strong { font-size:21px; line-height:1.12; letter-spacing:.09em; } .brand span { font-size:11px; color:var(--gold-dark); letter-spacing:.16em; }
+    .nav { display:flex; align-items:center; justify-content:flex-end; flex-wrap:wrap; gap:7px 16px; font-size:13px; color:var(--green); } .nav a { padding:6px 0; white-space:nowrap; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; gap:8px; min-height:48px; padding:12px 24px; border-radius:999px; font-weight:700; font-size:14px; letter-spacing:.06em; } .btn-primary { background:var(--green); color:#fff; } .btn-gold { background:var(--gold); color:#fff; } .btn-dark { background:var(--deep); color:#fff; } .btn-outline { border:1px solid rgba(36,75,55,.28); color:var(--green); background:rgba(255,255,255,.58); }
+    .sub-hero { position:relative; min-height:520px; display:grid; align-items:center; color:#fff; background:linear-gradient(90deg,rgba(22,50,36,.9) 0%,rgba(22,50,36,.7) 43%,rgba(22,50,36,.22) 100%),url("./img/top_yamanoie1.png") center/cover no-repeat; }
+    .sub-hero::after { content:""; position:absolute; inset:auto 0 0; height:150px; background:linear-gradient(180deg,transparent,rgba(248,242,232,1)); pointer-events:none; } .sub-hero-inner { position:relative; z-index:1; padding:56px 0 130px; }
+    .breadcrumb { display:flex; align-items:center; flex-wrap:wrap; gap:10px; font-size:13px; color:rgba(255,255,255,.78); margin-bottom:22px; } .character-link { display:block; color:inherit; height:100%; }
+    .hero-label,.section-kicker { color:var(--gold); font-size:12px; font-weight:800; letter-spacing:.2em; text-transform:uppercase; margin-bottom:14px; } .sub-hero h1 { margin:0; font-size:clamp(42px,6vw,76px); line-height:1.08; letter-spacing:.08em; } .sub-hero p { max-width:680px; margin:28px 0 0; font-size:clamp(16px,2vw,19px); color:rgba(255,255,255,.88); }
+    .hero-badge { position:absolute; right:max(24px,calc((100vw - var(--container))/2)); bottom:82px; z-index:2; width:178px; height:178px; border-radius:50%; display:grid; place-items:center; text-align:center; background:rgba(255,250,240,.92); color:var(--green); box-shadow:var(--shadow); font-weight:800; line-height:1.65; transform:rotate(-6deg); }
+    section { padding:92px 0; } .section-head { display:flex; justify-content:space-between; align-items:end; gap:24px; margin-bottom:38px; } .section-head.center { justify-content:center; text-align:center; } .section-title { margin:0; color:var(--green); font-size:clamp(30px,4vw,48px); line-height:1.3; letter-spacing:.08em; } .section-title.small { font-size:clamp(26px,3vw,38px); } .section-text { color:var(--muted); margin:22px 0 0; max-width:720px; }
+    .mission { margin-top:-70px; position:relative; z-index:3; } .mission-card { display:grid; grid-template-columns:1.05fr .95fr; gap:46px; align-items:center; background:rgba(255,250,240,.96); border:1px solid rgba(36,75,55,.12); border-radius:36px; padding:clamp(28px,5vw,58px); box-shadow:var(--shadow); } .mission-copy p { margin:20px 0 0; color:var(--muted); }
+    .mission-photo-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; } .mission-photo-grid img { width:100%; height:190px; object-fit:cover; border-radius:24px; box-shadow:0 14px 36px rgba(22,50,36,.12); } .mission-photo-grid img:first-child { grid-column:1/-1; height:250px; }
+    .quote-panel { margin-top:32px; padding:24px 26px; border-left:5px solid var(--gold); border-radius:18px; background:#fff; box-shadow:0 16px 42px rgba(22,50,36,.08); } .quote-panel strong { display:block; color:var(--green); margin-bottom:6px; } .quote-panel p { margin:0; color:var(--muted); }
+    .timeline-section,.characters { background:#fff; } .timeline { position:relative; display:grid; gap:16px; margin-top:32px; } .timeline::before { content:""; position:absolute; top:8px; bottom:8px; left:143px; width:2px; background:rgba(201,155,47,.35); } .timeline-item { position:relative; display:grid; grid-template-columns:120px 1fr; gap:48px; align-items:start; } .timeline-date { color:var(--gold-dark); font-weight:800; font-size:14px; padding-top:15px; text-align:right; } .timeline-body { position:relative; padding:16px 22px; border:1px solid var(--line); border-radius:18px; background:var(--paper); } .timeline-body::before { content:""; position:absolute; left:-32px; top:22px; width:12px; height:12px; border-radius:50%; background:var(--gold); box-shadow:0 0 0 7px rgba(201,155,47,.16); }
+    .cards-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; } .member-card,.character-card { position:relative; overflow:hidden; min-height:100%; padding:28px; border-radius:var(--radius); background:#fff; border:1px solid rgba(36,75,55,.1); box-shadow:0 18px 46px rgba(22,50,36,.08); } .member-card::before { content:""; position:absolute; inset:0 0 auto; height:7px; background:linear-gradient(90deg,var(--green),var(--gold)); } .member-card h3,.character-card h3 { margin:0 0 10px; color:var(--green); font-size:21px; line-height:1.45; } .card-meta { color:var(--gold-dark); font-size:13px; font-weight:800; margin:0 0 12px; } .member-card p:last-child,.character-card p { margin:0; color:var(--muted); font-size:14px; }
+    .partner-section { background:radial-gradient(circle at 12% 18%,rgba(201,155,47,.12),transparent 24%),linear-gradient(180deg,var(--cream),var(--paper)); } .partner-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; } .partner-card { display:block; position:relative; min-height:100%; padding:28px; border-radius:var(--radius); background:#fff; border:1px solid rgba(36,75,55,.1); box-shadow:0 18px 46px rgba(22,50,36,.08); transition:transform .2s ease,box-shadow .2s ease; } .partner-card:hover { transform:translateY(-3px); box-shadow:0 24px 54px rgba(22,50,36,.13); } .partner-card h3 { margin:0 0 10px; color:var(--green); font-size:21px; line-height:1.45; } .partner-card p { margin:0; color:var(--muted); font-size:14px; } .partner-type { display:inline-flex; margin-bottom:14px; padding:4px 11px; border-radius:999px; background:rgba(36,75,55,.08); color:var(--green); font-size:12px; font-weight:800; } .partner-note { margin-top:26px; color:var(--muted); font-size:13px; text-align:center; }
+    .character-grid { grid-template-columns:repeat(4,1fr); } .character-card { padding:0 0 24px; text-align:center; } .character-image { height:230px; display:grid; place-items:end center; padding:22px 18px 0; background:linear-gradient(180deg,rgba(36,75,55,.09),rgba(201,155,47,.1)); } .character-image img { max-height:210px; width:auto; object-fit:contain; filter:drop-shadow(0 16px 18px rgba(22,50,36,.18)); } .character-card h3 { margin-top:22px; padding:0 22px; } .character-role { color:var(--gold-dark); font-weight:800; font-size:13px; padding:0 22px; min-height:48px; } .character-card p { padding:12px 24px 0; }
+    .media-grid { display:grid; grid-template-columns:.9fr 1.1fr; gap:28px; align-items:stretch; } .media-panel,.cta-panel { border-radius:32px; padding:clamp(28px,4vw,46px); box-shadow:var(--shadow); } .media-panel { background:#fff; border:1px solid var(--line); } .media-panel p { color:var(--muted); } .cta-panel { color:#fff; background:linear-gradient(90deg,rgba(22,50,36,.94),rgba(36,75,55,.78)),url("./img/top_yuzu1.png") center/cover no-repeat; display:grid; align-content:center; } .cta-panel h2 { color:#fff; margin:0 0 16px; font-size:clamp(28px,4vw,44px); line-height:1.35; } .cta-panel p { margin:0 0 26px; color:rgba(255,255,255,.86); } .cta-actions { display:flex; gap:14px; flex-wrap:wrap; }
+    .related-links { margin-top:34px; display:grid; grid-template-columns:repeat(3,1fr); gap:14px; } .related-link { display:flex; justify-content:space-between; align-items:center; padding:18px 20px; border-radius:18px; background:rgba(255,255,255,.72); border:1px solid var(--line); color:var(--green); font-weight:800; }
+    .footer { padding:54px 0 30px; background:var(--deep); color:rgba(255,255,255,.82); } .footer-inner { display:flex; justify-content:space-between; align-items:flex-start; gap:28px; padding-bottom:28px; border-bottom:1px solid rgba(255,255,255,.12); } .footer-brand { color:#fff; font-size:20px; font-weight:800; letter-spacing:.1em; } .footer-links { display:flex; flex-wrap:wrap; justify-content:flex-end; gap:10px 18px; max-width:720px; font-size:13px; } .copyright { margin:20px 0 0; color:rgba(255,255,255,.52); font-size:12px; }
+    @media(max-width:980px){.header-inner{align-items:flex-start;padding:16px 0;flex-direction:column}.nav{justify-content:flex-start}.mission-card,.media-grid{grid-template-columns:1fr}.cards-grid,.character-grid{grid-template-columns:repeat(2,1fr)}.hero-badge{display:none}}
+    @media(max-width:640px){.container{width:min(calc(100% - 28px),var(--container))}.sub-hero{min-height:500px}.sub-hero-inner{padding:70px 0 118px}section{padding:70px 0}.section-head{display:block}.mission{margin-top:-48px}.mission-card{padding:24px;border-radius:26px}.mission-photo-grid{grid-template-columns:1fr}.mission-photo-grid img,.mission-photo-grid img:first-child{height:210px}.timeline::before{left:8px}.timeline-item{grid-template-columns:1fr;gap:6px;padding-left:28px}.timeline-date{text-align:left;padding-top:0}.timeline-body::before{left:-26px;top:22px}.cards-grid,.character-grid,.partner-grid,.related-links{grid-template-columns:1fr}.footer-inner{display:block}.footer-links{justify-content:flex-start;margin-top:18px}.btn{width:100%}.cta-actions{display:grid}}
+  </style>
+  <link rel="stylesheet" href="site-header-standard.css" />
+  <script src="common-nav.js" defer></script><script src="common-footer.js" defer></script>
 </head>
-<body>
-
-<div class="proto-banner">⚙ プロトタイプ表示 — 実画像・実数値が入ると最終形になります</div>
-
-<nav class="nav">
-  <div class="nav-logo"><a href="06_home_prototype.html">協同組合 阿波山雅</a></div>
-  <ul class="nav-links">
-    <li><a href="about.html" class="active">阿波山雅について</a></li>
-    <li><a href="facility-okuyarito.html">施設・拠点</a></li>
-    <li><a href="trail-guide.html">山と林道ガイド</a></li>
-    <li><a href="projects.html">活動・プロジェクト</a></li>
-    <li><a href="activity-report.html">活動報告</a></li>
-    <li><a href="support.html">応援する</a></li>
-    <li><a href="#">お問い合わせ</a></li>
-  </ul>
-</nav>
-
-<header class="page-header">
-  <div class="page-header-inner">
-    <div class="breadcrumb">
-      <a href="06_home_prototype.html">ホーム</a>
-      <span class="breadcrumb-sep">›</span>
-      <span>阿波山雅について</span>
-    </div>
-    <h1>阿波山雅について</h1>
-    <p>徳島・剣山系のふもとで、山と地域を「次の世代」に繋いでいくための協同組合です。<br>2024年1月設立。奥槍戸山の家を拠点に、登山者・バイカー・地域の人たちが集まる場所をつくっています。</p>
-  </div>
-</header>
-
-<!-- ========= 設立趣旨 ========= -->
-<section>
-  <div class="container container-narrow">
-    <div class="prose">
-      <h2>設立趣旨</h2>
-      <p>剣山系の麓には、長く受け継がれてきた山の暮らしと、それを支えてきた人たちがいます。私たちはその記憶と現場を、次の世代に確かに繋ぎたい。</p>
-      <p>登山者・バイカーが安心して山を楽しめる拠点をつくる。地域の食と仕事を支える。行政や財団と対話し、若い世代が動ける土壌をつくる。―― そのために、協同組合という形を選びました。</p>
-      <p>派手なことはできなくても、続けることはできる。その積み重ねが、地域の体力になると考えています。</p>
-
-      <div class="char-quote sugijii">
-        <div class="name">杉じぃ</div>
-        <div class="text">続けることが、いちばん難しい。じゃがそれを続けてきた者だけが、地域に残るんじゃ。フォッフォッフォ。</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ========= 沿革 ========= -->
-<section style="background: white;">
-  <div class="container container-narrow">
-    <h2 class="section-title left">沿革</h2>
-    <p style="color: var(--gray); margin-bottom: 32px;">設立から現在まで。</p>
-
-    <div class="timeline">
-      <div class="timeline-item">
-        <div class="date">2024年1月</div>
-        <div class="event">協同組合 阿波山雅 設立</div>
-      </div>
-      <div class="timeline-item">
-        <div class="date">2024年3月</div>
-        <div class="event">フードリボン活動開始（徳島新聞掲載）</div>
-      </div>
-      <div class="timeline-item">
-        <div class="date">2024年3月</div>
-        <div class="event">ヤマザクラ植樹イベント協力（カレー提供）</div>
-      </div>
-      <div class="timeline-item">
-        <div class="date">2024年</div>
-        <div class="event">木頭クマ祭り 出店・登壇</div>
-      </div>
-      <div class="timeline-item">
-        <div class="date">2025年1月11日</div>
-        <div class="event">設立1周年</div>
-      </div>
-      <div class="timeline-item">
-        <div class="date">2025年4月5日</div>
-        <div class="event">奥槍戸山の家 営業開始（〜11月末）</div>
-      </div>
-      <div class="timeline-item">
-        <div class="date">2025年</div>
-        <div class="event">日亜ふるさと振興財団 助成採択</div>
-      </div>
-      <div class="timeline-item">
-        <div class="date">2025年</div>
-        <div class="event">徳島ガンバロウズ サポートカンパニー登録</div>
-      </div>
-      <div class="timeline-item">
-        <div class="date">2025年</div>
-        <div class="event">四国放送ゴジカル特集</div>
-      </div>
-      <div class="timeline-item">
-        <div class="date">2025年11月16日</div>
-        <div class="event">とくしま林道ナビ主催「剣山スーパー林道ミーティング」参加</div>
-      </div>
-      <div class="timeline-item">
-        <div class="date">2026年3月</div>
-        <div class="event">那賀町賑わい課との認識合わせ協議 開始</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ========= 組合員・役員 ========= -->
-<section>
-  <div class="container">
-    <h2 class="section-title">組合員・役員</h2>
-    <p class="section-subtitle">この地域を動かしている人たち</p>
-
-    <div class="cards cards-3">
-      <div class="card">
-        <h3><span class="placeholder-note">要記入</span></h3>
-        <p class="card-meta">役職：<span class="placeholder-note">要記入</span></p>
-        <p>顔写真・氏名・一言メッセージがここに入ります。公開可否は組合員ごとに要確認。</p>
-      </div>
-      <div class="card">
-        <h3><span class="placeholder-note">要記入</span></h3>
-        <p class="card-meta">役職：<span class="placeholder-note">要記入</span></p>
-        <p>顔写真・氏名・一言メッセージがここに入ります。</p>
-      </div>
-      <div class="card">
-        <h3><span class="placeholder-note">要記入</span></h3>
-        <p class="card-meta">役職：<span class="placeholder-note">要記入</span></p>
-        <p>顔写真・氏名・一言メッセージがここに入ります。</p>
-      </div>
-    </div>
-
-    <div class="text-center mt-32">
-      <a href="support.html#join" class="btn btn-outline">組合加盟のご相談</a>
-    </div>
-  </div>
-</section>
-
-<!-- ========= 仲間たち（ダイジェスト） ========= -->
-<section style="background: white;">
-  <div class="container">
-    <h2 class="section-title">仲間たち</h2>
-    <p class="section-subtitle">奥槍戸の山小屋で、毎日いる4人</p>
-
-    <div class="nakama-grid">
-      <div class="nakama-card">
-        <div class="char-img"><img src="placeholder_okuyaridon.svg" alt="奥槍どん"></div>
-        <h3>奥槍どん</h3>
-        <div class="role">奥槍戸山の家のあるじ</div>
-        <p class="quote">無口で背中の広いオヤジ。「おとこ気カレー」を作るのもこの人。</p>
-      </div>
-      <div class="nakama-card">
-        <div class="char-img"><img src="placeholder_sugijii.svg" alt="杉じぃ"></div>
-        <h3>杉じぃ</h3>
-        <div class="role">千年の記憶を持つ、木頭杉の長老</div>
-        <p class="quote">陽気な長老。フォッフォッフォと笑いながら、地域の歴史を語る。</p>
-      </div>
-      <div class="nakama-card">
-        <div class="char-img"><img src="placeholder_yuzuri.svg" alt="ユズリ"></div>
-        <h3>ユズリ</h3>
-        <div class="role">知恵を、次へ繋ぐ少女</div>
-        <p class="quote">郷土資料はぜんぶ頭に入っている博識家。冷静派。</p>
-      </div>
-      <div class="nakama-card">
-        <div class="char-img"><img src="placeholder_sugito.svg" alt="スギト"></div>
-        <h3>スギト</h3>
-        <div class="role">赤身でできた、まっすぐな見習いマイスター</div>
-        <p class="quote">熱血で照れ屋。曲がったことが大嫌い。</p>
-      </div>
-    </div>
-
-    <div class="text-center mt-48">
-      <a href="members.html" class="btn btn-outline">仲間たちの詳しいプロフィールを見る</a>
-    </div>
-  </div>
-</section>
-
-<!-- ========= メディア素材 ========= -->
-<section>
-  <div class="container container-narrow">
-    <div class="prose">
-      <h2>メディア・寄稿用素材</h2>
-      <p>取材・寄稿でご利用いただける素材（ロゴ、キャラクター画像、プレスキット）を、Google Driveに整理してまとめています。</p>
-      <p><a href="#" class="btn btn-outline btn-sm">プレスキットを開く（Google Drive）</a></p>
-      <p style="font-size: 13px; color: var(--gray);">※ ご利用前に、必ず<a href="#">取材・撮影に関するガイドライン</a>をお読みください。</p>
-    </div>
-
-    <div class="cta-banner mt-64">
-      <h3>もっと深く、関わってみませんか</h3>
-      <p>応援・参加するは、4つのかたちから選べます。</p>
-      <div class="cta-row">
-        <a href="support.html" class="btn btn-ghost">応援・参加する</a>
-        <a href="activity-report.html" class="btn btn-secondary">活動報告を見る</a>
-      </div>
-    </div>
-
-    <div class="related-links">
-      <h4>関連ページ</h4>
-      <div class="related-grid">
-        <a href="members.html" class="related-link">仲間たち</a>
-        <a href="activity-report.html" class="related-link">活動報告</a>
-        <a href="projects.html" class="related-link">活動・プロジェクト</a>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<footer class="footer">
-  <div class="footer-grid">
-    <div class="footer-brand">
-      <strong>協同組合 阿波山雅</strong>
-      徳島・剣山系のふもとから、山と地域を次の世代へ。<br>
-      所在地：<span class="placeholder-note">要記入</span><br>
-      電話：<span class="placeholder-note">要記入</span><br>
-      メール：<span class="placeholder-note">要記入</span>
-    </div>
-    <div>
-      <h5>サイト</h5>
-      <ul>
-        <li><a href="06_home_prototype.html">ホーム</a></li>
-        <li><a href="about.html">阿波山雅について</a></li>
-        <li><a href="facility-okuyarito.html">施設・拠点</a></li>
-        <li><a href="trail-guide.html">山と林道ガイド</a></li>
-      </ul>
-    </div>
-    <div>
-      <h5>関わる</h5>
-      <ul>
-        <li><a href="projects.html">活動・プロジェクト</a></li>
-        <li><a href="activity-report.html">活動報告</a></li>
-        <li><a href="support.html">応援・参加する</a></li>
-        <li><a href="#">お問い合わせ</a></li>
-      </ul>
-    </div>
-    <div>
-      <h5>SNS</h5>
-      <ul>
-        <li><a href="#">Instagram</a></li>
-        <li><a href="#">Facebook</a></li>
-        <li><a href="#">YouTube</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">© 2026 協同組合 阿波山雅 All Rights Reserved.</div>
-</footer>
-
-</body>
-</html>
+<body class="standard-subpage"><div class="page">
+<header class="site-header"><div class="container header-inner"><a class="brand" href="index.html" aria-label="協同組合阿波山雅 ホーム"><img src="./img/awasanga_logo_w2.png" alt="協同組合阿波山雅ロゴ" /><div><small>協同組合</small><strong>阿波山雅</strong><span>あわさんが</span></div></a><nav class="nav" aria-label="メインナビゲーション" data-common-nav data-current="about"></nav></div></header>
+<main>
+<section class="sub-hero"><div class="container sub-hero-inner"><div class="breadcrumb"><a href="index.html">ホーム</a><span>›</span><span>阿波山雅について</span></div><div class="hero-label">About Awasanga</div><h1>山の記憶を、<br>次の世代へ。</h1><p>協同組合 阿波山雅は、徳島・剣山系のふもと、奥槍戸を拠点に、山と地域、人のつながりを未来へ受け継いでいくための協同組合です。</p></div><div class="hero-badge" aria-hidden="true"><span>2024年設立<br>奥槍戸から<br>未来へ。</span></div></section>
+<section class="mission"><div class="container"><div class="mission-card"><div class="mission-copy"><div class="section-kicker">Our Purpose</div><h2 class="section-title">設立趣旨</h2><p>剣山系の麓には、長く受け継がれてきた山の暮らしと、それを支えてきた人たちがいます。私たちはその記憶と現場を、次の世代に確かに繋ぎたいと考えています。</p><p>登山者・バイカーが安心して山を楽しめる拠点をつくる。地域の食と仕事を支える。行政や財団と対話し、若い世代が動ける土壌をつくる。そのために、協同組合という形を選びました。</p><p>派手なことはできなくても、続けることはできる。その積み重ねが、地域の体力になると信じています。</p><div class="quote-panel"><strong>杉じぃ</strong><p>続けることが、いちばん難しい。じゃがそれを続けてきた者だけが、地域に残るんじゃ。フォッフォッフォ。</p></div></div><div class="mission-photo-grid" aria-label="阿波山雅の活動イメージ"><img src="./img/top_insyoku1.png" alt="地域の食と交流" /><img src="./img/top_kouri1.png" alt="地域のものづくり" /><img src="./img/top_yuzu1.png" alt="木頭ゆず" /></div></div></div></section>
+<section class="timeline-section"><div class="container"><div class="section-head"><div><div class="section-kicker">History</div><h2 class="section-title">沿革</h2></div><p class="section-text">設立から現在まで。地域の現場で積み重ねてきた歩みです。</p></div><div class="timeline">
+<div class="timeline-item"><div class="timeline-date">2024年1月</div><div class="timeline-body">協同組合 阿波山雅 設立</div></div><div class="timeline-item"><div class="timeline-date">2024年3月</div><div class="timeline-body">フードリボン活動開始（徳島新聞掲載）</div></div><div class="timeline-item"><div class="timeline-date">2024年3月</div><div class="timeline-body">ヤマザクラ植樹イベント協力（カレー提供）</div></div><div class="timeline-item"><div class="timeline-date">2024年</div><div class="timeline-body">木頭クマ祭り 出店・登壇</div></div><div class="timeline-item"><div class="timeline-date">2025年1月11日</div><div class="timeline-body">設立1周年</div></div><div class="timeline-item"><div class="timeline-date">2025年4月5日</div><div class="timeline-body">奥槍戸山の家 営業開始（〜11月末）</div></div><div class="timeline-item"><div class="timeline-date">2025年4月</div><div class="timeline-body">徳島勤労者福祉サービスセンター「あわ～ず徳島」加入</div></div><div class="timeline-item"><div class="timeline-date">2025年</div><div class="timeline-body">日亜ふるさと振興財団 助成採択</div></div><div class="timeline-item"><div class="timeline-date">2025年</div><div class="timeline-body">徳島ガンバロウズ サポートカンパニー登録</div></div><div class="timeline-item"><div class="timeline-date">2025年8月</div><div class="timeline-body">那賀町商工会 加入</div></div><div class="timeline-item"><div class="timeline-date">2025年</div><div class="timeline-body">四国放送ゴジカル特集</div></div><div class="timeline-item"><div class="timeline-date">2025年11月16日</div><div class="timeline-body">とくしま林道ナビ主催「剣山スーパー林道ミーティング」参加</div></div><div class="timeline-item"><div class="timeline-date">2026年3月</div><div class="timeline-body">那賀町観光協会 加入</div></div><div class="timeline-item"><div class="timeline-date">2026年3月</div><div class="timeline-body">那賀町賑わい課との認識合わせ協議 開始</div></div><div class="timeline-item"><div class="timeline-date">2026年5月17日</div><div class="timeline-body">LEGENDS U15クラブチームと2026–2027シーズンのスポンサー契約を締結</div></div>
+</div></div></section>
+<section class="partner-section" id="partners"><div class="container"><div class="section-head center"><div><div class="section-kicker">Partners & Memberships</div><h2 class="section-title">加盟・連携団体</h2><p class="section-text">地域の事業者・観光・福利厚生・スポーツを支える皆さまと連携し、那賀町と徳島の持続可能な地域づくりに取り組んでいます。</p></div></div><div class="partner-grid"><a class="partner-card" href="https://toku-sc.com/" target="_blank" rel="noopener"><span class="partner-type">会員・2025年4月〜</span><h3>あわ～ず徳島</h3><p>徳島勤労者福祉サービスセンターの会員として、組合員や働く人の福利厚生の充実に取り組んでいます。</p></a><a class="partner-card" href="https://r.goope.jp/tsci0900/" target="_blank" rel="noopener"><span class="partner-type">会員・2025年8月〜</span><h3>那賀町商工会</h3><p>地域事業者との連携を深め、那賀町の産業振興と地域経済の活性化に取り組んでいます。</p></a><a class="partner-card" href="https://i-naka.jp/" target="_blank" rel="noopener"><span class="partner-type">会員・2026年3月〜</span><h3>那賀町観光協会</h3><p>奥槍戸山の家や剣山スーパー林道周辺をはじめ、那賀町の自然・食・地域の魅力発信に取り組んでいます。</p></a><a class="partner-card" href="https://gambarous.jp/" target="_blank" rel="noopener"><span class="partner-type">サポートカンパニー</span><h3>徳島ガンバロウズ</h3><p>徳島を拠点に活動するプロバスケットボールチームを、サポートカンパニーとして応援しています。</p></a><a class="partner-card" href="https://www.instagram.com/p/DYd1Tj7PZbj/" target="_blank" rel="noopener"><span class="partner-type">スポンサー・2026–2027シーズン</span><h3>LEGENDS U15クラブチーム</h3><p>徳島県阿南市で活動するU15クラブバスケットボールチームとスポンサー契約を結び、地域で挑戦する子どもたちを応援しています。</p></a></div><p class="partner-note">各団体名を選択すると、公式サイトまたは関連する公式投稿へ移動します。</p></div></section>
+<section><div class="container"><div class="section-head center"><div><div class="section-kicker">Members</div><h2 class="section-title">組合員・役員</h2><p class="section-text">山の現場、食、ものづくり、企画運営。それぞれの得意分野を持つ仲間が、地域の未来を支えています。</p></div></div><div class="cards-grid"><article class="member-card"><h3>中野 久</h3><p class="card-meta">組合員代表</p><p>奥槍戸 山の家管理人（2007年〜）。剣山スーパー林道の林道整備・巡回保全も担う。</p></article><article class="member-card"><h3>中野柚子園</h3><p class="card-meta">組合員</p><p>那賀町木頭の山間部でゆず農家を営む。清らかな空気と豊かな土壌が育む風味豊かな柚子。</p></article><article class="member-card"><h3>ねこのモノづくり小屋</h3><p class="card-meta">組合員</p><p>山の家をテーマにしたグッズ制作・イベント企画運用支援（2022年開業）。</p></article><article class="member-card"><h3>WOOD HEAD INC.</h3><p class="card-meta">組合員</p><p>木頭杉の箸を中心とした木工製品の製造販売。地域環境と地域創生に取り組む。</p></article></div><p style="text-align:center;margin-top:34px"><a class="btn btn-outline" href="members.html">組合加盟者の詳細を見る　→</a><a class="btn btn-primary" href="support.html#join" style="margin-left:10px">組合加盟のご相談　→</a></p></div></section>
+<section class="characters"><div class="container"><div class="section-head center"><div><div class="section-kicker">Characters</div><h2 class="section-title">仲間たち</h2><p class="section-text">奥槍戸の山小屋で、阿波山雅の世界観を伝えるキャラクターたちです。</p></div></div><div class="cards-grid character-grid"><article class="character-card"><a class="character-link" href="characters.html#okuyaridon"><div class="character-image"><img src="./img/奥槍どん.png" alt="奥槍どん" /></div><h3>奥槍どん</h3><div class="character-role">奥槍戸山の家のあるじ</div><p>優しい口調だが、しっかり者で芯のある好青年。山小屋の空気をやわらかく支える存在。</p></a></article><article class="character-card"><a class="character-link" href="characters.html#sugijii"><div class="character-image"><img src="./img/杉じぃ.png" alt="杉じぃ" /></div><h3>杉じぃ</h3><div class="character-role">千年の記憶を持つ、木頭杉の長老</div><p>陽気な長老。フォッフォッフォと笑いながら、地域の歴史と山の知恵を語る。</p></a></article><article class="character-card"><a class="character-link" href="characters.html#yuzuri"><div class="character-image"><img src="./img/ユズリ.png" alt="ユズリ" /></div><h3>ユズリ</h3><div class="character-role">知恵を、次へ繋ぐ少女</div><p>郷土資料や地域の知恵を大切にする博識家。冷静な視点でみんなを支える。</p></a></article><article class="character-card"><a class="character-link" href="characters.html#sugito"><div class="character-image"><img src="./img/スギト.png" alt="スギト" /></div><h3>スギト</h3><div class="character-role">まっすぐな見習いマイスター</div><p>熱血で照れ屋。木頭杉のように、まっすぐ伸びる力を持つ若い仲間。</p></a></article></div><p style="text-align:center;margin-top:38px"><a class="btn btn-outline" href="characters.html">仲間たちの詳しいプロフィールを見る　→</a></p></div></section>
+<section><div class="container"><div class="media-grid"><div class="media-panel"><div class="section-kicker">Media Kit</div><h2 class="section-title small">メディア・寄稿用素材</h2><p>取材・寄稿でロゴやキャラクター画像をご利用希望の場合は、利用条件の確認と素材提供についてお問い合わせください。</p><p><a class="btn btn-outline" href="support.html#media">素材利用について問い合わせる　→</a></p><p style="font-size:13px">※ ご利用前に、必ず取材・撮影に関するガイドラインをご確認ください。</p></div><div class="cta-panel"><h2>もっと深く、<br>関わってみませんか？</h2><p>応援・参加・協賛・組合加盟。阿波山雅との関わり方は、ひとつではありません。できる形で、奥槍戸の未来づくりに加わってください。</p><div class="cta-actions"><a class="btn btn-gold" href="support.html">応援・参加する　→</a><a class="btn btn-dark" href="projects.html">活動・プロジェクトを見る　→</a></div></div></div><div class="related-links" aria-label="関連ページ"><a class="related-link" href="characters.html">仲間たち <span>→</span></a><a class="related-link" href="news.html">お知らせ <span>→</span></a><a class="related-link" href="projects.html">活動・プロジェクト <span>→</span></a></div></div></section>
+</main><footer class="footer" id="contact"><div class="container"><div class="footer-inner"><div class="footer-brand">協同組合 阿波山雅</div><nav class="footer-links" aria-label="フッターナビゲーション" data-common-footer></nav></div><p class="copyright">© 協同組合阿波山雅（あわさんが） All Rights Reserved.</p></div></footer></div></body></html>

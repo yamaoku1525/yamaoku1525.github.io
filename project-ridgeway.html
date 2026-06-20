@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="剣山スーパー林道と山の入口づくり。奥槍戸山の家が2年連続で公式イベントの関連拠点として参画。林道を訪れる人と山・地域をつなぎます。" />
+  <title>剣山スーパー林道 山の入口づくり｜協同組合 阿波山雅</title>
+  <link rel="stylesheet" href="about-styles.css" />
+  <style>
+    .proj-lead {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+    .proj-lead-card {
+      background: rgba(255,250,240,.97);
+      border-radius: 34px;
+      border: 1px solid rgba(36,75,55,.12);
+      box-shadow: var(--shadow);
+      padding: clamp(26px, 4vw, 48px);
+    }
+    .proj-lead-card h2 {
+      color: var(--green);
+      font-size: clamp(26px, 3.5vw, 44px);
+      line-height: 1.3;
+      margin: 0 0 16px;
+    }
+    .proj-lead-card p { color: var(--muted); line-height: 2; margin: 0; }
+    .proj-lead-card p + p { margin-top: 12px; }
+
+    .year-stack { display: grid; gap: 14px; }
+    .year-card {
+      padding: 24px 28px;
+      border-radius: 26px;
+      background: #fff;
+      border: 1px solid rgba(36,75,55,.1);
+      box-shadow: 0 14px 36px rgba(22,50,36,.08);
+      position: relative;
+      overflow: hidden;
+    }
+    .year-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 6px;
+      background: linear-gradient(90deg, var(--green), var(--gold));
+    }
+    .year-tag {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 12px;
+      background: var(--green);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .08em;
+      margin-bottom: 12px;
+    }
+    .year-card h3 { color: var(--green); font-size: 18px; margin: 0 0 10px; line-height: 1.45; }
+    .year-card p { color: var(--muted); font-size: 14px; line-height: 1.9; margin: 0; }
+    .year-detail {
+      margin-top: 14px;
+      padding: 12px 16px;
+      border-radius: 14px;
+      background: var(--paper);
+      font-size: 13px;
+      color: var(--green);
+      font-weight: 800;
+      line-height: 1.7;
+    }
+
+    .photo-grid-3 {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 14px;
+    }
+    .pg-item {
+      position: relative;
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 14px 34px rgba(22,50,36,.1);
+    }
+    .pg-item img { width: 100%; height: 280px; object-fit: cover; display: block; }
+    .pg-item.hero img { height: 420px; }
+    .pg-caption {
+      position: absolute;
+      inset: auto 0 0;
+      padding: 14px 16px;
+      color: #fff;
+      background: linear-gradient(transparent, rgba(22,50,36,.86));
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.6;
+    }
+
+    .role-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+    .role-card {
+      padding: 28px 26px;
+      border-radius: 26px;
+      background: #fff;
+      border: 1px solid rgba(36,75,55,.1);
+      box-shadow: 0 14px 36px rgba(22,50,36,.08);
+    }
+    .role-icon { font-size: 32px; margin-bottom: 14px; }
+    .role-card h3 { color: var(--green); font-size: 17px; margin: 0 0 10px; line-height: 1.45; }
+    .role-card p { color: var(--muted); font-size: 14px; line-height: 1.9; margin: 0; }
+
+    .value-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .value-chip {
+      padding: 20px 22px;
+      border-radius: 22px;
+      background: rgba(36,75,55,.05);
+      border: 1px solid rgba(36,75,55,.08);
+    }
+    .value-chip b { display: block; color: var(--green); font-size: 14px; margin-bottom: 8px; }
+    .value-chip span { color: var(--muted); font-size: 13px; line-height: 1.8; }
+
+    .linknav {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .link-card {
+      padding: 20px 22px;
+      border-radius: 20px;
+      background: #fff;
+      border: 1px solid rgba(36,75,55,.1);
+      box-shadow: 0 10px 26px rgba(22,50,36,.07);
+      text-decoration: none;
+      display: block;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .link-card:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(22,50,36,.13); }
+    .link-card .lk-label { color: var(--green); font-size: 13px; font-weight: 900; margin-bottom: 6px; }
+    .link-card .lk-desc { color: var(--muted); font-size: 12px; line-height: 1.7; }
+
+    .quote-box {
+      padding: clamp(24px, 4vw, 40px);
+      border-radius: 30px;
+      background: rgba(36,75,55,.05);
+      border-left: 5px solid var(--green);
+      position: relative;
+    }
+    .quote-box::before {
+      content: "\201C";
+      position: absolute;
+      top: 16px; left: 24px;
+      font-size: 72px;
+      color: var(--green);
+      opacity: .18;
+      line-height: 1;
+      font-family: serif;
+    }
+    .quote-box p { color: var(--ink); line-height: 2; margin: 0; font-size: clamp(15px, 2vw, 18px); }
+
+    @media (max-width: 980px) {
+      .proj-lead, .photo-grid-3 { grid-template-columns: 1fr; }
+      .pg-item.hero img { height: 280px; }
+      .role-grid, .value-row, .linknav { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 640px) {
+      .role-grid, .value-row, .linknav { grid-template-columns: 1fr; }
+    }
+  </style>
+  <script src="common-nav.js" defer></script>
+  <script src="common-footer.js" defer></script>
+</head>
+<body>
+  <div class="page">
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="index.html" aria-label="協同組合阿波山雅 ホーム">
+          <img src="./img/awasanga_logo_w2.png" alt="協同組合阿波山雅ロゴ" />
+          <div><small>協同組合</small><strong>阿波山雅</strong><span>あわさんが</span></div>
+        </a>
+        <nav class="nav" aria-label="メインナビゲーション" data-common-nav data-current="projects"></nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="sub-hero">
+        <div class="container sub-hero-inner">
+          <div class="breadcrumb">
+            <a href="index.html">ホーム</a><span>›</span>
+            <a href="projects.html">活動・プロジェクト</a><span>›</span>
+            <span>剣山スーパー林道 山の入口づくり</span>
+          </div>
+          <div class="hero-label">Tsurugi Super Ridgeway</div>
+          <h1>林道を走る人が、<br>山や地域と出会う入口をつくる。</h1>
+          <p>奥槍戸山の家は、剣山スーパー林道で開催される「カップラーメンミーティング」「剣山スーパー林道ミーティング」に2年連続で関連拠点として参画しています。車・バイク・自転車で訪れる人と、山・地域資源をつなぐ「山の入口」をつくっています。</p>
+        </div>
+        <div class="hero-badge" aria-hidden="true"><span>2024・2025<br>2年連続<br>参画</span></div>
+      </section>
+
+      <section>
+        <div class="container">
+          <div class="proj-lead">
+            <div class="proj-lead-card">
+              <div class="section-kicker">About This Project</div>
+              <h2>通過する道を、人と地域が出会う場所へ。</h2>
+              <p>剣山スーパー林道は、車・バイク・自転車で徳島の山間部を楽しめる観光資源です。しかし林道を「通過するだけ」では、来訪者と地域との接点は生まれにくい。</p>
+              <p>奥槍戸山の家は、林道沿いで食事・休憩・交流の機会を提供し、イベント時には配布拠点や関連企画の会場となることで、来訪者が車両を降りて山や地域と関わるきっかけをつくっています。年間推計15,400人が通行する林道の流れを、地域の滞在・食・体験につなぐ取り組みです。</p>
+            </div>
+            <div class="year-stack">
+              <div class="year-card">
+                <div class="year-tag">2024年11月10日</div>
+                <h3>剣山スーパー林道フェスタ「カップラーメンミーティング」</h3>
+                <p>ファガスの森 高城・山の家 奥槍戸・岳人の森の3会場で開催。奥槍戸山の家では先着150名にカップラーメンとオリジナルコラボステッカーを配布。</p>
+                <div class="year-detail">関連企画として木製カップラーメングッズを販売。天候に恵まれ、多くの来場があった（とくしま林道ナビ 実施ギャラリー）。</div>
+              </div>
+              <div class="year-card">
+                <div class="year-tag">2025年11月16日</div>
+                <h3>剣山スーパー林道ミーティング2025</h3>
+                <p>3つの関連拠点を巡り、風の広場をゴールとする回遊型イベント。奥槍戸山の家は配布拠点として参画し、オリジナルカップラーメンと記念ステッカーを配布。</p>
+                <div class="year-detail">参加者はステッカーを持って風の広場へ向かい、イベントオリジナルパーミットを受け取る仕組み。各拠点での食事も公式案内に掲載された。</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="members-section">
+        <div class="container">
+          <div class="section-head">
+            <div><div class="section-kicker">Photo Report</div><h2 class="section-title">林道と山の家をつなぐ現場</h2></div>
+            <p class="section-text">来訪者が立ち寄り、食事をとり、地域の産品に触れる。その接点をつくるのが奥槍戸山の家の役割。</p>
+          </div>
+          <div class="photo-grid-3">
+            <div class="pg-item hero">
+              <img src="./img/top_yamanoie1.png" alt="奥槍戸山の家" loading="lazy" />
+              <div class="pg-caption">奥槍戸山の家。林道沿いで食事・休憩・交流を提供する有人拠点として、イベントの関連会場を担う。</div>
+            </div>
+            <div class="pg-item">
+              <img src="./img/top_g.png" alt="剣山スーパー林道の風景" loading="lazy" />
+              <div class="pg-caption">剣山スーパー林道。年間推計15,400人が通行する徳島の山岳道路。</div>
+            </div>
+            <div class="pg-item">
+              <img src="./img/top_kouri1.png" alt="木製グッズと地域産品" loading="lazy" />
+              <div class="pg-caption">木製カップラーメングッズや地域産品を販売。林道来訪者と地域の魅力をつなぐ。</div>
+            </div>
+            <div class="pg-item">
+              <img src="./img/top_yuzu1.png" alt="ゆずと地域産品" loading="lazy" />
+              <div class="pg-caption">地域産品との出会いも「山の入口」のひとつ。立ち寄りが次の訪問理由になる。</div>
+            </div>
+            <div class="pg-item">
+              <img src="./img/top_insyoku1.png" alt="食事提供" loading="lazy" />
+              <div class="pg-caption">食事と休憩。長距離林道を移動する来訪者に、安心して立ち寄れる場所を提供する。</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <div class="section-head">
+            <div><div class="section-kicker">Our Role</div><h2 class="section-title">奥槍戸山の家が果たす役割</h2></div>
+          </div>
+          <div class="role-grid">
+            <div class="role-card">
+              <div class="role-icon">🚗</div>
+              <h3>林道を訪れる人の立ち寄り拠点</h3>
+              <p>長距離の林道を移動する参加者に、休憩・飲食・交流の場所を提供します。イベントのチェックポイントとしてだけでなく、山間部で安心して立ち寄れる有人拠点として機能しています。</p>
+            </div>
+            <div class="role-card">
+              <div class="role-icon">🌄</div>
+              <h3>林道から山・地域へ関心を広げる入口</h3>
+              <p>カップラーメンやステッカーをきっかけに来訪した人が、奥槍戸の自然・山の家の食事・木製品などに触れる機会をつくります。車やバイクで楽しむ人を、地域資源につなぐ役割を担っています。</p>
+            </div>
+            <div class="role-card">
+              <div class="role-icon">🗺️</div>
+              <h3>複数拠点を結ぶ広域イベントへの参画</h3>
+              <p>ファガスの森 高城・岳人の森・風の広場などとともにイベントを構成し、剣山スーパー林道沿線を一つの周遊エリアとして楽しむ流れをつくっています。</p>
+            </div>
+            <div class="role-card">
+              <div class="role-icon">📅</div>
+              <h3>単発で終わらない継続的な受け入れ</h3>
+              <p>2024年・2025年と2年にわたり関連会場として参画。イベント当日だけでなく、日常的に営業する奥槍戸山の家があることで、イベントをきっかけに知った来訪者を次の訪問へつなげています。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="members-section">
+        <div class="container">
+          <div class="section-head">
+            <div><div class="section-kicker">Value</div><h2 class="section-title">実績として伝えられること</h2></div>
+          </div>
+          <div class="value-row">
+            <div class="value-chip">
+              <b>2年連続で公式イベントに参画</b>
+              <span>剣山スーパー林道沿線の観光・交流拠点として、継続的な実績を積んでいる。</span>
+            </div>
+            <div class="value-chip">
+              <b>先着150名へ配布の実績（2024年）</b>
+              <span>カップラーメン・コラボステッカーを配布し、多くの来訪者と接点をつくった。</span>
+            </div>
+            <div class="value-chip">
+              <b>食事・休憩・交流を山間部で提供</b>
+              <span>有人拠点として、安全で楽しい林道周遊を継続的に支えている。</span>
+            </div>
+            <div class="value-chip">
+              <b>木製グッズ販売で地域資源をPR</b>
+              <span>林道来訪者に地域の産品・文化を届ける場として機能している。</span>
+            </div>
+            <div class="value-chip">
+              <b>沿線施設と連携した広域周遊の実現</b>
+              <span>複数の山間施設が連携し、林道全体の魅力を高める回遊型イベントを支えた。</span>
+            </div>
+            <div class="value-chip">
+              <b>新しい来訪者層へのリーチ</b>
+              <span>登山者だけでなく、車・バイク・自転車で訪れる人にも開かれた「山の入口」として活用。</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <div class="section-head">
+            <div><div class="section-kicker">Message</div><h2 class="section-title">林道を「通過する道」から「出会いの場」へ</h2></div>
+          </div>
+          <div class="quote-box">
+            <p>林道を走る人が、山や地域と出会う入口をつくる。<br><br>
+            奥槍戸山の家は、休憩・飲食の場に加えて、林道来訪者と地域をつなぐ拠点です。イベントをきっかけに知ってもらい、次のシーズンも訪れてもらえる関係をつくることが、山の価値を次世代に残す力になると考えています。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="members-section">
+        <div class="container">
+          <div class="section-head">
+            <div><div class="section-kicker">Links</div><h2 class="section-title">関連リンク</h2></div>
+          </div>
+          <div class="linknav">
+            <a class="link-card" href="https://rindonavi.com/top_gallery.html?classification_id=17322444230642" target="_blank" rel="noopener noreferrer">
+              <div class="lk-label">2024年 実施ギャラリー（林道ナビ）</div>
+              <div class="lk-desc">カップラーメンミーティング in 山の家 奥槍戸の当日の様子。</div>
+            </a>
+            <a class="link-card" href="https://rindonavi.com/top_gallery.html?classification_id=17705986861396" target="_blank" rel="noopener noreferrer">
+              <div class="lk-label">2025年 実施ギャラリー（林道ナビ）</div>
+              <div class="lk-desc">剣山スーパー林道ミーティング2025 山の家 奥槍戸の当日記録。</div>
+            </a>
+            <a class="link-card" href="https://www.awanavi.jp/archives/event/68444" target="_blank" rel="noopener noreferrer">
+              <div class="lk-label">2024年 イベント案内（阿波ナビ）</div>
+              <div class="lk-desc">剣山スーパー林道deカップラーメンミーティングの公式案内。</div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="final-cta-section">
+        <div class="container">
+          <div class="cta-panel cta-panel-wide">
+            <h2>林道を訪れたら、<br>奥槍戸山の家に立ち寄ってください。</h2>
+            <p>食事・休憩・地域産品との出会い。山の奥に、人が集まる理由はつくれます。</p>
+            <div class="cta-actions">
+              <a class="btn btn-gold" href="facility_guide.html">施設・林道ガイドへ　→</a>
+              <a class="btn btn-dark" href="projects.html">活動・プロジェクトへ　→</a>
+            </div>
+          </div>
+          <div class="related-links" aria-label="関連ページ">
+            <a class="related-link" href="project-foodribbon.html">フードリボン <span>→</span></a>
+            <a class="related-link" href="project-trail.html">次郎笈トレイル再生 <span>→</span></a>
+            <a class="related-link" href="project-kitokuma.html">木頭クエスト×クマまつり <span>→</span></a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer" id="contact">
+      <div class="container">
+        <div class="footer-inner">
+          <div class="footer-brand">協同組合 阿波山雅</div>
+          <nav class="footer-links" aria-label="フッターナビゲーション" data-common-footer></nav>
+        </div>
+        <p class="copyright">© 協同組合阿波山雅（あわさんが） All Rights Reserved.</p>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

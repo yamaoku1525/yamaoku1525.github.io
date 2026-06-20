@@ -6,32 +6,129 @@
   <meta name="description" content="協同組合 阿波山雅は徳島・剣山系のふもと、奥槍戸を拠点に山と地域を次の世代へ繋ぐ協同組合です。山の恵みと人のつながりを大切にしながら、持続可能な地域づくりを進めています。" />
   <title>協同組合 阿波山雅（あわさんが） | 徳島・奥槍戸 山と人をつなぐ協同組合</title>
   <link rel="stylesheet" href="awasanga-top_styles.css">
+  <style>
+    body { margin: 0 !important; }
+    .page { background: #f5f0e6; }
+    .site-header {
+      position: absolute !important;
+      inset: 0 0 auto 0 !important;
+      z-index: 20 !important;
+      width: 100% !important;
+      margin: 0 !important;
+      padding: 24px 0 !important;
+      background: transparent !important;
+      border: 0 !important;
+      box-shadow: none !important;
+      color: #fffdf8 !important;
+    }
+    .site-header::before,
+    .site-header::after { content: none !important; }
+    .header-inner {
+      min-height: auto !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      flex-direction: row !important;
+      gap: 32px !important;
+    }
+    .brand,
+    .nav { color: #fffdf8 !important; }
+    .brand small,
+    .brand span { color: rgba(255, 253, 248, .9) !important; }
+    .nav {
+      display: flex !important;
+      justify-content: flex-end !important;
+      width: auto !important;
+      gap: 10px 22px !important;
+      line-height: 1.25 !important;
+      background: transparent !important;
+    }
+    .site-header .nav a {
+      color: rgba(255, 253, 248, .96) !important;
+      opacity: 1 !important;
+      padding: 3px 0 !important;
+      text-shadow: 0 2px 12px rgba(0, 0, 0, .42) !important;
+    }
+    .site-header .nav a::after,
+    .site-header .nav a:hover::after,
+    .site-header .nav a.is-active::after {
+      content: none !important;
+      display: none !important;
+      transform: none !important;
+    }
+    main#top,
+    .hero {
+      margin-top: 0 !important;
+      padding-top: 0 !important;
+    }
+    .hero {
+      min-height: 760px !important;
+      background:
+        linear-gradient(90deg, rgba(9, 28, 20, 0.82) 0%, rgba(12, 35, 25, 0.58) 42%, rgba(12, 35, 25, 0.18) 100%),
+        linear-gradient(180deg, rgba(13, 36, 28, 0.22), rgba(13, 36, 28, 0.34)),
+        url("./img/top_g.png?auto=format&fit=crop&w=2200&q=85") center / cover no-repeat !important;
+    }
+    @media (max-width: 980px) {
+      .header-inner {
+        align-items: flex-start !important;
+        flex-direction: column !important;
+        gap: 14px !important;
+      }
+      .nav {
+        justify-content: flex-start !important;
+        width: 100% !important;
+        flex-wrap: wrap !important;
+        gap: 8px 18px !important;
+        overflow-x: visible !important;
+        overflow-y: visible !important;
+        -webkit-overflow-scrolling: touch !important;
+        scrollbar-width: none !important;
+        padding-bottom: 0 !important;
+      }
+      .nav::-webkit-scrollbar { display: none !important; }
+      .site-header .nav a { flex: 0 1 auto !important; }
+    }
+    @media (max-width: 680px) {
+      .site-header { padding: 18px 0 14px !important; }
+      .brand img { width: 70px !important; }
+      .brand strong { font-size: 30px !important; }
+      .nav {
+        gap: 8px 16px !important;
+        font-size: 15px !important;
+        line-height: 1.28 !important;
+      }
+      .site-header .nav a { padding: 1px 0 !important; }
+      .hero {
+        min-height: 820px !important;
+      }
+      .hero-inner {
+        min-height: 820px !important;
+        padding-top: 250px !important;
+        align-items: start !important;
+      }
+      .hero h1 {
+        font-size: 46px !important;
+        line-height: 1.26 !important;
+        letter-spacing: .06em !important;
+      }
+    }
+  </style>
+  <script src="common-nav.js" defer></script>
+  <script src="common-footer.js" defer></script>
 </head>
 <body>
   <div class="page">
     <header class="site-header">
       <div class="container header-inner">
         <a class="brand" href="index.html" aria-label="協同組合阿波山雅 ホーム">
-<!--          <svg class="brand-mark" viewBox="0 0 120 60" fill="none" aria-hidden="true">
-##            <path d="M5 42C22 31 29 18 39 28C48 37 54 18 66 26C78 34 82 17 96 26C105 32 111 37 117 39" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
-##          </svg>
--->            <img src="./img/awasanga_logo_w2.png" alt="山あいの渓谷" style="width: 80px; height: auto;" />
+          <img src="./img/awasanga_logo_w2.png" alt="協同組合阿波山雅 ロゴ" style="width: 80px; height: auto;" />
           <div>
             <small>協同組合</small>
             <strong>阿波山雅</strong>
             <span>あわさんが</span>
           </div>
         </a>
-        <nav class="nav" aria-label="メインナビゲーション">
-          <a class="is-active" href="index.html">ホーム</a>
-          <a href="about.html">阿波山雅について</a>
-          <a href="facility-okuyarito.html">施設・拠点</a>
-          <a href="trail-guide.html">山と林道ガイド</a>
-          <a href="projects.html">活動・プロジェクト</a>
-          <a href="activity-report.html">活動報告</a>
-          <a href="support.html">応援する</a>
-          <a href="contact.html">お問い合わせ</a>
-        </nav>
+        <nav class="nav" aria-label="メインナビゲーション" data-common-nav data-current="home"></nav>
       </div>
     </header>
 
@@ -44,7 +141,6 @@
             <p>徳島の山あい・奥槍戸から、地域の魅力と豊かな暮らしを次の世代へ。</p>
             <div class="hero-actions">
               <a class="btn btn-primary" href="projects.html">活動を見る　→</a>
-              <a class="btn btn-gold" href="support.html">サポーターになる　→</a>
             </div>
           </div>
           <div class="hero-badge" aria-hidden="true">
@@ -147,10 +243,10 @@
               自然に囲まれた憩いの場で、地元の食や体験を楽しめる奥槍戸山の家。
               登山や散策の拠点として、地域の皆さまや訪れる人々を温かくお迎えします。
             </p>
-            <a class="btn btn-dark" href="facility-okuyarito.html">詳しく見る　→</a>
+            <a class="btn btn-dark" href="facility_guide.html">詳しく見る　→</a>
             <div class="lodge-images">
-              <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=500&q=85" alt="食堂の内観" />
-              <img src="https://images.unsplash.com/photo-1617196034183-421b4917c92d?auto=format&fit=crop&w=500&q=85" alt="食事" />
+              <img src="./img/localized/dining-interior.jpg" alt="食堂の内観" />
+              <img src="./img/localized/meal-closeup.jpg" alt="食事" />
             </div>
           </div>
         </div>
@@ -173,22 +269,11 @@
         </div>
       </section>
     </main>
-
     <footer class="footer" id="contact">
       <div class="container">
         <div class="footer-inner">
           <div class="footer-brand">協同組合 阿波山雅</div>
-          <div class="footer-links">
-            <a href="index.html">ホーム</a>
-            <a href="about.html">阿波山雅について</a>
-            <a href="facility-okuyarito.html">施設・拠点</a>
-            <a href="trail-guide.html">山と林道ガイド</a>
-            <a href="projects.html">活動・プロジェクト</a>
-            <a href="activity-report.html">活動報告</a>
-            <a href="news.html">お知らせ</a>
-            <a href="support.html">応援・参加する</a>
-            <a href="contact.html">お問い合わせ</a>
-          </div>
+          <nav class="footer-links" aria-label="フッターナビゲーション" data-common-footer></nav>
         </div>
         <p class="copyright">© 協同組合阿波山雅（あわさんが） All Rights Reserved.</p>
       </div>
@@ -216,7 +301,7 @@
             return;
           }
           grid.innerHTML = top4.map(function (it) {
-            var img = it.image || 'https://images.unsplash.com/photo-1470770903676-69b98201ea1c?auto=format&fit=crop&w=800&q=85';
+            var img = it.image || './img/localized/news-default.jpg';
             return ''
               + '<a class="topic-card" href="' + esc(it.url || 'news.html') + '">'
               +   '<div class="topic-image">'

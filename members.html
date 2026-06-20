@@ -3,276 +3,387 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="奥槍戸の山小屋で、毎日いる4人。奥槍どん／杉じぃ／ユズリ／スギト ― 協同組合 阿波山雅の仲間たちのご紹介。">
-<title>仲間たち（4キャラクター紹介）｜阿波山雅について｜協同組合 阿波山雅</title>
+<meta name="description" content="協同組合 阿波山雅の組合加盟者をご紹介します。奥槍戸山の家・中野柚子園・ねこのモノづくり小屋・WOOD HEAD INC.の4事業者が加盟しています。">
+<title>組合加盟者｜協同組合 阿波山雅</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="awasanga-styles.css">
 <style>
-.profile-card {
-  background: white; border: 1px solid var(--rule); border-radius: 16px;
-  overflow: hidden; margin-bottom: 32px;
-  display: grid; grid-template-columns: 280px 1fr; gap: 0;
+/* ===== 組合加盟者カード ===== */
+.member-card {
+  background: white;
+  border: 1px solid var(--rule);
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 48px;
 }
-@media (max-width: 768px) { .profile-card { grid-template-columns: 1fr; } }
-.profile-img-wrap {
-  background: var(--ivory); padding: 24px;
-  display: flex; align-items: center; justify-content: center;
-}
-.profile-img-wrap img { width: 100%; max-width: 220px; }
-.profile-body { padding: 28px 32px; }
-.profile-body h3 {
-  font-size: 26px; color: var(--green-deep); margin-bottom: 4px; font-weight: 700;
-}
-.profile-body .ruby { font-size: 13px; color: var(--gray); margin-bottom: 14px; }
-.profile-body .role-tag {
-  display: inline-block; background: var(--green-soft); color: white;
-  font-size: 11px; padding: 3px 10px; border-radius: 12px; font-weight: 600;
-  margin-bottom: 16px;
-}
-.profile-body .core {
-  font-size: 13px; color: var(--gray); margin-bottom: 16px;
-  font-style: italic;
-}
-.profile-body .desc {
-  font-size: 14px; line-height: 1.85; color: var(--charcoal);
-  background: var(--ivory); padding: 14px 18px; border-radius: 8px;
-  margin-bottom: 20px;
-}
-.profile-attrs {
-  display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px 24px;
-  font-size: 13px;
-}
-@media (max-width: 600px) { .profile-attrs { grid-template-columns: 1fr; } }
-.profile-attrs .attr-key {
-  color: var(--green-deep); font-weight: 600; margin-bottom: 2px;
-}
-.profile-attrs .attr-val { color: var(--charcoal); line-height: 1.7; }
 
-.dynamics-card {
-  background: var(--ivory); border-radius: 16px; padding: 32px 36px;
-  text-align: center;
-  margin-top: 32px;
+.member-card-header {
+  background: var(--ivory);
+  padding: 28px 36px 20px;
+  border-bottom: 1px solid var(--rule);
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  flex-wrap: wrap;
 }
-.dynamics-card h3 { font-size: 20px; color: var(--green-deep); margin-bottom: 16px; }
-.dynamics-card p { font-size: 15px; line-height: 1.95; }
+
+.member-logo-wrap {
+  width: 100px;
+  height: 100px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: white;
+  border: 1px solid var(--rule);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.member-logo-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.member-logo-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  color: var(--gray);
+  text-align: center;
+  padding: 8px;
+}
+
+.member-header-info {
+  flex: 1;
+}
+
+.member-header-info h2 {
+  font-size: 24px;
+  color: var(--green-deep);
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.member-header-info .member-role {
+  font-size: 13px;
+  color: var(--gray);
+  margin-bottom: 10px;
+}
+
+.member-sns {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.member-sns a {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  color: var(--green-deep);
+  border: 1px solid var(--green-soft);
+  border-radius: 20px;
+  padding: 4px 12px;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+
+.member-sns a:hover {
+  background: var(--green-deep);
+  color: white;
+}
+
+.member-body {
+  padding: 28px 36px;
+}
+
+.member-section {
+  margin-bottom: 28px;
+}
+
+.member-section-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--green-deep);
+  border-left: 3px solid var(--green-soft);
+  padding-left: 10px;
+  margin-bottom: 10px;
+}
+
+.member-section p {
+  font-size: 14px;
+  line-height: 1.9;
+  color: var(--charcoal);
+}
+
+.member-photos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.member-photos img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.member-badge {
+  display: inline-block;
+  background: var(--green-soft);
+  color: white;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 12px;
+  margin-right: 6px;
+  margin-bottom: 6px;
+}
+
+.member-count-note {
+  font-size: 13px;
+  color: var(--gray);
+  margin-bottom: 32px;
+}
+
+@media (max-width: 600px) {
+  .member-card-header { padding: 20px; }
+  .member-body { padding: 20px; }
+  .member-header-info h2 { font-size: 20px; }
+}
 </style>
+  <script src="common-nav.js" defer></script>
+  <script src="common-footer.js" defer></script>
 </head>
 <body>
 
-<div class="proto-banner">⚙ プロトタイプ表示 — 実画像・実数値が入ると最終形になります</div>
-
-<nav class="nav">
-  <div class="nav-logo"><a href="06_home_prototype.html">協同組合 阿波山雅</a></div>
-  <ul class="nav-links">
-    <li><a href="about.html" class="active">阿波山雅について</a></li>
-    <li><a href="facility-okuyarito.html">施設・拠点</a></li>
-    <li><a href="trail-guide.html">山と林道ガイド</a></li>
-    <li><a href="projects.html">活動・プロジェクト</a></li>
-    <li><a href="activity-report.html">活動報告</a></li>
-    <li><a href="support.html">応援する</a></li>
-    <li><a href="#">お問い合わせ</a></li>
-  </ul>
+<nav class="nav" aria-label="メインナビゲーション">
+  <div class="nav-logo"><a href="index.html">協同組合 阿波山雅</a></div>
+  <ul class="nav-links" data-common-nav data-current=""></ul>
 </nav>
 
 <header class="page-header">
   <div class="page-header-inner">
     <div class="breadcrumb">
-      <a href="06_home_prototype.html">ホーム</a>
+      <a href="index.html">ホーム</a>
       <span class="breadcrumb-sep">›</span>
-      <a href="about.html">阿波山雅について</a>
-      <span class="breadcrumb-sep">›</span>
-      <span>仲間たち</span>
+      <span>組合加盟者</span>
     </div>
-    <h1>仲間たち</h1>
-    <p>奥槍戸の山小屋で、毎日いる4人。木頭の精霊たちと、奥槍戸のオヤジ。森と人のあいだを繋ぐみなさんを、ご紹介します。</p>
+    <h1>組合加盟者</h1>
+    <p>協同組合 阿波山雅には、那賀町木頭を拠点に活動する4つの事業者が加盟しています。</p>
   </div>
 </header>
 
 <section>
   <div class="container">
 
-    <!-- ========= 奥槍どん ========= -->
-    <div class="profile-card">
-      <div class="profile-img-wrap">
-        <img src="placeholder_okuyaridon.svg" alt="奥槍どん">
-      </div>
-      <div class="profile-body">
-        <h3>奥槍どん</h3>
-        <div class="ruby">おくやりどん</div>
-        <span class="role-tag">奥槍戸山の家のあるじ</span>
-        <p class="core">コア・コンセプト：「拠点と現場の温かさ」</p>
-        <p class="desc">剣山スーパー林道のドンつき、奥槍戸山の家を切り盛りする無口で背中の広いオヤジ。看板メニュー「おとこ気カレー」を作るのもこの人。多くは語らないが、寒い日には黙ってストーブを焚き、林道でへばった登山者には「まあ、座れ」と一杯出してくれる。</p>
-        <div class="profile-attrs">
-          <div>
-            <div class="attr-key">担当領域</div>
-            <div class="attr-val">拠点運営 ／ 飲食 ／ 登山者・バイカーのおもてなし</div>
-          </div>
-          <div>
-            <div class="attr-key">口ぐせ</div>
-            <div class="attr-val">「まあ、座れ」「カレー、食ってけ」</div>
-          </div>
-          <div>
-            <div class="attr-key">好きなもの</div>
-            <div class="attr-val">山の朝の静けさ／鋳鉄の鍋／よく研いだ鉈</div>
-          </div>
-          <div>
-            <div class="attr-key">登場ページ</div>
-            <div class="attr-val">ホームのヒーロー（メイン）／施設・拠点</div>
+    <p class="member-count-note">※ 4事業者（2024/02/01時点）</p>
+
+    <!-- ==============================
+         ① 組合員代表：中野 久
+    =============================== -->
+    <div class="member-card">
+      <div class="member-card-header">
+        <div class="member-logo-wrap">
+          <!-- 奥槍戸山の家の写真に差し替え可 -->
+          <div class="member-logo-placeholder">画像<br>準備中</div>
+        </div>
+        <div class="member-header-info">
+          <h2>組合員代表：中野 久</h2>
+          <p class="member-role">奥槍戸 山の家 管理人 ／ 高の瀬レストハウス</p>
+          <div class="member-sns">
+            <a href="https://www.instagram.com/yamanoie.okuyarido/" target="_blank" rel="noopener">
+              Instagram
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=100015930728117" target="_blank" rel="noopener">
+              Facebook
+            </a>
           </div>
         </div>
       </div>
+      <div class="member-body">
+
+        <div class="member-section">
+          <div class="member-section-title">奥槍戸 山の家（2007年〜 営業中）</div>
+          <span class="member-badge">4月〜11月</span>
+          <p>
+            剣山系南側に広がる次郎笈の麓、剣山スーパー林道沿いの奥槍戸 山の家にて営業しています（月火定休日）。<br>
+            また次郎ギュウから山の家への山道整備や剣山スーパー林道への巡回など、訪れる方々が快適に来られるため、また不用意に自然を壊さないための保全活動を行っています。
+          </p>
+        </div>
+
+        <div class="member-section">
+          <div class="member-section-title">高の瀬レストハウス（2022年〜 営業中）</div>
+          <span class="member-badge">冬季のみ</span>
+          <p>
+            スーパー林道終点近くの高の瀬峡にあるレストハウスで冬季限定の営業を行っています。山の家では提供が難しい定食や限定メニューなども提供しています。また木頭図書館前でも定期的に出張開店しています。
+          </p>
+        </div>
+
+        <div class="member-photos">
+          <!-- 現行HPから引き継ぎ。画像は別途ダウンロードして imgs/ フォルダ等に保存 -->
+          <img src="./img/top_yamanoie1.png" alt="奥槍戸山の家 外観" loading="lazy">
+          <img src="./img/localized/dining-interior.jpg" alt="奥槍戸山の家 店内" loading="lazy">
+          <img src="./img/top_insyoku1.png" alt="山の家の料理" loading="lazy">
+          <img src="./img/top_g.png" alt="スーパー林道" loading="lazy">
+        </div>
+
+      </div>
     </div>
 
-    <!-- ========= 杉じぃ ========= -->
-    <div class="profile-card">
-      <div class="profile-img-wrap">
-        <img src="placeholder_sugijii.svg" alt="杉じぃ">
+    <!-- ==============================
+         ② 中野柚子園
+    =============================== -->
+    <div class="member-card">
+      <div class="member-card-header">
+        <div class="member-logo-wrap">
+          <div class="member-logo-placeholder">画像<br>準備中</div>
+        </div>
+        <div class="member-header-info">
+          <h2>中野柚子園</h2>
+          <p class="member-role">那賀町木頭 ／ ゆず農家</p>
+        </div>
       </div>
-      <div class="profile-body">
-        <h3>杉じぃ</h3>
-        <div class="ruby">すぎじぃ</div>
-        <span class="role-tag">千年の記憶を持つ、木頭杉の長老</span>
-        <p class="core">コア・コンセプト：「過去から未来への伝道師」</p>
-        <p class="desc">かつて那賀川のほとりに千年根を張っていた、木頭でいちばん古い杉の化身。豊臣の世から大阪城や下鴨神社へ旅立った仲間たちのことを「感覚」で覚えている陽気な長老。フォッフォッフォと笑いながら、子どもには木のはなしを、大人にはむかしのはなしを聞かせる。</p>
-        <div class="profile-attrs">
-          <div>
-            <div class="attr-key">担当領域</div>
-            <div class="attr-val">公的信頼 ／ 地域史・木頭杉の伝道 ／ 沿革ページの語り部</div>
-          </div>
-          <div>
-            <div class="attr-key">口ぐせ</div>
-            <div class="attr-val">「懐かしいのう」「フォッフォッフォ」</div>
-          </div>
-          <div>
-            <div class="attr-key">好きなもの</div>
-            <div class="attr-val">木頭杉の香り／那賀川の流れ／子どもの笑い声</div>
-          </div>
-          <div>
-            <div class="attr-key">ビジュアル設定</div>
-            <div class="attr-val">一本乗りの櫂と杉の根が融合した杖／樹皮繊維のローブに苔</div>
+      <div class="member-body">
+
+        <div class="member-section">
+          <p>
+            那賀町木頭の山間部で、ゆず農家を営んでいます。奥深い山の清らかな空気と豊かな土壌が、風味豊かなゆずを育んでいます。日々、ゆずの成長を見守りながら、丹精込めて手入れを行います。良質なゆずをお届けできるよう頑張ります！
+          </p>
+        </div>
+
+        <div class="member-photos">
+          <img src="./img/top_yuzu1.png" alt="柚子の実" loading="lazy">
+          <img src="./img/top_yuzu1.png" alt="柚子農園" loading="lazy">
+          <img src="./img/top_yuzu1.png" alt="柚子収穫" loading="lazy">
+          <img src="./img/top_g.png" alt="木頭の山間" loading="lazy">
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ==============================
+         ③ ねこのモノづくり小屋
+    =============================== -->
+    <div class="member-card">
+      <div class="member-card-header">
+        <div class="member-logo-wrap">
+          <div class="member-logo-placeholder">画像<br>準備中</div>
+        </div>
+        <div class="member-header-info">
+          <h2>ねこのモノづくり小屋</h2>
+          <p class="member-role">グッズ制作 ／ イベント企画・運用支援（2022年開業）</p>
+          <div class="member-sns">
+            <a href="https://www.instagram.com/hiro.my/" target="_blank" rel="noopener">
+              Instagram
+            </a>
+            <a href="https://yamap.com/users/1470710" target="_blank" rel="noopener">
+              YAMAP
+            </a>
+            <a href="https://www.youtube.com/channel/UCiNdPqkS416QPpi5k0MbsJg" target="_blank" rel="noopener">
+              YouTube
+            </a>
           </div>
         </div>
       </div>
+      <div class="member-body">
+
+        <div class="member-section">
+          <p>
+            主に山の家をテーマにした様々なグッズの制作やイベント企画・運用支援を行っています。<br>
+            山の自然や登山文化を愛する方々に喜んでいただけるようなアイテムやサービスを提供し、山の家の魅力をより多くの人々に伝えるお手伝いをしています。
+          </p>
+        </div>
+
+        <div class="member-photos">
+          <img src="./img/top_kouri1.png" alt="ねこのモノづくり小屋 作品" loading="lazy">
+          <img src="./img/top_kouri1.png" alt="グッズ展示" loading="lazy">
+          <img src="./img/top_yamanoie1.png" alt="イベントの様子" loading="lazy">
+          <img src="./img/top_kouri1.png" alt="山の家グッズ" loading="lazy">
+        </div>
+
+      </div>
     </div>
 
-    <!-- ========= ユズリ ========= -->
-    <div class="profile-card">
-      <div class="profile-img-wrap">
-        <img src="placeholder_yuzuri.svg" alt="ユズリ">
-      </div>
-      <div class="profile-body">
-        <h3>ユズリ</h3>
-        <div class="ruby">ゆずり</div>
-        <span class="role-tag">知恵を「譲り葉」のように、次へ繋ぐ少女</span>
-        <p class="core">コア・コンセプト：「知識と愛情による継承」</p>
-        <p class="desc">木頭杉と柚子の調和から生まれた精霊。新しい葉が出るまで古い葉が落ちない「ユズリハ」が名前の由来。山から川へ、人の暮らしから再び山へ――木の生命のサイクルを誰よりも大切にする冷静派。図書館の郷土資料はぜんぶ頭に入っている博識家。</p>
-        <div class="profile-attrs">
-          <div>
-            <div class="attr-key">担当領域</div>
-            <div class="attr-val">解説・継承 ／ 広報誌「奥槍戸やま日和」 ／ 教育・郷土史</div>
-          </div>
-          <div>
-            <div class="attr-key">口ぐせ</div>
-            <div class="attr-val">「歴史を辿れば、答えは見つかります」「木は二度、生きるのですよ」</div>
-          </div>
-          <div>
-            <div class="attr-key">好きなもの</div>
-            <div class="attr-val">木頭杉の薄板でつくった記憶のノート／柚子の白い花／静かな図書室</div>
-          </div>
-          <div>
-            <div class="attr-key">ビジュアル設定</div>
-            <div class="attr-val">杉の葉の緑＋柚子の白い花のドレス／木頭杉薄板のノート</div>
+    <!-- ==============================
+         ④ WOOD HEAD INC.
+    =============================== -->
+    <div class="member-card">
+      <div class="member-card-header">
+        <div class="member-logo-wrap">
+          <div class="member-logo-placeholder">画像<br>準備中</div>
+        </div>
+        <div class="member-header-info">
+          <h2>WOOD HEAD INC.</h2>
+          <p class="member-role">株式会社Wood Head ／ 木工製品の製造販売</p>
+          <div class="member-sns">
+            <a href="https://www.woodheadkito.com/" target="_blank" rel="noopener">
+              公式サイト
+            </a>
+            <a href="https://www.instagram.com/kkwoodhead63/" target="_blank" rel="noopener">
+              Instagram
+            </a>
+            <a href="https://www.facebook.com/woodhead55?locale=ja_JP" target="_blank" rel="noopener">
+              Facebook
+            </a>
+            <a href="https://twitter.com/WoodHead_Kito" target="_blank" rel="noopener">
+              X（旧Twitter）
+            </a>
           </div>
         </div>
       </div>
-    </div>
+      <div class="member-body">
 
-    <!-- ========= スギト ========= -->
-    <div class="profile-card">
-      <div class="profile-img-wrap">
-        <img src="placeholder_sugito.svg" alt="スギト">
-      </div>
-      <div class="profile-body">
-        <h3>スギト</h3>
-        <div class="ruby">すぎと</div>
-        <span class="role-tag">赤身でできた、まっすぐな見習いマイスター</span>
-        <p class="core">コア・コンセプト：「実力と情熱の体現者」</p>
-        <p class="desc">木頭杉のいちばん強い部分――中心の赤身から生まれた精霊。まだ若いけれど、空を目指して真っ直ぐに育ってきた。曲がったことが大嫌いで、褒められるとすぐ顔が赤くなる照れ屋でもある。木のぬくもりを「触って」伝えるのが得意な熱血マイスター。</p>
-        <div class="profile-attrs">
-          <div>
-            <div class="attr-key">担当領域</div>
-            <div class="attr-val">イベント企画 ／ 木頭クエスト ／ 次郎笈トレイル再生 ／ ボランティア募集</div>
-          </div>
-          <div>
-            <div class="attr-key">口ぐせ</div>
-            <div class="attr-val">「オイラの赤身を見てくれよ！」「嘘じゃないぜ、木のぬくもりは本物だ！」</div>
-          </div>
-          <div>
-            <div class="attr-key">好きなもの</div>
-            <div class="attr-val">触れる木材／新しいヘッドライト／まっすぐな道</div>
-          </div>
-          <div>
-            <div class="attr-key">ビジュアル設定</div>
-            <div class="attr-val">なめした木の皮の活動着／頭の新芽はやる気でピーンと伸びる</div>
-          </div>
+        <div class="member-section">
+          <div class="member-section-title">木頭からの贈り物</div>
+          <p>
+            高知との県境、徳島の最果てに在るここ那賀町木頭を知って頂く機会は多くはありません。<br><br>
+            しかしお箸という伝統文化を通して県内外の皆様に木頭杉の歴史や木頭の風土を感じてもらいたい。<br><br>
+            そんな思いから、木頭杉の箸を中心とした木工製品の製造販売を中心に、地域の環境問題と地域創生に向けたプロジェクトに取り組んでいます。
+          </p>
         </div>
+
+        <div class="member-photos">
+          <img src="./img/top_kouri1.png" alt="WOOD HEAD 木工製品" loading="lazy">
+          <img src="./img/top_kouri1.png" alt="木頭杉のお箸" loading="lazy">
+          <img src="./img/top_kouri1.png" alt="木工製品の展示" loading="lazy">
+          <img src="./img/top_g.png" alt="木頭の林業" loading="lazy">
+        </div>
+
       </div>
     </div>
 
-    <!-- ========= 4人のダイナミクス ========= -->
-    <div class="dynamics-card">
-      <h3>4人のダイナミクス</h3>
-      <p>千年の記憶を語る<strong>杉じぃ</strong>。動の<strong>スギト</strong>と、静の<strong>ユズリ</strong>――凸凹だけど一緒に育つ二人。そして、奥槍戸の山小屋で皆を黙って迎える<strong>奥槍どん</strong>。<br>木頭の精霊たちと、奥槍戸のオヤジ。森と人のあいだを繋ぐ4人が、阿波山雅の毎日です。</p>
-    </div>
-
+    <!-- 関連リンク -->
     <div class="related-links">
       <h4>関連ページ</h4>
       <div class="related-grid">
         <a href="about.html" class="related-link">阿波山雅について</a>
-        <a href="facility-okuyarito.html" class="related-link">奥槍戸山の家</a>
-        <a href="projects.html" class="related-link">活動・プロジェクト</a>
+        <a href="facility_guide.html" class="related-link">奥槍戸山の家</a>
+        <a href="support.html" class="related-link">応援・参加する</a>
       </div>
     </div>
 
   </div>
 </section>
-
 <footer class="footer">
   <div class="footer-grid">
     <div class="footer-brand">
       <strong>協同組合 阿波山雅</strong>
-      徳島・剣山系のふもとから、山と地域を次の世代へ。<br>
-      所在地：<span class="placeholder-note">要記入</span><br>
-      電話：<span class="placeholder-note">要記入</span><br>
-      メール：<span class="placeholder-note">要記入</span>
+      徳島・剣山系のふもとから、山と地域を次の世代へ。
     </div>
     <div>
       <h5>サイト</h5>
-      <ul>
-        <li><a href="06_home_prototype.html">ホーム</a></li>
-        <li><a href="about.html">阿波山雅について</a></li>
-        <li><a href="facility-okuyarito.html">施設・拠点</a></li>
-        <li><a href="trail-guide.html">山と林道ガイド</a></li>
-      </ul>
-    </div>
-    <div>
-      <h5>関わる</h5>
-      <ul>
-        <li><a href="projects.html">活動・プロジェクト</a></li>
-        <li><a href="activity-report.html">活動報告</a></li>
-        <li><a href="support.html">応援・参加する</a></li>
-        <li><a href="#">お問い合わせ</a></li>
-      </ul>
-    </div>
-    <div>
-      <h5>SNS</h5>
-      <ul>
-        <li><a href="#">Instagram</a></li>
-        <li><a href="#">Facebook</a></li>
-        <li><a href="#">YouTube</a></li>
-      </ul>
+      <ul data-common-footer></ul>
     </div>
   </div>
   <div class="footer-bottom">© 2026 協同組合 阿波山雅 All Rights Reserved.</div>

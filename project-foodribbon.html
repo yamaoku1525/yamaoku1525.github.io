@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="協同組合 阿波山雅のフードリボンプロジェクト。一枚のリボンが地域の子どもたちの温かい一食につながります。2024年3月から継続中。" />
+  <title>フードリボンプロジェクト｜協同組合 阿波山雅</title>
+  <link rel="stylesheet" href="about-styles.css" />
+  <style>
+    .proj-hero-img {
+      width: 100%;
+      height: clamp(280px, 40vw, 520px);
+      object-fit: cover;
+      border-radius: 0 0 40px 40px;
+      display: block;
+    }
+    .proj-lead {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      align-items: start;
+      margin-top: -60px;
+      position: relative;
+      z-index: 3;
+    }
+    .proj-lead-card {
+      background: rgba(255,250,240,.97);
+      border-radius: 34px;
+      border: 1px solid rgba(36,75,55,.12);
+      box-shadow: var(--shadow);
+      padding: clamp(26px, 4vw, 48px);
+    }
+    .proj-lead-card h2 {
+      color: var(--green);
+      font-size: clamp(28px, 4vw, 48px);
+      line-height: 1.3;
+      margin: 0 0 16px;
+    }
+    .proj-lead-card p { color: var(--muted); line-height: 2; margin: 0; }
+    .proj-lead-card p + p { margin-top: 12px; }
+    .proj-stat-stack { display: grid; gap: 14px; }
+    .proj-stat {
+      padding: 22px 26px;
+      border-radius: 24px;
+      background: #fff;
+      border: 1px solid rgba(36,75,55,.1);
+      box-shadow: 0 12px 32px rgba(22,50,36,.08);
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0 18px;
+      align-items: center;
+    }
+    .proj-stat-num {
+      color: var(--green);
+      font-size: clamp(34px, 4vw, 52px);
+      font-weight: 900;
+      line-height: 1;
+    }
+    .proj-stat-label { font-size: 15px; font-weight: 900; color: var(--ink); }
+    .proj-stat-sub { font-size: 12px; color: var(--muted); margin-top: 4px; line-height: 1.6; }
+
+    .photo-mosaic {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 14px;
+    }
+    .mosaic-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 22px;
+      background: var(--paper);
+      box-shadow: 0 14px 36px rgba(22,50,36,.1);
+    }
+    .mosaic-item.tall { grid-row: span 2; }
+    .mosaic-item img { width: 100%; height: 100%; min-height: 200px; object-fit: cover; display: block; }
+    .mosaic-item.tall img { min-height: 440px; }
+    .mosaic-caption {
+      position: absolute;
+      inset: auto 0 0;
+      padding: 14px 16px;
+      color: #fff;
+      background: linear-gradient(transparent, rgba(22,50,36,.85));
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.6;
+    }
+
+    .how-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .how-card {
+      padding: 28px 24px;
+      border-radius: 26px;
+      background: #fff;
+      border: 1px solid rgba(36,75,55,.1);
+      box-shadow: 0 14px 36px rgba(22,50,36,.07);
+      position: relative;
+      overflow: hidden;
+    }
+    .how-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 6px;
+      background: linear-gradient(90deg, var(--green), var(--gold));
+    }
+    .how-num {
+      color: var(--gold-dark);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .12em;
+      margin-bottom: 10px;
+    }
+    .how-card h3 { color: var(--green); font-size: 18px; margin: 0 0 10px; line-height: 1.45; }
+    .how-card p { color: var(--muted); font-size: 14px; line-height: 1.85; margin: 0; }
+
+    .timeline-list { display: grid; gap: 10px; }
+    .tl-row {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 16px;
+      padding: 18px 22px;
+      border-radius: 20px;
+      background: #fff;
+      border: 1px solid rgba(36,75,55,.1);
+      box-shadow: 0 8px 22px rgba(22,50,36,.06);
+      align-items: start;
+    }
+    .tl-date { color: var(--gold-dark); font-weight: 900; font-size: 13px; padding-top: 2px; }
+    .tl-body b { display: block; color: var(--green); font-size: 15px; margin-bottom: 4px; }
+    .tl-body span { color: var(--muted); font-size: 13px; line-height: 1.8; }
+
+    .info-table-wrap {
+      overflow-x: auto;
+      border-radius: 20px;
+      border: 1px solid rgba(36,75,55,.1);
+      box-shadow: 0 12px 30px rgba(22,50,36,.06);
+    }
+    .info-table { width: 100%; border-collapse: collapse; }
+    .info-table th, .info-table td {
+      padding: 14px 20px;
+      text-align: left;
+      border-bottom: 1px solid rgba(36,75,55,.08);
+      font-size: 14px;
+      line-height: 1.75;
+    }
+    .info-table th { background: rgba(36,75,55,.04); color: var(--green); font-size: 13px; font-weight: 900; width: 140px; }
+    .info-table tr:last-child td, .info-table tr:last-child th { border-bottom: none; }
+
+    .quote-box {
+      padding: clamp(24px, 4vw, 40px);
+      border-radius: 30px;
+      background: rgba(36,75,55,.05);
+      border-left: 5px solid var(--green);
+      position: relative;
+    }
+    .quote-box::before {
+      content: "\201C";
+      position: absolute;
+      top: 16px;
+      left: 24px;
+      font-size: 72px;
+      color: var(--green);
+      opacity: .18;
+      line-height: 1;
+      font-family: serif;
+    }
+    .quote-box p {
+      color: var(--ink);
+      line-height: 2;
+      margin: 0;
+      font-size: clamp(15px, 2vw, 18px);
+    }
+
+    .ext-links { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .ext-link-card {
+      padding: 18px 20px;
+      border-radius: 20px;
+      background: #fff;
+      border: 1px solid rgba(36,75,55,.1);
+      box-shadow: 0 10px 26px rgba(22,50,36,.07);
+      text-decoration: none;
+      display: block;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .ext-link-card:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(22,50,36,.13); }
+    .ext-link-card .link-label { color: var(--green); font-size: 14px; font-weight: 900; margin-bottom: 6px; }
+    .ext-link-card .link-desc { color: var(--muted); font-size: 12px; line-height: 1.7; }
+
+    @media (max-width: 980px) {
+      .proj-lead { grid-template-columns: 1fr; margin-top: 0; }
+      .how-grid { grid-template-columns: 1fr 1fr; }
+      .ext-links { grid-template-columns: 1fr 1fr; }
+      .photo-mosaic { grid-template-columns: 1fr 1fr; }
+      .mosaic-item.tall { grid-row: span 1; }
+      .mosaic-item.tall img { min-height: 220px; }
+    }
+    @media (max-width: 640px) {
+      .how-grid, .ext-links, .photo-mosaic { grid-template-columns: 1fr; }
+      .tl-row { grid-template-columns: 1fr; gap: 6px; }
+    }
+  </style>
+  <script src="common-nav.js" defer></script>
+  <script src="common-footer.js" defer></script>
+</head>
+<body>
+  <div class="page">
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="index.html" aria-label="協同組合阿波山雅 ホーム">
+          <img src="./img/awasanga_logo_w2.png" alt="協同組合阿波山雅ロゴ" />
+          <div><small>協同組合</small><strong>阿波山雅</strong><span>あわさんが</span></div>
+        </a>
+        <nav class="nav" aria-label="メインナビゲーション" data-common-nav data-current="projects"></nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="sub-hero">
+        <div class="container sub-hero-inner">
+          <div class="breadcrumb">
+            <a href="index.html">ホーム</a><span>›</span>
+            <a href="projects.html">活動・プロジェクト</a><span>›</span>
+            <span>フードリボンプロジェクト</span>
+          </div>
+          <div class="hero-label">Food Ribbon Project</div>
+          <h1>一枚のリボンが、<br>子どもの一食になる。</h1>
+          <p>協同組合 阿波山雅は2024年3月から、地域の子どもたちへ食事を届けるフードリボン活動を続けています。山を訪れた人の優しさが、木頭の子どもたちの笑顔につながっています。</p>
+        </div>
+        <div class="hero-badge" aria-hidden="true"><span>2024年3月〜<br>継続中</span></div>
+      </section>
+
+      <section>
+        <div class="container">
+          <div class="proj-lead">
+            <div class="proj-lead-card">
+              <div class="section-kicker">About This Project</div>
+              <h2>山の食事と、地域の子どもをつなぐ仕組み。</h2>
+              <p>フードリボンは、支援者がリボン（食券）を購入し、そのリボンで子どもたちが食事を受け取れる仕組みです。阿波山雅では、高の瀬レストハウス平の里と奥槍戸山の家でリボンを受け付け、木頭図書館前で子どもたちへ食事を届けています。</p>
+              <p>食事提供だけでなく、開催日には子どもたちが集まり、笑い声が響く地域の居場所にもなっています。山小屋運営と地域の子ども支援が交わる、阿波山雅らしい取り組みです。</p>
+            </div>
+            <div class="proj-stat-stack">
+              <div class="proj-stat">
+                <div class="proj-stat-num">148</div>
+                <div>
+                  <div class="proj-stat-label">食分の支援が集まった</div>
+                  <div class="proj-stat-sub">活動開始1カ月（2024年4月21日時点）</div>
+                </div>
+              </div>
+              <div class="proj-stat">
+                <div class="proj-stat-num">117</div>
+                <div>
+                  <div class="proj-stat-label">食を子どもへ届けた</div>
+                  <div class="proj-stat-sub">活動開始1カ月（2024年4月21日時点）</div>
+                </div>
+              </div>
+              <div class="proj-stat">
+                <div class="proj-stat-num">3</div>
+                <div>
+                  <div class="proj-stat-label">拠点で受け付け</div>
+                  <div class="proj-stat-sub">平の里・奥槍戸山の家・木頭図書館前</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <div class="section-head">
+            <div><div class="section-kicker">Photo Report</div><h2 class="section-title">活動の現場</h2></div>
+            <p class="section-text">支援者がリボンを付け、子どもたちが集まり、地域の居場所が生まれていく様子。</p>
+          </div>
+          <div class="photo-mosaic">
+            <figure class="mosaic-item tall">
+              <img src="./img/foodribbon/2024-03-08_フードリボン_賛同者がリボンを付ける.jpg" alt="賛同者がフードリボンのボードにリボンを付けている" loading="lazy" />
+              <figcaption class="mosaic-caption">賛同者がボードへリボンを付ける。一枚のリボンが、子どもへの一食になる仕組みがここから始まる。</figcaption>
+            </figure>
+            <figure class="mosaic-item">
+              <img src="./img/foodribbon/2024-03-08_フードリボン_賛同者とリボンボード.jpg" alt="賛同者と複数のリボンが集まったボード" loading="lazy" />
+              <figcaption class="mosaic-caption">ボードに集まるリボン。地域の人々から支援が届いている。</figcaption>
+            </figure>
+            <figure class="mosaic-item">
+              <img src="./img/foodribbon/2024-03-08_フードリボン_参加店ステッカー.jpg" alt="フードリボン参加店ステッカー" loading="lazy" />
+              <figcaption class="mosaic-caption">フードリボン参加店として、奥槍戸山の家・平の里・木頭図書館前を拠点に活動中。</figcaption>
+            </figure>
+            <figure class="mosaic-item">
+              <img src="./img/foodribbon/2024-03-08_フードリボン_奥槍戸山の家の食事.jpg" alt="奥槍戸山の家の食事" loading="lazy" />
+              <figcaption class="mosaic-caption">奥槍戸山の家での食事提供。飲食事業と地域支援をつなぐ。</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="members-section">
+        <div class="container">
+          <div class="section-head">
+            <div><div class="section-kicker">How It Works</div><h2 class="section-title">フードリボンの仕組み</h2></div>
+            <p class="section-text">山を訪れた人の気持ちを、子どもたちへ届ける3ステップ。</p>
+          </div>
+          <div class="how-grid">
+            <div class="how-card">
+              <div class="how-num">STEP 01</div>
+              <h3>支援者がリボンを購入する</h3>
+              <p>高の瀬レストハウス平の里または奥槍戸山の家で、フードリボン（1枚300円）を購入。ボードにリボンを付けて支援の意思を示します。</p>
+            </div>
+            <div class="how-card">
+              <div class="how-num">STEP 02</div>
+              <h3>木頭図書館前で提供する</h3>
+              <p>毎週木曜日15:00〜17:30、木頭図書館前でリボンと引き換えに食事を提供。中学生以下を対象に、温かい食事を届けます。</p>
+            </div>
+            <div class="how-card">
+              <div class="how-num">STEP 03</div>
+              <h3>地域の居場所になる</h3>
+              <p>食事だけでなく、子どもたちが集まり、追いかけっこや笑い声で賑わう場所になっています。木頭図書館との関係が、地域イベントへの相互参加へも広がっています。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <div class="section-head">
+            <div><div class="section-kicker">Activity Log</div><h2 class="section-title">活動の記録</h2></div>
+          </div>
+          <div class="timeline-list">
+            <div class="tl-row">
+              <div class="tl-date">2024年3月7日・21日</div>
+              <div class="tl-body">
+                <b>活動予告を発信</b>
+                <span>InstagramでフードリボンのInstagram予定表を案内。木頭図書館前での提供予定（15:00〜17:00）を告知。</span>
+              </div>
+            </div>
+            <div class="tl-row">
+              <div class="tl-date">2024年3月8日</div>
+              <div class="tl-body">
+                <b>フードリボン活動を開始</b>
+                <span>高の瀬レストハウス平の里でリボン受け付けを開始。賛同者がボードへリボンを付ける様子と、複数のリボンが集まった様子をInstagramで報告。</span>
+              </div>
+            </div>
+            <div class="tl-row">
+              <div class="tl-date">2024年4月4日</div>
+              <div class="tl-body">
+                <b>春休みの子どもたちが木頭図書館前に集まる</b>
+                <span>追いかけっこや歓声が響き、図書館前が賑わう様子が報告された（森のほんだな 木頭図書館 Facebook）。</span>
+              </div>
+            </div>
+            <div class="tl-row">
+              <div class="tl-date">2024年4月21日</div>
+              <div class="tl-body">
+                <b>活動開始1カ月の報告</b>
+                <span>支援148食分、提供117食分の実績を阿波山雅Webサイトで報告。</span>
+              </div>
+            </div>
+            <div class="tl-row">
+              <div class="tl-date">2024年10月24日</div>
+              <div class="tl-body">
+                <b>木頭図書館前でフードリボンを実施</b>
+                <span>「みんなの愛をつなぎます」と発信。Instagram・Facebookで告知動画を公開。</span>
+              </div>
+            </div>
+            <div class="tl-row">
+              <div class="tl-date">2025年4月30日</div>
+              <div class="tl-body">
+                <b>徳島新聞に掲載</b>
+                <span>フードリボン活動が徳島新聞で紹介される。</span>
+              </div>
+            </div>
+            <div class="tl-row">
+              <div class="tl-date">2026年2月27日</div>
+              <div class="tl-body">
+                <b>木頭図書館がフリーマーケットへ出展告知</b>
+                <span>阿波山雅主催の高ノ瀬レストハウス・フリーマーケットへ木頭図書館が出展すると告知。継続的な連携に発展。</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="members-section">
+        <div class="container">
+          <div class="section-head">
+            <div><div class="section-kicker">Access Info</div><h2 class="section-title">利用案内</h2></div>
+            <p class="section-text">木頭図書館前での提供案内です。最新情報は阿波山雅へお問い合わせください。</p>
+          </div>
+          <div class="info-table-wrap">
+            <table class="info-table">
+              <tbody>
+                <tr><th>実施場所</th><td>木頭図書館前（那賀郡那賀町木頭和無田マツギ40）</td></tr>
+                <tr><th>実施日</th><td>毎週木曜日（※変更になる場合があります。最新情報をご確認ください）</td></tr>
+                <tr><th>実施時間</th><td>15:00〜17:30</td></tr>
+                <tr><th>対象</th><td>中学生以下</td></tr>
+                <tr><th>リボン金額</th><td>300円（支援者が購入）</td></tr>
+                <tr><th>リボン受け付け拠点</th><td>高の瀬レストハウス 平の里、奥槍戸山の家</td></tr>
+                <tr><th>お問い合わせ</th><td>090-6281-7780</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <div class="section-head">
+            <div><div class="section-kicker">Message</div><h2 class="section-title">この活動にかける思い</h2></div>
+          </div>
+          <div class="quote-box">
+            <p>一枚のリボンが、地域の子どもたちの温かい一食につながります。<br>
+            皆さまから託されたリボンで子どもたちへ食事を届けるだけでなく、開催日は子どもたちの笑い声が響く、地域の居場所にもなっています。<br><br>
+            山を訪れた一人ひとりの優しさを、地域の子どもたちへ。皆さまと一緒に、食事と笑顔がつながる場所を育てていきます。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="members-section">
+        <div class="container">
+          <div class="section-head">
+            <div><div class="section-kicker">Links</div><h2 class="section-title">関連リンク・情報発信</h2></div>
+          </div>
+          <div class="ext-links">
+            <a class="ext-link-card" href="https://www.instagram.com/yamanoie.okuyarido/" target="_blank" rel="noopener noreferrer">
+              <div class="link-label">Instagram @yamanoie.okuyarido</div>
+              <div class="link-desc">活動予定、賛同者への感謝、現地の様子を写真・動画で発信中。</div>
+            </a>
+            <a class="ext-link-card" href="https://www.awasanga.com/topic%E8%A9%B3%E7%B4%B0" target="_blank" rel="noopener noreferrer">
+              <div class="link-label">活動開始1カ月報告（阿波山雅サイト）</div>
+              <div class="link-desc">2024年4月21日に公開。148食の支援・117食の提供を報告。</div>
+            </a>
+            <a class="ext-link-card" href="https://www.topics.or.jp/articles/-/1231668" target="_blank" rel="noopener noreferrer">
+              <div class="link-label">徳島新聞掲載記事</div>
+              <div class="link-desc">2025年4月30日付。フードリボン活動が紙面で紹介された。</div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="final-cta-section">
+        <div class="container">
+          <div class="cta-panel cta-panel-wide">
+            <h2>山を訪れる気持ちが、<br>地域の子どもたちへ届く。</h2>
+            <p>リボンの購入は、平の里または奥槍戸山の家でお受けしています。山を楽しみながら、地域とつながる活動に参加してみてください。</p>
+            <div class="cta-actions">
+              <a class="btn btn-gold" href="projects.html">活動・プロジェクトへ　→</a>
+              <a class="btn btn-dark" href="facility_guide.html">施設・林道ガイドへ　→</a>
+            </div>
+          </div>
+          <div class="related-links" aria-label="関連ページ">
+            <a class="related-link" href="project-trail.html">次郎笈トレイル再生 <span>→</span></a>
+            <a class="related-link" href="project-kitokuma.html">木頭クエスト×クマまつり <span>→</span></a>
+            <a class="related-link" href="project-ridgeway.html">剣山スーパー林道 <span>→</span></a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer" id="contact">
+      <div class="container">
+        <div class="footer-inner">
+          <div class="footer-brand">協同組合 阿波山雅</div>
+          <nav class="footer-links" aria-label="フッターナビゲーション" data-common-footer></nav>
+        </div>
+        <p class="copyright">© 協同組合阿波山雅（あわさんが） All Rights Reserved.</p>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>

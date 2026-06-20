@@ -119,6 +119,7 @@
 
     .nav a {
       position: relative;
+      padding: 6px 0;
       opacity: 0.88;
       transition: opacity 0.25s ease;
       white-space: nowrap;
@@ -129,15 +130,22 @@
       opacity: 1;
     }
 
-    .nav a.is-active::after {
+    .nav a::after {
       content: "";
       position: absolute;
-      left: 50%;
-      bottom: -10px;
-      width: 28px;
+      left: 0;
+      right: 0;
+      bottom: 0;
       height: 1px;
       background: var(--gold);
-      transform: translateX(-50%);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.24s ease;
+    }
+
+    .nav a:hover::after,
+    .nav a.is-active::after {
+      transform: scaleX(1);
     }
 
     /* Hero */
@@ -443,7 +451,7 @@
       padding: 78px 0 86px;
       background:
         linear-gradient(180deg, rgba(16, 41, 31, 0.96), rgba(16, 41, 31, 0.98)),
-        url("https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=2200&q=80") center / cover;
+        url("./img/localized/forest-bg.jpg") center / cover;
       color: var(--white);
     }
 
@@ -598,7 +606,7 @@
       color: var(--white);
       background:
         linear-gradient(90deg, rgba(16, 41, 31, 0.8), rgba(16, 41, 31, 0.94)),
-        url("https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=2200&q=85") center / cover;
+        url("./img/localized/community-support.jpg") center / cover;
     }
 
     .support-inner {
@@ -669,8 +677,16 @@
     }
 
     @media (max-width: 980px) {
+      .header-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 16px;
+      }
+
       .nav {
-        display: none;
+        display: flex;
+        justify-content: flex-start;
+        width: 100%;
       }
 
       .hero-inner,
@@ -744,6 +760,21 @@
       .topic-grid,
       .activity-grid {
         grid-template-columns: 1fr;
+      }
+
+      .intro-photos,
+      .activity-photo,
+      .lodge-photo,
+      .lodge-images {
+        display: none;
+      }
+
+      .activities {
+        background: linear-gradient(180deg, rgba(16, 41, 31, 0.96), rgba(16, 41, 31, 0.98));
+      }
+
+      .support-cta {
+        background: linear-gradient(90deg, rgba(16, 41, 31, 0.9), rgba(16, 41, 31, 0.96));
       }
 
       .intro-photos img:nth-child(2) {

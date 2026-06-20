@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="協同組合 阿波山雅の仲間たち。奥槍どん、なぎかちゃん、杉じぃ、ユズリ、スギトを紹介します。">
+<title>仲間たち｜協同組合 阿波山雅</title>
+<link rel="stylesheet" href="awasanga-styles.css">
+<link rel="stylesheet" href="site-header-standard.css">
+<script src="common-nav.js" defer></script>
+<script src="common-footer.js" defer></script>
+<style>
+.character-intro {
+  background: white;
+  border: 1px solid var(--rule);
+  border-radius: 16px;
+  padding: 32px;
+  line-height: 2;
+}
+.character-grid {
+  display: grid;
+  gap: 28px;
+}
+.character-card {
+  background: white;
+  border: 1px solid var(--rule);
+  border-radius: 18px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 320px 1fr;
+}
+@media (max-width: 820px) { .character-card { grid-template-columns: 1fr; } }
+.character-visual {
+  background: var(--ivory);
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.character-visual img {
+  width: 100%;
+  max-height: 320px;
+  object-fit: contain;
+}
+.character-body {
+  padding: 28px;
+}
+.character-body .eyebrow {
+  color: var(--green-deep);
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.character-body h2 {
+  color: var(--green-deep);
+  font-size: clamp(24px, 3vw, 32px);
+  margin-bottom: 8px;
+}
+.character-copy {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--charcoal);
+  margin-bottom: 14px;
+}
+.character-body p {
+  font-size: 14px;
+  line-height: 1.85;
+  margin-bottom: 14px;
+}
+.profile-table {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  border-top: 1px solid var(--rule);
+  margin: 18px 0;
+}
+.profile-table dt, .profile-table dd {
+  border-bottom: 1px solid var(--rule);
+  padding: 10px 0;
+  font-size: 13px;
+}
+.profile-table dt {
+  color: var(--green-deep);
+  font-weight: 700;
+}
+.phrase-list {
+  background: var(--ivory);
+  border-radius: 12px;
+  padding: 16px 18px;
+}
+.phrase-list h3 {
+  font-size: 15px;
+  color: var(--green-deep);
+  margin-bottom: 8px;
+}
+.phrase-list ul {
+  margin-left: 18px;
+}
+.phrase-list li {
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+.relation-map {
+  background: white;
+  border: 1px solid var(--rule);
+  border-radius: 16px;
+  padding: 28px;
+}
+.relation-steps {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+  text-align: center;
+}
+@media (max-width: 900px) { .relation-steps { grid-template-columns: 1fr; } }
+.relation-step {
+  background: var(--ivory);
+  border-radius: 12px;
+  padding: 16px 12px;
+}
+.relation-step strong {
+  display: block;
+  color: var(--green-deep);
+  margin-bottom: 4px;
+}
+</style>
+</head>
+<body class="standard-subpage">
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="index.html" aria-label="協同組合阿波山雅 ホーム">
+      <img src="./img/awasanga_logo_w2.png" alt="協同組合阿波山雅ロゴ" />
+      <div>
+        <small>協同組合</small>
+        <strong>阿波山雅</strong>
+        <span>あわさんが</span>
+      </div>
+    </a>
+    <nav class="nav" aria-label="メインナビゲーション" data-common-nav data-current="characters"></nav>
+  </div>
+</header>
+
+<header class="page-header">
+  <div class="page-header-inner">
+    <div class="breadcrumb"><a href="index.html">ホーム</a><span class="breadcrumb-sep">/</span>仲間たち</div>
+    <h1>阿波山雅の仲間たち</h1>
+    <p>奥槍戸山の家を迎える兄妹と、山の記憶・知恵・実践を案内する仲間たち。</p>
+  </div>
+</header>
+
+<main>
+
+<section>
+  <div class="container">
+    <div class="character-intro">
+      <p>阿波山雅には、山の活動を案内してくれる仲間たちがいます。</p>
+      <p>奥槍戸山の家を支える、やさしく芯のある好青年・奥槍どん。山の元気を届ける妹・なぎかちゃん。木頭杉の長老・杉じぃ。知恵を次へ繋ぐ少女・ユズリ。まっすぐな見習いマイスター・スギト。</p>
+      <p>それぞれのキャラクターは、阿波山雅が大切にしている価値を表しています。おもてなし、元気、山の記憶、知恵の継承、手を動かす実践。このページでは、阿波山雅の活動をともに伝えていく仲間たちを紹介します。</p>
+    </div>
+  </div>
+</section>
+
+<section style="background:white;">
+  <div class="container">
+    <h2 class="section-title">関係性</h2>
+    <p class="section-subtitle">5人の役割を、阿波山雅の活動とつなげて整理します。</p>
+    <div class="relation-map">
+      <div class="relation-steps">
+        <div class="relation-step"><strong>迎える</strong>奥槍どん<br><small>食・拠点・安心</small></div>
+        <div class="relation-step"><strong>元気にする</strong>なぎかちゃん<br><small>来訪者・子ども・イベント</small></div>
+        <div class="relation-step"><strong>記憶を語る</strong>杉じぃ<br><small>木頭杉・山の歴史</small></div>
+        <div class="relation-step"><strong>知恵にする</strong>ユズリ<br><small>記録・発信・継承</small></div>
+        <div class="relation-step"><strong>形にする</strong>スギト<br><small>ものづくり・現場活動</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container character-grid">
+
+    <article class="character-card" id="okuyaridon">
+      <div class="character-visual"><img src="./img/奥槍どん.png" alt="奥槍どん"></div>
+      <div class="character-body">
+        <div class="eyebrow">奥槍戸山の家を支える兄</div>
+        <h2>奥槍どん</h2>
+        <div class="character-copy">奥槍戸山の家を支える、やさしく芯のある若きあるじ。</div>
+        <p>奥槍どんは、奥槍戸山の家を支える好青年です。やさしい口調で、山を訪れる人をあたたかく迎えてくれます。けれど、ただ穏やかなだけではありません。</p>
+        <p>奥槍戸山の家を守ること。山に来てくれた人に、ほっとする時間を届けること。地域の食や人のつながりを、次の世代へつないでいくこと。その一つひとつに、まっすぐな思いを持っています。</p>
+        <p>妹のなぎかちゃんに振り回されることもありますが、いつも少し離れたところから、やさしく見守っています。</p>
+        <dl class="profile-table">
+          <dt>性格</dt><dd>やさしい、落ち着いている、しっかり者、芯がある</dd>
+          <dt>役割</dt><dd>奥槍戸山の家、食、来訪者のおもてなし</dd>
+          <dt>口ぐせ</dt><dd>よう来てくれたね。ゆっくりしていって。</dd>
+          <dt>担当</dt><dd>食、拠点、休憩、安心できる場所づくり</dd>
+        </dl>
+        <div class="phrase-list"><h3>セリフ例</h3><ul><li>「よう来てくれたね。ゆっくりしていって。」</li><li>「ここが、山に来る人にとって安心できる場所であってほしいんだ。」</li></ul></div>
+      </div>
+    </article>
+
+    <article class="character-card" id="nagika">
+      <div class="character-visual"><img src="./img/なぎかちゃん.png" alt="なぎかちゃん"></div>
+      <div class="character-body">
+        <div class="eyebrow">奥槍どんの妹</div>
+        <h2>なぎかちゃん</h2>
+        <div class="character-copy">山の元気を届ける、奥槍どんの妹。</div>
+        <p>なぎかちゃんは、奥槍どんの妹で、元気いっぱいな女の子です。奥槍戸山の家のメニュー「おんなぎカレー」から生まれたキャラクターで、山に来てくれた人を明るく迎えるのが大好きです。</p>
+        <p>初めて来た人にも、子どもたちにも、すぐに声をかけて、山の楽しさや奥槍戸山の家の魅力を伝えてくれます。少し勢いがありすぎて、兄の奥槍どんに心配されることもありますが、その明るさは、まわりの人を自然と笑顔にしてくれます。</p>
+        <dl class="profile-table">
+          <dt>性格</dt><dd>元気いっぱい、明るい、人なつっこい、前向き</dd>
+          <dt>役割</dt><dd>来訪者案内、子ども向け案内、イベントの盛り上げ役</dd>
+          <dt>口ぐせ</dt><dd>はじめてでも大丈夫！なぎかが案内するよ！</dd>
+          <dt>担当</dt><dd>おんなぎカレー、イベント、初めての人への案内</dd>
+        </dl>
+        <div class="phrase-list"><h3>セリフ例</h3><ul><li>「いらっしゃーい！奥槍戸山の家へようこそ！」</li><li>「お山って、楽しいこといっぱいあるんよ！」</li></ul></div>
+      </div>
+    </article>
+
+    <article class="character-card" id="sugijii">
+      <div class="character-visual"><img src="./img/杉じぃ.png" alt="杉じぃ"></div>
+      <div class="character-body">
+        <div class="eyebrow">木頭杉の長老</div>
+        <h2>杉じぃ</h2>
+        <div class="character-copy">千年の記憶を持つ、木頭杉の長老。</div>
+        <p>杉じぃは、木頭杉の森に長い長い時間を生きてきた長老です。山のこと、木のこと、昔の暮らしのことをよく知っています。</p>
+        <p>いつもは陽気に笑っていますが、山の話になると少しだけ真剣になります。木をただの材料として見るのではなく、山の時間そのものとして見ることを大切にしています。</p>
+        <dl class="profile-table">
+          <dt>性格</dt><dd>陽気、物知り、少し説教好き、あたたかい</dd>
+          <dt>役割</dt><dd>山の記憶、木頭杉の文化、地域の歴史を伝える</dd>
+          <dt>口ぐせ</dt><dd>木にはのう、時間が詰まっとるんじゃ。</dd>
+          <dt>担当</dt><dd>木頭杉、山の歴史、木育、自然の循環</dd>
+        </dl>
+        <div class="phrase-list"><h3>セリフ例</h3><ul><li>「木は急がん。じゃが、人が忘れるのは早いんじゃ。」</li><li>「昔話ではないぞ。これからの話をするために、昔を知るんじゃ。」</li></ul></div>
+      </div>
+    </article>
+
+    <article class="character-card" id="yuzuri">
+      <div class="character-visual"><img src="./img/ユズリ.png" alt="ユズリ"></div>
+      <div class="character-body">
+        <div class="eyebrow">知恵を次へ繋ぐ案内人</div>
+        <h2>ユズリ</h2>
+        <div class="character-copy">知恵を、次へ繋ぐ少女。</div>
+        <p>ユズリは、山の資料や地域の記録を読むのが大好きな、冷静で博識な女の子です。地域にある資源をどうすれば未来へ残せるのか、いつも考えています。</p>
+        <p>記録するだけでなく、伝わる形に整えることを大切にしています。阿波山雅の活動では、情報発信、記録、学び、地域資源を未来へ渡すための案内役です。</p>
+        <dl class="profile-table">
+          <dt>性格</dt><dd>冷静、博識、観察力がある、整理上手</dd>
+          <dt>役割</dt><dd>情報発信、記録、学び、次世代継承</dd>
+          <dt>口ぐせ</dt><dd>残すだけでは足りません。伝わる形にしましょう。</dd>
+          <dt>担当</dt><dd>広報、地域資源、郷土資料、学習コンテンツ</dd>
+        </dl>
+        <div class="phrase-list"><h3>セリフ例</h3><ul><li>「資源は、見つけ直して、伝わる形にして、初めて未来へ残ります。」</li><li>「次の世代に渡すためには、記録と仕組みが必要です。」</li></ul></div>
+      </div>
+    </article>
+
+    <article class="character-card" id="sugito">
+      <div class="character-visual"><img src="./img/スギト.png" alt="スギト"></div>
+      <div class="character-body">
+        <div class="eyebrow">見習いマイスター</div>
+        <h2>スギト</h2>
+        <div class="character-copy">赤身でできた、まっすぐな見習いマイスター。</div>
+        <p>スギトは、木のぬくもりを誰よりも信じている、まっすぐな見習いマイスターです。考えるより先に、まず手を動かすタイプです。</p>
+        <p>木に触れること。道を整えること。小屋を支えること。イベントで人を迎えること。その一つひとつが、山の未来をつくる仕事になると信じています。</p>
+        <dl class="profile-table">
+          <dt>性格</dt><dd>熱血、まっすぐ、行動派、曲がったことが嫌い</dd>
+          <dt>役割</dt><dd>ものづくり、現場活動、イベント、担い手づくり</dd>
+          <dt>口ぐせ</dt><dd>まず、やってみようぜ。</dd>
+          <dt>担当</dt><dd>木工、拠点整備、ボランティア、現場活動</dd>
+        </dl>
+        <div class="phrase-list"><h3>セリフ例</h3><ul><li>「山を守るって、手を動かすことから始まるんだ。」</li><li>「小さな作業でも、続けば山の力になる。」</li></ul></div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section class="section-tight">
+  <div class="container">
+    <div class="cta-banner">
+      <h3>仲間たちと一緒に、阿波山雅の活動を見てみませんか</h3>
+      <p>杉じぃ・ユズリ・スギトが、山の課題と活動を案内します。</p>
+      <div class="cta-row">
+        <a href="projects.html" class="btn btn-ghost">活動・プロジェクトを見る</a>
+        <a href="facility_guide.html#okuyarito" class="btn btn-ghost">奥槍戸山の家へ</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer" id="contact">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">協同組合 阿波山雅</div>
+      <nav class="footer-links" aria-label="フッターナビゲーション" data-common-footer></nav>
+    </div>
+    <p class="copyright">© 協同組合阿波山雅（あわさんが） All Rights Reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>

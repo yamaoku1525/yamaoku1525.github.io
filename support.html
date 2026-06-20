@@ -1,262 +1,169 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="協同組合 阿波山雅は、地域を次の世代へ繋いでいくための仲間を募集しています。個人サポーター／法人スポンサー／ボランティア／組合加盟、4つの応援のかたちから選んでください。">
-<title>応援・参加する｜協同組合 阿波山雅</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="awasanga-styles.css">
-<style>
-.support-block {
-  background: white; border: 1px solid var(--rule); border-radius: 16px;
-  padding: 36px 40px; margin-bottom: 28px;
-  border-left: 6px solid var(--green-deep);
-}
-.support-block h3 {
-  font-size: 22px; color: var(--green-deep); font-weight: 700; margin-bottom: 8px;
-}
-.support-block .lead {
-  font-size: 15px; color: var(--charcoal); line-height: 1.85; margin-bottom: 20px;
-}
-.support-block .fields-list {
-  background: var(--ivory); padding: 16px 20px; border-radius: 8px;
-  margin-bottom: 20px; font-size: 13px; color: var(--gray);
-}
-.support-block .fields-list strong { color: var(--charcoal); }
-.support-block ul { margin: 8px 0 0 18px; }
-.support-block li { margin-bottom: 4px; line-height: 1.7; }
-
-.choose-cards {
-  display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px;
-  margin-bottom: 48px;
-}
-@media (max-width: 880px) { .choose-cards { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 600px) { .choose-cards { grid-template-columns: 1fr; } }
-.choose-card {
-  background: white; border: 1px solid var(--rule); border-radius: 12px;
-  padding: 22px 20px; text-align: center;
-  text-decoration: none; color: var(--charcoal);
-  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
-}
-.choose-card:hover {
-  transform: translateY(-4px); box-shadow: 0 12px 28px rgba(45,90,61,0.12);
-  border-color: var(--green-deep);
-}
-.choose-card .icon { font-size: 36px; margin-bottom: 8px; }
-.choose-card h4 { font-size: 15px; color: var(--green-deep); font-weight: 700; margin-bottom: 4px; }
-.choose-card p { font-size: 12px; color: var(--gray); line-height: 1.6; }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="協同組合 阿波山雅を応援する方法をご案内します。山を訪れること、賛助会員として支えることが、山の未来につながります。" />
+  <title>応援する｜協同組合 阿波山雅</title>
+  <link rel="stylesheet" href="awasanga-top_styles.css" />
+  <style>
+    :root {
+      --green: var(--green-700);
+      --deep: var(--green-900);
+      --paper: var(--white);
+    }
+    .sub-hero { position:relative; min-height:560px; display:grid; align-items:end; overflow:hidden; color:#fff; background:linear-gradient(90deg,rgba(9,28,20,.86),rgba(12,35,25,.38)),url('./img/top_yamanoie1.png') center/cover no-repeat; }
+    .sub-hero::after { content:""; position:absolute; inset:auto 0 0; height:220px; background:linear-gradient(180deg,transparent,rgba(16,41,31,.86)); pointer-events:none; }
+    .sub-hero-inner { position:relative; z-index:1; padding:160px 0 130px; }
+    .breadcrumb { display:flex; gap:10px; margin-bottom:24px; font-family:"Hiragino Sans","Yu Gothic",sans-serif; font-size:13px; color:rgba(255,255,255,.76); }
+    .sub-hero h1 { max-width:820px; margin:0; font-size:clamp(42px,6vw,78px); font-weight:400; line-height:1.3; letter-spacing:.1em; }
+    .sub-hero p { max-width:700px; margin:24px 0 0; font-size:17px; line-height:2; letter-spacing:.06em; color:rgba(255,255,255,.9); }
+    .sub-hero .hero-badge { position:absolute; z-index:2; right:max(5vw,40px); bottom:80px; }
+    .section-head { display:flex; align-items:end; justify-content:space-between; gap:32px; margin-bottom:30px; }
+    .btn-outline { border-color:rgba(36,75,55,.28); color:var(--green); background:rgba(255,255,255,.58); }
+    .btn-dark { border-color:var(--deep); color:#fff; background:var(--deep); }
+    .support-lead { position:relative; z-index:3; margin-top:-70px; }
+    .support-intro { max-width:920px; padding:clamp(30px,5vw,58px); border-radius:38px; background:rgba(255,250,240,.96); border:1px solid rgba(36,75,55,.12); box-shadow:var(--shadow); }
+    .support-intro h2 { margin:0; color:var(--green); font-size:clamp(34px,5vw,58px); line-height:1.3; letter-spacing:.06em; }
+    .support-intro p { max-width:720px; margin:20px 0 0; color:var(--muted); line-height:2; }
+    .support-options { padding:80px 0; }
+    .support-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:26px; }
+    .support-card { position:relative; overflow:hidden; padding:clamp(28px,4vw,42px); border-radius:30px; background:#fff; border:1px solid rgba(36,75,55,.1); box-shadow:0 18px 46px rgba(22,50,36,.08); }
+    .support-card::before { content:""; position:absolute; inset:0 0 auto; height:7px; background:linear-gradient(90deg,var(--green),var(--gold)); }
+    .support-card .label { color:var(--gold-dark); font-size:12px; font-weight:900; letter-spacing:.14em; text-transform:uppercase; margin-bottom:12px; }
+    .support-card h3 { margin:0 0 14px; color:var(--green); font-size:clamp(25px,3vw,34px); line-height:1.4; }
+    .support-card p { color:var(--muted); line-height:1.95; }
+    .support-card .btn { margin-top:22px; }
+    .support-contact { padding:0 0 80px; }
+    .support-contact-panel { display:flex; align-items:center; justify-content:space-between; gap:28px; padding:30px; border-radius:28px; background:var(--paper); border:1px solid rgba(36,75,55,.12); }
+    .support-contact-panel h2 { margin:0 0 8px; color:var(--green); font-size:25px; }
+    .support-contact-panel p { margin:0; color:var(--muted); line-height:1.8; }
+    .final-cta-section { padding:80px 0; background:var(--deep); color:#fff; }
+    .cta-panel { padding:clamp(32px,5vw,58px); border:1px solid rgba(255,255,255,.18); background:linear-gradient(135deg,rgba(255,255,255,.08),rgba(255,255,255,.02)); }
+    .cta-panel h2 { margin:0; font-size:clamp(32px,4vw,52px); font-weight:400; line-height:1.45; letter-spacing:.1em; }
+    .cta-panel p { max-width:700px; margin:20px 0 0; color:rgba(255,255,255,.78); line-height:2; }
+    .cta-actions { margin-top:28px; }
+    .related-links { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; margin-top:26px; background:rgba(255,255,255,.15); }
+    .related-link { display:flex; justify-content:space-between; padding:20px; background:var(--deep); color:rgba(255,255,255,.88); }
+    .footer { padding:34px 0 24px; color:rgba(255,255,255,.72); background:#0d2118; }
+    .footer-inner { display:flex; align-items:center; justify-content:space-between; gap:24px; }
+    .footer-brand { color:#fff; font-size:20px; letter-spacing:.1em; }
+    .footer-links { display:flex; flex-wrap:wrap; justify-content:flex-end; gap:10px 18px; font-size:13px; }
+    .copyright { margin:24px 0 0; font-size:11px; color:rgba(255,255,255,.48); }
+    @media(max-width:900px) {
+      .support-lead { margin-top:-48px; }
+      .support-grid { grid-template-columns:1fr; }
+      .support-contact-panel { display:block; }
+      .support-contact-panel .btn { margin-top:20px; }
+      .sub-hero .hero-badge { display:none; }
+      .section-head,.footer-inner { display:block; }
+      .related-links { grid-template-columns:1fr; }
+      .footer-links { justify-content:flex-start; margin-top:18px; }
+    }
+    @media(max-width:640px) {
+      .support-intro { border-radius:26px; }
+      .support-options { padding:58px 0; }
+    }
+  </style>
+  <link rel="stylesheet" href="site-header-standard.css" />
+  <script src="common-nav.js" defer></script>
+  <script src="common-footer.js" defer></script>
 </head>
-<body>
+<body class="standard-subpage">
+  <div class="page">
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="index.html" aria-label="協同組合阿波山雅 ホーム">
+          <img src="./img/awasanga_logo_w2.png" alt="協同組合阿波山雅ロゴ" />
+          <div><small>協同組合</small><strong>阿波山雅</strong><span>あわさんが</span></div>
+        </a>
+        <nav class="nav" aria-label="メインナビゲーション" data-common-nav data-current="support"></nav>
+      </div>
+    </header>
 
-<div class="proto-banner">⚙ プロトタイプ表示 — 実画像・実数値が入ると最終形になります</div>
+    <main>
+      <section class="sub-hero">
+        <div class="container sub-hero-inner">
+          <div class="breadcrumb"><a href="index.html">ホーム</a><span>›</span><span>応援する</span></div>
+          <div class="hero-label">Support</div>
+          <h1>山に来ることが、<br>山の未来につながります。</h1>
+          <p>阿波山雅を応援する方法は、山を訪れることと、賛助会員として支えることです。</p>
+        </div>
+        <div class="hero-badge" aria-hidden="true"><span>訪れる<br>支える<br>つながる</span></div>
+      </section>
 
-<nav class="nav">
-  <div class="nav-logo"><a href="06_home_prototype.html">協同組合 阿波山雅</a></div>
-  <ul class="nav-links">
-    <li><a href="about.html">阿波山雅について</a></li>
-    <li><a href="facility-okuyarito.html">施設・拠点</a></li>
-    <li><a href="trail-guide.html">山と林道ガイド</a></li>
-    <li><a href="projects.html">活動・プロジェクト</a></li>
-    <li><a href="activity-report.html">活動報告</a></li>
-    <li><a href="support.html" class="active">応援する</a></li>
-    <li><a href="#">お問い合わせ</a></li>
-  </ul>
-</nav>
+      <section class="support-lead">
+        <div class="container">
+          <div class="support-intro">
+            <div class="section-kicker">Two ways to support</div>
+            <h2>まずは山へ。<br>そして、できる形で応援を。</h2>
+            <p>山の家で食事をする、景色を楽しむ、地域のことを知る。その一つひとつが、山に人が集まる場所を守る力になります。継続して活動を支えてくださる方には、賛助会員という関わり方もあります。</p>
+          </div>
+        </div>
+      </section>
 
-<header class="page-header">
-  <div class="page-header-inner">
-    <div class="breadcrumb">
-      <a href="06_home_prototype.html">ホーム</a>
-      <span class="breadcrumb-sep">›</span>
-      <span>応援・参加する</span>
-    </div>
-    <h1>あなたの応援が、山を守ります</h1>
-    <p>阿波山雅は、この地域を「次の世代」へ繋いでいくための協同組合です。<br>あなたに合うかたちを、4つから選んでください。</p>
+      <section class="support-options">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <div class="section-kicker">Support</div>
+              <h2 class="section-title">ふたつの応援方法</h2>
+            </div>
+          </div>
+          <div class="support-grid">
+            <article class="support-card">
+              <div class="label">01 Visit</div>
+              <h3>山へ来る</h3>
+              <p>奥槍戸山の家をはじめ、剣山系の施設や山を訪れてください。食事や買い物、山で過ごす時間が、地域の営みを続ける力になります。</p>
+              <a class="btn btn-outline" href="facility_guide.html">施設・山と林道ガイドを見る　→</a>
+            </article>
+            <article class="support-card">
+              <div class="label">02 Membership</div>
+              <h3>賛助会員になる</h3>
+              <p>阿波山雅の活動を継続して見守り、支えてくださる個人・団体向けの賛助会員制度です。加入については、お問い合わせフォームからご連絡ください。</p>
+              <a class="btn btn-outline" href="https://docs.google.com/forms/d/e/1FAIpQLSeE2FoYsCYJA88ER1WFbHEBUqsASAXJe9wdQrPd5LSiOorCfQ/viewform" target="_blank" rel="noopener noreferrer">賛助会員について問い合わせる　→</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="support-contact">
+        <div class="container">
+          <div class="support-contact-panel">
+            <div>
+              <h2>その他のお問い合わせ</h2>
+              <p>活動や施設についてのご質問は、共通のお問い合わせフォームからお送りください。</p>
+            </div>
+            <a class="btn btn-dark" href="https://docs.google.com/forms/d/e/1FAIpQLSeE2FoYsCYJA88ER1WFbHEBUqsASAXJe9wdQrPd5LSiOorCfQ/viewform" target="_blank" rel="noopener noreferrer">お問い合わせフォームを開く　→</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="final-cta-section">
+        <div class="container">
+          <div class="cta-panel cta-panel-wide">
+            <h2>山で、お待ちしています。</h2>
+            <p>施設の営業情報や山へ向かう前の注意事項は、施設・山と林道ガイドをご確認ください。</p>
+            <div class="cta-actions"><a class="btn btn-gold" href="facility_guide.html">山へ行く準備をする　→</a></div>
+          </div>
+          <div class="related-links">
+            <a class="related-link" href="activity-report.html">活動報告 <span>→</span></a>
+            <a class="related-link" href="projects.html">活動・プロジェクト <span>→</span></a>
+            <a class="related-link" href="about.html">阿波山雅について <span>→</span></a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer" id="contact">
+      <div class="container">
+        <div class="footer-inner">
+          <div class="footer-brand">協同組合 阿波山雅</div>
+          <nav class="footer-links" aria-label="フッターナビゲーション" data-common-footer></nav>
+        </div>
+        <p class="copyright">© 協同組合阿波山雅（あわさんが） All Rights Reserved.</p>
+      </div>
+    </footer>
   </div>
-</header>
-
-<section>
-  <div class="container">
-
-    <!-- ========= 4選択カード ========= -->
-    <h2 class="section-title">4つの応援のかたち</h2>
-    <p class="section-subtitle">それぞれ専用フォームを用意しています</p>
-
-    <div class="choose-cards">
-      <a href="#individual" class="choose-card">
-        <div class="icon">💚</div>
-        <h4>個人サポーター</h4>
-        <p>ファンになる、それだけで応援になります</p>
-      </a>
-      <a href="#corporate" class="choose-card">
-        <div class="icon">🤝</div>
-        <h4>法人スポンサー</h4>
-        <p>企業・団体としての連携をご検討の方へ</p>
-      </a>
-      <a href="#volunteer" class="choose-card">
-        <div class="icon">⛏</div>
-        <h4>ボランティア</h4>
-        <p>現場で一緒に動いてくれる仲間募集</p>
-      </a>
-      <a href="#join" class="choose-card">
-        <div class="icon">🌿</div>
-        <h4>組合加盟</h4>
-        <p>事業者として加盟をご検討の方へ</p>
-      </a>
-    </div>
-
-    <!-- ========= 個人サポーター ========= -->
-    <div id="individual" class="support-block">
-      <h3>① 個人サポーター</h3>
-      <p class="lead">ファンになる、それだけで応援になります。SNSで見守ってくださる方、現地でお会いできる方、奥槍戸やま日和を楽しみに待ってくださる方――どんなかたちでも、私たちの励みになります。</p>
-      <div class="fields-list">
-        <strong>フォーム項目（6項目・所要1分）：</strong>
-        <ul>
-          <li>お名前 <em>必須</em></li>
-          <li>メールアドレス <em>必須</em></li>
-          <li>お住まいの地域</li>
-          <li>応援メッセージ</li>
-          <li>奥槍戸やま日和（広報誌）の発行通知を希望する</li>
-          <li>阿波山雅をどこで知ったか</li>
-        </ul>
-      </div>
-      <div class="form-embed-stub">
-        <div class="icon">📝</div>
-        Googleフォーム埋め込みエリア<br>
-        <small>個人サポーター登録フォーム（07_google_forms_spec.md フォーム① 参照）</small>
-      </div>
-      <p style="margin-top: 16px; font-size: 13px; color: var(--gray);">フォーム作成後、ここにiframe埋め込みされます。</p>
-    </div>
-
-    <!-- ========= 法人スポンサー ========= -->
-    <div id="corporate" class="support-block">
-      <h3>② 法人スポンサー／パートナー</h3>
-      <p class="lead">一緒に「徳島の山と暮らしを次の世代へ」運んでいただける企業・団体を募集しています。商品開発・広報協力・現場支援・財政支援――形は問いません。まずはお気軽にお声がけください。</p>
-      <div class="fields-list">
-        <strong>フォーム項目（9項目・所要3分）：</strong>
-        <ul>
-          <li>企業・団体名 <em>必須</em></li>
-          <li>ご担当者様 お名前 <em>必須</em></li>
-          <li>部署・役職</li>
-          <li>メールアドレス <em>必須</em></li>
-          <li>電話番号</li>
-          <li>関心のある領域（拠点運営支援／商品開発／広報・SNS連携／イベント協賛／その他） <em>必須</em></li>
-          <li>ご検討内容 <em>必須</em></li>
-          <li>連絡希望時期</li>
-          <li>ご検討中の予算規模</li>
-        </ul>
-      </div>
-      <div class="form-embed-stub">
-        <div class="icon">🤝</div>
-        Googleフォーム埋め込みエリア<br>
-        <small>法人スポンサー相談フォーム（07_google_forms_spec.md フォーム② 参照）</small>
-      </div>
-    </div>
-
-    <!-- ========= ボランティア ========= -->
-    <div id="volunteer" class="support-block">
-      <h3>③ ボランティア募集</h3>
-      <p class="lead">次郎笈トレイルの整備、植樹、イベント運営、フードリボン――一緒に汗をかいてくれる仲間を募集しています。山の経験は問いません。「やってみたい」気持ちがあれば十分です。</p>
-      <div class="fields-list">
-        <strong>フォーム項目（10項目・所要3分）：</strong>
-        <ul>
-          <li>お名前 <em>必須</em>／年齢層／メールアドレス <em>必須</em>／電話番号</li>
-          <li>お住まいの地域／参加可能な日 <em>必須</em></li>
-          <li>興味のあるプロジェクト（トレイル整備／植樹・里山活動／イベント運営／広報・SNS／フードリボン） <em>必須</em></li>
-          <li>山の経験・スキル／自家用車で来られるか／配慮が必要なこと</li>
-        </ul>
-      </div>
-      <div class="char-quote sugito" style="margin: 16px 0;">
-        <div class="name">スギト</div>
-        <div class="text">やってみよ！山の経験なんて、無くて大丈夫。最初はオイラと一緒に動こうぜ。</div>
-      </div>
-      <div class="form-embed-stub">
-        <div class="icon">⛏</div>
-        Googleフォーム埋め込みエリア<br>
-        <small>ボランティア応募フォーム（07_google_forms_spec.md フォーム③ 参照）</small>
-      </div>
-    </div>
-
-    <!-- ========= 組合加盟 ========= -->
-    <div id="join" class="support-block">
-      <h3>④ 組合加盟相談</h3>
-      <p class="lead">木頭・那賀・剣山系で事業を営まれている方で、私たちと一緒に動きたいと感じてくださった方へ。加盟のご相談はこちらから。業種は問いません。お話だけでも大歓迎です。</p>
-      <div class="fields-list">
-        <strong>フォーム項目（9項目・所要3分）：</strong>
-        <ul>
-          <li>事業者名・屋号 <em>必須</em>／代表者氏名 <em>必須</em></li>
-          <li>業種（飲食／宿泊／加工／農林業／小売／製造／観光・体験／その他） <em>必須</em></li>
-          <li>所在地 <em>必須</em>／メールアドレス <em>必須</em>／電話番号 <em>必須</em></li>
-          <li>事業内容（簡単に）／ご相談内容 <em>必須</em>／阿波山雅をどこで知ったか</li>
-        </ul>
-      </div>
-      <div class="form-embed-stub">
-        <div class="icon">🌿</div>
-        Googleフォーム埋め込みエリア<br>
-        <small>組合加盟相談フォーム（07_google_forms_spec.md フォーム④ 参照）</small>
-      </div>
-    </div>
-
-    <!-- ========= ユズリの一言 ========= -->
-    <div class="char-quote yuzuri" style="margin-top: 48px;">
-      <div class="name">ユズリ</div>
-      <div class="text">どのかたちも、地域を次に繋ぐための一票です。歴史を辿れば、答えは見つかります。</div>
-    </div>
-
-    <div class="related-links">
-      <h4>関連ページ</h4>
-      <div class="related-grid">
-        <a href="activity-report.html" class="related-link">活動報告</a>
-        <a href="projects.html" class="related-link">活動・プロジェクト</a>
-        <a href="about.html" class="related-link">阿波山雅について</a>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<footer class="footer">
-  <div class="footer-grid">
-    <div class="footer-brand">
-      <strong>協同組合 阿波山雅</strong>
-      徳島・剣山系のふもとから、山と地域を次の世代へ。<br>
-      所在地：<span class="placeholder-note">要記入</span><br>
-      電話：<span class="placeholder-note">要記入</span><br>
-      メール：<span class="placeholder-note">要記入</span>
-    </div>
-    <div>
-      <h5>サイト</h5>
-      <ul>
-        <li><a href="06_home_prototype.html">ホーム</a></li>
-        <li><a href="about.html">阿波山雅について</a></li>
-        <li><a href="facility-okuyarito.html">施設・拠点</a></li>
-        <li><a href="trail-guide.html">山と林道ガイド</a></li>
-      </ul>
-    </div>
-    <div>
-      <h5>関わる</h5>
-      <ul>
-        <li><a href="projects.html">活動・プロジェクト</a></li>
-        <li><a href="activity-report.html">活動報告</a></li>
-        <li><a href="support.html">応援・参加する</a></li>
-        <li><a href="#">お問い合わせ</a></li>
-      </ul>
-    </div>
-    <div>
-      <h5>SNS</h5>
-      <ul>
-        <li><a href="#">Instagram</a></li>
-        <li><a href="#">Facebook</a></li>
-        <li><a href="#">YouTube</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">© 2026 協同組合 阿波山雅 All Rights Reserved.</div>
-</footer>
-
 </body>
 </html>

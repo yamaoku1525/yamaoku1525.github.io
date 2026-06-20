@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="木頭クエスト × 第4回木頭クマまつり。協同組合 阿波山雅、WoodHead わんだぁ工房、木頭図書館が共同で子ども向け周遊型体験企画を実施しました。" />
+  <title>木頭クエスト × 木頭クマまつり｜協同組合 阿波山雅</title>
+  <link rel="stylesheet" href="about-styles.css" />
+  <style>
+    .proj-lead {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+    .proj-lead-card {
+      background: rgba(255,250,240,.97);
+      border-radius: 34px;
+      border: 1px solid rgba(36,75,55,.12);
+      box-shadow: var(--shadow);
+      padding: clamp(26px, 4vw, 48px);
+    }
+    .proj-lead-card h2 {
+      color: var(--green);
+      font-size: clamp(26px, 3.5vw, 44px);
+      line-height: 1.3;
+      margin: 0 0 16px;
+    }
+    .proj-lead-card p { color: var(--muted); line-height: 2; margin: 0; }
+    .proj-lead-card p + p { margin-top: 12px; }
+
+    .event-info-card {
+      background: #fff;
+      border-radius: 28px;
+      border: 1px solid rgba(36,75,55,.1);
+      box-shadow: 0 16px 40px rgba(22,50,36,.09);
+      overflow: hidden;
+    }
+    .event-info-header {
+      padding: 22px 28px;
+      background: var(--green);
+      color: #fff;
+    }
+    .event-info-header .kicker { font-size: 12px; font-weight: 900; letter-spacing: .1em; opacity: .75; margin-bottom: 6px; }
+    .event-info-header h3 { font-size: 20px; margin: 0; line-height: 1.4; }
+    .event-info-body { padding: 0; }
+    .event-row {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      border-bottom: 1px solid rgba(36,75,55,.07);
+    }
+    .event-row:last-child { border-bottom: none; }
+    .event-th { padding: 14px 18px; background: rgba(36,75,55,.04); color: var(--green); font-size: 13px; font-weight: 900; }
+    .event-td { padding: 14px 18px; color: var(--muted); font-size: 14px; line-height: 1.75; }
+
+    .photo-story {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+    .story-photo {
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 14px 36px rgba(22,50,36,.12);
+    }
+    .story-photo img { width: 100%; height: 300px; object-fit: cover; display: block; }
+    .story-photo.tall img { height: 430px; }
+    .story-caption {
+      position: absolute;
+      inset: auto 0 0;
+      padding: 16px 18px;
+      color: #fff;
+      background: linear-gradient(transparent, rgba(22,50,36,.87));
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.65;
+    }
+
+    .quest-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .quest-step {
+      padding: 26px 22px;
+      border-radius: 24px;
+      background: #fff;
+      border: 1px solid rgba(36,75,55,.1);
+      box-shadow: 0 12px 30px rgba(22,50,36,.07);
+      position: relative;
+      overflow: hidden;
+    }
+    .quest-step::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 5px;
+      background: linear-gradient(90deg, var(--green), var(--gold));
+    }
+    .step-num { color: var(--gold-dark); font-size: 11px; font-weight: 900; letter-spacing: .12em; margin-bottom: 10px; }
+    .quest-step h3 { color: var(--green); font-size: 16px; margin: 0 0 10px; line-height: 1.45; }
+    .quest-step p { color: var(--muted); font-size: 13px; line-height: 1.85; margin: 0; }
+
+    .learn-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .learn-card {
+      padding: 20px 22px;
+      border-radius: 22px;
+      background: rgba(36,75,55,.04);
+      border: 1px solid rgba(36,75,55,.08);
+    }
+    .learn-card b { display: block; color: var(--green); font-size: 14px; margin-bottom: 8px; }
+    .learn-card span { color: var(--muted); font-size: 13px; line-height: 1.8; }
+
+    .collab-table {
+      width: 100%;
+      border-collapse: collapse;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(22,50,36,.08);
+    }
+    .collab-table th {
+      background: var(--green);
+      color: #fff;
+      padding: 14px 20px;
+      text-align: left;
+      font-size: 14px;
+    }
+    .collab-table td {
+      padding: 16px 20px;
+      border-bottom: 1px solid rgba(36,75,55,.08);
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.8;
+      vertical-align: top;
+    }
+    .collab-table td:first-child { color: var(--green); font-weight: 900; width: 200px; }
+    .collab-table tr:last-child td { border-bottom: none; }
+    .collab-table tr:nth-child(even) td { background: rgba(36,75,55,.025); }
+
+    .value-list { display: grid; gap: 12px; }
+    .value-item {
+      display: grid;
+      grid-template-columns: 40px 1fr;
+      gap: 16px;
+      align-items: start;
+      padding: 20px 22px;
+      border-radius: 20px;
+      background: #fff;
+      border: 1px solid rgba(36,75,55,.1);
+      box-shadow: 0 8px 22px rgba(22,50,36,.06);
+    }
+    .value-icon { font-size: 22px; line-height: 1; padding-top: 2px; }
+    .value-item b { display: block; color: var(--green); font-size: 15px; margin-bottom: 6px; }
+    .value-item span { color: var(--muted); font-size: 13px; line-height: 1.8; }
+
+    @media (max-width: 980px) {
+      .proj-lead { grid-template-columns: 1fr; }
+      .quest-steps, .learn-grid { grid-template-columns: 1fr 1fr; }
+      .photo-story { grid-template-columns: 1fr; }
+      .story-photo.tall img { height: 300px; }
+    }
+    @media (max-width: 640px) {
+      .quest-steps, .learn-grid { grid-template-columns: 1fr; }
+      .event-row { grid-template-columns: 1fr; }
+      .event-th { padding: 10px 18px 4px; }
+    }
+  </style>
+  <script src="common-nav.js" defer></script>
+  <script src="common-footer.js" defer></script>
+</head>
+<body>
+  <div class="page">
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="index.html" aria-label="協同組合阿波山雅 ホーム">
+          <img src="./img/awasanga_logo_w2.png" alt="協同組合阿波山雅ロゴ" />
+          <div><small>協同組合</small><strong>阿波山雅</strong><span>あわさんが</span></div>
+        </a>
+        <nav class="nav" aria-label="メインナビゲーション" data-common-nav data-current="projects"></nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="sub-hero">
+        <div class="container sub-hero-inner">
+          <div class="breadcrumb">
+            <a href="index.html">ホーム</a><span>›</span>
+            <a href="projects.html">活動・プロジェクト</a><span>›</span>
+            <span>木頭クエスト × 木頭クマまつり</span>
+          </div>
+          <div class="hero-label">Kito Quest × Kuma Festival</div>
+          <h1>物語と謎解きで、<br>木頭杉の歴史を体験する。</h1>
+          <p>2026年3月21日、第4回木頭クマまつりで「木頭クエスト」を実施しました。協同組合 阿波山雅、WoodHead わんだぁ工房、木頭図書館が共同で企画。多くの子どもたちが物語と謎解きを楽しみながら、木頭杉の歴史・職人の仕事・地域の文化に触れました。</p>
+        </div>
+        <div class="hero-badge" aria-hidden="true"><span>2026年<br>3月21日<br>実施</span></div>
+      </section>
+
+      <section>
+        <div class="container">
+          <div class="proj-lead">
+            <div class="proj-lead-card">
+              <div class="section-kicker">About This Project</div>
+              <h2>子どもが「冒険の書」を手に、木頭の文化を巡る。</h2>
+              <p>木頭クエストは、物語と謎解きを通じて木頭図書館内とWoodHeadブースを周遊する体験企画です。参加者は「記憶を失った木頭杉の仙人・杉じぃ」の記憶を取り戻す冒険者となり、木頭杉の赤みと白みの違い、川運の歴史、職人の仕事を実物に触れながら学びます。</p>
+              <p>一日で終わらない工夫として、参加者の名前を刻んだ「見習いマイスターの証」を後日木頭図書館に展示する仕組みも作りました。フードリボンで培った木頭図書館との連携を、地域文化の学びへと広げた取り組みです。</p>
+            </div>
+            <div class="event-info-card">
+              <div class="event-info-header">
+                <div class="kicker">EVENT INFO</div>
+                <h3>木頭クエスト「木頭杉の仙人と<br>忘れられた森の記憶」</h3>
+              </div>
+              <div class="event-info-body">
+                <div class="event-row"><div class="event-th">開催日</div><div class="event-td">2026年3月21日（土）</div></div>
+                <div class="event-row"><div class="event-th">会場</div><div class="event-td">木頭図書館（木頭文化会館）館内・周辺、WoodHeadブース</div></div>
+                <div class="event-row"><div class="event-th">対象</div><div class="event-td">主に子ども・家族連れ</div></div>
+                <div class="event-row"><div class="event-th">共同企画</div><div class="event-td">協同組合 阿波山雅 × WoodHead わんだぁ工房 × 木頭図書館</div></div>
+                <div class="event-row"><div class="event-th">イベント</div><div class="event-td">第4回木頭クマまつり（10:00〜16:00）内で実施</div></div>
+                <div class="event-row"><div class="event-th">結果</div><div class="event-td">多くの子どもたちが参加し、好評を得た</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="members-section">
+        <div class="container">
+          <div class="section-head">
+            <div><div class="section-kicker">Photo Report</div><h2 class="section-title">当日の様子</h2></div>
+            <p class="section-text">子どもたちが冒険の書を手に、図書館内とWoodHeadブースを巡り、木頭杉の世界へ飛び込んだ。</p>
+          </div>
+          <div class="photo-story">
+            <div class="story-photo tall">
+              <img src="./img/top_kouri1.png" alt="木頭クエストの様子" loading="lazy" />
+              <div class="story-caption">木頭杉・木工製品に実際に触れる体験。WoodHead わんだぁ工房が職人の仕事を見せながら案内した。</div>
+            </div>
+            <div style="display:grid; gap:18px;">
+              <div class="story-photo">
+                <img src="./img/top_yamanoie1.png" alt="奥槍戸山の家との連携" loading="lazy" />
+                <div class="story-caption">阿波山雅が企画調整を担い、3団体の強みをつなぐ役割を果たした。</div>
+              </div>
+              <div class="story-photo">
+                <img src="./img/杉じぃ.png" alt="木頭杉の仙人・杉じぃ" loading="lazy" style="object-position: top;" />
+                <div class="story-caption">クエストの主人公「杉じぃ」。記憶を失った木頭杉の仙人の記憶を、子どもたちが取り戻す物語。</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <div class="section-head">
+            <div><div class="section-kicker">Quest Flow</div><h2 class="section-title">木頭クエストの体験の流れ</h2></div>
+            <p class="section-text">冒険の書を手に、6つのステップで木頭の文化を学ぶ。</p>
+          </div>
+          <div class="quest-steps">
+            <div class="quest-step">
+              <div class="step-num">STEP 01</div>
+              <h3>首飾りの片われを受け取る</h3>
+              <p>杉の白み（辺材）で作られた首飾りの片われを受け取り、冒険がはじまる。</p>
+            </div>
+            <div class="quest-step">
+              <div class="step-num">STEP 02</div>
+              <h3>図書館内の謎を解く</h3>
+              <p>木頭杉の特徴・歴史・川運・利用先に関するミッションボードを巡り、謎を解いていく。</p>
+            </div>
+            <div class="quest-step">
+              <div class="step-num">STEP 03</div>
+              <h3>WoodHeadブースで体験する</h3>
+              <p>五稜箸や職人の仕事に実際に触れる。木を育て、加工し、届ける人の仕事を知る。</p>
+            </div>
+            <div class="quest-step">
+              <div class="step-num">STEP 04</div>
+              <h3>首飾りを完成させる</h3>
+              <p>杉の赤み（心材）の片われを見つけ、白みと合わせて首飾りを完成。木の違いを体で感じる。</p>
+            </div>
+            <div class="quest-step">
+              <div class="step-num">STEP 05</div>
+              <h3>見習いマイスターに認定される</h3>
+              <p>最後の謎を解いて、「木頭見習いマイスター」の認定スタンプを受け取る。</p>
+            </div>
+            <div class="quest-step">
+              <div class="step-num">STEP 06</div>
+              <h3>証が図書館に展示される</h3>
+              <p>参加者の名前を刻んだ「見習いマイスターの証」を、後日木頭図書館に展示。冒険の記憶が地域に残る。</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="members-section">
+        <div class="container">
+          <div class="section-head">
+            <div><div class="section-kicker">What Kids Learned</div><h2 class="section-title">体験を通じて学べること</h2></div>
+          </div>
+          <div class="learn-grid">
+            <div class="learn-card">
+              <b>木頭杉の赤みと白みの違い</b>
+              <span>心材（赤み）と辺材（白み）を実物で見比べ、手で触れながら学ぶ。</span>
+            </div>
+            <div class="learn-card">
+              <b>木頭杉が川を使って運ばれた歴史</b>
+              <span>昔の人がどうやって山の木を街へ届けたか、川運の知恵を知る。</span>
+            </div>
+            <div class="learn-card">
+              <b>大阪城・下鴨神社にも使われた木頭杉</b>
+              <span>地元の木が、日本の名所に使われてきた誇りを感じる。</span>
+            </div>
+            <div class="learn-card">
+              <b>木を育て・運び・加工する人の仕事</b>
+              <span>職人の技術と、次世代へ受け継ぐ意味を子どもにも伝わる形で。</span>
+            </div>
+            <div class="learn-card">
+              <b>図書館・木工・地域活動のつながり</b>
+              <span>3つの場所が協力することで、地域の文化がどうつながるかを体感する。</span>
+            </div>
+            <div class="learn-card">
+              <b>自分が地域の歴史の担い手になる</b>
+              <span>マイスターの証の展示で、参加した記憶が地域の記録として残る。</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="container">
+          <div class="section-head">
+            <div><div class="section-kicker">Collaboration</div><h2 class="section-title">3団体の強みを組み合わせた</h2></div>
+          </div>
+          <table class="collab-table">
+            <thead>
+              <tr>
+                <th>団体</th>
+                <th>活かした強み</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>協同組合 阿波山雅</td>
+                <td>地域資源を体験企画として編集する力、企画調整、子ども・地域との接点づくり。フードリボンで培った木頭図書館との関係を活用。</td>
+              </tr>
+              <tr>
+                <td>WoodHead わんだぁ工房</td>
+                <td>木頭杉・木工技術・職人の仕事・実物に触れる体験コンテンツ。五稜箸など手で触れるアイテムを提供。</td>
+              </tr>
+              <tr>
+                <td>木頭図書館</td>
+                <td>地域の歴史・知識・物語を伝える場としての機能。館内周遊の設計、参加後も記録として残る展示スペースの提供。</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="members-section">
+        <div class="container">
+          <div class="section-head">
+            <div><div class="section-kicker">Value Created</div><h2 class="section-title">この企画が生んだ価値</h2></div>
+          </div>
+          <div class="value-list">
+            <div class="value-item">
+              <div class="value-icon">📖</div>
+              <div>
+                <b>子どもが主体的に地域文化へ触れる機会をつくった</b>
+                <span>説明を聞くだけでなく、物語を読み、会場を歩き、謎を解き、実物の木に触れる体験にしたことで、子どもたちが自分から木頭杉と地域の歴史を学べる企画になりました。</span>
+              </div>
+            </div>
+            <div class="value-item">
+              <div class="value-icon">🌲</div>
+              <div>
+                <b>イベント当日で終わらない仕組みをつくった</b>
+                <span>名前入りの「見習いマイスターの証」を後日図書館に展示することで、参加した記憶が地域の中に残り、再来館や家族との会話につながる設計にしました。</span>
+              </div>
+            </div>
+            <div class="value-item">
+              <div class="value-icon">🏫</div>
+              <div>
+                <b>飲食・山の活動から教育・文化へ活動を広げた</b>
+                <span>阿波山雅がフードリボンで築いた木頭図書館との関係を、地域文化を学ぶ企画へ発展。飲食や自然保全だけでなく、木育・教育にも活動の幅を広げました。</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="final-cta-section">
+        <div class="container">
+          <div class="cta-panel cta-panel-wide">
+            <h2>地域の資源を、体験に変える。<br>それが阿波山雅の役割です。</h2>
+            <p>木頭杉・図書館・職人の技。バラバラに見えるものをつなぎ、子どもたちが楽しみながら地域を知れる場をつくりました。</p>
+            <div class="cta-actions">
+              <a class="btn btn-gold" href="projects.html">活動・プロジェクトへ　→</a>
+              <a class="btn btn-dark" href="facility_guide.html">施設・林道ガイドへ　→</a>
+            </div>
+          </div>
+          <div class="related-links" aria-label="関連ページ">
+            <a class="related-link" href="project-foodribbon.html">フードリボン <span>→</span></a>
+            <a class="related-link" href="project-trail.html">次郎笈トレイル再生 <span>→</span></a>
+            <a class="related-link" href="project-ridgeway.html">剣山スーパー林道 <span>→</span></a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer" id="contact">
+      <div class="container">
+        <div class="footer-inner">
+          <div class="footer-brand">協同組合 阿波山雅</div>
+          <nav class="footer-links" aria-label="フッターナビゲーション" data-common-footer></nav>
+        </div>
+        <p class="copyright">© 協同組合阿波山雅（あわさんが） All Rights Reserved.</p>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
