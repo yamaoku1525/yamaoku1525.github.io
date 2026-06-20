@@ -8,18 +8,12 @@
     { href: 'about.html', label: '阿波山雅について' },
     { href: 'projects.html', label: '活動・プロジェクト' },
     { href: 'characters.html', label: '山の仲間たち' },
-    { href: 'play.html', label: '山の仲間と遊ぶ' },
     { href: 'support.html', label: '応援する' }
   ];
-  const footerItems = items.some((item) => item.href === 'play.html')
-    ? items
-    : items.flatMap((item) => item.href === 'characters.html'
-      ? [item, { href: 'play.html', label: '山の仲間と遊ぶ' }]
-      : [item]);
 
   document.querySelectorAll('[data-common-footer]').forEach((target) => {
     const fragment = document.createDocumentFragment();
-    footerItems.forEach((item) => {
+    items.forEach((item) => {
       const link = document.createElement('a');
       link.href = item.href;
       link.textContent = item.label;
