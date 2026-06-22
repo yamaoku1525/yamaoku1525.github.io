@@ -2,6 +2,19 @@
   "_comment": "自動反映用データ（news.json とは分離）。Instagram(@yamanoie.okuyarido)の新着投稿と rindonavi.com のスーパー林道関連投稿のみを automation/ のスクリプト＋ローカルLLMが自動追記します。手動編集は原則不要。スキーマ: id, source(instagram|rindonavi), sourceId(dedupeキー), date, displayDate, category(山の家|林道情報), title, summary, image, url, firstSeen(ISO8601・NEWバッジ/通知dedupe用)。",
   "items": [
     {
+      "id": "ig-DZ19plVEZJy",
+      "source": "instagram",
+      "sourceId": "DZ19plVEZJy",
+      "date": "2026-06-23",
+      "displayDate": "2026/06/23",
+      "category": "山の家",
+      "title": "梅雨の合間の晴れ☀️",
+      "summary": "梅雨の合間の晴れ☀️\nご来店いただいた皆様ありがとうございました〜！\nケーキありがとう〜♡\n#山の家奥槍戸 #奥槍戸山の家#月火定休日です",
+      "image": "./img/news2/ig-DZ19plVEZJy.jpg",
+      "url": "https://www.instagram.com/p/DZ19plVEZJy/",
+      "firstSeen": "2026-06-23T01:37:09+09:00"
+    },
+    {
       "id": "ig-DZzQRJokQFG",
       "source": "instagram",
       "sourceId": "DZzQRJokQFG",
