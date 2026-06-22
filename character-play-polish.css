@@ -1,0 +1,512 @@
+.character-play {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(31, 51, 39, .94), rgba(45, 90, 61, .9)),
+    url("./img/top_g.png") center / cover no-repeat;
+  color: #fffdf8;
+}
+
+.character-play::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 100px;
+  background: linear-gradient(180deg, transparent, var(--ivory));
+  pointer-events: none;
+}
+
+.character-play .container {
+  position: relative;
+  z-index: 1;
+}
+
+.quest-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 28px;
+  align-items: end;
+  margin-bottom: 30px;
+}
+
+.quest-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  color: var(--yuzu);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .08em;
+}
+
+.quest-title {
+  margin: 0;
+  color: #fffdf8;
+  font-size: clamp(30px, 5vw, 52px);
+  line-height: 1.18;
+  letter-spacing: .04em;
+}
+
+.quest-copy {
+  max-width: 760px;
+  margin-top: 16px;
+  color: rgba(255, 253, 248, .86);
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+.quest-badges {
+  display: grid;
+  grid-template-columns: repeat(5, 62px);
+  gap: 8px;
+}
+
+.quest-badge {
+  width: 62px;
+  height: 62px;
+  border: 1px solid rgba(255, 253, 248, .28);
+  border-radius: 14px;
+  background: rgba(255, 253, 248, .14);
+  display: grid;
+  place-items: center;
+  backdrop-filter: blur(10px);
+}
+
+.quest-badge img {
+  display: block !important;
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+.quest-board {
+  display: grid;
+  grid-template-columns: minmax(280px, .82fr) minmax(0, 1.18fr);
+  gap: 22px;
+  align-items: start;
+}
+
+.quest-card,
+.quest-result {
+  border: 1px solid rgba(255, 253, 248, .26);
+  border-radius: 18px;
+  background: rgba(255, 253, 248, .94);
+  color: var(--charcoal);
+  box-shadow: 0 22px 54px rgba(8, 25, 16, .28);
+}
+
+.quest-card {
+  padding: 24px;
+}
+
+.quest-card.dark {
+  background: rgba(244, 239, 226, .96);
+}
+
+.quest-card-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.quest-card-title span {
+  color: var(--green-deep);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .08em;
+}
+
+.quest-card-title h2 {
+  margin: 0;
+  color: var(--green-deep);
+  font-size: 24px;
+  line-height: 1.35;
+}
+
+.quest-stamp {
+  min-width: 78px;
+  padding: 8px 10px;
+  border: 1px solid rgba(232, 184, 58, .65);
+  border-radius: 999px;
+  background: rgba(232, 184, 58, .18);
+  color: #795d12;
+  font-size: 12px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.quest-mission-body {
+  display: grid;
+  grid-template-columns: 116px 1fr;
+  gap: 18px;
+  align-items: center;
+  padding: 18px;
+  border-radius: 16px;
+  background: #fffdf8;
+  border: 1px solid rgba(45, 90, 61, .12);
+}
+
+.quest-mission-body img,
+.quest-result-main img {
+  display: block !important;
+  width: 116px;
+  height: 116px;
+  object-fit: contain;
+}
+
+.quest-mission-body strong,
+.quest-result-copy h3 {
+  display: block;
+  color: var(--green-deep);
+  font-size: 22px;
+  line-height: 1.35;
+  margin-bottom: 8px;
+}
+
+.quest-mission-body p,
+.quest-result-copy p,
+.quest-note {
+  font-size: 14px;
+  line-height: 1.85;
+}
+
+.quest-note {
+  margin-top: 14px;
+  color: var(--gray);
+}
+
+.quest-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.quest-progress {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.quest-progress-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  color: var(--gray);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.quest-trail {
+  height: 10px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--ivory);
+}
+
+.quest-trail span {
+  display: block;
+  width: 0%;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--green-soft), var(--yuzu));
+  transition: width .28s ease;
+}
+
+.quest-question {
+  color: var(--green-deep);
+  font-size: clamp(24px, 3vw, 34px);
+  line-height: 1.4;
+  margin-bottom: 18px;
+}
+
+.quest-answer-grid {
+  display: grid;
+  gap: 10px;
+}
+
+.quest-answer {
+  width: 100%;
+  min-height: 62px;
+  padding: 13px 16px;
+  border: 1px solid rgba(45, 90, 61, .16);
+  border-radius: 12px;
+  background: #fffdf8;
+  color: var(--charcoal);
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 12px;
+  align-items: center;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.55;
+  text-align: left;
+  cursor: pointer;
+  transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+
+.quest-answer:hover,
+.quest-answer:focus-visible {
+  border-color: var(--green-soft);
+  box-shadow: 0 12px 28px rgba(45, 90, 61, .12);
+  outline: none;
+  transform: translateY(-2px);
+}
+
+.quest-answer img {
+  display: block !important;
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+}
+
+.quest-result {
+  display: none;
+  margin-top: 18px;
+  padding: 24px;
+}
+
+.quest-result.is-visible {
+  display: block;
+}
+
+.quest-result-main {
+  display: grid;
+  grid-template-columns: 138px 1fr;
+  gap: 22px;
+  align-items: center;
+}
+
+.quest-result-main img {
+  width: 138px;
+  height: 138px;
+  padding: 12px;
+  border-radius: 18px;
+  background: var(--ivory);
+}
+
+.quest-rank {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: var(--green-deep);
+  color: #fffdf8;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.quest-next {
+  margin-top: 14px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: var(--ivory);
+  color: var(--green-deep);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.7;
+}
+
+.quest-result-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.quest-flash {
+  animation: questFlash .55s ease;
+}
+
+@keyframes questFlash {
+  0% { transform: scale(.98); box-shadow: 0 0 0 rgba(232, 184, 58, 0); }
+  55% { transform: scale(1.01); box-shadow: 0 0 0 8px rgba(232, 184, 58, .18); }
+  100% { transform: scale(1); box-shadow: 0 22px 54px rgba(8, 25, 16, .28); }
+}
+
+@media (max-width: 920px) {
+  .quest-head,
+  .quest-board,
+  .quest-result-main {
+    grid-template-columns: 1fr;
+  }
+
+  .quest-badges {
+    grid-template-columns: repeat(5, minmax(48px, 1fr));
+  }
+
+  .quest-badge {
+    width: 100%;
+  }
+}
+
+@media (max-width: 560px) {
+  .quest-card,
+  .quest-result {
+    padding: 20px;
+  }
+
+  .quest-mission-body,
+  .quest-result-main {
+    grid-template-columns: 1fr;
+  }
+
+  .quest-answer {
+    grid-template-columns: 38px 1fr;
+  }
+
+  .quest-answer img {
+    width: 38px;
+    height: 38px;
+  }
+}
+
+/* Mobile readability pass for the quest board */
+@media (max-width: 720px) {
+  .character-play {
+    background-position: center top;
+  }
+
+  .character-play .container {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .quest-head {
+    gap: 18px;
+    margin-bottom: 18px;
+  }
+
+  .quest-title {
+    font-size: 32px;
+    line-height: 1.22;
+  }
+
+  .quest-copy {
+    font-size: 14px;
+    line-height: 1.75;
+  }
+
+  .quest-badges {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 2px 0 8px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .quest-badge {
+    flex: 0 0 58px;
+    width: 58px;
+    height: 58px;
+  }
+
+  .quest-badge img {
+    width: 46px;
+    height: 46px;
+  }
+
+  .quest-board {
+    gap: 16px;
+  }
+
+  .quest-card,
+  .quest-result {
+    border-radius: 14px;
+    padding: 16px;
+  }
+
+  .quest-card-title {
+    align-items: start;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+
+  .quest-card-title h2 {
+    font-size: 20px;
+  }
+
+  .quest-stamp {
+    min-width: 58px;
+    padding: 7px 9px;
+  }
+
+  .quest-mission-body {
+    grid-template-columns: 96px minmax(0, 1fr);
+    gap: 14px;
+    padding: 14px;
+  }
+
+  .quest-mission-body img {
+    width: 96px;
+    height: 96px;
+    display: block;
+  }
+
+  .quest-mission-body strong,
+  .quest-result-copy h3 {
+    font-size: 19px;
+  }
+
+  .quest-question {
+    font-size: 21px;
+    line-height: 1.45;
+    margin-bottom: 14px;
+  }
+
+  .quest-answer {
+    min-height: 54px;
+    grid-template-columns: 42px minmax(0, 1fr);
+    padding: 12px 13px;
+    gap: 10px;
+  }
+
+  .quest-answer img {
+    width: 42px;
+    height: 42px;
+    display: block;
+  }
+
+  .quest-result-main {
+    grid-template-columns: 104px minmax(0, 1fr);
+    gap: 14px;
+  }
+
+  .quest-result-main img {
+    width: 104px;
+    height: 104px;
+    padding: 8px;
+    display: block;
+  }
+
+  .quest-next {
+    padding: 12px 13px;
+  }
+}
+
+@media (max-width: 380px) {
+  .quest-mission-body,
+  .quest-result-main {
+    grid-template-columns: 86px minmax(0, 1fr);
+  }
+
+  .quest-mission-body img,
+  .quest-result-main img {
+    width: 86px;
+    height: 86px;
+  }
+
+  .quest-answer {
+    grid-template-columns: 38px minmax(0, 1fr);
+  }
+
+  .quest-answer img {
+    width: 38px;
+    height: 38px;
+  }
+}

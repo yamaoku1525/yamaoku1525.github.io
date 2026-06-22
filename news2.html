@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="協同組合 阿波山雅の Instagram・林道 最新情報。山の家 Instagram の新着投稿と、剣山スーパー林道の通行・規制情報を自動でまとめてお届けします。">
+<title>Instagram・林道 最新情報｜協同組合 阿波山雅</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="awasanga-styles.css">
+<script src="common-nav.js" defer></script>
+<script src="common-footer.js" defer></script>
+<style>
+  /* News-specific styles（news.html と共通のトーン） */
+  .filter-bar {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    margin-bottom: 32px; padding: 16px; border-radius: 10px;
+    background: var(--ivory); border: 1px solid var(--rule);
+  }
+  .filter-btn {
+    background: white; color: var(--charcoal);
+    border: 1px solid var(--rule); border-radius: 999px;
+    padding: 7px 18px; font-size: 13px; cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: inherit;
+  }
+  .filter-btn:hover { border-color: var(--green-deep); color: var(--green-deep); }
+  .filter-btn.active {
+    background: var(--green-deep); color: white; border-color: var(--green-deep);
+  }
+  .source-note {
+    display: flex; flex-wrap: wrap; gap: 12px 24px;
+    margin-bottom: 28px; padding: 16px 20px; border-radius: 10px;
+    background: var(--ivory); border: 1px solid var(--rule);
+    font-size: 13px; color: var(--gray); line-height: 1.7;
+  }
+  .source-note a { color: var(--green-deep); font-weight: 600; }
+  .news-year-group { margin-bottom: 56px; }
+  .news-year-heading {
+    font-size: 28px; color: var(--green-deep); font-weight: 700;
+    margin: 0 0 24px; padding-bottom: 10px;
+    border-bottom: 2px solid var(--green-soft);
+    letter-spacing: 0.04em;
+  }
+  .news-list { display: grid; gap: 16px; }
+  .news-row {
+    display: grid;
+    grid-template-columns: 110px 110px 1fr;
+    gap: 18px; align-items: start;
+    padding: 18px 20px;
+    background: white; border: 1px solid var(--rule); border-radius: 10px;
+    text-decoration: none; color: var(--charcoal);
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  }
+  .news-row:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px rgba(45,90,61,0.10);
+    border-color: var(--green-deep);
+  }
+  .news-row .date {
+    font-size: 13px; color: var(--gray);
+    font-variant-numeric: tabular-nums;
+    padding-top: 2px;
+  }
+  .news-row .badges { display: flex; flex-direction: column; gap: 6px; align-items: flex-start; }
+  .news-row .badge {
+    display: inline-block; padding: 3px 10px;
+    background: var(--green-soft); color: white;
+    border-radius: 4px; font-size: 11px; font-weight: 600;
+    text-align: center;
+    width: fit-content;
+  }
+  /* news2 専用カテゴリ */
+  .news-row .badge[data-cat="山の家"] { background: #c2415f; }   /* Instagram 由来 */
+  .news-row .badge[data-cat="林道情報"] { background: #3d6b8a; } /* rindonavi 由来 */
+  .news-row .badge.is-new {
+    background: #d9534f; letter-spacing: 0.08em;
+  }
+  .news-row .body h3 {
+    font-size: 16px; color: var(--green-deep); font-weight: 700;
+    margin-bottom: 6px; line-height: 1.5;
+  }
+  .news-row .body p {
+    font-size: 13px; color: var(--gray); line-height: 1.7;
+  }
+  .news-row .body p .read-more {
+    color: var(--green-deep); font-weight: 600; margin-left: 4px;
+  }
+  @media (max-width: 700px) {
+    .news-row { grid-template-columns: 1fr; gap: 8px; }
+    .news-row .date { padding-top: 0; }
+    .news-row .badges { flex-direction: row; }
+  }
+  #news-loading, #news-empty, #news-error {
+    text-align: center; padding: 48px 24px; color: var(--gray); font-size: 14px;
+  }
+  #news-error { color: #c47a3d; }
+
+  .site-header {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(255,250,240,.9);
+    border-bottom: 1px solid rgba(36,75,55,.1);
+    backdrop-filter: blur(14px);
+  }
+  .header-inner {
+    width: min(calc(100% - 40px), 1120px);
+    max-width: none;
+    min-height: 84px;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 28px;
+  }
+  .brand {
+    display: inline-flex; align-items: center; gap: 12px;
+    color: var(--green-deep); text-decoration: none;
+    min-width: max-content;
+  }
+  .brand img { width: 80px; height: auto; }
+  .brand small {
+    display: block; font-size: 11px; line-height: 1; color: var(--gray);
+  }
+  .brand strong {
+    display: block; font-size: 21px; line-height: 1.12; letter-spacing: .09em;
+  }
+  .brand span {
+    display: block; color: var(--wood); font-size: 11px; letter-spacing: .16em;
+  }
+  .site-header .nav {
+    position: static; min-height: 0; padding: 0;
+    background: transparent; border-bottom: 0; backdrop-filter: none;
+    justify-content: flex-end; flex-wrap: wrap; gap: 7px 16px;
+    font-size: 13px;
+  }
+  .site-header .nav a {
+    position: relative; display: inline-block; padding: 6px 0;
+    color: var(--green-deep); font-size: 13px; text-decoration: none;
+    white-space: nowrap; opacity: .86;
+  }
+  .site-header .nav a:hover,
+  .site-header .nav a.is-active { opacity: 1; }
+  .site-header .nav a::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px;
+    background: var(--yuzu); transform: scaleX(0); transform-origin: left;
+    transition: transform .24s ease;
+  }
+  .site-header .nav a:hover::after,
+  .site-header .nav a.is-active::after { transform: scaleX(1); }
+  .page-header-inner { width: min(calc(100% - 40px), 1120px); max-width: none; }
+  @media (max-width: 880px) {
+    .header-inner {
+      align-items: flex-start; flex-direction: column; padding: 16px 0;
+    }
+    .site-header .nav { align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="index.html" aria-label="協同組合阿波山雅 ホーム">
+      <img src="./img/awasanga_logo_w2.png" alt="協同組合阿波山雅ロゴ" />
+      <div>
+        <small>協同組合</small>
+        <strong>阿波山雅</strong>
+        <span>あわさんが</span>
+      </div>
+    </a>
+
+    <nav class="nav" aria-label="メインナビゲーション" data-common-nav data-current="news2"></nav>
+  </div>
+</header>
+
+<header class="page-header">
+  <div class="page-header-inner">
+    <div class="breadcrumb">
+      <a href="index.html">ホーム</a>
+      <span class="breadcrumb-sep">›</span>
+      <span>Instagram・林道 最新情報</span>
+    </div>
+    <h1>Instagram・林道 最新情報</h1>
+    <p>山の家 Instagram の新着投稿と、剣山スーパー林道の通行・規制情報を自動でまとめてお届けします。組合からの正式なお知らせは <a href="news.html" style="color:inherit; border-bottom:1px solid currentColor;">お知らせ一覧</a> をご覧ください。</p>
+  </div>
+</header>
+
+<section>
+  <div class="container">
+
+    <div class="source-note">
+      <span>📷 <strong>Instagram：</strong><a href="https://www.instagram.com/yamanoie.okuyarido/" target="_blank" rel="noopener">@yamanoie.okuyarido</a>（奥槍戸 山の家）の新着投稿</span>
+      <span>🛣 <strong>林道情報：</strong><a href="https://rindonavi.com/" target="_blank" rel="noopener">とくしま林道ナビ</a> の剣山スーパー林道 関連情報のみ</span>
+    </div>
+
+    <div class="filter-bar" id="filter-bar" role="toolbar" aria-label="カテゴリ絞り込み">
+      <button class="filter-btn active" data-filter="all">すべて</button>
+      <!-- カテゴリフィルタは news2.json 読み込み後に動的生成 -->
+    </div>
+
+    <div id="news-loading">読み込み中…</div>
+    <div id="news-empty" style="display:none;">現在表示できる最新情報はありません。</div>
+    <div id="news-error" style="display:none;">最新情報を読み込めませんでした。少し時間をおいて再読み込みしてください。</div>
+
+    <div id="news-content"></div>
+
+    <div class="related-links mt-64">
+      <h4>関連ページ</h4>
+      <div class="related-grid">
+        <a href="news.html" class="related-link">お知らせ一覧</a>
+        <a href="facility_guide.html" class="related-link">施設のご案内</a>
+        <a href="projects.html" class="related-link">活動・プロジェクト</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer class="footer" id="contact">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">協同組合 阿波山雅</div>
+      <nav class="footer-links" aria-label="フッターナビゲーション" data-common-footer></nav>
+    </div>
+    <p class="copyright">© 協同組合阿波山雅（あわさんが） All Rights Reserved.</p>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var NEW_DAYS = 7; // firstSeen からこの日数以内は NEW バッジ
+    var allItems = [];
+    var currentFilter = 'all';
+    var filterBar = document.getElementById('filter-bar');
+    var content = document.getElementById('news-content');
+    var loading = document.getElementById('news-loading');
+    var empty = document.getElementById('news-empty');
+    var errorEl = document.getElementById('news-error');
+
+    function esc(s) {
+      return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+        return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+      });
+    }
+
+    function isNew(it) {
+      var seen = it.firstSeen || it.date;
+      if (!seen) return false;
+      var t = Date.parse(seen);
+      if (isNaN(t)) return false;
+      return (Date.now() - t) <= NEW_DAYS * 24 * 60 * 60 * 1000;
+    }
+
+    function buildFilterButtons(items) {
+      var cats = {};
+      items.forEach(function (it) {
+        if (it.category) cats[it.category] = (cats[it.category] || 0) + 1;
+      });
+      var sorted = Object.keys(cats).sort();
+      sorted.forEach(function (cat) {
+        var btn = document.createElement('button');
+        btn.className = 'filter-btn';
+        btn.dataset.filter = cat;
+        btn.textContent = cat + '（' + cats[cat] + '）';
+        btn.addEventListener('click', function () { setFilter(cat); });
+        filterBar.appendChild(btn);
+      });
+      filterBar.querySelector('[data-filter="all"]').addEventListener('click', function () { setFilter('all'); });
+    }
+
+    function setFilter(filter) {
+      currentFilter = filter;
+      Array.prototype.forEach.call(filterBar.querySelectorAll('.filter-btn'), function (b) {
+        b.classList.toggle('active', b.dataset.filter === filter);
+      });
+      render();
+    }
+
+    function render() {
+      var items = currentFilter === 'all'
+        ? allItems
+        : allItems.filter(function (it) { return it.category === currentFilter; });
+
+      if (!items.length) {
+        content.innerHTML = '';
+        empty.style.display = 'block';
+        return;
+      }
+      empty.style.display = 'none';
+
+      // 年でグルーピング
+      var groups = {};
+      items.forEach(function (it) {
+        var year = (it.date || '').slice(0, 4) || '不明';
+        (groups[year] = groups[year] || []).push(it);
+      });
+      var years = Object.keys(groups).sort(function (a, b) { return b.localeCompare(a); });
+
+      var html = years.map(function (year) {
+        var rows = groups[year].map(function (it) {
+          var newBadge = isNew(it) ? '<span class="badge is-new">NEW</span>' : '';
+          var target = /^https?:/.test(it.url || '') ? ' target="_blank" rel="noopener"' : '';
+          return ''
+            + '<a class="news-row" href="' + esc(it.url || 'news2.html') + '"' + target + '>'
+            +   '<span class="date">' + esc(it.displayDate || it.date || '') + '</span>'
+            +   '<span class="badges">'
+            +     '<span class="badge" data-cat="' + esc(it.category || '') + '">' + esc(it.category || '') + '</span>'
+            +     newBadge
+            +   '</span>'
+            +   '<div class="body">'
+            +     '<h3>' + esc(it.title || '') + '</h3>'
+            +     (it.summary ? '<p>' + esc(it.summary) + '<span class="read-more">詳しく見る →</span></p>' : '')
+            +   '</div>'
+            + '</a>';
+        }).join('');
+        return ''
+          + '<div class="news-year-group">'
+          +   '<h2 class="news-year-heading">' + esc(year) + '</h2>'
+          +   '<div class="news-list">' + rows + '</div>'
+          + '</div>';
+      }).join('');
+
+      content.innerHTML = html;
+    }
+
+    var url = 'news2.json?_=' + Date.now();
+    fetch(url, { cache: 'no-cache' })
+      .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+      .then(function (data) {
+        allItems = (data && data.items) ? data.items.slice() : [];
+        allItems.sort(function (a, b) { return (b.date || '').localeCompare(a.date || ''); });
+        loading.style.display = 'none';
+        if (!allItems.length) {
+          empty.style.display = 'block';
+          return;
+        }
+        buildFilterButtons(allItems);
+        render();
+      })
+      .catch(function (err) {
+        console.error('news2.json 読み込みエラー:', err);
+        loading.style.display = 'none';
+        errorEl.style.display = 'block';
+      });
+  })();
+</script>
+
+</body>
+</html>

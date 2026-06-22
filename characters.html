@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="協同組合 阿波山雅の仲間たち。奥槍どん、なぎかちゃん、杉じぃ、ユズリ、スギトを紹介します。">
+<meta name="description" content="協同組合 阿波山雅の仲間たち。奥槍どん、なぎかちゃん、杉じぃ、ユズリ、スギトの紹介と、山の仲間タイプ診断を楽しめます。">
 <title>仲間たち｜協同組合 阿波山雅</title>
 <link rel="stylesheet" href="awasanga-styles.css">
 <link rel="stylesheet" href="site-header-standard.css">
@@ -16,6 +16,34 @@
   border-radius: 16px;
   padding: 32px;
   line-height: 2;
+}
+.intro-jump-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+.intro-jump-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+  border: 1px solid var(--green-soft);
+  border-radius: 999px;
+  background: var(--ivory);
+  color: var(--green-deep);
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+}
+.intro-jump-link:hover,
+.intro-jump-link:focus-visible {
+  background: var(--green-deep);
+  color: white;
+  outline: none;
+}
+#yamano-nakama {
+  scroll-margin-top: 92px;
 }
 .character-grid {
   display: grid;
@@ -38,6 +66,7 @@
   justify-content: center;
 }
 .character-visual img {
+  display: block !important;
   width: 100%;
   max-height: 320px;
   object-fit: contain;
@@ -61,6 +90,25 @@
   font-weight: 700;
   color: var(--charcoal);
   margin-bottom: 14px;
+}
+.character-role-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 16px;
+  padding: 9px 13px;
+  border: 1px solid rgba(45, 90, 61, .16);
+  border-radius: 999px;
+  background: var(--ivory);
+  color: var(--charcoal);
+  font-size: 13px;
+  line-height: 1.45;
+}
+.character-role-pill strong {
+  color: var(--green-deep);
+}
+.character-role-pill span {
+  color: var(--gray);
 }
 .character-body p {
   font-size: 14px;
@@ -122,6 +170,214 @@
   color: var(--green-deep);
   margin-bottom: 4px;
 }
+.character-play {
+  background: white;
+}
+.play-layout {
+  display: grid;
+  grid-template-columns: minmax(280px, .85fr) minmax(0, 1.15fr);
+  gap: 28px;
+  align-items: start;
+}
+.mission-panel,
+.quiz-panel,
+.result-panel {
+  background: white;
+  border: 1px solid var(--rule);
+  border-radius: 16px;
+  padding: 28px;
+}
+.mission-panel {
+  display: grid;
+  gap: 18px;
+}
+.panel-kicker {
+  color: var(--green-deep);
+  font-size: 13px;
+  font-weight: 700;
+}
+.mission-card,
+.result-card {
+  display: grid;
+  grid-template-columns: 112px 1fr;
+  gap: 18px;
+  align-items: center;
+  background: var(--ivory);
+  border-radius: 14px;
+  padding: 18px;
+}
+.mission-card img,
+.result-card img {
+  display: block !important;
+  width: 112px;
+  height: 112px;
+  object-fit: contain;
+}
+.mission-card h3,
+.result-copy h3 {
+  color: var(--green-deep);
+  font-size: 22px;
+  line-height: 1.35;
+  margin-bottom: 6px;
+}
+.mission-card p,
+.result-copy p {
+  font-size: 14px;
+  line-height: 1.85;
+}
+.quiz-progress {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 22px;
+  color: var(--gray);
+  font-size: 13px;
+  font-weight: 700;
+}
+.progress-track {
+  flex: 1;
+  height: 8px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--ivory);
+}
+.progress-bar {
+  width: 0%;
+  height: 100%;
+  background: var(--yuzu);
+  transition: width .25s ease;
+}
+.question-title {
+  color: var(--green-deep);
+  font-size: clamp(22px, 3vw, 30px);
+  line-height: 1.45;
+  margin-bottom: 22px;
+}
+.answer-grid {
+  display: grid;
+  gap: 12px;
+}
+.answer-button {
+  width: 100%;
+  min-height: 58px;
+  padding: 14px 16px;
+  border: 1px solid var(--rule);
+  border-radius: 10px;
+  background: white;
+  color: var(--charcoal);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.55;
+  text-align: left;
+  cursor: pointer;
+  transition: background .2s ease, border-color .2s ease, transform .2s ease;
+}
+.answer-button:hover,
+.answer-button:focus-visible {
+  border-color: var(--green-soft);
+  background: #fbf8ef;
+  outline: none;
+  transform: translateY(-1px);
+}
+.result-panel {
+  display: none;
+  margin-top: 18px;
+}
+.result-panel.is-visible {
+  display: block;
+}
+.result-tag {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: var(--green-deep);
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+}
+.result-links,
+.play-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+@media (max-width: 900px) {
+  .play-layout,
+  .mission-card,
+  .result-card {
+    grid-template-columns: 1fr;
+  }
+  .mission-card img,
+  .result-card img {
+    width: 144px;
+    height: 144px;
+  }
+}
+@media (max-width: 560px) {
+  .character-intro,
+  .mission-panel,
+  .quiz-panel,
+  .result-panel {
+    padding: 22px;
+  }
+}
+/* スマホでもキャラクターのイラストを表示する（共通CSSのモバイル画像非表示を上書き） */
+@media (max-width: 560px) {
+  .character-card {
+    border-radius: 14px;
+  }
+  .character-visual {
+    padding: 18px 18px 10px;
+  }
+  .character-visual img {
+    max-height: 240px;
+  }
+  .character-body {
+    padding: 20px;
+  }
+  .character-role-pill {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    border-radius: 12px;
+    text-align: center;
+  }
+  .profile-table {
+    grid-template-columns: 82px 1fr;
+  }
+}
+
+@media (max-width: 680px) {
+  body.standard-subpage #yamano-nakama .character-visual,
+  #yamano-nakama .character-visual {
+    display: flex !important;
+  }
+  body.standard-subpage #character-play .quest-badge img,
+  body.standard-subpage #character-play .quest-mission-body img,
+  body.standard-subpage #character-play .quest-answer img,
+  body.standard-subpage #character-play .quest-result-main img,
+  body.standard-subpage #character-play .kito-page-figure img,
+  body.standard-subpage #character-play .kito-illustration img,
+  body.standard-subpage #character-play .kito-quiz-figure img,
+  body.standard-subpage #yamano-nakama .character-visual img,
+  #character-play .quest-badge img,
+  #character-play .quest-mission-body img,
+  #character-play .quest-answer img,
+  #character-play .quest-result-main img,
+  #character-play .kito-page-figure img,
+  #character-play .kito-illustration img,
+  #character-play .kito-quiz-figure img,
+  #yamano-nakama .character-visual img {
+    display: block !important;
+  }
+}
+
+  }
+}
 </style>
 </head>
 <body class="standard-subpage">
@@ -156,28 +412,66 @@
       <p>阿波山雅には、山の活動を案内してくれる仲間たちがいます。</p>
       <p>奥槍戸山の家を支える、やさしく芯のある好青年・奥槍どん。山の元気を届ける妹・なぎかちゃん。木頭杉の長老・杉じぃ。知恵を次へ繋ぐ少女・ユズリ。まっすぐな見習いマイスター・スギト。</p>
       <p>それぞれのキャラクターは、阿波山雅が大切にしている価値を表しています。おもてなし、元気、山の記憶、知恵の継承、手を動かす実践。このページでは、阿波山雅の活動をともに伝えていく仲間たちを紹介します。</p>
-    </div>
-  </div>
-</section>
-
-<section style="background:white;">
-  <div class="container">
-    <h2 class="section-title">関係性</h2>
-    <p class="section-subtitle">5人の役割を、阿波山雅の活動とつなげて整理します。</p>
-    <div class="relation-map">
-      <div class="relation-steps">
-        <div class="relation-step"><strong>迎える</strong>奥槍どん<br><small>食・拠点・安心</small></div>
-        <div class="relation-step"><strong>元気にする</strong>なぎかちゃん<br><small>来訪者・子ども・イベント</small></div>
-        <div class="relation-step"><strong>記憶を語る</strong>杉じぃ<br><small>木頭杉・山の歴史</small></div>
-        <div class="relation-step"><strong>知恵にする</strong>ユズリ<br><small>記録・発信・継承</small></div>
-        <div class="relation-step"><strong>形にする</strong>スギト<br><small>ものづくり・現場活動</small></div>
+      <div class="intro-jump-links" aria-label="ページ内リンク">
+        <a class="intro-jump-link" href="#yamano-nakama">山の仲間たち紹介へ</a>
       </div>
     </div>
   </div>
 </section>
 
-<section>
-  <div class="container character-grid">
+<section class="character-play" id="character-play">
+  <div class="container play-layout">
+    <aside class="mission-panel" aria-labelledby="mission-title">
+      <div>
+        <div class="panel-kicker">今日の山ミッション</div>
+        <h2 class="section-title left" id="mission-title">仲間からの小さなお題</h2>
+      </div>
+      <div class="mission-card">
+        <img src="./img/奥槍どん.png" alt="奥槍どん" id="mission-image">
+        <div>
+          <h3 id="mission-name">奥槍どん</h3>
+          <p id="mission-text">山で一息つける場所をひとつ見つけて、誰かにすすめてみよう。</p>
+        </div>
+      </div>
+      <div class="play-actions">
+        <button class="btn btn-outline" type="button" id="mission-next">別のミッション</button>
+      </div>
+    </aside>
+
+    <div>
+      <section class="quiz-panel" aria-labelledby="quiz-title">
+        <div class="panel-kicker">山の仲間タイプ診断</div>
+        <div class="quiz-progress">
+          <span id="quiz-count">1 / 6</span>
+          <div class="progress-track" aria-hidden="true"><div class="progress-bar" id="progress-bar"></div></div>
+        </div>
+        <h2 class="question-title" id="quiz-title">山に着いたら、まず何をしたい？</h2>
+        <div class="answer-grid" id="answer-grid"></div>
+      </section>
+
+      <section class="result-panel" id="result-panel" aria-live="polite">
+        <div class="result-card">
+          <img src="./img/ユズリ.png" alt="ユズリ" id="result-image">
+          <div class="result-copy">
+            <span class="result-tag">診断結果</span>
+            <h3 id="result-title">あなたはユズリタイプ</h3>
+            <p id="result-text">山の価値を見つけ直し、伝わる形に整える人です。</p>
+            <div class="result-links" id="result-links"></div>
+            <div class="play-actions">
+              <button class="btn btn-outline" type="button" id="quiz-restart">もう一度診断する</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</section>
+
+<section id="yamano-nakama" style="background:white;">
+  <div class="container">
+    <h2 class="section-title">山の仲間たち紹介</h2>
+    <p class="section-subtitle">5人の仲間が、山で大切にしていることを紹介します。役割はそれぞれの紹介カードにまとめました。</p>
+    <div class="character-grid">
 
     <article class="character-card" id="okuyaridon">
       <div class="character-visual"><img src="./img/奥槍どん.png" alt="奥槍どん"></div>
@@ -185,6 +479,7 @@
         <div class="eyebrow">奥槍戸山の家を支える兄</div>
         <h2>奥槍どん</h2>
         <div class="character-copy">奥槍戸山の家を支える、やさしく芯のある若きあるじ。</div>
+        <div class="character-role-pill"><strong>迎える</strong><span>食・拠点・安心</span></div>
         <p>奥槍どんは、奥槍戸山の家を支える好青年です。やさしい口調で、山を訪れる人をあたたかく迎えてくれます。けれど、ただ穏やかなだけではありません。</p>
         <p>奥槍戸山の家を守ること。山に来てくれた人に、ほっとする時間を届けること。地域の食や人のつながりを、次の世代へつないでいくこと。その一つひとつに、まっすぐな思いを持っています。</p>
         <p>妹のなぎかちゃんに振り回されることもありますが、いつも少し離れたところから、やさしく見守っています。</p>
@@ -204,6 +499,7 @@
         <div class="eyebrow">奥槍どんの妹</div>
         <h2>なぎかちゃん</h2>
         <div class="character-copy">山の元気を届ける、奥槍どんの妹。</div>
+        <div class="character-role-pill"><strong>元気にする</strong><span>来訪者・子ども・イベント</span></div>
         <p>なぎかちゃんは、奥槍どんの妹で、元気いっぱいな女の子です。奥槍戸山の家のメニュー「おんなぎカレー」から生まれたキャラクターで、山に来てくれた人を明るく迎えるのが大好きです。</p>
         <p>初めて来た人にも、子どもたちにも、すぐに声をかけて、山の楽しさや奥槍戸山の家の魅力を伝えてくれます。少し勢いがありすぎて、兄の奥槍どんに心配されることもありますが、その明るさは、まわりの人を自然と笑顔にしてくれます。</p>
         <dl class="profile-table">
@@ -222,6 +518,7 @@
         <div class="eyebrow">木頭杉の長老</div>
         <h2>杉じぃ</h2>
         <div class="character-copy">千年の記憶を持つ、木頭杉の長老。</div>
+        <div class="character-role-pill"><strong>記憶を語る</strong><span>木頭杉・山の歴史</span></div>
         <p>杉じぃは、木頭杉の森に長い長い時間を生きてきた長老です。山のこと、木のこと、昔の暮らしのことをよく知っています。</p>
         <p>いつもは陽気に笑っていますが、山の話になると少しだけ真剣になります。木をただの材料として見るのではなく、山の時間そのものとして見ることを大切にしています。</p>
         <dl class="profile-table">
@@ -240,6 +537,7 @@
         <div class="eyebrow">知恵を次へ繋ぐ案内人</div>
         <h2>ユズリ</h2>
         <div class="character-copy">知恵を、次へ繋ぐ少女。</div>
+        <div class="character-role-pill"><strong>知恵にする</strong><span>記録・発信・継承</span></div>
         <p>ユズリは、山の資料や地域の記録を読むのが大好きな、冷静で博識な女の子です。地域にある資源をどうすれば未来へ残せるのか、いつも考えています。</p>
         <p>記録するだけでなく、伝わる形に整えることを大切にしています。阿波山雅の活動では、情報発信、記録、学び、地域資源を未来へ渡すための案内役です。</p>
         <dl class="profile-table">
@@ -258,6 +556,7 @@
         <div class="eyebrow">見習いマイスター</div>
         <h2>スギト</h2>
         <div class="character-copy">赤身でできた、まっすぐな見習いマイスター。</div>
+        <div class="character-role-pill"><strong>形にする</strong><span>ものづくり・現場活動</span></div>
         <p>スギトは、木のぬくもりを誰よりも信じている、まっすぐな見習いマイスターです。考えるより先に、まず手を動かすタイプです。</p>
         <p>木に触れること。道を整えること。小屋を支えること。イベントで人を迎えること。その一つひとつが、山の未来をつくる仕事になると信じています。</p>
         <dl class="profile-table">
@@ -297,6 +596,169 @@
     <p class="copyright">© 協同組合阿波山雅（あわさんが） All Rights Reserved.</p>
   </div>
 </footer>
+
+<script>
+(function () {
+  'use strict';
+
+  const characters = {
+    okuyaridon: {
+      name: '奥槍どん',
+      image: './img/奥槍どん.png',
+      title: 'あなたは奥槍どんタイプ',
+      text: '人が安心して過ごせる場所を整え、あたたかく迎える人です。奥槍戸では、食や休憩、拠点づくりの魅力に目が向きそうです。',
+      links: [['奥槍戸山の家へ', 'facility_guide.html#okuyarito'], ['奥槍どんを見る', '#okuyaridon']]
+    },
+    nagika: {
+      name: 'なぎかちゃん',
+      image: './img/なぎかちゃん.png',
+      title: 'あなたはなぎかちゃんタイプ',
+      text: '初めての人にも元気よく声をかけ、場を明るくする人です。イベントや来訪者案内で、山の楽しさを広げられます。',
+      links: [['お知らせを見る', 'news.html'], ['なぎかちゃんを見る', '#nagika']]
+    },
+    sugijii: {
+      name: '杉じぃ',
+      image: './img/杉じぃ.png',
+      title: 'あなたは杉じぃタイプ',
+      text: '目の前の景色の奥にある時間や物語を大切にする人です。木頭杉、山の歴史、自然の循環を知るほど楽しみが深まります。',
+      links: [['活動を見る', 'projects.html'], ['杉じぃを見る', '#sugijii']]
+    },
+    yuzuri: {
+      name: 'ユズリ',
+      image: './img/ユズリ.png',
+      title: 'あなたはユズリタイプ',
+      text: '地域の資源を見つけ直し、伝わる形に整える人です。記録、広報、学びを通じて、山の価値を次へ渡せます。',
+      links: [['活動報告を見る', 'activity-report.html'], ['ユズリを見る', '#yuzuri']]
+    },
+    sugito: {
+      name: 'スギト',
+      image: './img/スギト.png',
+      title: 'あなたはスギトタイプ',
+      text: '考えるだけで終わらせず、まず手を動かして形にしていく人です。木工、整備、現場活動の中で力を発揮できます。',
+      links: [['プロジェクトを見る', 'projects.html'], ['スギトを見る', '#sugito']]
+    }
+  };
+
+  const questions = [
+    { text: '山に着いたら、まず何をしたい？', answers: [['温かい食事や休憩場所を確かめたい', 'okuyaridon'], ['誰かを誘って楽しい場所を探したい', 'nagika'], ['木や道に残る昔の話を知りたい', 'sugijii'], ['地図や資料を見て全体を整理したい', 'yuzuri'], ['歩道や道具の様子を見て手伝いたい', 'sugito']] },
+    { text: '人と関わるなら、どんな役割がしっくりくる？', answers: [['落ち着ける場を用意する', 'okuyaridon'], ['最初の一歩を明るく後押しする', 'nagika'], ['経験や物語を語る', 'sugijii'], ['情報を整理して伝える', 'yuzuri'], ['一緒に作業して形にする', 'sugito']] },
+    { text: '気になる言葉をひとつ選ぶなら？', answers: [['おもてなし', 'okuyaridon'], ['元気', 'nagika'], ['記憶', 'sugijii'], ['継承', 'yuzuri'], ['実践', 'sugito']] },
+    { text: 'イベントで任されるとうれしいことは？', answers: [['食事や休憩の段取り', 'okuyaridon'], ['受付や声かけ', 'nagika'], ['山や木の小話', 'sugijii'], ['記録写真や発信文', 'yuzuri'], ['設営や片づけ', 'sugito']] },
+    { text: '山の魅力を誰かに伝えるなら？', answers: [['ほっとできる時間を伝える', 'okuyaridon'], ['楽しい体験から伝える', 'nagika'], ['長い時間の流れから伝える', 'sugijii'], ['資料や言葉にして伝える', 'yuzuri'], ['手を動かす体験で伝える', 'sugito']] },
+    { text: '今日の自分に近い気分は？', answers: [['ゆっくり整えたい', 'okuyaridon'], ['元気に動きたい', 'nagika'], ['じっくり味わいたい', 'sugijii'], ['きちんと残したい', 'yuzuri'], ['まずやってみたい', 'sugito']] }
+  ];
+
+  const missions = [
+    ['okuyaridon', '山で一息つける場所をひとつ見つけて、誰かにすすめてみよう。'],
+    ['nagika', '初めて来た人に伝えたい山の楽しみを、ひとつ言葉にしてみよう。'],
+    ['sugijii', '木や道や建物に残っている時間の跡を、ひとつ観察してみよう。'],
+    ['yuzuri', '今日見つけた地域の魅力を、写真か短いメモで残してみよう。'],
+    ['sugito', '小さくてもいいので、山や場所を整える作業をひとつ考えてみよう。']
+  ];
+
+  const state = {
+    index: 0,
+    scores: Object.keys(characters).reduce((acc, key) => {
+      acc[key] = 0;
+      return acc;
+    }, {})
+  };
+
+  const count = document.getElementById('quiz-count');
+  const progress = document.getElementById('progress-bar');
+  const title = document.getElementById('quiz-title');
+  const answers = document.getElementById('answer-grid');
+  const resultPanel = document.getElementById('result-panel');
+  const resultImage = document.getElementById('result-image');
+  const resultTitle = document.getElementById('result-title');
+  const resultText = document.getElementById('result-text');
+  const resultLinks = document.getElementById('result-links');
+  const restart = document.getElementById('quiz-restart');
+  const missionImage = document.getElementById('mission-image');
+  const missionName = document.getElementById('mission-name');
+  const missionText = document.getElementById('mission-text');
+  const missionNext = document.getElementById('mission-next');
+
+  function renderQuestion() {
+    const question = questions[state.index];
+    count.textContent = `${state.index + 1} / ${questions.length}`;
+    progress.style.width = `${(state.index / questions.length) * 100}%`;
+    title.textContent = question.text;
+    answers.replaceChildren();
+
+    question.answers.forEach(([label, target]) => {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'answer-button';
+      button.textContent = label;
+      button.addEventListener('click', () => choose(target));
+      answers.append(button);
+    });
+  }
+
+  function choose(target) {
+    state.scores[target] += 1;
+    state.index += 1;
+    if (state.index >= questions.length) {
+      showResult();
+      return;
+    }
+    renderQuestion();
+  }
+
+  function showResult() {
+    progress.style.width = '100%';
+    const winner = Object.entries(state.scores).sort((a, b) => b[1] - a[1])[0][0];
+    const data = characters[winner];
+    resultImage.src = data.image;
+    resultImage.alt = data.name;
+    resultTitle.textContent = data.title;
+    resultText.textContent = data.text;
+    resultLinks.replaceChildren();
+
+    data.links.forEach(([label, href]) => {
+      const link = document.createElement('a');
+      link.className = 'btn btn-primary';
+      link.href = href;
+      link.textContent = label;
+      resultLinks.append(link);
+    });
+
+    resultPanel.classList.add('is-visible');
+    resultPanel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  function resetQuiz() {
+    state.index = 0;
+    Object.keys(state.scores).forEach((key) => {
+      state.scores[key] = 0;
+    });
+    resultPanel.classList.remove('is-visible');
+    renderQuestion();
+  }
+
+  function setMission(offset) {
+    const today = new Date();
+    const seed = today.getFullYear() + today.getMonth() + today.getDate() + offset;
+    const [key, text] = missions[Math.abs(seed) % missions.length];
+    const data = characters[key];
+    missionImage.src = data.image;
+    missionImage.alt = data.name;
+    missionName.textContent = data.name;
+    missionText.textContent = text;
+  }
+
+  let missionOffset = 0;
+  missionNext.addEventListener('click', () => {
+    missionOffset += 1;
+    setMission(missionOffset);
+  });
+  restart.addEventListener('click', resetQuiz);
+
+  renderQuestion();
+  setMission(0);
+})();
+</script>
 
 </body>
 </html>

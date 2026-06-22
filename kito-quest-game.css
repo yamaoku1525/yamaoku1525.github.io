@@ -1,0 +1,536 @@
+.kito-quest {
+  margin-top: 30px;
+  border: 1px solid rgba(255, 253, 248, .28);
+  border-radius: 20px;
+  background: rgba(255, 253, 248, .96);
+  color: var(--charcoal);
+  box-shadow: 0 26px 60px rgba(8, 25, 16, .32);
+  overflow: hidden;
+}
+
+.kito-quest-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 20px;
+  align-items: end;
+  padding: 26px;
+  background:
+    linear-gradient(135deg, rgba(45, 90, 61, .92), rgba(31, 51, 39, .94)),
+    url("./img/top_yuzu1.png") center / cover no-repeat;
+  color: #fffdf8;
+}
+
+.kito-quest-kicker {
+  color: var(--yuzu);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  margin-bottom: 8px;
+}
+
+.kito-quest-head h2 {
+  margin: 0;
+  color: #fffdf8;
+  font-size: clamp(26px, 4vw, 42px);
+  line-height: 1.25;
+}
+
+.kito-quest-head p {
+  max-width: 760px;
+  margin-top: 12px;
+  color: rgba(255, 253, 248, .86);
+  font-size: 14px;
+  line-height: 1.85;
+}
+
+.kito-quest-counter {
+  min-width: 96px;
+  padding: 10px 12px;
+  border: 1px solid rgba(232, 184, 58, .6);
+  border-radius: 999px;
+  background: rgba(232, 184, 58, .16);
+  color: #fffdf8;
+  font-size: 13px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.kito-quest-body {
+  display: grid;
+  grid-template-columns: minmax(230px, .78fr) minmax(0, 1.22fr);
+  gap: 22px;
+  padding: 26px;
+}
+
+.kito-map {
+  display: grid;
+  gap: 10px;
+}
+
+.kito-stage-tab {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1px solid rgba(45, 90, 61, .16);
+  border-radius: 12px;
+  background: var(--ivory);
+  color: var(--green-deep);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: left;
+}
+
+.kito-stage-tab.is-active {
+  background: var(--green-deep);
+  color: white;
+}
+
+.kito-stage-card {
+  border: 1px solid rgba(45, 90, 61, .14);
+  border-radius: 16px;
+  background: #fffdf8;
+  padding: 22px;
+}
+
+.kito-stage-meta {
+  color: var(--green-deep);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  margin-bottom: 8px;
+}
+
+.kito-stage-card h3 {
+  color: var(--green-deep);
+  font-size: clamp(22px, 3vw, 30px);
+  line-height: 1.35;
+  margin-bottom: 12px;
+}
+
+.kito-story {
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: var(--ivory);
+  color: var(--charcoal);
+  font-size: 14px;
+  line-height: 1.85;
+  margin-bottom: 16px;
+}
+
+.kito-question {
+  color: var(--charcoal);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+
+.kito-options {
+  display: grid;
+  gap: 10px;
+}
+
+.kito-option {
+  width: 100%;
+  padding: 13px 15px;
+  border: 1px solid rgba(45, 90, 61, .18);
+  border-radius: 12px;
+  background: white;
+  color: var(--charcoal);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
+  transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+
+.kito-option:hover,
+.kito-option:focus-visible {
+  border-color: var(--green-soft);
+  box-shadow: 0 10px 24px rgba(45, 90, 61, .12);
+  outline: none;
+  transform: translateY(-1px);
+}
+
+.kito-option.is-correct {
+  border-color: var(--green-deep);
+  background: rgba(123, 166, 138, .18);
+}
+
+.kito-option.is-wrong {
+  border-color: #b86b5a;
+  background: rgba(161, 75, 58, .12);
+}
+
+.kito-feedback {
+  display: none;
+  margin-top: 14px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: rgba(232, 184, 58, .18);
+  color: var(--dark);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.kito-feedback.is-visible {
+  display: block;
+}
+
+.kito-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.kito-clear {
+  display: none;
+  margin-top: 18px;
+  padding: 18px;
+  border-radius: 14px;
+  background: var(--green-deep);
+  color: white;
+}
+
+.kito-clear.is-visible {
+  display: block;
+}
+
+.kito-clear strong {
+  display: block;
+  color: var(--yuzu);
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+
+.kito-clear p {
+  color: rgba(255, 255, 255, .9);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+@media (max-width: 860px) {
+  .kito-quest-head,
+  .kito-quest-body {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .kito-quest-head,
+  .kito-quest-body,
+  .kito-stage-card {
+    padding: 20px;
+  }
+}
+
+/* Storybook layout for Kito Quest */
+.kito-book-body {
+  grid-template-columns: 240px minmax(0, 1fr);
+}
+
+.kito-picture-book {
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(320px, .88fr);
+  gap: 24px;
+  align-items: stretch;
+  padding: 18px;
+  background: #fff9ec;
+}
+
+.kito-illustration {
+  position: relative;
+  min-height: 360px;
+  margin: 0;
+  overflow: hidden;
+  border-radius: 16px;
+  background: var(--ivory);
+  border: 1px solid rgba(45, 90, 61, .12);
+}
+
+.kito-illustration img {
+  width: 100%;
+  height: 100%;
+  min-height: 360px;
+  object-fit: cover;
+  display: block !important;
+}
+
+.kito-illustration figcaption {
+  position: absolute;
+  left: 14px;
+  bottom: 14px;
+  max-width: calc(100% - 28px);
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: rgba(31, 51, 39, .84);
+  color: #fffdf8;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.kito-page-text {
+  display: grid;
+  align-content: center;
+  padding: 10px 8px 10px 0;
+}
+
+.kito-dialogue {
+  border-left: 4px solid var(--yuzu);
+}
+
+.kito-picture-book .kito-question {
+  margin-top: 4px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: rgba(232, 184, 58, .16);
+  color: var(--dark);
+}
+
+@media (max-width: 960px) {
+  .kito-book-body,
+  .kito-picture-book {
+    grid-template-columns: 1fr;
+  }
+
+  .kito-page-text {
+    padding: 0;
+  }
+}
+
+@media (max-width: 560px) {
+  .kito-picture-book {
+    padding: 14px;
+  }
+
+  .kito-illustration,
+  .kito-illustration img {
+    min-height: 240px;
+  }
+}
+
+/* Picture-book pages use the supplied artwork as the primary story text. */
+.kito-book-body {
+  grid-template-columns: minmax(190px, 240px) minmax(0, 1fr);
+  align-items: start;
+}
+
+.kito-picture-book {
+  display: block;
+  padding: 16px;
+  background: #fff9ec;
+}
+
+.kito-page-figure {
+  margin: 0;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(45, 90, 61, .14);
+  background: #1f3327;
+  box-shadow: 0 18px 36px rgba(31, 51, 39, .16);
+}
+
+.kito-page-figure img {
+  display: block !important;
+  width: 100%;
+  height: auto;
+}
+
+.kito-page-panel {
+  margin-top: 18px;
+  padding: 18px;
+  border-radius: 14px;
+  background: rgba(255, 253, 248, .96);
+  border: 1px solid rgba(45, 90, 61, .12);
+}
+
+.kito-page-panel .kito-story {
+  margin-bottom: 12px;
+}
+
+.kito-page-panel .kito-question {
+  margin-top: 0;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: rgba(232, 184, 58, .16);
+}
+
+.kito-quiz-body {
+  border-top: 1px solid rgba(45, 90, 61, .12);
+}
+
+.kito-quiz-card {
+  display: grid;
+  gap: 14px;
+}
+
+.kito-quiz-figure {
+  margin: 0;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(45, 90, 61, .14);
+  background: var(--ivory);
+}
+
+.kito-quiz-figure img {
+  display: block !important;
+  width: 100%;
+  height: auto;
+}
+
+@media (max-width: 960px) {
+  .kito-book-body {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .kito-picture-book,
+  .kito-page-panel {
+    padding: 12px;
+  }
+}
+
+.kito-page-panel .kito-options {
+  margin: 12px 0;
+}
+
+.kito-page-panel .kito-question[hidden] {
+  display: none;
+}
+
+.kito-reveal-answer {
+  text-align: center;
+  background: var(--green-deep);
+  color: white;
+}
+
+.kito-reveal-answer:hover,
+.kito-reveal-answer:focus-visible {
+  border-color: var(--green-deep);
+  background: var(--green-deep);
+  color: white;
+}
+
+.kito-reveal-answer:disabled {
+  cursor: default;
+  opacity: .72;
+  transform: none;
+}
+
+/* Mobile balance for the illustrated Kito Quest book */
+@media (max-width: 720px) {
+  .kito-quest {
+    margin-top: 22px;
+    border-radius: 14px;
+  }
+
+  .kito-quest-head {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 18px;
+  }
+
+  .kito-quest-head h2 {
+    font-size: 26px;
+  }
+
+  .kito-quest-head p {
+    font-size: 13px;
+    line-height: 1.75;
+  }
+
+  .kito-quest-counter {
+    width: fit-content;
+    min-width: 0;
+  }
+
+  .kito-book-body {
+    display: block;
+    padding: 14px;
+  }
+
+  .kito-map {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 0 0 10px;
+    margin-bottom: 12px;
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .kito-stage-tab {
+    flex: 0 0 auto;
+    width: auto;
+    max-width: 220px;
+    min-width: 128px;
+    padding: 10px 12px;
+    font-size: 12px;
+    line-height: 1.45;
+    scroll-snap-align: start;
+  }
+
+  .kito-stage-card,
+  .kito-picture-book,
+  .kito-page-panel {
+    border-radius: 12px;
+    padding: 12px;
+  }
+
+  .kito-page-figure {
+    border-radius: 10px;
+    box-shadow: 0 12px 24px rgba(31, 51, 39, .14);
+  }
+
+  .kito-page-panel {
+    margin-top: 12px;
+  }
+
+  .kito-stage-card h3 {
+    font-size: 21px;
+  }
+
+  .kito-story,
+  .kito-question,
+  .kito-feedback,
+  .kito-clear p {
+    font-size: 13px;
+    line-height: 1.75;
+  }
+
+  .kito-actions .btn {
+    flex: 1 1 130px;
+  }
+}
+
+@media (max-width: 380px) {
+  .kito-quest-head,
+  .kito-book-body {
+    padding: 12px;
+  }
+
+  .kito-stage-tab {
+    min-width: 112px;
+    max-width: 190px;
+  }
+}
+
+@media (max-width: 720px) {
+  .kito-book-body {
+    padding: 10px;
+  }
+
+  .kito-picture-book {
+    padding: 8px;
+  }
+}
+
+@media (max-width: 720px) {
+  .kito-quest {
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+}

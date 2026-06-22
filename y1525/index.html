@@ -23,6 +23,7 @@
           <a href="#news" class="is-active">最新情報</a>
           <a href="#about">山の家</a>
           <a href="#menu">名物</a>
+          <a href="#mascots">仲間たち</a>
           <a href="#access">アクセス</a>
           <a href="#contact">お問い合わせ</a>
           <a href="https://www.awasanga.com/" target="_blank" rel="noopener">阿波山雅</a>
@@ -82,6 +83,22 @@
         </div>
       </section>
 
+      <section class="news-feed-section" id="news-feed">
+        <div class="container">
+          <div class="news-feed-head">
+            <div class="section-kicker">News</div>
+            <h2 class="section-title">お知らせ</h2>
+            <p class="section-text">山の家の新着投稿と、剣山スーパー林道の通行情報をまとめています。</p>
+          </div>
+          <div id="y-news-list" class="y-news-list" aria-live="polite"></div>
+          <p id="y-news-empty" class="y-news-state" hidden>現在表示できるお知らせはありません。</p>
+          <p id="y-news-error" class="y-news-state" hidden>お知らせを読み込めませんでした。時間をおいて再読み込みしてください。</p>
+          <div class="news-feed-foot">
+            <a class="btn btn-gold" href="../news2.html">お知らせ一覧を見る</a>
+          </div>
+        </div>
+      </section>
+
       <section class="intro" id="about">
         <div class="container intro-grid">
           <div>
@@ -121,6 +138,45 @@
 
 ※メニューや提供状況は、季節・営業日により変わる場合があります。
             </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="mascot-section" id="mascots">
+        <div class="container">
+          <div class="mascot-head">
+            <div class="section-kicker">Mascots</div>
+            <h2 class="section-title">山の家の仲間たち</h2>
+            <p class="section-text">奥槍戸 山の家を支える、兄妹のマスコットです。</p>
+          </div>
+          <div class="mascot-grid">
+            <article class="mascot-card">
+              <div class="mascot-visual">
+                <img src="../img/奥槍どん.png" alt="奥槍どん" loading="lazy" />
+              </div>
+              <div class="mascot-body">
+                <div class="mascot-eyebrow">奥槍戸山の家を支える兄</div>
+                <h3 class="mascot-name">奥槍どん<span class="mascot-reading">おくやりどん</span></h3>
+                <p class="mascot-catch">奥槍戸山の家を支える、やさしく芯のある若きあるじ。</p>
+                <p class="mascot-text">山を訪れる人をやさしく迎え、ほっとできる時間を届けてくれる存在。穏やかさの中に、山小屋を守り人と地域をつなぐ芯の強さを持っています。</p>
+                <p class="mascot-serif">「よう来てくれたね。ゆっくりしていって。」</p>
+              </div>
+            </article>
+            <article class="mascot-card">
+              <div class="mascot-visual">
+                <img src="../img/なぎかちゃん.png" alt="なぎかちゃん" loading="lazy" />
+              </div>
+              <div class="mascot-body">
+                <div class="mascot-eyebrow">奥槍どんの妹</div>
+                <h3 class="mascot-name">なぎかちゃん</h3>
+                <p class="mascot-catch">山の元気を届ける、奥槍どんの妹。</p>
+                <p class="mascot-text">初めて来た人にも明るく声をかけ、山の楽しさや山の家の魅力を元気いっぱいに伝えてくれる女の子。その明るさが、まわりを自然と笑顔にします。</p>
+                <p class="mascot-serif">「はじめてでも大丈夫！なぎかが案内するよ！」</p>
+              </div>
+            </article>
+          </div>
+          <div class="mascot-foot">
+            <a class="btn btn-gold" href="../characters.html">仲間たちをもっと見る</a>
           </div>
         </div>
       </section>
@@ -178,10 +234,84 @@
         <div class="footer-links">
           <a href="https://www.instagram.com/yamanoie.okuyarido/" target="_blank" rel="noopener">Instagram</a>
           <a href="https://www.facebook.com/profile.php?id=100015930728117&locale=ja_JP" target="_blank" rel="noopener">Facebook</a>
+          <a href="https://www.awasanga.com/" target="_blank" rel="noopener">協同組合 阿波山雅</a>
         </div>
       </div>
       <p class="copyright">© 協同組合阿波山雅（あわさんが） All Rights Reserved.</p>
     </footer>
   </div>
+
+  <script>
+    (function () {
+      var MAX_ITEMS = 6;   // 一覧は最新この件数のみ表示（全件は news2.html）
+      var NEW_DAYS = 7;    // firstSeen からこの日数以内は NEW バッジ
+      var list = document.getElementById('y-news-list');
+      var emptyEl = document.getElementById('y-news-empty');
+      var errorEl = document.getElementById('y-news-error');
+      if (!list) return;
+
+      function esc(s) {
+        return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+          return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+        });
+      }
+
+      // news2.json の image は v2 基準（./img/...）。y1525 は 1 階層下なので ../ に補正。
+      function fixImg(src) {
+        if (!src) return '';
+        if (/^https?:/.test(src)) return src;
+        return src.replace(/^\.\//, '../');
+      }
+
+      function isNew(it) {
+        var seen = it.firstSeen || it.date;
+        if (!seen) return false;
+        var t = Date.parse(seen);
+        if (isNaN(t)) return false;
+        return (Date.now() - t) <= NEW_DAYS * 24 * 60 * 60 * 1000;
+      }
+
+      function cardHtml(it) {
+        var img = fixImg(it.image);
+        var cat = it.category || '';
+        var thumb = img
+          ? '<span class="thumb"><img src="' + esc(img) + '" alt="" loading="lazy"></span>'
+          : '<span class="thumb thumb-placeholder" data-cat="' + esc(cat) + '">' +
+              (cat === '林道情報' ? '🛣' : '🏔') + '</span>';
+        var newBadge = isNew(it) ? '<span class="badge is-new">NEW</span>' : '';
+        var target = /^https?:/.test(it.url || '') ? ' target="_blank" rel="noopener"' : '';
+        return ''
+          + '<a class="y-news-card" href="' + esc(it.url || '../news2.html') + '"' + target + '>'
+          +   thumb
+          +   '<span class="body">'
+          +     '<span class="meta">'
+          +       '<span class="date">' + esc(it.displayDate || it.date || '') + '</span>'
+          +       '<span class="badge" data-cat="' + esc(cat) + '">' + esc(cat) + '</span>'
+          +       newBadge
+          +     '</span>'
+          +     '<span class="title">' + esc(it.title || '') + '</span>'
+          +     (it.summary ? '<span class="summary">' + esc(it.summary) + '</span>' : '')
+          +   '</span>'
+          + '</a>';
+      }
+
+      fetch('../news2.json?_=' + Date.now(), { cache: 'no-cache' })
+        .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
+        .then(function (data) {
+          var items = (data && data.items) ? data.items.slice() : [];
+          items.sort(function (a, b) { return (b.date || '').localeCompare(a.date || ''); });
+          items = items.slice(0, MAX_ITEMS);
+          if (!items.length) {
+            emptyEl.hidden = false;
+            return;
+          }
+          list.innerHTML = items.map(cardHtml).join('');
+        })
+        .catch(function (err) {
+          console.error('news2.json 読み込みエラー:', err);
+          errorEl.hidden = false;
+        });
+    })();
+  </script>
 </body>
 </html>
