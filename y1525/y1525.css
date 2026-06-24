@@ -1116,3 +1116,7 @@ figcaption {
     letter-spacing: 0.06em;
   }
 }
+
+/* ご利用案内カード内リンクを視認できるように */
+.info-card a { color: var(--green-700); text-decoration: underline; text-underline-offset: 2px; font-weight: 700; }
+.info-card a:hover { color: var(--gold); }
