@@ -18,7 +18,7 @@
         kind: 'story',
         label: '表紙',
         title: '森の記憶の図書館と3人の精霊たち',
-        image: './img/kito-quest/story-00-cover.png',
+        image: './img/kito-quest/story-00-cover.jpg',
         imageAlt: '森の記憶の図書館と3人の精霊たち 表紙',
         text: '木頭杉の仙人、スギト、ユズリが、忘れられた森の記憶をたどる物語です。まずは絵本を開くように、森の図書館へ入っていきます。',
         mission: '木頭杉の仙人と忘れられた森の記憶'
@@ -27,7 +27,7 @@
         kind: 'story',
         label: 'はじまり',
         title: '呼吸する図書館',
-        image: './img/kito-quest/story-01-beginning.png',
+        image: './img/kito-quest/story-01-beginning.jpg',
         imageAlt: 'はじまりの章 呼吸する図書館',
         text: '木頭図書館は、世界一美しい木の殿堂。千年の時を越えて山からやってきた木頭杉たちが、静かに眠るように本を守っています。',
         mission: '図書館の息づかいに耳を澄ませよう。'
@@ -36,7 +36,7 @@
         kind: 'story',
         label: '第1章',
         title: '薄れゆく輪郭と、命の芯',
-        image: './img/kito-quest/story-02-core.png',
+        image: './img/kito-quest/story-02-core.jpg',
         imageAlt: '第1章 薄れゆく輪郭と命の芯',
         text: '杉じぃが本棚の柱に触れると、指先は木の表面に吸い込まれるように透き通ってしまいます。失われかけた記憶の奥で、赤く光る命の芯が呼んでいます。',
         mission: '次はクイズ1。赤い部分の名前をたしかめよう。'
@@ -57,7 +57,7 @@
         kind: 'story',
         label: '第2章',
         title: '激流を渡った道具の記憶',
-        image: './img/kito-quest/story-03-river-tool.png',
+        image: './img/kito-quest/story-03-river-tool.jpg',
         imageAlt: '第2章 激流を渡った道具の記憶',
         text: '杉じぃは、激しい川を一本の道具だけで命がけで乗り越えた記憶をたどります。木頭の材を運んだ人々の手と声が、森の中によみがえります。',
         mission: '次はクイズ2。激流を渡った道具の名を探そう。'
@@ -78,7 +78,7 @@
         kind: 'story',
         label: '第3章',
         title: '都での栄光と、受け継がれる約束',
-        image: './img/kito-quest/story-04-city-promise.png',
+        image: './img/kito-quest/story-04-city-promise.jpg',
         imageAlt: '第3章 都での栄光と受け継がれる約束',
         text: '記憶の先には、大阪城や下鴨神社へとつながる旅がありました。木頭杉は、遠い都で人々の暮らしと祈りを支えてきたのです。',
         mission: '次はクイズ3。杉じぃの胸に残った気持ちを見つけよう。'
@@ -99,7 +99,7 @@
         kind: 'story',
         label: '第4章',
         title: 'ぬくもりの再会と、受け継がれる手',
-        image: './img/kito-quest/story-05-woodhead.png',
+        image: './img/kito-quest/story-05-woodhead.jpg',
         imageAlt: '第4章 ぬくもりの再会と受け継がれる手',
         text: '導かれるようにたどり着いたのは、木の香りに包まれた職人の小屋。木頭杉の記憶は、今も手仕事の中で新しい形へ生まれ変わっています。',
         mission: '職人の手から、木がもう一度生きはじめる。'
@@ -108,7 +108,7 @@
         kind: 'story',
         label: '最終章',
         title: '永遠に響く「名」と、千年の約束',
-        image: './img/kito-quest/story-06-final-promise.png',
+        image: './img/kito-quest/story-06-final-promise.jpg',
         imageAlt: '最終章 永遠に響く名と千年の約束',
         text: '杉じぃは全てを思い出します。木を育て、運び、使い、次へ渡してきた人々の名前。その記憶は、千年の森から未来へ続いていきます。',
         mission: '集めた言葉が、約束の言葉へつながります。'
@@ -117,7 +117,7 @@
         kind: 'quiz',
         label: '最後の試練',
         title: '「約束の言葉」を完成させよ！',
-        image: './img/kito-quest/story-06-final-promise.png',
+        image: './img/kito-quest/story-06-final-promise.jpg',
         imageAlt: '最後の試練 約束の言葉を完成させる',
         text: 'ミッション1とミッション3のキーワードを思い出して、空欄を埋めよう。',
         question: '木頭杉の「□□□」のぬくもりが、えいえんの「□□□」をつなぐ',
@@ -129,7 +129,7 @@
         kind: 'story',
         label: '贈り物',
         title: '杉じぃからの贈り物',
-        image: './img/kito-quest/story-07-gift.png',
+        image: './img/kito-quest/story-07-gift.jpg',
         imageAlt: '杉じぃからの贈り物 木頭見習いマイスター認定',
         text: '見事に全ての記憶をつなぎ止めた君は、「木頭見習いマイスター」として認定されます。物語の続きは、木に触れる一人ひとりの手の中にあります。',
         mission: '最後の試練の答えは「あかみ」「ほこり」。木頭杉の「あかみ」のぬくもりが、えいえんの「ほこり」をつなぎます。'
@@ -152,7 +152,7 @@
         <nav class="kito-map" aria-label="木頭クエストのページ" data-kito-map></nav>
         <article class="kito-stage-card kito-picture-book">
           <figure class="kito-page-figure">
-            <img src="./img/kito-quest/story-00-cover.png" alt="森の記憶の図書館と3人の精霊たち 表紙" data-kito-image>
+            <img src="./img/kito-quest/story-00-cover.jpg" alt="森の記憶の図書館と3人の精霊たち 表紙" data-kito-image>
           </figure>
           <div class="kito-page-panel">
             <div class="kito-stage-meta" data-kito-label>表紙</div>
