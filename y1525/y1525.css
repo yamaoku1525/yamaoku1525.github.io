@@ -152,7 +152,7 @@ img {
   color: var(--white);
   background:
     linear-gradient(90deg, rgba(12, 35, 25, 0.94) 0%, rgba(16, 41, 31, 0.82) 48%, rgba(16, 41, 31, 0.42) 100%),
-    url("../img/top_yamanoie1.png") center/cover no-repeat;
+    url("../img/y1525-hero.jpg") center/cover no-repeat;
 }
 
 .hero::after {
@@ -977,7 +977,7 @@ figcaption {
   background:
     linear-gradient(90deg, rgba(9, 28, 20, 0.82) 0%, rgba(12, 35, 25, 0.58) 42%, rgba(12, 35, 25, 0.18) 100%),
     linear-gradient(180deg, rgba(13, 36, 28, 0.22), rgba(13, 36, 28, 0.34)),
-    url("../img/top_yamanoie1.png") center / cover no-repeat;
+    url("../img/y1525-hero.jpg") center / cover no-repeat;
 }
 
 .hero::after {
