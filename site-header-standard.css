@@ -339,3 +339,31 @@ body.standard-subpage .copyright {
     margin-top: 18px;
   }
 }
+
+@media (max-width: 640px) {
+  body.standard-subpage .scene-box,
+  body.standard-subpage .scene-box.has-character {
+    display: block !important;
+    margin-top: 18px !important;
+    padding: 18px 16px !important;
+    border-left: 0 !important;
+    border-top: 5px solid var(--gold, #c99b2f) !important;
+    border-radius: 18px !important;
+  }
+
+  body.standard-subpage .scene-box .scene-character,
+  body.standard-subpage .scene-box.has-character .scene-character {
+    display: block !important;
+    width: 70px !important;
+    height: 70px !important;
+    margin: 0 auto 12px !important;
+  }
+
+  body.standard-subpage .scene-box .scene-box-text strong {
+    text-align: center !important;
+  }
+
+  body.standard-subpage .scene-box p {
+    line-height: 1.85 !important;
+  }
+}
