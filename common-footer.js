@@ -29,35 +29,8 @@
     const el = document.querySelector(selector);
     if (el) el.textContent = text;
   }
-  function loadStylesheet(id, href) {
-    if (document.getElementById(id)) return;
-    const link = document.createElement('link');
-    link.id = id;
-    link.rel = 'stylesheet';
-    link.href = href;
-    document.head.append(link);
-  }
-  function loadScript(src, onload) {
-    const existing = Array.from(document.scripts).find((script) => script.getAttribute('src') === src);
-    if (existing) {
-      if (onload) onload();
-      return;
-    }
-    const script = document.createElement('script');
-    script.src = src;
-    script.onload = onload || null;
-    document.body.append(script);
-  }
-  function loadCharacterPlayPolish() {
-    loadStylesheet('character-play-polish-style', 'character-play-polish.css');
-    loadStylesheet('kito-quest-game-style', 'kito-quest-game.css');
-    loadScript('character-play-polish.js', () => loadScript('kito-quest-story.js'));
-  }
 
   const file = location.pathname.split('/').pop();
-  if (file === 'characters.html') {
-    loadCharacterPlayPolish();
-  }
 
   if (file === 'projects.html') {
     setText('.sub-hero p', 'ここは、阿波山雅が「何を、なぜ行うのか」を知るページです。活動の目的、具体的な取り組み、関わり方を紹介します。力を入れているプロジェクトは、専用ページで実績や数字を確認できます。');
