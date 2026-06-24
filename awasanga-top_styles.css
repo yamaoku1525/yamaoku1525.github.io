@@ -579,13 +579,14 @@
 
     .lodge-images {
       display: flex;
-      gap: 16px;
+      flex-wrap: wrap;
+      gap: 12px;
       margin-top: 30px;
     }
 
     .lodge-images img {
-      width: 126px;
-      height: 126px;
+      width: 92px;
+      height: 92px;
       border-radius: 50%;
       box-shadow: var(--shadow);
       border: 5px solid var(--cream);
