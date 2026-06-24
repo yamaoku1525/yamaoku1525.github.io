@@ -298,6 +298,87 @@
   font-size: 12px;
   font-weight: 700;
 }
+
+.quiz-lead,
+.play-note {
+  color: var(--gray);
+  font-size: 13px;
+  line-height: 1.8;
+  margin-top: 10px;
+}
+.mission-meta {
+  color: var(--gray);
+  font-size: 12px;
+  font-weight: 700;
+  margin-top: 8px;
+}
+.fortune-detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 16px;
+}
+.fortune-detail {
+  background: #fbf8ef;
+  border: 1px solid rgba(45, 90, 61, .12);
+  border-radius: 12px;
+  padding: 12px 14px;
+}
+.fortune-detail span {
+  display: block;
+  color: var(--green-deep);
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.fortune-detail strong {
+  color: var(--charcoal);
+  font-size: 14px;
+  line-height: 1.6;
+}
+.score-list {
+  margin-top: 16px;
+  display: grid;
+  gap: 8px;
+}
+.score-list h4 {
+  color: var(--green-deep);
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+.score-row {
+  display: grid;
+  grid-template-columns: 92px 1fr 28px;
+  gap: 10px;
+  align-items: center;
+  color: var(--charcoal);
+  font-size: 12px;
+  font-weight: 700;
+}
+.score-meter {
+  height: 8px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: var(--ivory);
+}
+.score-fill {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--yuzu);
+}
+.score-value {
+  color: var(--gray);
+  text-align: right;
+}
+@media (max-width: 560px) {
+  .fortune-detail-grid {
+    grid-template-columns: 1fr;
+  }
+  .score-row {
+    grid-template-columns: 78px 1fr 24px;
+  }
+}
 .result-links,
 .play-actions {
   display: flex;
@@ -375,9 +456,6 @@
     display: block !important;
   }
 }
-
-  }
-}
 </style>
 </head>
 <body class="standard-subpage">
@@ -424,13 +502,15 @@
     <aside class="mission-panel" aria-labelledby="mission-title">
       <div>
         <div class="panel-kicker">今日の山ミッション</div>
-        <h2 class="section-title left" id="mission-title">仲間からの小さなお題</h2>
+        <h2 class="section-title left" id="mission-title">山暦から届く小さなお題</h2>
+        <p class="play-note">日付と仲間の気質から、その日に試したい小さな行動を選びます。ミッションは100種類あります。</p>
       </div>
       <div class="mission-card">
         <img src="./img/奥槍どん.png" alt="奥槍どん" id="mission-image">
         <div>
           <h3 id="mission-name">奥槍どん</h3>
           <p id="mission-text">山で一息つける場所をひとつ見つけて、誰かにすすめてみよう。</p>
+          <div class="mission-meta" id="mission-count">1 / 100</div>
         </div>
       </div>
       <div class="play-actions">
@@ -440,9 +520,10 @@
 
     <div>
       <section class="quiz-panel" aria-labelledby="quiz-title">
-        <div class="panel-kicker">山の仲間タイプ診断</div>
+        <div class="panel-kicker">山の仲間タイプ占い</div>
+        <p class="quiz-lead">山での直感、得意な支え方、今日の気分を10問で読み解きます。いちばん強く出た仲間の気質から、今日の山運を鑑定します。</p>
         <div class="quiz-progress">
-          <span id="quiz-count">1 / 6</span>
+          <span id="quiz-count">1 / 10</span>
           <div class="progress-track" aria-hidden="true"><div class="progress-bar" id="progress-bar"></div></div>
         </div>
         <h2 class="question-title" id="quiz-title">山に着いたら、まず何をしたい？</h2>
@@ -453,12 +534,14 @@
         <div class="result-card">
           <img src="./img/ユズリ.png" alt="ユズリ" id="result-image">
           <div class="result-copy">
-            <span class="result-tag">診断結果</span>
+            <span class="result-tag">鑑定結果</span>
             <h3 id="result-title">あなたはユズリタイプ</h3>
             <p id="result-text">山の価値を見つけ直し、伝わる形に整える人です。</p>
+            <div class="fortune-detail-grid" id="result-details"></div>
+            <div class="score-list" id="score-list"></div>
             <div class="result-links" id="result-links"></div>
             <div class="play-actions">
-              <button class="btn btn-outline" type="button" id="quiz-restart">もう一度診断する</button>
+              <button class="btn btn-outline" type="button" id="quiz-restart">もう一度占う</button>
             </div>
           </div>
         </div>
@@ -606,59 +689,274 @@
       name: '奥槍どん',
       image: './img/奥槍どん.png',
       title: 'あなたは奥槍どんタイプ',
-      text: '人が安心して過ごせる場所を整え、あたたかく迎える人です。奥槍戸では、食や休憩、拠点づくりの魅力に目が向きそうです。',
+      sign: '山小屋の星',
+      element: '火と食の気',
+      text: '人が安心して過ごせる場所を整え、あたたかく迎える人です。あなたの運は、誰かの緊張をほどいた瞬間に強く動きます。',
+      oracle: '今日は「整えるほど運が開く日」。休憩、食事、声かけのような小さな安心が、次の出会いを呼び込みます。',
+      luckyColor: '山小屋の赤',
+      luckyAction: '温かいものをすすめる',
+      luckySpot: '入口、休憩所、食卓の近く',
+      caution: '抱え込みすぎず、頼れる人に一言渡すこと。',
+      compatibility: 'なぎかちゃんタイプ',
       links: [['奥槍戸山の家へ', 'facility_guide.html#okuyarito'], ['奥槍どんを見る', '#okuyaridon']]
     },
     nagika: {
       name: 'なぎかちゃん',
       image: './img/なぎかちゃん.png',
       title: 'あなたはなぎかちゃんタイプ',
-      text: '初めての人にも元気よく声をかけ、場を明るくする人です。イベントや来訪者案内で、山の楽しさを広げられます。',
+      sign: '若葉の星',
+      element: '風と笑顔の気',
+      text: '初めての人にも元気よく声をかけ、場を明るくする人です。あなたの運は、楽しそうに動き出した瞬間に広がります。',
+      oracle: '今日は「最初の一声」が鍵。明るい挨拶や小さな誘いが、山の時間をぐっと近づけてくれます。',
+      luckyColor: 'ミントグリーン',
+      luckyAction: '最初に笑顔で声をかける',
+      luckySpot: '集合場所、案内板、イベントの入口',
+      caution: '勢いだけで進まず、相手の歩幅を一度見ること。',
+      compatibility: '奥槍どんタイプ',
       links: [['お知らせを見る', 'news.html'], ['なぎかちゃんを見る', '#nagika']]
     },
     sugijii: {
       name: '杉じぃ',
       image: './img/杉じぃ.png',
       title: 'あなたは杉じぃタイプ',
-      text: '目の前の景色の奥にある時間や物語を大切にする人です。木頭杉、山の歴史、自然の循環を知るほど楽しみが深まります。',
+      sign: '年輪の星',
+      element: '木と記憶の気',
+      text: '目の前の景色の奥にある時間や物語を大切にする人です。あなたの運は、立ち止まって耳を澄ませた時に深まります。',
+      oracle: '今日は「昔を知るほど未来が見える日」。木、道、建物に残る痕跡から、次のヒントを受け取れます。',
+      luckyColor: '木肌の茶色',
+      luckyAction: 'ひとつのものをじっくり観察する',
+      luckySpot: '大きな木のそば、古い道、石積みの近く',
+      caution: '説明が長くなりすぎたら、ひとつだけ大事な話に絞ること。',
+      compatibility: 'ユズリタイプ',
       links: [['活動を見る', 'projects.html'], ['杉じぃを見る', '#sugijii']]
     },
     yuzuri: {
       name: 'ユズリ',
       image: './img/ユズリ.png',
       title: 'あなたはユズリタイプ',
-      text: '地域の資源を見つけ直し、伝わる形に整える人です。記録、広報、学びを通じて、山の価値を次へ渡せます。',
+      sign: '継承の星',
+      element: '葉と知恵の気',
+      text: '地域の資源を見つけ直し、伝わる形に整える人です。あなたの運は、気づきを記録して誰かへ渡した時に整います。',
+      oracle: '今日は「残すことで巡りが生まれる日」。写真、メモ、短い言葉が、あとから大切な道しるべになります。',
+      luckyColor: '淡い若葉色',
+      luckyAction: '気づいたことを三行で残す',
+      luckySpot: '資料、掲示物、地図がある場所',
+      caution: '完璧にまとめようとしすぎず、まず一つ残すこと。',
+      compatibility: '杉じぃタイプ',
       links: [['活動報告を見る', 'activity-report.html'], ['ユズリを見る', '#yuzuri']]
     },
     sugito: {
       name: 'スギト',
       image: './img/スギト.png',
       title: 'あなたはスギトタイプ',
-      text: '考えるだけで終わらせず、まず手を動かして形にしていく人です。木工、整備、現場活動の中で力を発揮できます。',
+      sign: '赤身の星',
+      element: '土と実践の気',
+      text: '考えるだけで終わらせず、まず手を動かして形にしていく人です。あなたの運は、小さく始めた作業から強くなります。',
+      oracle: '今日は「一手を打つ日」。片づける、直す、運ぶ、試す。小さな実践が次の力を呼びます。',
+      luckyColor: '明るい木の色',
+      luckyAction: '五分だけ手を動かす',
+      luckySpot: '作業台、道具置き場、整備したい場所',
+      caution: '急ぎすぎず、安全確認を最初の作業に入れること。',
+      compatibility: 'ユズリタイプ',
       links: [['プロジェクトを見る', 'projects.html'], ['スギトを見る', '#sugito']]
     }
   };
 
   const questions = [
-    { text: '山に着いたら、まず何をしたい？', answers: [['温かい食事や休憩場所を確かめたい', 'okuyaridon'], ['誰かを誘って楽しい場所を探したい', 'nagika'], ['木や道に残る昔の話を知りたい', 'sugijii'], ['地図や資料を見て全体を整理したい', 'yuzuri'], ['歩道や道具の様子を見て手伝いたい', 'sugito']] },
-    { text: '人と関わるなら、どんな役割がしっくりくる？', answers: [['落ち着ける場を用意する', 'okuyaridon'], ['最初の一歩を明るく後押しする', 'nagika'], ['経験や物語を語る', 'sugijii'], ['情報を整理して伝える', 'yuzuri'], ['一緒に作業して形にする', 'sugito']] },
-    { text: '気になる言葉をひとつ選ぶなら？', answers: [['おもてなし', 'okuyaridon'], ['元気', 'nagika'], ['記憶', 'sugijii'], ['継承', 'yuzuri'], ['実践', 'sugito']] },
-    { text: 'イベントで任されるとうれしいことは？', answers: [['食事や休憩の段取り', 'okuyaridon'], ['受付や声かけ', 'nagika'], ['山や木の小話', 'sugijii'], ['記録写真や発信文', 'yuzuri'], ['設営や片づけ', 'sugito']] },
-    { text: '山の魅力を誰かに伝えるなら？', answers: [['ほっとできる時間を伝える', 'okuyaridon'], ['楽しい体験から伝える', 'nagika'], ['長い時間の流れから伝える', 'sugijii'], ['資料や言葉にして伝える', 'yuzuri'], ['手を動かす体験で伝える', 'sugito']] },
-    { text: '今日の自分に近い気分は？', answers: [['ゆっくり整えたい', 'okuyaridon'], ['元気に動きたい', 'nagika'], ['じっくり味わいたい', 'sugijii'], ['きちんと残したい', 'yuzuri'], ['まずやってみたい', 'sugito']] }
+    { text: '山に着いた瞬間、いちばん先に心が向くのは？', answers: [
+      { label: '休める場所や食事のこと', points: { okuyaridon: 3, nagika: 1 } },
+      { label: '誰と何を楽しめるか', points: { nagika: 3, okuyaridon: 1 } },
+      { label: '木や道に残る昔の気配', points: { sugijii: 3, yuzuri: 1 } },
+      { label: '地図や案内を見て全体をつかむこと', points: { yuzuri: 3, sugijii: 1 } },
+      { label: '道具や歩道の状態を見て動けること', points: { sugito: 3, okuyaridon: 1 } }
+    ] },
+    { text: '人を助けるとき、自然に出る力は？', answers: [
+      { label: '安心できる段取りをつくる', points: { okuyaridon: 3, yuzuri: 1 } },
+      { label: '不安を笑顔でほどく', points: { nagika: 3, okuyaridon: 1 } },
+      { label: '経験や背景を話して納得してもらう', points: { sugijii: 3, yuzuri: 1 } },
+      { label: '情報を整理して渡す', points: { yuzuri: 3, sugijii: 1 } },
+      { label: '一緒に手を動かす', points: { sugito: 3, nagika: 1 } }
+    ] },
+    { text: '惹かれる山の言葉を選ぶなら？', answers: [
+      { label: 'おもてなし', points: { okuyaridon: 3 } },
+      { label: '笑顔', points: { nagika: 3 } },
+      { label: '年輪', points: { sugijii: 3 } },
+      { label: '継承', points: { yuzuri: 3 } },
+      { label: '実践', points: { sugito: 3 } }
+    ] },
+    { text: 'イベントで任されるとうれしい役割は？', answers: [
+      { label: '食事や休憩の段取り', points: { okuyaridon: 3, sugito: 1 } },
+      { label: '受付や声かけ', points: { nagika: 3, okuyaridon: 1 } },
+      { label: '山や木の小話', points: { sugijii: 3 } },
+      { label: '記録写真や発信文', points: { yuzuri: 3 } },
+      { label: '設営や片づけ', points: { sugito: 3 } }
+    ] },
+    { text: '迷ったときの決め方は？', answers: [
+      { label: 'みんなが落ち着ける方を選ぶ', points: { okuyaridon: 3, yuzuri: 1 } },
+      { label: '楽しそうな方へ一歩出る', points: { nagika: 3, sugito: 1 } },
+      { label: '昔からの流れや理由を調べる', points: { sugijii: 3 } },
+      { label: '情報を並べて筋道を見る', points: { yuzuri: 3 } },
+      { label: 'まず小さく試してみる', points: { sugito: 3, nagika: 1 } }
+    ] },
+    { text: '山の魅力を誰かに伝えるなら？', answers: [
+      { label: 'ほっとできる時間として伝える', points: { okuyaridon: 3 } },
+      { label: '楽しい体験として伝える', points: { nagika: 3 } },
+      { label: '長い時間の物語として伝える', points: { sugijii: 3 } },
+      { label: '資料や言葉に整えて伝える', points: { yuzuri: 3 } },
+      { label: '手を動かす体験で伝える', points: { sugito: 3 } }
+    ] },
+    { text: '今日の自分に近い気分は？', answers: [
+      { label: 'ゆっくり整えたい', points: { okuyaridon: 3 } },
+      { label: '元気に動きたい', points: { nagika: 3 } },
+      { label: 'じっくり味わいたい', points: { sugijii: 3 } },
+      { label: 'きちんと残したい', points: { yuzuri: 3 } },
+      { label: 'まずやってみたい', points: { sugito: 3 } }
+    ] },
+    { text: 'あなたにとって「山を守る」とは？', answers: [
+      { label: '来た人が安心できる場所を続けること', points: { okuyaridon: 3 } },
+      { label: '山を好きになる入口を増やすこと', points: { nagika: 3 } },
+      { label: '山の記憶を忘れないこと', points: { sugijii: 3 } },
+      { label: '価値を伝わる形で残すこと', points: { yuzuri: 3 } },
+      { label: '必要な作業を続けること', points: { sugito: 3 } }
+    ] },
+    { text: 'ふと目に入ると気になるものは？', answers: [
+      { label: '湯気、食器、休憩の椅子', points: { okuyaridon: 3 } },
+      { label: '人の表情や会話の輪', points: { nagika: 3 } },
+      { label: '古い木肌、石、道の曲がり', points: { sugijii: 3 } },
+      { label: '掲示物、地図、メモ', points: { yuzuri: 3 } },
+      { label: '道具、壊れた箇所、作業の余地', points: { sugito: 3 } }
+    ] },
+    { text: '明日の自分に渡したいものは？', answers: [
+      { label: '安心して戻れる場所', points: { okuyaridon: 3 } },
+      { label: 'また来たくなる楽しい記憶', points: { nagika: 3 } },
+      { label: '忘れたくない山の話', points: { sugijii: 3 } },
+      { label: 'あとで役立つ記録', points: { yuzuri: 3 } },
+      { label: '少し整った現場', points: { sugito: 3 } }
+    ] }
   ];
 
-  const missions = [
-    ['okuyaridon', '山で一息つける場所をひとつ見つけて、誰かにすすめてみよう。'],
-    ['nagika', '初めて来た人に伝えたい山の楽しみを、ひとつ言葉にしてみよう。'],
-    ['sugijii', '木や道や建物に残っている時間の跡を、ひとつ観察してみよう。'],
-    ['yuzuri', '今日見つけた地域の魅力を、写真か短いメモで残してみよう。'],
-    ['sugito', '小さくてもいいので、山や場所を整える作業をひとつ考えてみよう。']
-  ];
+  const missionSets = {
+    okuyaridon: [
+      '休憩できる場所をひとつ整えて、次に来る人が座りやすいようにしてみよう。',
+      '温かい飲み物を飲みながら、今日の山で安心した瞬間をひとつ思い出そう。',
+      '誰かにすすめたい山の立ち寄り場所を、ひとことで説明してみよう。',
+      '食事の前に、作ってくれた人や運んでくれた人のことを一度思い浮かべよう。',
+      '入口や靴元を少し整えて、迎える空気をつくってみよう。',
+      '疲れていそうな人に、無理のない声かけをひとつしてみよう。',
+      '山でほっとした匂いや音をひとつ見つけて、心のメモに残そう。',
+      '今日の食事で元気が出たものを、誰かに短く伝えてみよう。',
+      '荷物を置く場所を見直して、動きやすい余白をつくろう。',
+      '休憩の終わりに、使った場所を来た時より少しだけ整えよう。',
+      '初めての人にもわかる案内を、ひとつやさしい言葉に直してみよう。',
+      '山小屋や拠点のありがたさを、三十秒だけ考えてみよう。',
+      '誰かの到着を待つ間、迎える言葉をひとつ用意してみよう。',
+      '今日いちばん安心できた場所の理由を考えてみよう。',
+      '水分補給のタイミングをひとつ早めて、体をいたわろう。',
+      '食卓やベンチの上を少し片づけて、次の人に渡そう。',
+      '「ゆっくりしていって」と言える場面を探してみよう。',
+      '無理をしていないか、自分の体に一度聞いてみよう。',
+      '帰る前に、また来たい理由をひとつ言葉にしよう。',
+      '今日の山で受け取ったやさしさを、別の人へひとつ返してみよう。'
+    ],
+    nagika: [
+      '最初に会った人へ、明るく挨拶して山の空気を動かしてみよう。',
+      '今日見つけた楽しいものを、子どもにも伝わる言葉で言ってみよう。',
+      '写真を一枚撮るなら、元気が出る色を探してみよう。',
+      '初めて来た人が迷いそうな場所を、ひとつ先回りして見てみよう。',
+      '山で聞こえた楽しい音をひとつ見つけよう。',
+      '誰かを誘って、短い散歩や見晴らし確認をしてみよう。',
+      '今日の「来てよかった」を一言で表してみよう。',
+      '案内板や看板の前で、気づいたことを一つ話してみよう。',
+      '笑顔になった瞬間を覚えておいて、あとで誰かに共有しよう。',
+      '元気が足りない人に、軽い一言を渡してみよう。',
+      '山の楽しみを三つ数えて、いちばん伝えたいものを選ぼう。',
+      '小さな発見に名前をつけて、遊びに変えてみよう。',
+      '「はじめてでも大丈夫」と言える案内をひとつ考えよう。',
+      '今日の景色から、明るい色を三つ探してみよう。',
+      'イベントがあるなら、最初に来た人の表情をよく見てみよう。',
+      '誰かの「これ何？」に、楽しく答えられる準備をしよう。',
+      '山でのおすすめポーズをひとつ考えてみよう。',
+      '帰り道に話したくなる出来事をひとつ作ってみよう。',
+      '声の大きさを少しだけ相手に合わせて、楽しい空気を保とう。',
+      '今日の元気を、短い言葉でSNS風にまとめてみよう。'
+    ],
+    sugijii: [
+      '大きな木を一本選び、幹や枝ぶりから時間の流れを想像してみよう。',
+      '道の曲がり方や石積みに、昔の人の工夫を探してみよう。',
+      '木の匂い、葉の音、足元の感触をひとつずつ味わってみよう。',
+      '山で見つけた古いものに「なぜここにあるのか」と問いかけよう。',
+      '年輪のように、今日積み重なった小さな出来事を三つ数えよう。',
+      '昔から続いていそうな道具や建物の部分を観察してみよう。',
+      '誰かから山の昔話をひとつ聞くきっかけを作ろう。',
+      '木を材料ではなく、時間のかたまりとして見てみよう。',
+      '同じ景色を一分間眺めて、最初と最後で見え方が変わるか確かめよう。',
+      '山の名前や地名の由来をひとつ調べる気持ちで見てみよう。',
+      '足元の落ち葉や枝から、季節の進み方を読んでみよう。',
+      '古い写真がありそうな場所を想像して、今の景色と比べてみよう。',
+      '木陰に入って、山がくれる涼しさを言葉にしてみよう。',
+      '「これは昔からあるのかな」と思うものを一つ見つけよう。',
+      '山の沈黙を邪魔せず、十呼吸だけ静かに過ごそう。',
+      '誰かに伝えたい山の知恵を一つ選んでみよう。',
+      '木頭杉という言葉から浮かぶ印象を三つ書き出そう。',
+      '同じ木を近くからと遠くから見て、違いを味わおう。',
+      '山の歴史を未来の人へ話すなら、最初の一文を考えよう。',
+      '急がず歩く区間を決めて、山の時間に合わせてみよう。'
+    ],
+    yuzuri: [
+      '今日見つけた山の魅力を、写真一枚と短い一文で残してみよう。',
+      '案内文をひとつ読み、初めての人に伝えるならどう言うか考えよう。',
+      '気づいたことを三行メモにして、あとで見返せる形にしよう。',
+      '誰かの話から、残しておきたい言葉をひとつ拾ってみよう。',
+      '山の資源を「人に伝わる名前」で呼び直してみよう。',
+      '今日のルートや出来事を、順番に三つだけ整理してみよう。',
+      '掲示物や地図を見て、わかりやすい点をひとつ探そう。',
+      'わかりにくい案内を見つけたら、やさしい表現を考えよう。',
+      '季節の変化をひとつ記録して、次に来る自分へ渡そう。',
+      '山で出会ったものに、説明文を十文字でつけてみよう。',
+      '活動の価値を知らない人へ伝える一文を考えよう。',
+      '写真を撮る前に「何を残したいのか」を一度決めよう。',
+      '今日の学びを、見出しにするなら何か考えてみよう。',
+      '古いものと新しいものがつながっている場面を探そう。',
+      '人に渡せる情報と、自分だけの感想を分けてメモしよう。',
+      '気になった言葉を一つ選び、あとで調べるリストに入れよう。',
+      '山の魅力を一枚のチラシにするなら、主役を何にするか考えよう。',
+      '今日の出来事を未来の仲間に説明するつもりでまとめよう。',
+      '伝える順番を「場所、発見、気持ち」で整えてみよう。',
+      '残すだけで終わらず、誰に届けたいかを一人思い浮かべよう。'
+    ],
+    sugito: [
+      '五分だけ、片づけられる場所や整えられる場所を探してみよう。',
+      '道具を一つ手に取り、次に使う人が使いやすい状態か見てみよう。',
+      '足元の安全を確認して、小さな危ない場所を一つ見つけよう。',
+      '気になった作業を「今できる一手」に分けて考えてみよう。',
+      '木に触れて、ぬくもりや硬さを言葉にしてみよう。',
+      '誰かの作業を見たら、手伝えることがないか一度聞いてみよう。',
+      '動く前に、手袋や靴元など安全確認をひとつ入れよう。',
+      '重いことではなく、続けられる小さな整備を考えよう。',
+      '使ったものを元の場所に戻し、次の作業を軽くしよう。',
+      '壊れているものではなく、直せそうなものを一つ見つけよう。',
+      '山の未来につながる作業を、一つだけ具体的に書き出そう。',
+      '設営や片づけで、先にできることを一つ進めよう。',
+      '木工やものづくりのアイデアを、形にする最初の一歩に直そう。',
+      '誰かが動きやすくなる配置を一つ考えてみよう。',
+      '作業前と作業後で何が変わるかを想像してから動こう。',
+      '汗をかく前に、水分と休憩の段取りを確認しよう。',
+      '山を支える人の手元に注目して、学べる動きを一つ探そう。',
+      '小さな修理や改善の候補を、無理なく一つメモしよう。',
+      '「まず、やってみようぜ」と言える安全な一歩を選ぼう。',
+      '今日動かした手が、誰の助けになるか想像してみよう。'
+    ]
+  };
+
+  const missions = Object.entries(missionSets).flatMap(function (entry) {
+    return entry[1].map(function (text) {
+      return { key: entry[0], text: text };
+    });
+  });
 
   const state = {
     index: 0,
-    scores: Object.keys(characters).reduce((acc, key) => {
+    scores: Object.keys(characters).reduce(function (acc, key) {
       acc[key] = 0;
       return acc;
     }, {})
@@ -673,31 +971,41 @@
   const resultTitle = document.getElementById('result-title');
   const resultText = document.getElementById('result-text');
   const resultLinks = document.getElementById('result-links');
+  const resultDetails = document.getElementById('result-details');
+  const scoreList = document.getElementById('score-list');
   const restart = document.getElementById('quiz-restart');
   const missionImage = document.getElementById('mission-image');
   const missionName = document.getElementById('mission-name');
   const missionText = document.getElementById('mission-text');
   const missionNext = document.getElementById('mission-next');
+  const missionCount = document.getElementById('mission-count');
+
+  function getDayOfYear(date) {
+    const start = new Date(date.getFullYear(), 0, 0);
+    return Math.floor((date - start) / 86400000);
+  }
 
   function renderQuestion() {
     const question = questions[state.index];
-    count.textContent = `${state.index + 1} / ${questions.length}`;
-    progress.style.width = `${(state.index / questions.length) * 100}%`;
+    count.textContent = String(state.index + 1) + ' / ' + String(questions.length);
+    progress.style.width = String((state.index / questions.length) * 100) + '%';
     title.textContent = question.text;
     answers.replaceChildren();
 
-    question.answers.forEach(([label, target]) => {
+    question.answers.forEach(function (answer) {
       const button = document.createElement('button');
       button.type = 'button';
       button.className = 'answer-button';
-      button.textContent = label;
-      button.addEventListener('click', () => choose(target));
+      button.textContent = answer.label;
+      button.addEventListener('click', function () { choose(answer.points); });
       answers.append(button);
     });
   }
 
-  function choose(target) {
-    state.scores[target] += 1;
+  function choose(points) {
+    Object.entries(points).forEach(function (entry) {
+      state.scores[entry[0]] += entry[1];
+    });
     state.index += 1;
     if (state.index >= questions.length) {
       showResult();
@@ -706,21 +1014,80 @@
     renderQuestion();
   }
 
+  function getWinner() {
+    const today = new Date();
+    const daySeed = getDayOfYear(today);
+    return Object.entries(state.scores).sort(function (a, b) {
+      if (b[1] !== a[1]) return b[1] - a[1];
+      return ((daySeed + b[0].length) % 7) - ((daySeed + a[0].length) % 7);
+    })[0][0];
+  }
+
+  function addDetail(label, value) {
+    const item = document.createElement('div');
+    item.className = 'fortune-detail';
+    const labelNode = document.createElement('span');
+    labelNode.textContent = label;
+    const valueNode = document.createElement('strong');
+    valueNode.textContent = value;
+    item.append(labelNode, valueNode);
+    resultDetails.append(item);
+  }
+
+  function showScores() {
+    scoreList.replaceChildren();
+    const heading = document.createElement('h4');
+    heading.textContent = '鑑定の内訳';
+    scoreList.append(heading);
+    const entries = Object.entries(state.scores).sort(function (a, b) { return b[1] - a[1]; });
+    const max = Math.max.apply(null, entries.map(function (entry) { return entry[1]; })) || 1;
+    entries.forEach(function (entry) {
+      const row = document.createElement('div');
+      row.className = 'score-row';
+      const name = document.createElement('span');
+      name.textContent = characters[entry[0]].name;
+      const meter = document.createElement('span');
+      meter.className = 'score-meter';
+      const fill = document.createElement('span');
+      fill.className = 'score-fill';
+      fill.style.width = String(Math.max(8, Math.round((entry[1] / max) * 100))) + '%';
+      meter.append(fill);
+      const value = document.createElement('span');
+      value.className = 'score-value';
+      value.textContent = String(entry[1]);
+      row.append(name, meter, value);
+      scoreList.append(row);
+    });
+  }
+
   function showResult() {
     progress.style.width = '100%';
-    const winner = Object.entries(state.scores).sort((a, b) => b[1] - a[1])[0][0];
+    const winner = getWinner();
     const data = characters[winner];
+    const today = new Date();
+    const fortuneLevels = ['静かに整う運', '出会いが広がる運', '学びが深まる運', '記録が実る運', '一歩進む運'];
+    const dailyFortune = fortuneLevels[(getDayOfYear(today) + winner.length) % fortuneLevels.length];
     resultImage.src = data.image;
     resultImage.alt = data.name;
     resultTitle.textContent = data.title;
-    resultText.textContent = data.text;
+    resultText.textContent = data.text + ' ' + data.oracle;
+    resultDetails.replaceChildren();
+    addDetail('山の星', data.sign);
+    addDetail('守りの気', data.element);
+    addDetail('今日の山運', dailyFortune);
+    addDetail('ラッキーカラー', data.luckyColor);
+    addDetail('ラッキー行動', data.luckyAction);
+    addDetail('相性のよい仲間', data.compatibility);
+    addDetail('おすすめの場所', data.luckySpot);
+    addDetail('気をつけること', data.caution);
+    showScores();
     resultLinks.replaceChildren();
 
-    data.links.forEach(([label, href]) => {
+    data.links.forEach(function (linkData) {
       const link = document.createElement('a');
       link.className = 'btn btn-primary';
-      link.href = href;
-      link.textContent = label;
+      link.href = linkData[1];
+      link.textContent = linkData[0];
       resultLinks.append(link);
     });
 
@@ -730,7 +1097,7 @@
 
   function resetQuiz() {
     state.index = 0;
-    Object.keys(state.scores).forEach((key) => {
+    Object.keys(state.scores).forEach(function (key) {
       state.scores[key] = 0;
     });
     resultPanel.classList.remove('is-visible');
@@ -739,17 +1106,19 @@
 
   function setMission(offset) {
     const today = new Date();
-    const seed = today.getFullYear() + today.getMonth() + today.getDate() + offset;
-    const [key, text] = missions[Math.abs(seed) % missions.length];
-    const data = characters[key];
+    const seed = today.getFullYear() * 37 + getDayOfYear(today) + offset;
+    const index = Math.abs(seed) % missions.length;
+    const mission = missions[index];
+    const data = characters[mission.key];
     missionImage.src = data.image;
     missionImage.alt = data.name;
     missionName.textContent = data.name;
-    missionText.textContent = text;
+    missionText.textContent = mission.text;
+    missionCount.textContent = String(index + 1) + ' / ' + String(missions.length);
   }
 
   let missionOffset = 0;
-  missionNext.addEventListener('click', () => {
+  missionNext.addEventListener('click', function () {
     missionOffset += 1;
     setMission(missionOffset);
   });
