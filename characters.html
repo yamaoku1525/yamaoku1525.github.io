@@ -441,6 +441,10 @@
   body.standard-subpage #character-play .quest-mission-body img,
   body.standard-subpage #character-play .quest-answer img,
   body.standard-subpage #character-play .quest-result-main img,
+  body.standard-subpage #character-play .mission-card img,
+  body.standard-subpage #character-play .result-card img,
+  body.standard-subpage #character-play #mission-image,
+  body.standard-subpage #character-play #result-image,
   body.standard-subpage #character-play .kito-page-figure img,
   body.standard-subpage #character-play .kito-illustration img,
   body.standard-subpage #character-play .kito-quiz-figure img,
@@ -449,6 +453,10 @@
   #character-play .quest-mission-body img,
   #character-play .quest-answer img,
   #character-play .quest-result-main img,
+  #character-play .mission-card img,
+  #character-play .result-card img,
+  #character-play #mission-image,
+  #character-play #result-image,
   #character-play .kito-page-figure img,
   #character-play .kito-illustration img,
   #character-play .kito-quiz-figure img,
@@ -1104,12 +1112,12 @@
     renderQuestion();
   }
 
-  function setMission(offset) {
-    const today = new Date();
-    const seed = today.getFullYear() * 37 + getDayOfYear(today) + offset;
-    const index = Math.abs(seed) % missions.length;
+  let currentMissionIndex = -1;
+
+  function setMissionByIndex(index) {
     const mission = missions[index];
     const data = characters[mission.key];
+    currentMissionIndex = index;
     missionImage.src = data.image;
     missionImage.alt = data.name;
     missionName.textContent = data.name;
@@ -1117,15 +1125,31 @@
     missionCount.textContent = String(index + 1) + ' / ' + String(missions.length);
   }
 
-  let missionOffset = 0;
+  function setDailyMission() {
+    const today = new Date();
+    const seed = today.getFullYear() * 37 + getDayOfYear(today);
+    setMissionByIndex(Math.abs(seed) % missions.length);
+  }
+
+  function setRandomMission() {
+    if (missions.length <= 1) {
+      setMissionByIndex(0);
+      return;
+    }
+    let index = currentMissionIndex;
+    while (index === currentMissionIndex) {
+      index = Math.floor(Math.random() * missions.length);
+    }
+    setMissionByIndex(index);
+  }
+
   missionNext.addEventListener('click', function () {
-    missionOffset += 1;
-    setMission(missionOffset);
+    setRandomMission();
   });
   restart.addEventListener('click', resetQuiz);
 
   renderQuestion();
-  setMission(0);
+  setDailyMission();
 })();
 </script>
 
