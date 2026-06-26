@@ -326,7 +326,10 @@
       .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
       .then(function (data) {
         allItems = (data && data.items) ? data.items.slice() : [];
-        allItems.sort(function (a, b) { return (b.date || '').localeCompare(a.date || ''); });
+        allItems.sort(function (a, b) {
+          if (!!a.pinned !== !!b.pinned) return b.pinned ? 1 : -1;
+          return (b.date || '').localeCompare(a.date || '');
+        });
         loading.style.display = 'none';
         if (!allItems.length) {
           empty.style.display = 'block';
