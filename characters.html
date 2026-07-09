@@ -1153,5 +1153,73 @@
 })();
 </script>
 
+<!-- === 隠しDL（イースターエッグ）: 奥槍どんを5連クリック / 2026-07-09 === -->
+<style>
+  #hidden-dl-overlay{position:fixed;inset:0;background:rgba(20,30,20,.55);
+    display:flex;align-items:center;justify-content:center;padding:20px;z-index:9999;
+    opacity:0;transition:opacity .25s ease;}
+  #hidden-dl-overlay.is-open{opacity:1;}
+  #hidden-dl-panel{background:#fff;max-width:420px;width:100%;border-radius:16px;
+    padding:26px 22px;box-shadow:0 12px 40px rgba(0,0,0,.3);position:relative;
+    transform:translateY(10px);transition:transform .25s ease;font-size:15px;line-height:1.7;}
+  #hidden-dl-overlay.is-open #hidden-dl-panel{transform:translateY(0);}
+  #hidden-dl-close{position:absolute;top:10px;right:14px;border:none;background:none;
+    font-size:26px;line-height:1;color:#888;cursor:pointer;}
+  #hidden-dl-panel h3{margin:0 0 8px;font-size:19px;}
+  .hidden-dl-sub{color:#555;margin:0 0 16px;}
+  .hidden-dl-btn{display:block;text-align:center;background:#2e7d32;color:#fff;
+    text-decoration:none;font-weight:700;padding:13px 16px;border-radius:10px;margin:0 0 16px;}
+  .hidden-dl-btn:active{opacity:.85;}
+  .hidden-dl-note{background:#f5f7f4;border-radius:10px;padding:12px 14px;font-size:13.5px;color:#444;}
+  .hidden-dl-note ol{margin:6px 0 8px;padding-left:1.2em;}
+  .hidden-dl-note code{background:#e6ebe4;padding:1px 5px;border-radius:4px;}
+  .hidden-dl-ios{margin:6px 0 0;color:#a3612a;}
+</style>
+<div id="hidden-dl-overlay" hidden>
+  <div id="hidden-dl-panel" role="dialog" aria-modal="true" aria-labelledby="hidden-dl-title">
+    <button id="hidden-dl-close" aria-label="閉じる">&times;</button>
+    <h3 id="hidden-dl-title">🐾 山の家アプリ（隠し配布）</h3>
+    <p class="hidden-dl-sub">奥槍どんを見つけてくれてありがとう。<br>奥槍戸山の家の非公式アプリ（Android・ベータ）をこっそり配っています。</p>
+    <a class="hidden-dl-btn" href="/dl/yamanoie.apk" download>▼ アプリをダウンロード（.apk）</a>
+    <div class="hidden-dl-note">
+      <p><strong>インストール手順（Androidのみ）</strong></p>
+      <ol>
+        <li>上のボタンで <code>.apk</code> をダウンロード</li>
+        <li>ファイルを開くと「提供元不明のアプリ」の確認が出ます</li>
+        <li>設定 →「この提供元を許可（不明なアプリのインストール）」をオンに</li>
+        <li>戻ってインストール → 開く</li>
+      </ol>
+      <p class="hidden-dl-ios">※ iPhone / iPad には対応していません（現在 Android のみ）。</p>
+    </div>
+  </div>
+</div>
+<script>
+(function () {
+  var target = document.querySelector('#okuyaridon .character-visual img');
+  var overlay = document.getElementById('hidden-dl-overlay');
+  if (!target || !overlay) return;
+  var clicks = 0, timer = null;
+  target.style.cursor = 'pointer';
+  target.addEventListener('click', function () {
+    clicks++;
+    clearTimeout(timer);
+    timer = setTimeout(function () { clicks = 0; }, 1500);
+    if (clicks >= 5) {
+      clicks = 0;
+      overlay.hidden = false;
+      requestAnimationFrame(function () { overlay.classList.add('is-open'); });
+    }
+  });
+  function close() {
+    overlay.classList.remove('is-open');
+    setTimeout(function () { overlay.hidden = true; }, 250);
+  }
+  document.getElementById('hidden-dl-close').addEventListener('click', close);
+  overlay.addEventListener('click', function (e) { if (e.target === overlay) close(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !overlay.hidden) close(); });
+})();
+</script>
+<!-- === /隠しDL === -->
+
 </body>
 </html>
