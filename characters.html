@@ -464,6 +464,471 @@
     display: block !important;
   }
 }
+
+/* 山ミッション・タイプ占い 体験強化 */
+.character-intro {
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+  background:
+    radial-gradient(circle at 84% 16%, rgba(239, 188, 69, .22), transparent 30%),
+    linear-gradient(135deg, #fff 0%, #f8f3e6 100%);
+}
+.character-intro::after {
+  content: "";
+  position: absolute;
+  right: -80px;
+  bottom: -110px;
+  width: 360px;
+  height: 240px;
+  border: 1px solid rgba(45, 90, 61, .12);
+  border-radius: 50%;
+  box-shadow: 0 0 0 28px rgba(45, 90, 61, .04), 0 0 0 56px rgba(45, 90, 61, .03);
+  pointer-events: none;
+}
+.experience-intro-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(360px, .95fr);
+  gap: 28px;
+  align-items: center;
+  padding: 34px;
+}
+.experience-copy .panel-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+.experience-copy .panel-kicker::before {
+  content: "";
+  width: 26px;
+  height: 1px;
+  background: currentColor;
+}
+.experience-copy h2 {
+  color: var(--green-deep);
+  font-size: clamp(26px, 3.4vw, 42px);
+  line-height: 1.35;
+  letter-spacing: .02em;
+  margin-bottom: 14px;
+}
+.experience-copy > p {
+  max-width: 640px;
+  color: var(--charcoal);
+  font-size: 15px;
+  line-height: 1.9;
+}
+.intro-jump-link.is-primary {
+  border-color: var(--green-deep);
+  background: var(--green-deep);
+  color: #fff;
+}
+.intro-jump-link.is-primary:hover,
+.intro-jump-link.is-primary:focus-visible {
+  border-color: var(--yuzu);
+  background: var(--yuzu);
+  color: var(--green-deep);
+}
+.character-roster {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 8px;
+  align-items: end;
+  min-height: 220px;
+}
+.roster-character {
+  position: relative;
+  display: grid;
+  gap: 6px;
+  justify-items: center;
+  color: var(--green-deep);
+  font-size: 11px;
+  font-weight: 800;
+  text-align: center;
+  text-decoration: none;
+  transition: transform .2s ease;
+}
+.roster-character:hover,
+.roster-character:focus-visible {
+  transform: translateY(-6px);
+  outline: none;
+}
+.roster-character img {
+  display: block !important;
+  width: 100%;
+  height: 150px;
+  object-fit: contain;
+  filter: drop-shadow(0 14px 12px rgba(24, 56, 38, .14));
+}
+.roster-character:nth-child(2) img,
+.roster-character:nth-child(4) img {
+  height: 132px;
+}
+.character-play {
+  position: relative;
+  overflow: hidden;
+  padding-top: 76px;
+  background:
+    linear-gradient(180deg, #f2f7f1 0%, #fff 46%),
+    #fff;
+}
+.character-play::before {
+  content: "MOUNTAIN FIELD NOTE";
+  position: absolute;
+  top: 20px;
+  left: max(24px, calc((100vw - 1180px) / 2));
+  color: rgba(45, 90, 61, .08);
+  font-size: clamp(34px, 7vw, 86px);
+  font-weight: 900;
+  letter-spacing: .12em;
+  white-space: nowrap;
+  pointer-events: none;
+}
+.play-heading {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  gap: 28px;
+  align-items: end;
+  margin-bottom: 26px;
+}
+.play-heading h2 {
+  color: var(--green-deep);
+  font-size: clamp(30px, 4vw, 48px);
+  line-height: 1.3;
+}
+.play-heading p {
+  max-width: 520px;
+  color: var(--gray);
+  font-size: 14px;
+  line-height: 1.8;
+}
+.mission-panel,
+.quiz-panel,
+.result-panel {
+  position: relative;
+  box-shadow: 0 18px 50px rgba(24, 56, 38, .08);
+}
+.mission-panel {
+  overflow: hidden;
+  border-color: rgba(45, 90, 61, .14);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.98), rgba(250,247,238,.98));
+}
+.mission-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 6px;
+  background: linear-gradient(90deg, var(--green-deep), var(--yuzu));
+}
+.mission-date,
+.result-date {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--gray);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .08em;
+}
+.mission-card {
+  position: relative;
+  grid-template-columns: 126px 1fr;
+  border: 1px solid rgba(45, 90, 61, .1);
+  background:
+    radial-gradient(circle at 20% 20%, #fff 0, transparent 38%),
+    var(--ivory);
+}
+.mission-card img {
+  width: 126px;
+  height: 126px;
+  filter: drop-shadow(0 12px 10px rgba(24, 56, 38, .14));
+}
+.mission-role {
+  display: inline-flex;
+  margin-bottom: 7px;
+  padding: 4px 9px;
+  border-radius: 999px;
+  background: rgba(45, 90, 61, .1);
+  color: var(--green-deep);
+  font-size: 11px;
+  font-weight: 800;
+}
+.mission-card p {
+  font-size: 15px;
+  font-weight: 700;
+}
+.play-actions .btn {
+  min-height: 44px;
+}
+.share-feedback {
+  min-height: 1.5em;
+  margin-top: 9px;
+  color: var(--green-deep);
+  font-size: 12px;
+  font-weight: 700;
+}
+.quiz-panel {
+  border-color: rgba(45, 90, 61, .14);
+}
+.quiz-topline {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.quiz-time {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: var(--ivory);
+  color: var(--gray);
+  font-size: 11px;
+  font-weight: 700;
+}
+.question-theme {
+  display: inline-block;
+  margin-bottom: 8px;
+  color: var(--yuzu-dark, #9b6e10);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .08em;
+}
+.answer-button {
+  position: relative;
+  padding-left: 52px;
+}
+.answer-button::before {
+  content: attr(data-marker);
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  display: grid;
+  place-items: center;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: var(--ivory);
+  color: var(--green-deep);
+  font-size: 11px;
+  transform: translateY(-50%);
+}
+.answer-button.is-selected {
+  border-color: var(--green-deep);
+  background: #eef5ed;
+  transform: translateY(-1px);
+}
+.answer-button.is-selected::after {
+  content: "選択";
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  color: var(--green-deep);
+  font-size: 11px;
+  transform: translateY(-50%);
+}
+.quiz-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-top: 18px;
+}
+.text-button {
+  border: 0;
+  background: transparent;
+  color: var(--green-deep);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.text-button:disabled {
+  color: var(--gray);
+  cursor: not-allowed;
+  opacity: .45;
+}
+.result-panel {
+  overflow: hidden;
+  grid-column: 1 / -1;
+  margin-top: 24px;
+  border: 0;
+  padding: 0;
+  background:
+    radial-gradient(circle at 10% 15%, rgba(239, 188, 69, .24), transparent 34%),
+    linear-gradient(145deg, #173d2a, #2d5a3d);
+  color: #fff;
+}
+.result-panel::before {
+  content: "";
+  position: absolute;
+  inset: 18px;
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 12px;
+  pointer-events: none;
+}
+.result-card {
+  position: relative;
+  z-index: 1;
+  grid-template-columns: 190px 1fr;
+  gap: 28px;
+  background: transparent;
+  padding: 42px;
+}
+.result-card img {
+  width: 190px;
+  height: 230px;
+  filter: drop-shadow(0 18px 14px rgba(0,0,0,.24));
+}
+.result-copy h3 {
+  color: #fff;
+  font-size: clamp(27px, 4vw, 42px);
+}
+.result-copy p,
+.result-date {
+  color: rgba(255,255,255,.84);
+}
+.result-tag {
+  background: var(--yuzu);
+  color: var(--green-deep);
+}
+.result-panel .fortune-detail {
+  border-color: rgba(255,255,255,.14);
+  background: rgba(255,255,255,.08);
+}
+.result-panel .fortune-detail span {
+  color: #f4cf6d;
+}
+.result-panel .fortune-detail strong,
+.result-panel .score-row,
+.result-panel .score-value,
+.result-panel .score-list h4 {
+  color: #fff;
+}
+.result-panel .score-meter {
+  background: rgba(255,255,255,.14);
+}
+.result-panel .score-fill {
+  background: #f4cf6d;
+}
+.result-mission {
+  margin-top: 16px;
+  padding: 16px 18px;
+  border-left: 4px solid var(--yuzu);
+  border-radius: 0 12px 12px 0;
+  background: rgba(255,255,255,.09);
+}
+.result-mission span {
+  display: block;
+  margin-bottom: 5px;
+  color: #f4cf6d;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .08em;
+}
+.result-mission strong {
+  color: #fff;
+  font-size: 14px;
+  line-height: 1.7;
+}
+.result-panel .btn.btn-outline {
+  border-color: rgba(255,255,255,.55);
+  color: #fff;
+}
+.result-panel .share-feedback {
+  color: #f4cf6d;
+}
+@media (prefers-reduced-motion: reduce) {
+  .roster-character,
+  .answer-button,
+  .progress-bar {
+    transition: none;
+  }
+}
+@media (max-width: 900px) {
+  .experience-intro-grid {
+    grid-template-columns: 1fr;
+  }
+  .character-roster {
+    min-height: 170px;
+  }
+  .roster-character img {
+    height: 120px;
+  }
+  .roster-character:nth-child(2) img,
+  .roster-character:nth-child(4) img {
+    height: 108px;
+  }
+  .play-heading {
+    display: block;
+  }
+  .play-heading p {
+    margin-top: 10px;
+  }
+  .result-card {
+    grid-template-columns: 150px 1fr;
+  }
+  .result-card img {
+    width: 150px;
+    height: 190px;
+  }
+}
+@media (max-width: 680px) {
+  .experience-intro-grid {
+    padding: 24px 20px;
+  }
+  .character-roster {
+    grid-template-columns: repeat(5, 82px);
+    gap: 6px;
+    min-height: 0;
+    overflow-x: auto;
+    padding: 8px 2px 12px;
+    scroll-snap-type: x proximity;
+  }
+  .roster-character {
+    scroll-snap-align: center;
+  }
+  .roster-character img,
+  .roster-character:nth-child(2) img,
+  .roster-character:nth-child(4) img {
+    height: 96px;
+  }
+  .character-play {
+    padding-top: 62px;
+  }
+  .character-play::before {
+    top: 28px;
+    font-size: 28px;
+  }
+  .mission-card,
+  .result-card {
+    grid-template-columns: 1fr;
+  }
+  .mission-card img {
+    width: 132px;
+    height: 132px;
+  }
+  .result-card {
+    padding: 34px 28px;
+  }
+  .result-card img {
+    width: 160px;
+    height: 190px;
+  }
+  .quiz-topline {
+    align-items: flex-start;
+  }
+  .answer-button {
+    padding-right: 42px;
+  }
+}
 </style>
 </head>
 <body class="standard-subpage">
@@ -486,7 +951,7 @@
   <div class="page-header-inner">
     <div class="breadcrumb"><a href="index.html">ホーム</a><span class="breadcrumb-sep">/</span>仲間たち</div>
     <h1>阿波山雅の仲間たち</h1>
-    <p>奥槍戸山の家を迎える兄妹と、山の記憶・知恵・実践を案内する仲間たち。</p>
+    <p>山で大切にしたいことから、今日のあなたの役割を見つけよう。</p>
   </div>
 </header>
 
@@ -495,65 +960,107 @@
 <section>
   <div class="container">
     <div class="character-intro">
-      <p>阿波山雅には、山の活動を案内してくれる仲間たちがいます。</p>
-      <p>奥槍戸山の家を支える、やさしく芯のある好青年・奥槍どん。山の元気を届ける妹・なぎかちゃん。木頭杉の長老・杉じぃ。知恵を次へ繋ぐ少女・ユズリ。まっすぐな見習いマイスター・スギト。</p>
-      <p>それぞれのキャラクターは、阿波山雅が大切にしている価値を表しています。おもてなし、元気、山の記憶、知恵の継承、手を動かす実践。このページでは、阿波山雅の活動をともに伝えていく仲間たちを紹介します。</p>
-      <div class="intro-jump-links" aria-label="ページ内リンク">
-        <a class="intro-jump-link" href="#yamano-nakama">山の仲間たち紹介へ</a>
+      <div class="experience-intro-grid">
+        <div class="experience-copy">
+          <div class="panel-kicker">WELCOME TO AWASANGA MOUNTAIN</div>
+          <h2>山には、いろんな<br>「支え方」がある。</h2>
+          <p>迎える、元気にする、記憶を語る、知恵にする、形にする。5人の仲間は、阿波山雅が大切にしている5つの役割を表しています。まずは1分のタイプ占いで、今日のあなたに近い仲間を見つけてみてください。</p>
+          <div class="intro-jump-links" aria-label="ページ内リンク">
+            <a class="intro-jump-link is-primary" href="#character-play">1分でタイプを占う</a>
+            <a class="intro-jump-link" href="#yamano-nakama">5人の紹介を見る</a>
+          </div>
+        </div>
+        <div class="character-roster" aria-label="5人の山の仲間">
+          <a class="roster-character" href="#okuyaridon"><img src="./img/奥槍どん.png" alt=""><span>迎える<br>奥槍どん</span></a>
+          <a class="roster-character" href="#nagika"><img src="./img/なぎかちゃん.png" alt=""><span>元気にする<br>なぎかちゃん</span></a>
+          <a class="roster-character" href="#sugijii"><img src="./img/杉じぃ.png" alt=""><span>記憶を語る<br>杉じぃ</span></a>
+          <a class="roster-character" href="#yuzuri"><img src="./img/ユズリ.png" alt=""><span>知恵にする<br>ユズリ</span></a>
+          <a class="roster-character" href="#sugito"><img src="./img/スギト.png" alt=""><span>形にする<br>スギト</span></a>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <section class="character-play" id="character-play">
-  <div class="container play-layout">
+  <div class="container">
+    <div class="play-heading">
+      <div>
+        <div class="panel-kicker">PLAY WITH THE MOUNTAIN CREW</div>
+        <h2>今日の山を、ひとつ動かそう。</h2>
+      </div>
+      <p>すぐ試せる「山ミッション」と、10の直感から役割を見つける「山の仲間タイプ占い」。どちらからでも始められます。</p>
+    </div>
+    <div class="play-layout">
     <aside class="mission-panel" aria-labelledby="mission-title">
       <div>
-        <div class="panel-kicker">今日の山ミッション</div>
+        <div class="quiz-topline">
+          <div class="panel-kicker">今日の山ミッション</div>
+          <time class="mission-date" id="mission-date"></time>
+        </div>
         <h2 class="section-title left" id="mission-title">山暦から届く小さなお題</h2>
-        <p class="play-note">日付と仲間の気質から、その日に試したい小さな行動を選びます。ミッションは100種類あります。</p>
+        <p class="play-note">100種類から、今日の暦に合う小さな一歩を選びました。</p>
       </div>
       <div class="mission-card">
         <img src="./img/奥槍どん.png" alt="奥槍どん" id="mission-image">
         <div>
+          <span class="mission-role" id="mission-role">迎える力</span>
           <h3 id="mission-name">奥槍どん</h3>
           <p id="mission-text">山で一息つける場所をひとつ見つけて、誰かにすすめてみよう。</p>
           <div class="mission-meta" id="mission-count">1 / 100</div>
         </div>
       </div>
       <div class="play-actions">
-        <button class="btn btn-outline" type="button" id="mission-next">別のミッション</button>
+        <button class="btn btn-primary" type="button" id="mission-share">このミッションを持ち帰る</button>
+        <button class="btn btn-outline" type="button" id="mission-next">山くじを引き直す</button>
       </div>
+      <p class="share-feedback" id="mission-feedback" role="status" aria-live="polite"></p>
     </aside>
 
     <div>
       <section class="quiz-panel" aria-labelledby="quiz-title">
-        <div class="panel-kicker">山の仲間タイプ占い</div>
+        <div class="quiz-topline">
+          <div class="panel-kicker">山の仲間タイプ占い</div>
+          <span class="quiz-time">約1分・全10問</span>
+        </div>
         <p class="quiz-lead">山での直感、得意な支え方、今日の気分を10問で読み解きます。いちばん強く出た仲間の気質から、今日の山運を鑑定します。</p>
         <div class="quiz-progress">
           <span id="quiz-count">1 / 10</span>
           <div class="progress-track" aria-hidden="true"><div class="progress-bar" id="progress-bar"></div></div>
         </div>
+        <span class="question-theme" id="question-theme">山での直感</span>
         <h2 class="question-title" id="quiz-title">山に着いたら、まず何をしたい？</h2>
         <div class="answer-grid" id="answer-grid"></div>
+        <div class="quiz-controls">
+          <button class="text-button" type="button" id="quiz-back" disabled>← ひとつ戻る</button>
+          <span class="play-note">考えすぎず、今の気分で。</span>
+        </div>
       </section>
+    </div>
 
-      <section class="result-panel" id="result-panel" aria-live="polite">
+    <section class="result-panel" id="result-panel" aria-live="polite">
         <div class="result-card">
           <img src="./img/ユズリ.png" alt="ユズリ" id="result-image">
           <div class="result-copy">
             <span class="result-tag">鑑定結果</span>
+            <time class="result-date" id="result-date"></time>
             <h3 id="result-title">あなたはユズリタイプ</h3>
             <p id="result-text">山の価値を見つけ直し、伝わる形に整える人です。</p>
             <div class="fortune-detail-grid" id="result-details"></div>
+            <div class="result-mission">
+              <span>このタイプに届いた山ミッション</span>
+              <strong id="result-mission"></strong>
+            </div>
             <div class="score-list" id="score-list"></div>
             <div class="result-links" id="result-links"></div>
             <div class="play-actions">
+              <button class="btn btn-primary" type="button" id="result-share">結果をシェアする</button>
               <button class="btn btn-outline" type="button" id="quiz-restart">もう一度占う</button>
             </div>
+            <p class="share-feedback" id="result-feedback" role="status" aria-live="polite"></p>
           </div>
         </div>
-      </section>
+    </section>
     </div>
   </div>
 </section>
@@ -962,8 +1469,32 @@
     });
   });
 
+  const characterRoles = {
+    okuyaridon: '迎える力',
+    nagika: '元気にする力',
+    sugijii: '記憶を語る力',
+    yuzuri: '知恵にする力',
+    sugito: '形にする力'
+  };
+
+  const questionThemes = [
+    '山での直感',
+    '人との支え方',
+    '惹かれる価値',
+    'チームでの役割',
+    '決め方',
+    '魅力の伝え方',
+    '今日の気分',
+    '守りたいもの',
+    '観察の視点',
+    '未来へ渡すもの'
+  ];
+
   const state = {
     index: 0,
+    history: [],
+    winner: '',
+    locked: false,
     scores: Object.keys(characters).reduce(function (acc, key) {
       acc[key] = 0;
       return acc;
@@ -973,19 +1504,29 @@
   const count = document.getElementById('quiz-count');
   const progress = document.getElementById('progress-bar');
   const title = document.getElementById('quiz-title');
+  const questionTheme = document.getElementById('question-theme');
   const answers = document.getElementById('answer-grid');
+  const back = document.getElementById('quiz-back');
   const resultPanel = document.getElementById('result-panel');
   const resultImage = document.getElementById('result-image');
+  const resultDate = document.getElementById('result-date');
   const resultTitle = document.getElementById('result-title');
   const resultText = document.getElementById('result-text');
+  const resultMission = document.getElementById('result-mission');
   const resultLinks = document.getElementById('result-links');
   const resultDetails = document.getElementById('result-details');
   const scoreList = document.getElementById('score-list');
   const restart = document.getElementById('quiz-restart');
+  const resultShare = document.getElementById('result-share');
+  const resultFeedback = document.getElementById('result-feedback');
   const missionImage = document.getElementById('mission-image');
   const missionName = document.getElementById('mission-name');
   const missionText = document.getElementById('mission-text');
+  const missionRole = document.getElementById('mission-role');
+  const missionDate = document.getElementById('mission-date');
   const missionNext = document.getElementById('mission-next');
+  const missionShare = document.getElementById('mission-share');
+  const missionFeedback = document.getElementById('mission-feedback');
   const missionCount = document.getElementById('mission-count');
 
   function getDayOfYear(date) {
@@ -993,32 +1534,95 @@
     return Math.floor((date - start) / 86400000);
   }
 
+  function formatJapaneseDate(date) {
+    return new Intl.DateTimeFormat('ja-JP', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+      weekday: 'short'
+    }).format(date);
+  }
+
+  function pageUrl() {
+    return window.location.href.split('#')[0] + '#character-play';
+  }
+
+  function shareText(text, feedback) {
+    const payload = { title: '阿波山雅の仲間たち', text: text, url: pageUrl() };
+    if (navigator.share) {
+      navigator.share(payload).then(function () {
+        feedback.textContent = '共有メニューを開きました。';
+      }).catch(function (error) {
+        if (error && error.name !== 'AbortError') {
+          feedback.textContent = '共有できませんでした。もう一度お試しください。';
+        }
+      });
+      return;
+    }
+
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text + '\n' + pageUrl()).then(function () {
+        feedback.textContent = '結果をコピーしました。SNSやメッセージに貼り付けられます。';
+      }).catch(function () {
+        feedback.textContent = 'コピーできませんでした。画面の文を選んでお使いください。';
+      });
+      return;
+    }
+
+    feedback.textContent = '画面の文を選んで、SNSやメッセージで共有してください。';
+  }
+
   function renderQuestion() {
     const question = questions[state.index];
     count.textContent = String(state.index + 1) + ' / ' + String(questions.length);
-    progress.style.width = String((state.index / questions.length) * 100) + '%';
+    progress.style.width = String(((state.index + 1) / questions.length) * 100) + '%';
+    questionTheme.textContent = questionThemes[state.index];
     title.textContent = question.text;
+    back.disabled = state.index === 0;
     answers.replaceChildren();
 
-    question.answers.forEach(function (answer) {
+    question.answers.forEach(function (answer, index) {
       const button = document.createElement('button');
       button.type = 'button';
       button.className = 'answer-button';
+      button.dataset.marker = String(index + 1).padStart(2, '0');
       button.textContent = answer.label;
-      button.addEventListener('click', function () { choose(answer.points); });
+      button.addEventListener('click', function () { choose(answer.points, button); });
       answers.append(button);
     });
   }
 
-  function choose(points) {
+  function choose(points, selectedButton) {
+    if (state.locked) return;
+    state.locked = true;
+    Array.from(answers.querySelectorAll('button')).forEach(function (button) {
+      button.disabled = true;
+    });
+    selectedButton.classList.add('is-selected');
     Object.entries(points).forEach(function (entry) {
       state.scores[entry[0]] += entry[1];
     });
-    state.index += 1;
-    if (state.index >= questions.length) {
-      showResult();
-      return;
-    }
+    state.history.push(points);
+
+    window.setTimeout(function () {
+      state.index += 1;
+      state.locked = false;
+      if (state.index >= questions.length) {
+        showResult();
+        return;
+      }
+      renderQuestion();
+    }, window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 180);
+  }
+
+  function goBack() {
+    if (state.index === 0 || state.locked) return;
+    const previousPoints = state.history.pop();
+    Object.entries(previousPoints).forEach(function (entry) {
+      state.scores[entry[0]] -= entry[1];
+    });
+    state.index -= 1;
+    resultPanel.classList.remove('is-visible');
     renderQuestion();
   }
 
@@ -1058,7 +1662,7 @@
       meter.className = 'score-meter';
       const fill = document.createElement('span');
       fill.className = 'score-fill';
-      fill.style.width = String(Math.max(8, Math.round((entry[1] / max) * 100))) + '%';
+      fill.style.width = entry[1] === 0 ? '0%' : String(Math.max(8, Math.round((entry[1] / max) * 100))) + '%';
       meter.append(fill);
       const value = document.createElement('span');
       value.className = 'score-value';
@@ -1071,14 +1675,18 @@
   function showResult() {
     progress.style.width = '100%';
     const winner = getWinner();
+    state.winner = winner;
     const data = characters[winner];
     const today = new Date();
     const fortuneLevels = ['静かに整う運', '出会いが広がる運', '学びが深まる運', '記録が実る運', '一歩進む運'];
     const dailyFortune = fortuneLevels[(getDayOfYear(today) + winner.length) % fortuneLevels.length];
+    const typeMissionIndex = (getDayOfYear(today) + state.scores[winner]) % missionSets[winner].length;
     resultImage.src = data.image;
     resultImage.alt = data.name;
+    resultDate.textContent = formatJapaneseDate(today) + ' の山運';
     resultTitle.textContent = data.title;
     resultText.textContent = data.text + ' ' + data.oracle;
+    resultMission.textContent = missionSets[winner][typeMissionIndex];
     resultDetails.replaceChildren();
     addDetail('山の星', data.sign);
     addDetail('守りの気', data.element);
@@ -1105,11 +1713,16 @@
 
   function resetQuiz() {
     state.index = 0;
+    state.history = [];
+    state.winner = '';
+    state.locked = false;
     Object.keys(state.scores).forEach(function (key) {
       state.scores[key] = 0;
     });
     resultPanel.classList.remove('is-visible');
+    resultFeedback.textContent = '';
     renderQuestion();
+    document.querySelector('.quiz-panel').scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
   let currentMissionIndex = -1;
@@ -1120,14 +1733,22 @@
     currentMissionIndex = index;
     missionImage.src = data.image;
     missionImage.alt = data.name;
+    missionRole.textContent = characterRoles[mission.key];
     missionName.textContent = data.name;
     missionText.textContent = mission.text;
     missionCount.textContent = String(index + 1) + ' / ' + String(missions.length);
+    missionFeedback.textContent = '';
   }
 
   function setDailyMission() {
     const today = new Date();
     const seed = today.getFullYear() * 37 + getDayOfYear(today);
+    missionDate.textContent = formatJapaneseDate(today);
+    missionDate.dateTime = [
+      today.getFullYear(),
+      String(today.getMonth() + 1).padStart(2, '0'),
+      String(today.getDate()).padStart(2, '0')
+    ].join('-');
     setMissionByIndex(Math.abs(seed) % missions.length);
   }
 
@@ -1146,6 +1767,22 @@
   missionNext.addEventListener('click', function () {
     setRandomMission();
   });
+  missionShare.addEventListener('click', function () {
+    shareText(
+      '【今日の山ミッション｜' + missionName.textContent + '】\n' + missionText.textContent,
+      missionFeedback
+    );
+  });
+  resultShare.addEventListener('click', function () {
+    if (!state.winner) return;
+    const data = characters[state.winner];
+    shareText(
+      '【山の仲間タイプ占い】\nわたしは「' + data.name + 'タイプ」でした。\n' +
+      data.text + '\n今日の山ミッション：' + resultMission.textContent,
+      resultFeedback
+    );
+  });
+  back.addEventListener('click', goBack);
   restart.addEventListener('click', resetQuiz);
 
   renderQuestion();
