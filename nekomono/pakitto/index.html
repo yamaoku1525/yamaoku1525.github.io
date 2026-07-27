@@ -1,0 +1,631 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#f8eee6">
+<title>パキット。｜ねこのモノづくり小屋</title>
+<style>
+  :root {
+    --ink: #25334b;
+    --muted: #6f7888;
+    --paper: rgba(255, 252, 247, .91);
+    --paper-solid: #fffaf4;
+    --coral: #de7165;
+    --coral-dark: #b94e49;
+    --navy: #334b72;
+    --mint: #8bbfc0;
+    --wood: #d9aa72;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+  html, body {
+    width: 100%; height: 100%; overflow: hidden;
+    font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif;
+    color: var(--ink); background: #f8eee6;
+  }
+  body::before {
+    content: ""; position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    background: url("pakitto-assets/pakitto-bg-waribashi-pile-maneki-v3.webp") center center / cover no-repeat;
+    transform: scale(1.01);
+  }
+  body::after {
+    content: ""; position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    background:
+      linear-gradient(180deg, rgba(255,250,244,.16), transparent 25%),
+      radial-gradient(ellipse at 50% 48%, rgba(255,251,242,.48) 0%, rgba(255,251,242,.12) 29%, transparent 56%);
+  }
+  #cv { position: fixed; inset: 0; display: block; width: 100vw; height: 100vh; touch-action: none; z-index: 1; }
+  .topbar {
+    position: fixed; z-index: 4; top: max(12px, env(safe-area-inset-top)); left: 14px; right: 14px;
+    display: flex; align-items: center; justify-content: space-between; pointer-events: none;
+  }
+  .brand, .stats {
+    display: flex; align-items: center; gap: 8px; min-height: 42px;
+    padding: 7px 12px; border: 1px solid rgba(255,255,255,.72); border-radius: 16px;
+    background: rgba(255,252,247,.76); box-shadow: 0 8px 28px rgba(52,45,39,.12);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  }
+  .brand img { width: 28px; height: 28px; object-fit: contain; }
+  a.brand { color: inherit; text-decoration: none; pointer-events: auto; }
+  .brand strong { font-size: 16px; letter-spacing: .08em; }
+  .brand small { display: block; color: var(--muted); font-size: 9px; letter-spacing: .08em; }
+  .stats { font-size: 11px; color: var(--muted); font-weight: 700; font-variant-numeric: tabular-nums; }
+  .stats b { color: var(--navy); font-size: 15px; }
+  .object-label {
+    position: fixed; z-index: 4; top: max(72px, calc(56px + env(safe-area-inset-top))); left: 50%;
+    transform: translateX(-50%); padding: 6px 11px; border-radius: 999px;
+    color: var(--coral-dark); background: rgba(255,252,247,.88); border: 1px solid rgba(255,255,255,.9);
+    box-shadow: 0 7px 22px rgba(53,49,47,.1); backdrop-filter: blur(9px);
+    font-size: 9px; font-weight: 900; letter-spacing: .13em; pointer-events: none;
+    transition: opacity .2s;
+  }
+  .overlay {
+    position: fixed; inset: 0; z-index: 10; display: flex; align-items: center; justify-content: center;
+    padding: max(72px, calc(56px + env(safe-area-inset-top))) 18px max(24px, env(safe-area-inset-bottom));
+    background: rgba(35, 47, 66, .12); backdrop-filter: blur(2px); -webkit-backdrop-filter: blur(2px);
+  }
+  .hidden { display: none !important; }
+  .card {
+    width: min(370px, 100%); border: 1px solid rgba(255,255,255,.9); border-radius: 28px;
+    background: var(--paper); box-shadow: 0 18px 60px rgba(44,49,60,.2);
+    backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); overflow: hidden;
+  }
+  .title-card { padding: 25px 24px 22px; align-self: flex-end; margin-bottom: min(5vh, 44px); }
+  .cat-guide {
+    position: fixed; z-index: 7; right: clamp(5px, 2vw, 22px);
+    bottom: max(132px, calc(116px + env(safe-area-inset-bottom)));
+    width: clamp(84px, 10vw, 126px); max-height: 24vh; object-fit: contain;
+    filter: drop-shadow(0 10px 14px rgba(51, 43, 39, .18)); pointer-events: none;
+    transition: opacity .18s ease;
+  }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 6px; color: var(--coral-dark);
+    font-size: 11px; font-weight: 800; letter-spacing: .12em;
+  }
+  .eyebrow::before { content: ""; width: 18px; height: 2px; border-radius: 9px; background: var(--coral); }
+  h1 { margin-top: 7px; font-size: clamp(38px, 11vw, 50px); line-height: 1; letter-spacing: .08em; }
+  .lead { margin-top: 12px; color: var(--muted); font-size: 13px; line-height: 1.75; }
+  .howto {
+    margin-top: 16px; display: grid; grid-template-columns: 54px 1fr; gap: 12px; align-items: center;
+    padding: 10px 12px; border-radius: 18px; background: rgba(231,238,242,.72);
+  }
+  .howto img { width: 52px; height: 52px; object-fit: contain; }
+  .howto b { display: block; font-size: 13px; }
+  .howto span { display: block; margin-top: 2px; color: var(--muted); font-size: 11px; line-height: 1.55; }
+  button {
+    appearance: none; width: 100%; min-height: 52px; margin-top: 16px; border: 0; border-radius: 999px;
+    color: #fff; background: linear-gradient(135deg, #e77b6c, #cf5c58); box-shadow: 0 6px 0 #aa4744, 0 10px 22px rgba(190,76,71,.23);
+    font: inherit; font-size: 16px; font-weight: 800; letter-spacing: .06em; cursor: pointer;
+  }
+  button:active { transform: translateY(4px); box-shadow: 0 2px 0 #aa4744; }
+  button:focus-visible { outline: 3px solid rgba(51,75,114,.35); outline-offset: 3px; }
+  #hint {
+    position: fixed; z-index: 5; left: 50%; top: max(116px, calc(96px + env(safe-area-inset-top))); bottom: auto;
+    transform: translateX(-50%); width: max-content; max-width: calc(100vw - 28px);
+    padding: 10px 16px; border-radius: 999px; text-align: center; color: var(--ink);
+    background: rgba(255,252,247,.5); border: 1px solid rgba(255,255,255,.58);
+    box-shadow: 0 9px 28px rgba(50,54,62,.12); backdrop-filter: blur(10px);
+    font-size: 12px; font-weight: 700; line-height: 1.45; pointer-events: none; transition: opacity .2s;
+  }
+  #toast {
+    position: fixed; z-index: 12; top: 14%; left: 50%; transform: translateX(-50%);
+    padding: 10px 17px; border-radius: 999px; color: #fff; background: rgba(37,51,75,.9);
+    font-size: 13px; font-weight: 700; white-space: nowrap; opacity: 0; transition: opacity .2s; pointer-events: none;
+  }
+  .result-card { max-height: calc(100vh - 38px); overflow: auto; }
+  .result-visual { position: relative; height: 172px; overflow: hidden; background: #f6eee5; }
+  .result-visual img.hero { width: 100%; height: 100%; object-fit: cover; object-position: 58% center; }
+  .result-visual::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(90deg, rgba(255,250,244,.98) 0%, rgba(255,250,244,.84) 31%, transparent 68%);
+  }
+  .score-lockup { position: absolute; z-index: 2; left: 20px; top: 21px; }
+  .rank { color: var(--coral-dark); font-size: 13px; font-weight: 900; letter-spacing: .06em; }
+  .bigscore { margin-top: 4px; font-size: 64px; font-weight: 900; line-height: .9; color: var(--ink); font-variant-numeric: tabular-nums; }
+  .bigscore small { font-size: 15px; color: var(--muted); }
+  .result-body { padding: 16px 20px 20px; }
+  .grade-tag { color: var(--muted); font-size: 11px; font-weight: 700; }
+  .power { margin-top: 10px; }
+  .power-labels { display: flex; justify-content: space-between; margin-bottom: 5px; color: var(--muted); font-size: 10px; font-weight: 800; }
+  .powerbar { display: flex; height: 10px; overflow: hidden; border-radius: 99px; background: #eae6e0; }
+  .powerbar .left { background: var(--coral); transition: width .55s ease; }
+  .powerbar .right { background: var(--navy); transition: width .55s ease; }
+  .powerbar i { width: 2px; flex: none; background: white; }
+  .bars { margin-top: 12px; }
+  .bar-row { display: grid; grid-template-columns: 60px 1fr 34px; align-items: center; gap: 7px; margin-top: 7px; font-size: 10px; }
+  .bar-row .track { height: 7px; overflow: hidden; border-radius: 99px; background: #e8e4de; }
+  .bar-row .fill { display: block; width: 0; height: 100%; border-radius: inherit; transition: width .55s ease; }
+  .bar-row strong { text-align: right; font-variant-numeric: tabular-nums; }
+  .advice {
+    display: grid; grid-template-columns: 46px 1fr; align-items: center; gap: 9px;
+    margin-top: 13px; padding: 9px 11px; border-radius: 15px; background: #f4eee8;
+    color: #685f5b; font-size: 11px; font-weight: 700; line-height: 1.55;
+  }
+  .advice img { width: 44px; height: 44px; object-fit: contain; }
+  .promotion { margin-top: 9px; color: var(--coral-dark); font-size: 12px; font-weight: 900; text-align: center; }
+  .best { margin-top: 5px; color: #969094; font-size: 10px; text-align: center; }
+  .result-body button { margin-top: 12px; min-height: 47px; }
+  .run-hud { position:fixed; z-index:6; left:10px; right:10px; bottom:max(8px,env(safe-area-inset-bottom)); max-width:980px; margin:auto; display:grid; grid-template-columns:minmax(220px,33%) 1fr; gap:8px; align-items:end; color:var(--ink); pointer-events:none; }
+  .detail-panel,.history-panel { padding:7px 9px; border-radius:15px; background:rgba(255,252,247,.42); border:1px solid rgba(255,255,255,.56); box-shadow:0 8px 22px rgba(43,48,58,.11); backdrop-filter:blur(5px); -webkit-backdrop-filter:blur(5px); }
+  .latest-line { display:grid; grid-template-columns:1fr auto; align-items:center; gap:6px; }
+  .latest-copy { min-width:0; }
+  .latest-copy small,.history-head { color:var(--muted); font-size:7px; font-weight:900; letter-spacing:.09em; }
+  .latest-copy strong { display:block; overflow:hidden; font-size:13px; line-height:1.05; white-space:nowrap; text-overflow:ellipsis; }
+  .latest-type { display:block; overflow:hidden; margin-top:2px; color:var(--coral-dark); font-size:7px; font-weight:800; white-space:nowrap; text-overflow:ellipsis; }
+  .latest-score { min-width:48px; text-align:right; font-size:27px; font-weight:950; line-height:.86; font-variant-numeric:tabular-nums; }
+  .latest-score small { margin-left:1px; color:var(--muted); font-size:7px; }
+  .live-power { margin-top:5px; }
+  .power-values { display:flex; justify-content:space-between; color:var(--muted); font-size:7px; font-weight:900; }
+  .power-track-mini { display:flex; height:5px; margin-top:2px; overflow:hidden; border-radius:99px; background:rgba(55,65,78,.12); }
+  .power-track-mini .pl { background:rgba(222,113,101,.82); }
+  .power-track-mini .pr { background:rgba(51,75,114,.8); }
+  .power-track-mini i { width:1px; flex:none; background:rgba(255,255,255,.9); }
+  .latest-metrics { display:grid; grid-template-columns:1fr; gap:2px; margin-top:5px; }
+  .metric-mini { display:grid; grid-template-columns:48px 1fr 22px; align-items:center; gap:4px; min-height:11px; padding:1px 3px; border-radius:5px; background:rgba(232,237,240,.34); }
+  .metric-mini span { overflow:hidden; color:var(--muted); font-size:6.5px; font-weight:800; white-space:nowrap; text-overflow:ellipsis; }
+  .metric-mini i { display:block; height:4px; overflow:hidden; border-radius:99px; background:rgba(66,76,92,.12); }
+  .metric-mini i em { display:block; height:100%; border-radius:inherit; }
+  .metric-mini b { font-size:7.5px; text-align:right; }
+  .history-head { margin:0 0 5px; }
+  .history-panel,.history-list,.history-chip { pointer-events:auto; }
+  .history-list { display:grid; grid-template-columns:repeat(8,minmax(28px,1fr)); gap:4px; }
+  .history-chip { min-width:0; padding:4px 2px; border:0; border-top:2px solid var(--chip,#bbb); border-radius:7px; text-align:center; color:inherit; background:rgba(241,236,231,.55); font:inherit; cursor:pointer; transition:transform .14s,background .14s; }
+  .history-chip:hover,.history-chip:focus-visible { transform:translateY(-2px); background:rgba(255,252,247,.84); outline:2px solid rgba(222,113,101,.28); }
+  .history-chip small { display:block; overflow:hidden; color:var(--muted); font-size:6px; line-height:1; white-space:nowrap; text-overflow:ellipsis; }
+  .history-chip b { display:block; margin-top:2px; font-size:11px; line-height:1; }
+  .history-empty { grid-column:1/-1; padding:8px; color:var(--muted); font-size:8px; text-align:center; }
+  .history-detail { position:fixed; inset:0; z-index:20; display:grid; place-items:center; padding:18px; background:rgba(36,44,57,.2); backdrop-filter:blur(3px); -webkit-backdrop-filter:blur(3px); }
+  .history-detail-card { position:relative; width:min(360px,calc(100vw - 36px)); padding:15px 16px 16px; background:rgba(255,252,247,.84); }
+  .history-detail-close { position:absolute; z-index:2; top:7px; right:8px; width:29px; height:29px; padding:0; border:0; border-radius:50%; color:var(--muted); background:rgba(235,229,222,.76); font-size:19px; line-height:1; cursor:pointer; }
+  .history-detail-title { margin:0 34px 9px 0; color:var(--coral-dark); font-size:10px; font-weight:900; letter-spacing:.08em; }
+  .score-pop { animation:scorePop .32s cubic-bezier(.2,.9,.25,1.25); }
+  .score-flash { position:fixed; z-index:9; left:50%; top:42%; transform:translate(-50%,-50%) scale(.78); width:min(310px,calc(100vw - 32px)); padding:13px 16px 14px; border-radius:24px; text-align:center; color:var(--ink); background:rgba(255,252,247,.6); border:1px solid rgba(255,255,255,.68); box-shadow:0 18px 48px rgba(48,50,58,.15); opacity:0; pointer-events:none; backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px); }
+  .score-flash small { display:block; color:var(--coral-dark); font-size:11px; font-weight:900; letter-spacing:.08em; }
+  .score-flash strong { display:block; margin-top:2px; font-size:clamp(64px,18vw,92px); font-weight:950; line-height:.88; font-variant-numeric:tabular-nums; }
+  .score-flash strong i { margin-left:3px; color:rgba(78,87,103,.72); font-size:13px; font-style:normal; }
+  .score-flash > span { display:block; margin-top:5px; color:var(--navy); font-size:10px; font-weight:850; }
+  .settled-detail { position:fixed; z-index:8; left:14px; bottom:295px; width:min(38vw,360px); min-width:260px; padding:11px 13px 12px; opacity:0; transform:translateX(-14px) scale(.97); pointer-events:none; transition:opacity .24s,transform .24s; }
+  .settled-detail.show { opacity:1; transform:translateX(0) scale(1); }
+  .settled-detail .latest-copy small { color:var(--coral-dark); }
+  .settled-detail .latest-copy strong { font-size:14px; }
+  .settled-detail .latest-score { min-width:56px; font-size:36px; }
+  .settled-detail .metric-mini { grid-template-columns:54px 1fr 24px; gap:5px; font-size:9px; }
+  .flash-power { display:flex; justify-content:center; gap:16px; margin-top:7px; color:var(--coral-dark); font-size:10px; font-weight:900; }
+  .flash-metrics { display:grid; grid-template-columns:1fr 1fr; gap:4px 8px; margin-top:8px; text-align:left; }
+  .flash-metric { display:grid; grid-template-columns:42px 1fr 22px; align-items:center; gap:4px; color:var(--muted); font-size:8px; font-weight:850; }
+  .flash-metric i { height:4px; overflow:hidden; border-radius:9px; background:rgba(154,145,137,.2); }
+  .flash-metric em { display:block; height:100%; border-radius:inherit; }
+  .flash-metric b { color:var(--ink); text-align:right; font-size:9px; }
+
+  .score-flash.show { animation:flashResult .34s cubic-bezier(.2,.82,.25,1) both; }
+  @keyframes scorePop { 0%{transform:scale(.72);opacity:.3}100%{transform:scale(1);opacity:1} }
+  @keyframes flashResult { 0%{opacity:0;transform:translate(-50%,-44%) scale(.72)}18%{opacity:.94;transform:translate(-50%,-50%) scale(1.03)}52%{opacity:.9;transform:translate(-50%,-50%) scale(1)}100%{opacity:0;transform:translate(-50%,-56%) scale(.98)} }
+  @media(max-width:560px){ .run-hud{grid-template-columns:38% 1fr;gap:5px;left:6px;right:6px}.detail-panel,.history-panel{padding:6px 6px;border-radius:12px}.latest-copy strong{font-size:11px}.latest-score{font-size:24px;min-width:39px}.metric-mini{grid-template-columns:31px 1fr 18px;gap:2px}.history-list{grid-template-columns:repeat(4,1fr);gap:3px}.history-chip{padding:3px 1px}.history-chip small{font-size:5px}.history-chip b{font-size:9px}.latest-type{font-size:6px}.score-flash{top:40%;width:min(286px,calc(100vw - 24px));padding:11px 12px 12px}.settled-detail{left:6px;right:6px;bottom:154px;width:auto;min-width:0;padding:7px 9px 8px}.settled-detail .latest-copy strong{font-size:12px}.settled-detail .latest-score{min-width:44px;font-size:29px}.settled-detail .latest-metrics{display:grid;grid-template-columns:1fr 1fr;gap:3px 8px}.settled-detail .metric-mini{grid-template-columns:40px 1fr 20px;gap:3px;font-size:7px}.cat-guide{right:-4px;bottom:158px;width:78px} }
+  @media (min-width: 760px) {
+    body::before { background-position: center 45%; }
+    .title-card { margin-left: max(24px, 8vw); margin-right: auto; align-self: center; }
+    .overlay { justify-content: flex-start; }
+    #title.overlay { padding-left: 7vw; }
+    #result.overlay { justify-content: center; }
+  }
+  @media (max-height: 700px) {
+    .title-card { padding: 19px 20px 17px; margin-bottom: 4px; }
+    .lead { line-height: 1.55; }
+    .howto { margin-top: 10px; }
+    .result-visual { height: 138px; }
+    .result-body { padding: 12px 18px 15px; }
+    .bigscore { font-size: 54px; }
+  }
+</style>
+</head>
+<body>
+<canvas id="cv" aria-label="割り箸を左右へ引いて割るゲーム"></canvas>
+
+<header class="topbar">
+  <a class="brand" href="../" aria-label="ねこのモノづくり小屋へ戻る">
+    <img src="pakitto-assets/famiresu-part-waribashi-sleeve.webp" alt="">
+    <div><strong>パキット。</strong><small>WARIBASHI GAME</small></div>
+  </a>
+  <div class="stats"><span>累計 <b id="totalTop">0</b>点</span><span>BEST <b id="bestTop">0</b>点</span><span><b id="playsTop">0</b>本目</span></div>
+</header>
+
+<div id="objectLabel" class="object-label hidden">MAIN DISH / 割り箸</div>
+<div id="hint" class="hidden">左右を同時につかんで、外側へ一気に引こう</div>
+<div id="toast" role="status" aria-live="polite"></div>
+<div id="scoreFlash" class="score-flash"><small id="flashRank">RESULT</small><strong><b id="flashScore">100</b><i>点</i></strong><span id="flashType"></span><div id="flashPower" class="flash-power"></div><div id="flashMetrics" class="flash-metrics"></div></div>
+<section id="settledDetail" class="settled-detail detail-panel" aria-live="polite"></section>
+<div id="historyDetail" class="history-detail hidden" role="dialog" aria-modal="true" aria-label="履歴の詳細"><section class="history-detail-card detail-panel"><button id="historyDetailClose" class="history-detail-close" aria-label="閉じる">×</button><div id="historyDetailBody"></div></section></div>
+
+<div class="overlay" id="title">
+  <section class="card title-card">
+    <span class="eyebrow">ゆるいファミレス修行</span>
+    <h1>パキット。</h1>
+    <p class="lead">たかが割り箸、されど割り箸。<br>左右の力とタイミングをそろえて、気持ちよく真っ二つに。</p>
+    <div class="howto">
+      <img src="pakitto-assets/famiresu-part-split-chopsticks.webp" alt="">
+      <div><b>目標は80点以上</b><span>スマホは2本指、PCは中央から横へ素早くドラッグ。</span></div>
+    </div>
+    <button id="startBtn">割り箸を持つ</button>
+  </section>
+</div>
+<img id="catGuide" class="cat-guide hidden" src="../game-assets/maneki-crafter-neutral-v3.webp" alt="割り箸割りを見守る折れ耳の招き猫">
+
+<aside id="runHud" class="run-hud hidden" aria-live="polite">
+  <section class="detail-panel"><div class="latest-line"><div class="latest-copy"><small>ひとつ前</small><strong id="liveRank">まだ記録なし</strong><span class="latest-type" id="liveType">今回の点数と比べられます</span></div><div class="latest-score"><span id="liveScore">--</span><small>点</small></div></div><div class="live-power" id="livePower"></div><div class="latest-metrics" id="liveMetrics"></div></section>
+  <section class="history-panel"><div class="history-head">それ以前の履歴（最大8本・タップで詳細）</div><div class="history-list" id="historyList"><div class="history-empty">まだ記録なし</div></div></section>
+</aside>
+
+<script>
+(() => {
+  "use strict";
+  const cv = document.getElementById("cv");
+  const ctx = cv.getContext("2d");
+  const mainWholeImg = new Image();
+  mainWholeImg.src = "pakitto-assets/main-waribashi.webp";
+  const plainSplitImg = new Image();
+  plainSplitImg.src = "pakitto-assets/main-waribashi-split.webp";
+  const patternWholeImg = new Image();
+  patternWholeImg.src = "pakitto-assets/waribashi-illustrated-intact.webp";
+  const splitArt = {};
+  [["perfect","waribashi-illustrated-perfect.webp"],["skew","waribashi-illustrated-skew.webp"],["fail","waribashi-illustrated-fail.webp"]].forEach(([key,file])=>{const img=new Image();img.src="pakitto-assets/"+file;splitArt[key]=img;});
+  const hint = document.getElementById("hint");
+  let W = 0, H = 0, DPR = 1;
+  let state = "title";
+  let best = Number(localStorage.getItem("pakitto-best") || 0);
+  let plays = Number(localStorage.getItem("pakitto-plays") || 0);
+  let history=[]; try{history=JSON.parse(localStorage.getItem("pakitto-history")||"[]")}catch(_){history=[]} if(!Array.isArray(history))history=[]; history=history.slice(0,10);
+  let totalScore=Number(localStorage.getItem("pakitto-total"));if(!Number.isFinite(totalScore)||totalScore<0)totalScore=history.reduce((sum,r)=>sum+(Number(r.score)||0),0);
+  let scoreSettleTimer=0;
+  let grabs = {};
+  let crack = null;
+  let animStart = 0;
+  let lastJudge = null;
+  let woodSeed = Math.random() * 999;
+  const VARIETIES = [
+    {name:"白木ひのき",note:"明るく軽い定番の木",motif:"milk",band:"#fff8e9",ink:"#de7165",woodFilter:"sepia(.06) saturate(.76) brightness(.99)",wood:"#efd4a8",amp:.82,ease:q=>q},
+    {name:"さくら木",note:"ほんのり桜色のやわらかい木",motif:"berry",band:"#ffe4e8",ink:"#d95167",woodFilter:"sepia(.16) saturate(.82) hue-rotate(328deg) brightness(.97)",wood:"#e7b5aa",amp:.95,ease:q=>q*.99},
+    {name:"はちみつ竹",note:"黄金色でしなやかな竹",motif:"paw",band:"#eee8fb",ink:"#655187",woodFilter:"sepia(.28) saturate(.98) brightness(.94)",wood:"#d8ad68",amp:1.08,ease:q=>q*.98},
+    {name:"くるみ",note:"少し深いブラウンの木",motif:"star",band:"#dcecf5",ink:"#334b72",woodFilter:"sepia(.38) saturate(1.02) brightness(.87)",wood:"#ae754d",amp:1.2,ease:q=>q*.97},
+    {name:"焼き杉",note:"香ばしく濃い色の上級者用",motif:"check",band:"#ffe9d3",ink:"#c45f59",woodFilter:"sepia(.46) saturate(1.06) brightness(.8)",wood:"#815133",amp:1.32,ease:q=>q*.96}
+  ];
+  let grade=VARIETIES[0];
+  let hasPattern=false;
+  let AC = null;
+
+  const stick = () => {
+    const mobile = W <= 560;
+    return { cx: W / 2, top: mobile ? Math.max(104, H * .13) : Math.max(116, H * .18), len: mobile ? Math.min(H * .38, 320) : Math.min(H * .53, 470), w: Math.max(22, Math.min(27, W * .065)), gap: 3 };
+  };
+  const now = () => performance.now();
+  const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+
+  function resize() {
+    DPR = Math.min(window.devicePixelRatio || 1, 2);
+    W = innerWidth; H = innerHeight;
+    cv.width = Math.round(W * DPR); cv.height = Math.round(H * DPR);
+    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+  }
+  resize();
+  addEventListener("resize", resize);
+
+  function audio() {
+    if (!AC) {
+      try { AC = new (window.AudioContext || window.webkitAudioContext)(); } catch (_) {}
+    }
+    if (AC?.state === "suspended") AC.resume();
+    return AC;
+  }
+  function snapSound(q) {
+    const ac = audio(); if (!ac) return;
+    const t = ac.currentTime;
+    const dur = .06 + (1 - q) * .18;
+    const buf = ac.createBuffer(1, Math.ceil(ac.sampleRate * dur), ac.sampleRate);
+    const d = buf.getChannelData(0);
+    for (let i = 0; i < d.length; i++) d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / d.length, q > .72 ? 3 : 1.35);
+    const src = ac.createBufferSource(), filter = ac.createBiquadFilter(), gain = ac.createGain();
+    src.buffer = buf; filter.type = "bandpass"; filter.frequency.value = 1100 + q * 1900;
+    gain.gain.setValueAtTime(.75, t); gain.gain.exponentialRampToValueAtTime(.001, t + dur);
+    src.connect(filter).connect(gain).connect(ac.destination); src.start(t);
+  }
+  function toast(msg) {
+    const el = document.getElementById("toast");
+    el.textContent = msg; el.style.opacity = 1;
+    clearTimeout(toast.t); toast.t = setTimeout(() => el.style.opacity = 0, 1200);
+  }
+  function syncStats() {
+    document.getElementById("bestTop").textContent = best;
+    document.getElementById("playsTop").textContent = plays;
+    document.getElementById("totalTop").textContent = totalScore;
+  }
+  syncStats();
+
+  function newPair(){ state="play"; grade=VARIETIES[plays%VARIETIES.length]; hasPattern=Math.random()<.3; grabs={}; crack=null; woodSeed=Math.random()*999; hint.classList.remove("hidden"); hint.style.opacity=1; const label=document.getElementById("objectLabel"); label.classList.remove("hidden"); label.style.opacity=1; label.textContent="MAIN DISH / 割り箸 / "+grade.name+" / "+(hasPattern?"いちご柄":"無地"); }
+  function sidesHeld() {
+    const sides = { L: null, R: null };
+    Object.values(grabs).forEach(g => sides[g.side] = g);
+    return sides;
+  }
+  function displacement(pts) {
+    const a = pts[0], b = pts[pts.length - 1];
+    return { dx: b.x - a.x, dy: b.y - a.y, len: Math.hypot(b.x - a.x, b.y - a.y) };
+  }
+  function moveStart(pts) {
+    const a = pts[0];
+    for (const p of pts) if (Math.hypot(p.x - a.x, p.y - a.y) > 6) return p.t;
+    return pts.at(-1).t;
+  }
+  function maybeJudge() {
+    const s = sidesHeld();
+    if (s.L && s.R) {
+      const dl = displacement(s.L.pts).len, dr = displacement(s.R.pts).len;
+      if ((dl > 30 && dr > 30) || dl > 110 || dr > 110) judge(s, false);
+    } else {
+      Object.values(grabs).forEach(g => { if (displacement(g.pts).len > 130) judge(sidesHeld(), true); });
+    }
+  }
+  function makeCrack(score, balance, weakSide) {
+    const st = stick(), pts = [], n = 21;
+    const amp = ((100 - score) * .12 + .8) * grade.amp;
+    const driftTotal = (1 - balance) * 25 * (weakSide === "L" ? -1 : 1);
+    let maxOff = 0;
+    for (let i = 0; i <= n; i++) {
+      const p = i / n;
+      const off = driftTotal * p * p + ((i === 0 || i === n) ? 0 : (Math.random() * 2 - 1) * amp);
+      maxOff = Math.max(maxOff, Math.abs(off));
+      pts.push({ x: st.cx + off, y: st.top + p * st.len });
+    }
+    return { pts, splintered: maxOff > st.w * .8 };
+  }
+  function finalize(q, metrics, balance, weakSide, powerL, powerR, forced = "") {
+    plays++;
+    q = clamp(grade.ease(q), 0, 1);
+    const score = Math.round(q * 100);
+    crack = makeCrack(score, balance, weakSide);
+    const artType=score>=82?"perfect":score>=38?"skew":"fail";
+    const artFlip=weakSide==="R";
+    const artFlavor=Math.floor(Math.random()*3);
+    lastJudge = { score, metrics, weakSide, powerL, powerR, artType, artFlip, artFlavor, hasPattern, ...rankFor(score, crack.splintered, forced), varietyName: grade.name, motif: grade.motif, band: grade.band, ink: grade.ink };
+    best = Math.max(best, score);
+    totalScore += score;
+    localStorage.setItem("pakitto-total", totalScore);
+    localStorage.setItem("pakitto-best", best);
+    localStorage.setItem("pakitto-plays", plays);
+    syncStats();
+    return score;
+  }
+  function rankFor(score, splintered, forced) {
+    let rank, comment;
+    if (score >= 95) { rank = "神パキ"; comment = "一本の線みたいに、きれい。今日はいい日かもしれない。"; }
+    else if (score >= 85) { rank = "職人パキ"; comment = "ほぼ完璧。ドリンクバーより満足度が高い。"; }
+    else if (score >= 70) { rank = "いい感じ"; comment = "食事にはまったく支障なし。気持ちも少し整った。"; }
+    else if (score >= 50) { rank = "ちょいズレ"; comment = "使える。見なかったことにすれば、かなり使える。"; }
+    else if (score >= 30) { rank = "ささくれ注意"; comment = "片側だけが先に帰ろうとしている。"; }
+    else { rank = "大惨事"; comment = "割り箸にも、そういう日がある。"; }
+    if (splintered && score >= 50) { rank = "惜しいパキ"; comment = "最後の最後で木目に裏切られた。"; }
+    return { rank, comment: forced || comment };
+  }
+  function judge(s, oneSided) {
+    if (state !== "play") return;
+    let score;
+    if (oneSided || !s.L || !s.R) {
+      const weak = s.L ? "R" : "L";
+      score = finalize(.1, [
+        { key: "balance", label: "力バランス", val: 0 },
+        { key: "sync", label: "同時性", val: 0 },
+        { key: "angle", label: "角度", val: 12 },
+        { key: "speed", label: "スピード", val: 72 }
+      ], 0, weak, weak === "R" ? 100 : 0, weak === "R" ? 0 : 100, "片手の勢いだけで乗り切ろうとした。潔いけど、割り箸は困っている。");
+    } else {
+      const dl = displacement(s.L.pts), dr = displacement(s.R.pts);
+      const balance = Math.min(dl.len, dr.len) / Math.max(dl.len, dr.len);
+      const weak = dl.len < dr.len ? "L" : "R";
+      const sync = clamp(1 - Math.abs(moveStart(s.L.pts) - moveStart(s.R.pts)) / 260, 0, 1);
+      const al = Math.atan2(dl.dy, -dl.dx), ar = Math.atan2(dr.dy, dr.dx);
+      const symmetry = clamp(1 - Math.abs(al - ar) / (Math.PI / 2), 0, 1);
+      const outward = clamp((-dl.dx / (dl.len || 1) + dr.dx / (dr.len || 1)) / 2 + .25, 0, 1);
+      const angle = .65 * symmetry + .35 * outward;
+      const t0 = Math.min(moveStart(s.L.pts), moveStart(s.R.pts));
+      const t1 = Math.max(s.L.pts.at(-1).t, s.R.pts.at(-1).t);
+      const speed = clamp(((dl.len + dr.len) / Math.max((t1 - t0) / 1000, .03) - 140) / 850, 0, 1);
+      const q = (.36 * balance + .18 * sync + .24 * angle + .22 * speed) * (.97 + Math.random() * .05);
+      const powerL = Math.round(dl.len / (dl.len + dr.len) * 100);
+      score = finalize(q, [
+        { key: "balance", label: "力バランス", val: Math.round(balance * 100) },
+        { key: "sync", label: "同時性", val: Math.round(sync * 100) },
+        { key: "angle", label: "角度", val: Math.round(angle * 100) },
+        { key: "speed", label: "スピード", val: Math.round(speed * 100) }
+      ], balance, weak, powerL, 100 - powerL);
+    }
+    snapSound(score / 100);
+    navigator.vibrate?.(score > 84 ? 25 : [12, 32, 30]);
+    state = "anim"; animStart = now(); hint.style.opacity = 0;
+    document.getElementById("objectLabel").style.opacity = 0;
+  }
+
+  const touchPoint = t => ({ x: t.clientX, y: t.clientY, t: now() });
+  cv.addEventListener("touchstart", e => {
+    e.preventDefault(); audio(); if (state !== "play") return;
+    const st = stick();
+    for (const t of e.changedTouches) {
+      const p = touchPoint(t), side = p.x < st.cx ? "L" : "R", held = sidesHeld();
+      if (held[side]) { toast(side === "L" ? "左側はもう持ってるよ" : "右側はもう持ってるよ"); continue; }
+      grabs[t.identifier] = { side, pts: [p] };
+    }
+  }, { passive: false });
+  cv.addEventListener("touchmove", e => {
+    e.preventDefault(); if (state !== "play") return;
+    for (const t of e.changedTouches) if (grabs[t.identifier]) grabs[t.identifier].pts.push(touchPoint(t));
+    maybeJudge();
+  }, { passive: false });
+  const touchEnd = e => {
+    e.preventDefault();
+    if (state === "play") for (const t of e.changedTouches) delete grabs[t.identifier];
+  };
+  cv.addEventListener("touchend", touchEnd, { passive: false });
+  cv.addEventListener("touchcancel", touchEnd, { passive: false });
+
+  let mousePts = null;
+  cv.addEventListener("pointerdown", e => {
+    if (e.pointerType === "touch") return;
+    audio(); if (state === "play") mousePts = [{ x: e.clientX, y: e.clientY, t: now() }];
+  });
+  cv.addEventListener("pointermove", e => {
+    if (mousePts && state === "play") mousePts.push({ x: e.clientX, y: e.clientY, t: now() });
+  });
+  cv.addEventListener("pointerup", () => {
+    if (!mousePts || state !== "play") { mousePts = null; return; }
+    const d = displacement(mousePts);
+    if (d.len < 40) { mousePts = null; return; }
+    const a = mousePts[0], b = mousePts.at(-1);
+    let error = 0;
+    for (const p of mousePts) {
+      const t = ((p.x - a.x) * d.dx + (p.y - a.y) * d.dy) / (d.len * d.len);
+      error += Math.hypot(p.x - (a.x + d.dx * t), p.y - (a.y + d.dy * t));
+    }
+    const straight = clamp(1 - error / mousePts.length / 14, 0, 1);
+    const speed = clamp((d.len / Math.max((b.t - a.t) / 1000, .03) - 200) / 1200, 0, 1);
+    const horiz = Math.abs(d.dx) / d.len;
+    const q = (.45 * straight + .3 * speed + .25 * horiz) * (.96 + Math.random() * .06);
+    const score = finalize(q, [
+      { key: "balance", label: "まっすぐ", val: Math.round(straight * 100) },
+      { key: "sync", label: "同時性", val: 100 },
+      { key: "angle", label: "角度", val: Math.round(horiz * 100) },
+      { key: "speed", label: "スピード", val: Math.round(speed * 100) }
+    ], straight, d.dx > 0 ? "L" : "R", 50, 50);
+    snapSound(score / 100); state = "anim"; animStart = now(); hint.style.opacity = 0;
+    document.getElementById("objectLabel").style.opacity = 0; mousePts = null;
+  });
+
+  function roundRect(c, x, y, w, h, r) {
+    c.beginPath(); c.roundRect(x, y, w, h, r);
+  }
+  function woodGrain(x, y, w, h, seed) {
+    ctx.save(); ctx.globalAlpha = .16; ctx.strokeStyle = "#815a37"; ctx.lineWidth = 1;
+    for (let i = 0; i < 5; i++) {
+      const gx = x + ((seed * (i + 3) * 37) % w);
+      ctx.beginPath(); ctx.moveTo(gx, y + 4);
+      ctx.bezierCurveTo(gx + 3, y + h * .3, gx - 3, y + h * .66, gx + 1, y + h - 4); ctx.stroke();
+    }
+    ctx.restore();
+  }
+  function drawSceneWash() {
+    ctx.clearRect(0, 0, W, H);
+    const st = stick();
+    const g = ctx.createRadialGradient(st.cx, st.top + st.len * .45, 20, st.cx, st.top + st.len * .45, Math.max(180, st.len * .65));
+    g.addColorStop(0, "rgba(255,252,246,.52)"); g.addColorStop(.52, "rgba(255,252,246,.18)"); g.addColorStop(1, "rgba(255,252,246,0)");
+    ctx.fillStyle = g; ctx.fillRect(0, 70, W, H - 70);
+  }
+  function drawSleeveMotif(x,y,w,h){
+    ctx.save();ctx.globalAlpha=.14;ctx.fillStyle=grade.ink;ctx.strokeStyle=grade.ink;ctx.lineWidth=1.5;
+    const cols=[x+17,x+w-17];
+    cols.forEach((cx,side)=>{
+      if(grade.motif==="milk"){for(let yy=y+72;yy<y+h-55;yy+=44){ctx.beginPath();ctx.arc(cx,yy,3,0,Math.PI*2);ctx.fill();ctx.fillRect(cx-8,yy+10,16,1.5)}}
+      else if(grade.motif==="berry"){for(let yy=y+76;yy<y+h-55;yy+=52){ctx.beginPath();ctx.arc(cx,yy,6,0,Math.PI*2);ctx.fill();ctx.strokeStyle="#6d9c7d";ctx.beginPath();ctx.moveTo(cx-4,yy-6);ctx.lineTo(cx,yy-12);ctx.lineTo(cx+4,yy-6);ctx.stroke();ctx.strokeStyle=grade.ink}}
+      else if(grade.motif==="paw"){for(let yy=y+78;yy<y+h-55;yy+=52){ctx.beginPath();ctx.arc(cx,yy+4,4.5,0,Math.PI*2);ctx.fill();for(let t=-1;t<=1;t++){ctx.beginPath();ctx.arc(cx+t*4,yy-4-Math.abs(t),1.8,0,Math.PI*2);ctx.fill()}}}
+      else if(grade.motif==="star"){for(let yy=y+72;yy<y+h-55;yy+=45){ctx.save();ctx.translate(cx,yy);ctx.rotate(Math.PI/4);ctx.fillRect(-5,-5,10,10);ctx.restore()}}
+      else{for(let yy=y+66;yy<y+h-48;yy+=25){ctx.beginPath();ctx.moveTo(cx-9,yy);ctx.lineTo(cx+9,yy+14);ctx.stroke();ctx.beginPath();ctx.moveTo(cx+9,yy);ctx.lineTo(cx-9,yy+14);ctx.stroke()}}
+    });ctx.restore();
+  }
+  function drawStage(st){
+    const stageW=clamp(W*.34,128,178),stageH=st.len+88,x=st.cx-stageW/2,y=st.top-24;
+    ctx.save();ctx.globalAlpha=.56;ctx.shadowColor="rgba(60,55,52,.12)";ctx.shadowBlur=24;ctx.shadowOffsetY=10;ctx.fillStyle=grade.band;roundRect(ctx,x,y,stageW,stageH,18);ctx.fill();ctx.shadowColor="transparent";
+    ctx.strokeStyle="rgba(72,65,61,.16)";ctx.lineWidth=1.4;roundRect(ctx,x,y,stageW,stageH,18);ctx.stroke();
+    ctx.strokeStyle=grade.ink;ctx.globalAlpha=.42;ctx.setLineDash([5,6]);ctx.beginPath();ctx.moveTo(x+10,y+44);ctx.lineTo(x+stageW-10,y+44);ctx.stroke();ctx.setLineDash([]);
+    ctx.beginPath();ctx.moveTo(x+13,y+stageH-38);ctx.lineTo(x+stageW-13,y+stageH-38);ctx.stroke();ctx.globalAlpha=1;
+    drawSleeveMotif(x,y,stageW,stageH);ctx.restore();
+  }
+  function drawWholePair(){
+    const st=stick();drawStage(st);const wholeImg=hasPattern?patternWholeImg:mainWholeImg;const ratio=wholeImg.naturalWidth&&wholeImg.naturalHeight?wholeImg.naturalWidth/wholeImg.naturalHeight:.12;const drawW=st.len*ratio;
+    ctx.save();ctx.shadowColor="rgba(74,52,30,.25)";ctx.shadowBlur=12;ctx.shadowOffsetX=4;ctx.shadowOffsetY=8;ctx.filter=grade.woodFilter;
+    if(wholeImg.complete&&wholeImg.naturalWidth)ctx.drawImage(wholeImg,st.cx-drawW/2,st.top,drawW,st.len);else{ctx.fillStyle=grade.wood;roundRect(ctx,st.cx-drawW/2,st.top,drawW,st.len,8);ctx.fill();ctx.strokeStyle="rgba(100,65,34,.65)";ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(st.cx,st.top);ctx.lineTo(st.cx,st.top+st.len);ctx.stroke()}ctx.restore();
+    ctx.textAlign="center";ctx.font="900 12px sans-serif";ctx.fillStyle="#334b72";ctx.fillText(grade.name,st.cx,st.top+st.len+34);ctx.font="11px sans-serif";ctx.fillStyle="#6f7888";ctx.fillText(grade.note,st.cx,st.top+st.len+52);
+    if(state==="play"&&!Object.keys(grabs).length){const yy=st.top+st.len*.45,bob=Math.sin(now()/300)*5;ctx.font="900 12px sans-serif";ctx.fillStyle="#cf5c58";ctx.fillText("← 左へ引く",st.cx-78-bob,yy);ctx.fillText("右へ引く →",st.cx+78+bob,yy)}
+    const held=sidesHeld();ctx.font="900 11px sans-serif";ctx.fillStyle="#cf5c58";if(held.L)ctx.fillText("左 OK",st.cx-52,st.top-8);if(held.R)ctx.fillText("右 OK",st.cx+52,st.top-8);
+  }
+  function drawArt(img,st,alpha=1,flip=false,flavor=0,separate=false,gap=0){
+    if(!img?.complete||!img.naturalWidth)return;
+    const ratio=img.naturalWidth/img.naturalHeight,drawH=st.len,drawW=drawH*ratio,sw=img.naturalWidth,sh=img.naturalHeight;
+    ctx.save();ctx.globalAlpha=alpha;ctx.translate(st.cx,st.top+drawH/2);if(flip)ctx.scale(-1,1);
+    ctx.rotate((flavor-1)*.006);ctx.filter=grade.woodFilter;ctx.shadowColor="rgba(74,52,30,.2)";ctx.shadowBlur=10;ctx.shadowOffsetY=7;
+    if(!separate){ctx.drawImage(img,-drawW/2,-drawH/2,drawW,drawH)}else{const half=sw/2;ctx.drawImage(img,0,0,half,sh,-drawW/2-gap,-drawH/2,drawW/2,drawH);ctx.drawImage(img,half,0,sw-half,sh,gap,-drawH/2,drawW/2,drawH)}
+    ctx.restore();
+  }
+  function drawSplit(p){
+    const st=stick(),q=lastJudge?.score/100||.5;drawStage(st);
+    const wholeImg=hasPattern?patternWholeImg:mainWholeImg,resultImg=hasPattern?patternWholeImg:plainSplitImg;
+    const crackPhase=clamp(p/.46,0,1),openPhase=clamp((p-.46)/.54,0,1),openEase=1-Math.pow(1-openPhase,3);
+    const forceGap=Math.abs((lastJudge?.powerL||50)-(lastJudge?.powerR||50))*.035,splitGap=4+(1-q)*5+forceGap;
+    if(openPhase<=0)drawArt(wholeImg,st,1,false,0);else{drawArt(wholeImg,st,1-openEase,false,0);drawArt(resultImg,st,openEase,hasPattern?false:lastJudge?.artFlip,lastJudge?.artFlavor||0,true,splitGap*openEase)}
+    if(openPhase<=0){const bottomY=st.top+st.len,frontY=bottomY-st.len*crackPhase,forceBias=((lastJudge?.powerR||50)-(lastJudge?.powerL||50))/100,frontX=st.cx-forceBias*9*crackPhase;ctx.save();ctx.strokeStyle="#fff0d2";ctx.lineWidth=3;ctx.beginPath();ctx.moveTo(st.cx,bottomY);ctx.quadraticCurveTo(st.cx-forceBias*3,bottomY-st.len*crackPhase*.55,frontX,frontY);ctx.stroke();ctx.strokeStyle="rgba(130,83,43,.5)";ctx.lineWidth=1;ctx.stroke();ctx.fillStyle=grade.ink;ctx.globalAlpha=.65;ctx.beginPath();ctx.arc(frontX,frontY,3.5,0,Math.PI*2);ctx.fill();ctx.restore()}
+    if(openPhase>0&&openPhase<.58){ctx.save();ctx.globalAlpha=Math.sin(openPhase/.58*Math.PI);ctx.textAlign="center";ctx.font=`900 ${38+q*16}px sans-serif`;ctx.fillStyle=q>.83?"#de7165":"#334b72";ctx.fillText(q>.83?"パキッ！":q>.45?"パキ。":"メキョ…",st.cx,st.top-20);for(let i=0;i<6;i++){const aa=i*Math.PI/3,r=34+openEase*16;ctx.strokeStyle=i%2?"#e39a61":"#de7165";ctx.lineWidth=2.5;ctx.beginPath();ctx.moveTo(st.cx+Math.cos(aa)*r,st.top+24+Math.sin(aa)*r);ctx.lineTo(st.cx+Math.cos(aa)*(r+10),st.top+24+Math.sin(aa)*(r+10));ctx.stroke()}ctx.restore()}
+  }
+  function barColor(v) { return v >= 85 ? "#69aaa3" : v >= 60 ? "#e39a61" : "#d56560"; }
+  function adviceText(j) {
+    if (j.score >= 95) return "店員さんに見せたいくらい、完璧な一本。";
+    const worst = [...j.metrics].sort((a, b) => a.val - b.val)[0];
+    const msg = {
+      balance: "強い方の手を少しだけ休ませて。左右を同じ力で。",
+      sync: "「せーの」で両手を同時に動かすと、木目も納得する。",
+      angle: "斜めではなく、テーブルと平行に左右へ引いてみよう。",
+      speed: "考えすぎると割り箸も不安になる。一気にパキッと。"
+    };
+    return msg[worst.key] || j.comment;
+  }
+  function renderHud(record){
+    const rankEl=document.getElementById("liveRank"),scoreWrap=document.getElementById("liveScore").parentElement;
+    rankEl.textContent=record?record.rank:"まだ記録なし";
+    const typeName=record?((record.varietyName||record.name||"")+(record.pattern?" / "+record.pattern:"")):"";
+    document.getElementById("liveType").textContent=record?(typeName+" / "+(record.comment||"")):"今回の点数と比べられます";
+    document.getElementById("liveScore").textContent=record?record.score:"--";
+    const powerL=record&&Number.isFinite(record.powerL)?record.powerL:null,powerR=record&&Number.isFinite(record.powerR)?record.powerR:null;
+    document.getElementById("livePower").innerHTML=powerL===null?`<div class="power-values"><span>左 --%</span><span>右 --%</span></div><div class="power-track-mini"><span class="pl" style="width:50%"></span><i></i><span class="pr" style="width:50%"></span></div>`:`<div class="power-values"><span>左 ${powerL}%</span><span>右 ${powerR}%</span></div><div class="power-track-mini"><span class="pl" style="width:${powerL}%"></span><i></i><span class="pr" style="width:${powerR}%"></span></div>`;
+    scoreWrap.classList.remove("score-pop");void scoreWrap.offsetWidth;if(record)scoreWrap.classList.add("score-pop");
+    const metrics=record?.metrics||[];
+    document.getElementById("liveMetrics").innerHTML=metrics.length?metrics.map(m=>`<div class="metric-mini"><span>${m.label}</span><i><em style="width:${m.val}%;background:${barColor(m.val)}"></em></i><b>${m.val}</b></div>`).join(""):["バランス","同時性","角度","スピード"].map(x=>`<div class="metric-mini"><span>${x}</span><i><em style="width:0%"></em></i><b>--</b></div>`).join("");
+    document.getElementById("historyList").innerHTML=history.slice(2,10).length?history.slice(2,10).map((r,i)=>`<button type="button" class="history-chip" data-history-index="${i+2}" style="--chip:${r.color||'#b9aaa0'}" aria-label="${r.name||'割り箸'} ${r.score}点の詳細"><small>#${Math.max(1,plays-i-2)} ${r.name||''}</small><b>${r.score}</b></button>`).join(""):`<div class="history-empty">それ以前の記録はまだありません</div>`;
+  }
+  function openHistoryDetail(record){
+    if(!record)return;
+    const metrics=record.metrics||[],powerL=record.powerL??50,powerR=record.powerR??50,pattern=record.pattern?" / "+record.pattern:"";
+    const metricHtml=metrics.length?metrics.map(m=>`<div class="metric-mini"><span>${m.label}</span><i><em style="width:${m.val}%;background:${barColor(m.val)}"></em></i><b>${m.val}</b></div>`).join(""):`<div class="history-empty">この古い記録には詳細データがありません</div>`;
+    document.getElementById("historyDetailBody").innerHTML=`<div class="history-detail-title">履歴の詳細</div><div class="latest-line"><div class="latest-copy"><small>${record.rank||"記録"}</small><strong>${record.name||"割り箸"}</strong><span class="latest-type">${pattern.replace(" / ","")}${record.comment?" / "+record.comment:""}</span></div><div class="latest-score"><span>${record.score}</span><small>点</small></div></div><div class="live-power"><div class="power-values"><span>左 ${powerL}%</span><span>右 ${powerR}%</span></div><div class="power-track-mini"><span class="pl" style="width:${powerL}%"></span><i></i><span class="pr" style="width:${powerR}%"></span></div></div><div class="latest-metrics">${metricHtml}</div>`;
+    document.getElementById("historyDetail").classList.remove("hidden");
+  }  function renderCurrentDetail(record){
+    const el=document.getElementById("settledDetail"),metrics=record.metrics||[],powerL=record.powerL??50,powerR=record.powerR??50;
+    el.innerHTML=`<div class="latest-line"><div class="latest-copy"><small>今回の1本</small><strong>${record.rank}</strong><span class="latest-type">${record.name} / ${record.pattern}</span></div><div class="latest-score"><span>${record.score}</span><small>点</small></div></div><div class="live-power"><div class="power-values"><span>左 ${powerL}%</span><span>右 ${powerR}%</span></div><div class="power-track-mini"><span class="pl" style="width:${powerL}%"></span><i></i><span class="pr" style="width:${powerR}%"></span></div></div><div class="latest-metrics">${metrics.map(m=>`<div class="metric-mini"><span>${m.label}</span><i><em style="width:${m.val}%;background:${barColor(m.val)}"></em></i><b>${m.val}</b></div>`).join("")}</div>`;
+    el.classList.add("show");
+  }
+  function showScoreFlash(q){
+    const el=document.getElementById("scoreFlash");
+    document.getElementById("flashRank").textContent="今回 / "+q.rank;
+    document.getElementById("flashScore").textContent=q.score;
+    document.getElementById("flashType").textContent=q.varietyName+" / "+(q.hasPattern?"いちご柄":"無地");
+    document.getElementById("flashPower").innerHTML=`<span>左 ${q.powerL}%</span><span>右 ${q.powerR}%</span>`;
+    document.getElementById("flashMetrics").innerHTML=q.metrics.map(m=>`<div class="flash-metric"><span>${m.label}</span><i><em style="width:${m.val}%;background:${barColor(m.val)}"></em></i><b>${m.val}</b></div>`).join("");
+    document.getElementById("settledDetail").classList.remove("show");clearTimeout(showScoreFlash.t);el.classList.remove("show");void el.offsetWidth;el.classList.add("show");showScoreFlash.t=setTimeout(()=>el.classList.remove("show"),360);
+  }
+  function finishRound(){
+    state="cooldown";const q=lastJudge;
+    document.getElementById("catGuide").src=q.score>=70?"../game-assets/maneki-crafter-happy-v3.webp":"../game-assets/maneki-crafter-troubled-v3.webp";
+    const record={score:q.score,rank:q.rank,name:q.varietyName,pattern:q.hasPattern?"いちご柄":"無地",color:q.ink,comment:q.comment,metrics:q.metrics,powerL:q.powerL,powerR:q.powerR,time:Date.now()};
+    const previous=history[0]||null;history.unshift(record);history=history.slice(0,10);localStorage.setItem("pakitto-history",JSON.stringify(history));renderHud(previous);showScoreFlash(q);clearTimeout(scoreSettleTimer);scoreSettleTimer=setTimeout(()=>renderCurrentDetail(record),360);
+    document.getElementById("objectLabel").textContent="次の割り箸を準備中…";setTimeout(newPair,60);
+  }
+  function loop(){
+    drawSceneWash();
+    if(state==="title"||state==="play")drawWholePair();
+    else{const p=state==="cooldown"?1:Math.min(1,(now()-animStart)/430);drawSplit(p);if(state==="anim"&&p>=1)finishRound()}
+    requestAnimationFrame(loop);
+  }
+  document.getElementById("startBtn").addEventListener("click", () => {
+    audio(); document.getElementById("title").classList.add("hidden"); document.getElementById("runHud").classList.remove("hidden"); document.getElementById("catGuide").classList.remove("hidden"); renderHud(history[0] || null); newPair();
+  });
+  document.getElementById("historyList").addEventListener("click",e=>{const button=e.target.closest("[data-history-index]");if(button)openHistoryDetail(history[Number(button.dataset.historyIndex)])});
+  document.getElementById("historyDetail").addEventListener("click",e=>{if(e.target.id==="historyDetail"||e.target.closest("#historyDetailClose"))document.getElementById("historyDetail").classList.add("hidden")});
+  addEventListener("keydown",e=>{if(e.key==="Escape")document.getElementById("historyDetail").classList.add("hidden")});  window.__game = { get state() { return state; }, get last() { return lastJudge; }, get history() { return history; } };
+  loop();
+})();
+</script>
+</body>
+</html>

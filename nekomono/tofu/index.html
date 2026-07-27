@@ -1,0 +1,689 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+  <meta name="theme-color" content="#dfeef0">
+  <title>おとうふ等分帖 | ねこのモノづくり小屋</title>
+  <style>
+    :root {
+      --ink:#365866;
+      --ink-soft:#668590;
+      --milk:#fffdf8;
+      --aqua:#dcecef;
+      --aqua-2:#b9d7de;
+      --navy:#4f6f7e;
+      --coral:#df8e85;
+      --wood:#d9bd91;
+      --shadow:rgba(60,83,91,.18);
+    }
+    * { box-sizing:border-box; margin:0; padding:0; -webkit-tap-highlight-color:transparent; }
+    html,body { width:100%; height:100%; overflow:hidden; }
+    body {
+      background:var(--aqua);
+      color:var(--ink);
+      font-family:"Hiragino Maru Gothic ProN","Yu Gothic","Noto Sans JP",sans-serif;
+    }
+    button { font:inherit; }
+    #cv { display:block; width:100vw; height:100vh; touch-action:none; }
+    .hidden { display:none !important; }
+    .backLink {
+      position:fixed; top:max(14px,env(safe-area-inset-top)); left:max(14px,env(safe-area-inset-left));
+      z-index:30; display:inline-flex; align-items:center; min-height:40px; padding:8px 15px;
+      color:var(--ink); background:rgba(255,253,248,.86); border:1px solid rgba(79,111,126,.2);
+      border-radius:999px; box-shadow:0 7px 20px rgba(52,79,88,.12);
+      font-size:12px; font-weight:800; text-decoration:none; backdrop-filter:blur(8px);
+    }
+    .backLink::before { content:"←"; margin-right:7px; }
+
+    .titleScreen {
+      position:fixed; inset:0; z-index:20;
+      background:
+        linear-gradient(90deg,rgba(255,253,248,.97) 0%,rgba(255,253,248,.9) 38%,rgba(255,253,248,.2) 66%,rgba(255,253,248,.03) 100%),
+        url("./assets/title-rainy-cafe-maneki-v3.webp") 66% center / cover no-repeat;
+      display:flex; align-items:center;
+      padding:max(28px,env(safe-area-inset-top)) 7vw max(28px,env(safe-area-inset-bottom));
+    }
+    .titleCopy { width:min(440px,54vw); }
+    .eyebrow {
+      display:inline-flex; align-items:center; gap:8px;
+      color:var(--ink-soft); font-size:12px; letter-spacing:.18em;
+    }
+    .eyebrow::before { content:""; width:28px; height:1px; background:var(--aqua-2); }
+    h1 {
+      margin-top:12px; color:var(--ink); font-family:serif;
+      font-size:clamp(38px,6vw,68px); line-height:1.08; letter-spacing:.08em;
+      text-shadow:0 2px 0 rgba(255,255,255,.8);
+    }
+    .titleLead {
+      margin-top:18px; color:var(--ink-soft); font-size:14px; line-height:1.9;
+      max-width:380px;
+    }
+    .rules {
+      display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px;
+      margin-top:20px; max-width:380px;
+    }
+    .rule {
+      padding:10px 12px; border:1px solid rgba(79,111,126,.13);
+      border-radius:14px; background:rgba(255,255,255,.68);
+      color:var(--ink-soft); font-size:11px; backdrop-filter:blur(6px);
+    }
+    .rule b { display:block; color:var(--ink); font-size:13px; margin-bottom:2px; }
+    .primary,.secondary {
+      border:0; border-radius:999px; cursor:pointer; font-weight:800;
+      transition:transform .15s,box-shadow .15s,filter .15s;
+    }
+    .primary {
+      margin-top:22px; padding:14px 30px; color:white; background:var(--navy);
+      box-shadow:0 6px 0 #385665,0 12px 24px rgba(56,86,101,.18);
+    }
+    .primary:hover { filter:brightness(1.05); }
+    .primary:active,.secondary:active { transform:translateY(3px); box-shadow:none; }
+    .secondary {
+      padding:12px 20px; color:var(--ink); background:#edf5f5;
+      box-shadow:0 4px 0 #cbdfe2;
+    }
+
+    .topHud {
+      position:fixed; top:max(12px,env(safe-area-inset-top)); left:50%; z-index:6;
+      transform:translateX(-50%); width:min(92vw,430px);
+      display:flex; align-items:center; justify-content:space-between; pointer-events:none;
+      padding:10px 14px; border-radius:18px;
+      background:rgba(255,253,248,.76); border:1px solid rgba(255,255,255,.8);
+      box-shadow:0 8px 24px var(--shadow); backdrop-filter:blur(10px);
+    }
+    .roundNo { color:var(--ink-soft); font-size:11px; letter-spacing:.12em; }
+    .roundGoal { font-weight:900; font-size:15px; }
+    .hudRight { display:flex; align-items:center; gap:10px; }
+    .totalScore { min-width:72px; text-align:right; }
+    .totalScore span { display:block; color:var(--ink-soft); font-size:9px; letter-spacing:.12em; }
+    .totalScore b { display:block; font-size:15px; font-variant-numeric:tabular-nums; line-height:1.15; }
+    .totalScore small { color:var(--ink-soft); font-size:9px; font-weight:700; }
+    .roundDots { display:flex; gap:5px; }
+    .roundDots i { width:7px; height:7px; border-radius:50%; background:#c9dcdf; }
+    .roundDots i.on { width:18px; border-radius:9px; background:var(--coral); }
+
+    .hint {
+      position:fixed; top:76px; left:50%; z-index:6; transform:translateX(-50%);
+      width:max-content; max-width:88vw; padding:7px 12px; border-radius:999px;
+      color:var(--ink-soft); background:rgba(255,255,255,.68); font-size:11px;
+      box-shadow:0 5px 16px rgba(67,91,98,.09); pointer-events:none;
+    }
+    .cutBar {
+      position:fixed; left:0; right:0; bottom:calc(22px + env(safe-area-inset-bottom)); z-index:8;
+      display:flex; justify-content:center; gap:10px; opacity:0; pointer-events:none;
+      transform:translateY(8px); transition:.2s ease;
+    }
+    .cutBar.show { opacity:1; pointer-events:auto; transform:none; }
+    .cutBar .primary { margin:0; padding:12px 22px; }
+    .chibiGuide {
+      position:fixed; left:clamp(8px,3vw,28px);
+      bottom:calc(132px + env(safe-area-inset-bottom)); z-index:16;
+      width:clamp(112px,14vw,164px); height:auto; pointer-events:none;
+      transform-origin:50% 100%;
+      filter:drop-shadow(0 8px 10px rgba(63,83,90,.18));
+      transition:opacity .2s ease;
+      animation:chibiBreathe 3.2s ease-in-out infinite;
+    }
+    .chibiGuide.judged { opacity:1; animation:none; }
+    @keyframes chibiBreathe {
+      0%,100% { transform:translateY(0) rotate(0); }
+      50% { transform:translateY(-4px) rotate(-1deg); }
+    }
+
+    .panelBottom {
+      position:fixed; left:50%; bottom:0; z-index:15; width:min(100%,500px);
+      transform:translate(-50%,110%); transition:transform .35s cubic-bezier(.2,.9,.25,1.08);
+      padding:20px 22px calc(20px + env(safe-area-inset-bottom));
+      background:rgba(255,253,248,.98); border-radius:26px 26px 0 0;
+      box-shadow:0 -16px 50px rgba(57,81,89,.22); text-align:center;
+    }
+    .panelBottom.show { transform:translate(-50%,0); }
+    .panelMascot { position:absolute; width:92px; right:18px; top:-54px; transform:rotate(5deg); }
+    .score { font-size:48px; line-height:1; font-weight:900; color:var(--ink); }
+    .score small { font-size:14px; color:var(--ink-soft); }
+    .verdict { margin-top:7px; font-size:19px; font-weight:900; }
+    .note { min-height:20px; margin-top:6px; color:var(--ink-soft); font-size:12px; line-height:1.6; }
+    .scoreBreakdown { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:6px; max-width:360px; margin:10px auto 0; }
+    .scoreDetail { display:flex; justify-content:space-between; gap:8px; padding:7px 9px; border-radius:10px; background:#edf5f5; font-size:11px; color:var(--ink-soft); }
+    .scoreDetail b { color:var(--ink); font-variant-numeric:tabular-nums; white-space:nowrap; }
+    .panelActions { display:flex; justify-content:center; gap:8px; }
+    .panelActions .primary { margin-top:14px; padding:12px 24px; }
+    .panelActions .secondary { margin-top:14px; }
+
+    .finalScreen {
+      position:fixed; inset:0; z-index:25; display:grid; place-items:center; padding:24px;
+      background:
+        linear-gradient(rgba(220,236,239,.82),rgba(244,239,229,.9)),
+        url("./assets/gameplay-rainy-table.webp") center / cover;
+      backdrop-filter:blur(4px);
+    }
+    .finalCard {
+      position:relative; width:min(92vw,390px); padding:34px 26px 26px;
+      border-radius:28px; background:rgba(255,253,248,.96); text-align:center;
+      border:1px solid rgba(255,255,255,.9); box-shadow:0 20px 60px rgba(52,79,88,.2);
+    }
+    .finalHydrangea { position:absolute; width:118px; right:-26px; top:-48px; transform:rotate(8deg); }
+    .finalKicker { color:var(--ink-soft); font-size:11px; letter-spacing:.18em; }
+    .finalCard h2 { margin-top:8px; font-family:serif; font-size:29px; letter-spacing:.05em; }
+    .finalScore { margin:14px 0; font-size:48px; font-weight:900; }
+    .finalScore small { font-size:13px; color:var(--ink-soft); }
+    .roundList { text-align:left; padding:13px 16px; border-radius:16px; background:#edf5f5; }
+    .roundRow { display:flex; justify-content:space-between; padding:5px 0; color:var(--ink-soft); font-size:12px; }
+    .roundRow b { color:var(--ink); }
+    .finalFooter { display:flex; align-items:flex-end; justify-content:center; gap:4px; margin-top:8px; }
+    .finalFooter .primary { flex:1; margin:0; }
+    .finalChibi {
+      width:100px; height:auto; flex:0 0 auto; margin:-28px 0 -13px -8px;
+      filter:drop-shadow(0 8px 10px rgba(52,79,88,.18)); pointer-events:none;
+    }
+
+    @media (max-width:680px) {
+      .titleScreen {
+        align-items:flex-start; padding:7vh 24px 24px;
+        background:
+          linear-gradient(180deg,rgba(255,253,248,.97) 0%,rgba(255,253,248,.87) 34%,rgba(255,253,248,.08) 65%),
+          url("./assets/title-rainy-cafe-maneki-v3.webp") 64% center / cover no-repeat;
+      }
+      .titleCopy { width:100%; }
+      h1 { font-size:42px; }
+      .titleLead { max-width:310px; font-size:12px; line-height:1.7; }
+      .rules { max-width:310px; }
+      .rule { padding:8px 10px; }
+      .chibiGuide { left:-7px; width:118px; }
+      .chibiGuide.judged { left:4px; top:104px; bottom:auto; width:86px; }
+      .finalScreen { padding:14px; }
+      .finalCard {
+        width:min(94vw,390px); max-height:calc(100dvh - 28px); overflow:auto;
+        padding:26px 18px 18px;
+      }
+      .finalCard h2 { font-size:25px; }
+      .finalScore { margin:8px 0; font-size:40px; }
+      .roundList { padding:10px 13px; }
+      .roundRow { padding:3px 0; }
+      .finalFooter { align-items:center; gap:8px; margin-top:10px; }
+      .finalChibi { width:76px; margin:0; }
+    }
+    @media (max-height:690px) {
+      .titleScreen { padding-top:26px; }
+      h1 { font-size:36px; margin-top:5px; }
+      .titleLead { margin-top:8px; }
+      .rules { margin-top:10px; }
+      .primary { margin-top:12px; }
+    }
+  </style>
+</head>
+<body>
+  <a class="backLink" href="../">小屋へ戻る</a>
+  <canvas id="cv" aria-label="豆腐を切り分けるゲーム盤"></canvas>
+
+  <section class="titleScreen" id="titleScreen">
+    <div class="titleCopy">
+      <div class="eyebrow">雨宿りのひと勝負</div>
+      <h1>おとうふ<br>等分帖</h1>
+      <p class="titleLead">
+        ぼんやり過ごす雨の午後。<br>
+        やわらかなお豆腐を、できるだけ同じ大きさに切り分けてみましょう。
+      <div class="rules">
+        <div class="rule"><b>何本でも</b>切れ目は自由に追加</div>
+        <div class="rule"><b>端から端へ</b>指で線を引くだけ</div>
+        <div class="rule"><b>全6問</b>形も数も少しずつ変化</div>
+        <div class="rule"><b>誤差が小さいほど</b>高得点になります</div>
+      </div>
+      <button class="primary" id="startBtn">のんびり始める</button>
+    </div>
+  </section>
+
+  <div class="topHud hidden" id="topHud">
+    <div>
+      <div class="roundNo" id="roundNo">ROUND 1 / 6</div>
+      <div class="roundGoal" id="roundGoal">2等分にする</div>
+    </div>
+    <div class="hudRight">
+      <div class="totalScore"><span>累計</span><b id="totalScore">0<small> / 600</small></b></div>
+      <div class="roundDots" id="roundDots"></div>
+    </div>
+  </div>
+  <div class="hint hidden" id="hint"></div>
+  <img class="chibiGuide hidden" id="chibiGuide" src="../game-assets/maneki-crafter-neutral-v3.webp" alt="豆腐切りを見守る折れ耳の招き猫">
+
+  <div class="cutBar" id="cutBar">
+    <button class="secondary" id="clearBtn">線を消す</button>
+    <button class="primary" id="judgeBtn">できあがり</button>
+  </div>
+
+  <section class="panelBottom" id="roundPanel">
+    <img class="panelMascot" src="./assets/tofu-mascot.webp" alt="">
+    <div class="score" id="scoreTxt">100<small> 点</small></div>
+    <div class="verdict" id="verdictTxt"></div>
+    <div class="note" id="noteTxt"></div>
+    <div class="scoreBreakdown" id="scoreBreakdown"></div>
+    <div class="panelActions">
+      <button class="secondary" id="retryBtn">切り直す</button>
+      <button class="primary" id="nextBtn">次のお豆腐へ</button>
+    </div>
+  </section>
+
+  <section class="finalScreen hidden" id="finalScreen">
+    <div class="finalCard">
+      <img class="finalHydrangea" src="./assets/hydrangea.webp" alt="">
+      <div class="finalKicker">TODAY'S TOFU RECORD</div>
+      <h2 id="finalRank">雨音の等分名人</h2>
+      <div class="finalScore" id="finalScore">500<small> / 600点</small></div>
+      <div class="roundList" id="finalList"></div>
+      <div class="finalFooter">
+        <img class="finalChibi" id="finalChibi" src="../game-assets/maneki-crafter-neutral-v3.webp" alt="結果を見守る折れ耳の招き猫">
+        <button class="primary" id="againBtn">もう一度、のんびり</button>
+      </div>
+    </div>
+  </section>
+
+  <script>
+  (() => {
+    "use strict";
+
+    const cv = document.getElementById("cv");
+    const ctx = cv.getContext("2d");
+    const bgImage = new Image();
+    const knifeImage = new Image();
+    bgImage.src = "./assets/gameplay-rainy-table.webp";
+    knifeImage.src = "./assets/table-knife.webp";
+    const TOFU_ART = {};
+    for(const shape of ["rect","circle","tri","L","ring"]) {
+      const img=new Image(); img.src=`./assets/tofu-${shape}.webp`; TOFU_ART[shape]=img;
+    }
+
+    let W = 0, H = 0, DPR = 1;
+    let state = "title";
+    let roundIdx = 0;
+    let strokes = [];
+    let currentStroke = null;
+    let judged = null;
+    let scores = [];
+
+    const CHIBI_ASSETS = {
+      neutral:"../game-assets/maneki-crafter-neutral-v3.webp",
+      serious:"../game-assets/maneki-crafter-neutral-v3.webp",
+      happy:"../game-assets/maneki-crafter-happy-v3.webp",
+      flustered:"../game-assets/maneki-crafter-troubled-v3.webp"
+    };
+    Object.values(CHIBI_ASSETS).forEach(src=>{ const img=new Image(); img.src=src; });
+    function setChibi(mood="neutral") {
+      document.getElementById("chibiGuide").src=CHIBI_ASSETS[mood]||CHIBI_ASSETS.neutral;
+    }
+
+    const ROUNDS = [
+      { n:2, shape:"rect", label:"四角い豆腐を2等分", hint:"まずは一刀。端から端へ、すっと線を引いてみましょう。" },
+      { n:3, shape:"rect", label:"四角い豆腐を3等分", hint:"切れ目は何本でも。幅をそろえるのがコツです。" },
+      { n:3, shape:"circle", label:"丸い豆腐を3等分", hint:"ケーキのように中心から分けても、平行に切っても大丈夫。" },
+      { n:4, shape:"tri", label:"三角の豆腐を4等分", hint:"真ん中の位置をよく見て、焦らずに。" },
+      { n:3, shape:"L", label:"L字の豆腐を3等分", hint:"見た目ではなく、面積が同じになるよう考えてみましょう。" },
+      { n:4, shape:"ring", label:"輪っか豆腐を4等分", hint:"最後の一皿。縦と横に切ると分けやすいかも。" }
+    ];
+    const PIECE_COLORS = ["#e7a19a","#8ebdca","#b8cea7","#dfc581","#aeb5d3","#d7a77e","#8bc3bd"];
+
+    function resize() {
+      DPR = Math.min(window.devicePixelRatio || 1, 2);
+      W = window.innerWidth;
+      H = window.innerHeight;
+      cv.width = Math.round(W * DPR);
+      cv.height = Math.round(H * DPR);
+      ctx.setTransform(DPR,0,0,DPR,0,0);
+    }
+    resize();
+    addEventListener("resize", resize);
+
+    function tofu() {
+      const s = Math.min(W * .72, H * .43, 330);
+      return { cx:W/2, cy:H*.48, s, shape:ROUNDS[roundIdx].shape, w:s, h:s*.68, rr:17 };
+    }
+
+    function inShapeLocal(x,y,T) {
+      const s = T.s;
+      if (T.shape === "rect") {
+        const hw=T.w/2, hh=T.h/2, r=T.rr;
+        if (Math.abs(x)>hw || Math.abs(y)>hh) return false;
+        const qx=Math.abs(x)-(hw-r), qy=Math.abs(y)-(hh-r);
+        return !(qx>0 && qy>0) || qx*qx+qy*qy<=r*r;
+      }
+      if (T.shape === "circle") return (x/(s*.42))**2+((y-s*.03)/(s*.435))**2<=1;
+      if (T.shape === "tri") {
+        const top=-s*.4,bottom=s*.45,half=s*.47,a=[0,top],b=[-half,bottom],c=[half,bottom];
+        const cross=(p1,p2)=> (x-p1[0])*(p2[1]-p1[1])-(y-p1[1])*(p2[0]-p1[0]);
+        const d1=cross(a,b), d2=cross(b,c), d3=cross(c,a);
+        return !((d1<0||d2<0||d3<0)&&(d1>0||d2>0||d3>0));
+      }
+      if (T.shape === "L") {
+        const w=s*.92,top=-s*.4,bottom=s*.55,h=bottom-top,bw=w*.42,bh=s*.34;
+        return (x>=-w/2&&x<=-w/2+bw&&y>=top&&y<=bottom) ||
+               (x>=-w/2&&x<=w/2&&y>=bottom-bh&&y<=bottom);
+      }
+      if (T.shape === "ring") {
+        const outer=(x/(s*.45))**2+((y-s*.045)/(s*.43))**2;
+        const inner=(x/(s*.14))**2+((y-s*.025)/(s*.10))**2;
+        return outer<=1 && inner>=1;
+      }
+      return false;
+    }
+    function inTofu(x,y,T) { return inShapeLocal(x-T.cx,y-T.cy,T); }
+
+    function shapePath(T) {
+      const p=new Path2D(), s=T.s;
+      if (T.shape==="rect") {
+        const hw=T.w/2,hh=T.h/2,r=T.rr;
+        p.moveTo(-hw+r,-hh); p.arcTo(hw,-hh,hw,hh,r); p.arcTo(hw,hh,-hw,hh,r);
+        p.arcTo(-hw,hh,-hw,-hh,r); p.arcTo(-hw,-hh,hw,-hh,r); p.closePath();
+      } else if (T.shape==="circle") {
+        p.ellipse(0,s*.03,s*.42,s*.435,0,0,Math.PI*2);
+      } else if (T.shape==="tri") {
+        const top=-s*.4,bottom=s*.45,half=s*.47; p.moveTo(0,top); p.lineTo(-half,bottom); p.lineTo(half,bottom); p.closePath();
+      } else if (T.shape==="L") {
+        const w=s*.92,top=-s*.4,bottom=s*.55,h=bottom-top,bw=w*.42,bh=s*.34;
+        p.moveTo(-w/2,top); p.lineTo(-w/2+bw,top); p.lineTo(-w/2+bw,bottom-bh);
+        p.lineTo(w/2,bottom-bh); p.lineTo(w/2,bottom); p.lineTo(-w/2,bottom); p.closePath();
+      } else {
+        p.ellipse(0,s*.045,s*.45,s*.43,0,0,Math.PI*2); p.ellipse(0,s*.025,s*.14,s*.10,0,0,Math.PI*2,true);
+      }
+      return p;
+    }
+
+    function coverImage(img) {
+      if (!img.complete || !img.naturalWidth) return false;
+      const scale=Math.max(W/img.naturalWidth,H/img.naturalHeight);
+      const w=img.naturalWidth*scale,h=img.naturalHeight*scale;
+      ctx.drawImage(img,(W-w)/2,(H-h)/2,w,h);
+      return true;
+    }
+
+    function roundRect(x,y,w,h,r) {
+      ctx.beginPath(); ctx.moveTo(x+r,y); ctx.arcTo(x+w,y,x+w,y+h,r);
+      ctx.arcTo(x+w,y+h,x,y+h,r); ctx.arcTo(x,y+h,x,y,r); ctx.arcTo(x,y,x+w,y,r); ctx.closePath();
+    }
+
+    function drawBoard() {
+      ctx.fillStyle="#edf5f4"; ctx.fillRect(0,0,W,H);
+      coverImage(bgImage);
+      ctx.fillStyle="rgba(235,244,242,.26)"; ctx.fillRect(0,0,W,H);
+      const T=tofu(), bw=Math.min(W*.9,420), bh=Math.min(H*.52,bw*.84);
+      ctx.save();
+      ctx.shadowColor="rgba(76,91,83,.19)"; ctx.shadowBlur=24; ctx.shadowOffsetY=12;
+      roundRect(T.cx-bw/2,T.cy-bh/2,bw,bh,28);
+      const g=ctx.createLinearGradient(T.cx-bw/2,T.cy-bh/2,T.cx+bw/2,T.cy+bh/2);
+      g.addColorStop(0,"rgba(250,240,217,.97)"); g.addColorStop(1,"rgba(220,194,151,.97)");
+      ctx.fillStyle=g; ctx.fill();
+      ctx.shadowColor="transparent"; ctx.strokeStyle="rgba(154,125,87,.32)"; ctx.lineWidth=2; ctx.stroke();
+      ctx.globalAlpha=.13; ctx.strokeStyle="#8b6c49"; ctx.lineWidth=1;
+      for (let i=0;i<8;i++) {
+        const yy=T.cy-bh*.36+i*bh*.1;
+        ctx.beginPath(); ctx.moveTo(T.cx-bw*.39,yy); ctx.bezierCurveTo(T.cx-bw*.15,yy+5,T.cx+bw*.15,yy-6,T.cx+bw*.39,yy+2); ctx.stroke();
+      }
+      ctx.restore();
+    }
+
+    function drawTofu() {
+      const T=tofu(), path=shapePath(T);
+      ctx.save(); ctx.translate(T.cx,T.cy);
+      if(state==="play") ctx.scale(1,1+Math.sin(performance.now()/330)*.008);
+
+      // 判定輪郭の影だけを薄く残し、絵は輪郭より少し大きく描く
+      ctx.save(); ctx.translate(6,11); ctx.shadowColor="rgba(68,82,70,.22)"; ctx.shadowBlur=15;
+      ctx.fillStyle="rgba(87,102,88,.17)"; ctx.fill(path,"evenodd"); ctx.restore();
+
+      const art=TOFU_ART[T.shape];
+      const layout={
+        rect:{w:1.08,h:.75,y:.035,r:-.008},
+        circle:{w:.88,h:.91,y:.03,r:.006},
+        tri:{w:.94,h:.86,y:.035,r:-.006},
+        L:{w:.96,h:1.01,y:.065,r:.007},
+        ring:{w:.94,h:.90,y:.045,r:-.008}
+      }[T.shape];
+      if(art?.complete&&art.naturalWidth) {
+        const w=T.s*layout.w,h=T.s*layout.h;
+        ctx.save(); ctx.rotate(layout.r);
+        ctx.drawImage(art,-w/2,-h/2+T.s*layout.y,w,h);
+        ctx.restore();
+      } else {
+        const fallback=ctx.createLinearGradient(0,-T.s*.35,0,T.s*.35);
+        fallback.addColorStop(0,"#fffefa"); fallback.addColorStop(1,"#e7e2d4");
+        ctx.fillStyle=fallback; ctx.fill(path,"evenodd");
+      }
+      ctx.restore();
+    }
+
+    function drawStrokes(faded=false) {
+      ctx.save(); ctx.lineCap="round"; ctx.lineJoin="round";
+      ctx.strokeStyle=faded?"rgba(73,105,116,.27)":"rgba(73,105,116,.56)";
+      ctx.lineWidth=faded?3:5;
+      if (faded) ctx.setLineDash([6,6]);
+      for (const stroke of strokes) {
+        ctx.beginPath(); stroke.forEach((p,i)=>i?ctx.lineTo(p.x,p.y):ctx.moveTo(p.x,p.y)); ctx.stroke();
+      }
+      ctx.setLineDash([]);
+      if (currentStroke && currentStroke.length>1) {
+        ctx.strokeStyle="rgba(73,105,116,.7)"; ctx.lineWidth=5; ctx.beginPath();
+        currentStroke.forEach((p,i)=>i?ctx.lineTo(p.x,p.y):ctx.moveTo(p.x,p.y)); ctx.stroke();
+      }
+      if (currentStroke?.length) {
+        const tip=currentStroke[currentStroke.length-1];
+        if (knifeImage.complete && knifeImage.naturalWidth) {
+          ctx.translate(tip.x+46,tip.y-12); ctx.rotate(-.45); ctx.scale(-1,1); ctx.drawImage(knifeImage,-7,-18,58,28);
+        } else {
+          ctx.fillStyle="#4f6f7e"; ctx.font="22px sans-serif"; ctx.fillText("／",tip.x,tip.y);
+        }
+      }
+      ctx.restore();
+    }
+
+    function drawPieces() {
+      const gi=judged.gridInfo, colors={};
+      gi.pieceIds.forEach((id,i)=>colors[id]=PIECE_COLORS[i%PIECE_COLORS.length]);
+      ctx.save(); ctx.globalAlpha=.47;
+      for(let y=0;y<gi.bh;y++) for(let x=0;x<gi.bw;x++) {
+        const label=gi.label[y*gi.bw+x]; if(!label) continue;
+        ctx.fillStyle=colors[label]||"#aab"; ctx.fillRect(gi.bx0+x*gi.CELL,gi.by0+y*gi.CELL,gi.CELL+.5,gi.CELL+.5);
+      }
+      ctx.restore();
+      ctx.save(); ctx.textAlign="center"; ctx.font="800 16px sans-serif";
+      judged.pieces.forEach(piece=>{
+        const text=(piece.area/gi.totalArea*100).toFixed(1)+"%";
+        ctx.strokeStyle="rgba(255,255,255,.9)"; ctx.lineWidth=5; ctx.strokeText(text,piece.cx,piece.cy+5);
+        ctx.fillStyle="#365866"; ctx.fillText(text,piece.cx,piece.cy+5);
+      });
+      ctx.restore();
+    }
+
+    function render() {
+      drawBoard(); drawTofu();
+      if (state==="judged" && judged) { drawPieces(); drawStrokes(true); }
+      else drawStrokes(false);
+      requestAnimationFrame(render);
+    }
+
+    function judge() {
+      const T=tofu(), CELL=3, KNIFE=4.5, ext=T.s*.62+8;
+      const bx0=T.cx-ext,by0=T.cy-ext,bw=Math.ceil(ext*2/CELL),bh=bw;
+      const grid=new Int32Array(bw*bh), segments=[];
+      for(const stroke of strokes) for(let i=1;i<stroke.length;i++) {
+        const a=stroke[i-1],b=stroke[i];
+        segments.push({ax:a.x,ay:a.y,bx:b.x,by:b.y,minx:Math.min(a.x,b.x)-KNIFE,maxx:Math.max(a.x,b.x)+KNIFE,miny:Math.min(a.y,b.y)-KNIFE,maxy:Math.max(a.y,b.y)+KNIFE});
+      }
+      function nearStroke(px,py) {
+        for(const s of segments) {
+          if(px<s.minx||px>s.maxx||py<s.miny||py>s.maxy) continue;
+          const dx=s.bx-s.ax,dy=s.by-s.ay,l2=dx*dx+dy*dy||1e-6;
+          const t=Math.max(0,Math.min(1,((px-s.ax)*dx+(py-s.ay)*dy)/l2));
+          const ex=s.ax+dx*t-px,ey=s.ay+dy*t-py;
+          if(ex*ex+ey*ey<=KNIFE*KNIFE) return true;
+        }
+        return false;
+      }
+      for(let y=0;y<bh;y++) for(let x=0;x<bw;x++) {
+        const px=bx0+(x+.5)*CELL,py=by0+(y+.5)*CELL;
+        if(inTofu(px,py,T)) grid[y*bw+x]=nearStroke(px,py)?2:1;
+      }
+      const label=new Int32Array(bw*bh),regions=[],qx=new Int32Array(bw*bh),qy=new Int32Array(bw*bh);
+      let nextId=0;
+      for(let gy=0;gy<bh;gy++) for(let gx=0;gx<bw;gx++) {
+        const idx=gy*bw+gx; if(grid[idx]!==1||label[idx]) continue;
+        nextId++; let head=0,tail=0,area=0,sx=0,sy=0;
+        qx[tail]=gx; qy[tail]=gy; tail++; label[idx]=nextId;
+        while(head<tail) {
+          const x=qx[head],y=qy[head]; head++; area++; sx+=x; sy+=y;
+          for(const [nx,ny] of [[x+1,y],[x-1,y],[x,y+1],[x,y-1]]) {
+            if(nx<0||ny<0||nx>=bw||ny>=bh) continue;
+            const ni=ny*bw+nx;
+            if(grid[ni]===1&&!label[ni]) { label[ni]=nextId; qx[tail]=nx; qy[tail]=ny; tail++; }
+          }
+        }
+        regions.push({id:nextId,area,cx:bx0+(sx/area+.5)*CELL,cy:by0+(sy/area+.5)*CELL});
+      }
+      const total=regions.reduce((sum,r)=>sum+r.area,0);
+      const min=Math.max(4,total*.012);
+      const pieces=regions.filter(r=>r.area>=min).sort((a,b)=>b.area-a.area);
+      const crumbs=regions.length-pieces.length,n=ROUNDS[roundIdx].n;
+      let ok=segments.length>0&&pieces.length===n,dev=0,score=0,balanceScore=0,countPenalty=Math.abs(pieces.length-n)*15,crumbPenalty=crumbs*2,verdict,note;
+      const ideal=total/n;
+      pieces.forEach(p=>dev=Math.max(dev,Math.abs(p.area-ideal)/ideal));
+      const pct=dev*100;
+      balanceScore=ok?Math.max(0,Math.round(100-Math.min(pct,35)*2.5)):Math.max(30,Math.round(75-Math.min(pct,60)*.35));
+      score=segments.length?Math.max(10,balanceScore-countPenalty-crumbPenalty):0;
+      if(ok) {
+        if(score>=95) {
+          verdict="完璧！ ぴたり同じ大きさです";
+          note="文句なしの等分。お見事です。";
+        } else if(score>=85) {
+          verdict="すごい！ とてもきれいな等分";
+          note="目で見ても、ほとんど差がありません。";
+        } else if(score>=70) {
+          verdict="いい感じ。かなりそろっています";
+          note="あとひと息で職人級です。";
+        } else if(score>=50) {
+          verdict="あと一歩。少しだけ差があります";
+          note="一番大きい切れを少し小さくすると近づきます。";
+        } else {
+          verdict="ばらつきが大きめです";
+          note="線の間隔を意識して、もう一度挑戦してみましょう。";
+        }
+        if(crumbs) note+=` 小さな欠片が${crumbs}個（-${crumbs*2}点）あります。`;
+      } else if(pieces.length<n) {
+        verdict=pieces.length<=1?"まだ切れていません":"切れ数が足りません";
+        note=`${pieces.length}切れです。今回は${n}等分なので、端から端まで線を追加しましょう。`;
+      } else {
+        verdict="切りすぎです";
+        note=`${pieces.length}切れです。今回は${n}等分なので、線を減らしてやり直しましょう。`;
+      }
+      judged={pieces,dev,score,ok,verdict,note,target:n,balanceScore,countPenalty,crumbPenalty,crumbs,gridInfo:{grid,label,bw,bh,bx0,by0,CELL,pieceIds:pieces.map(p=>p.id),totalArea:total}};
+      state="judged"; updateCutBar(); showRoundPanel();
+      if(navigator.vibrate) navigator.vibrate(ok?20:[25,45,25]);
+    }
+
+    function updateHud() {
+      document.getElementById("roundNo").textContent=`ROUND ${roundIdx+1} / ${ROUNDS.length}`;
+      document.getElementById("roundGoal").textContent=ROUNDS[roundIdx].label;
+      document.getElementById("hint").textContent=ROUNDS[roundIdx].hint;
+      document.getElementById("roundDots").innerHTML=ROUNDS.map((_,i)=>`<i class="${i===roundIdx?"on":""}"></i>`).join("");
+      const settled=scores.reduce((sum,value)=>sum+(Number.isFinite(value)?value:0),0);
+      const preview=state==="judged"&&judged&&!Number.isFinite(scores[roundIdx])?judged.score:0;
+      document.getElementById("totalScore").innerHTML=`${settled+preview}<small> / ${ROUNDS.length*100}</small>`;
+    }
+    function updateCutBar() {
+      document.getElementById("cutBar").classList.toggle("show",state==="play"&&strokes.length>0);
+    }
+    function startRound(index) {
+      roundIdx=index; strokes=[]; currentStroke=null; judged=null; state="play";
+      document.getElementById("roundPanel").classList.remove("show");
+      document.getElementById("chibiGuide").classList.remove("judged");
+      setChibi("neutral");
+      updateHud(); updateCutBar();
+    }
+    function showRoundPanel() {
+      document.getElementById("scoreTxt").innerHTML=`${judged.score}<small> 点</small>`;
+      document.getElementById("verdictTxt").textContent=judged.verdict;
+      document.getElementById("verdictTxt").style.color=judged.ok?(judged.score>=85?"#d77f75":judged.score>=70?"#365866":"#a76662"):"#a76662";
+      document.getElementById("noteTxt").textContent=judged.note;
+      const detail=[
+        ["分割数",`${judged.pieces.length} / ${judged.target}`],
+        ["最大誤差",judged.pieces.length?`${(judged.dev*100).toFixed(1)}%`:"—"],
+        ["等分の基礎点",`${judged.balanceScore}点`],
+        ["個数減点",judged.countPenalty?`-${judged.countPenalty}点`:"0点"],
+        ["欠片減点",judged.crumbPenalty?`-${judged.crumbPenalty}点`:"0点"]
+      ];
+      document.getElementById("scoreBreakdown").innerHTML=detail.map(([label,value])=>`<div class="scoreDetail"><span>${label}</span><b>${value}</b></div>`).join("");
+      document.getElementById("nextBtn").textContent=roundIdx===ROUNDS.length-1?"今日の記録を見る":"次のお豆腐へ";
+      document.getElementById("roundPanel").classList.add("show");
+      document.getElementById("chibiGuide").classList.add("judged");
+      setChibi(judged.ok&&judged.score>=70?"happy":"flustered");
+      updateHud();
+    }
+    function finishGame() {
+      state="final";
+      const total=scores.reduce((a,b)=>a+b,0),max=ROUNDS.length*100;
+      const rank=total>=max*.9?"雨音の等分名人":total>=max*.75?"喫茶店の切り分け上手":total>=max*.6?"お豆腐と仲良し":total>=max*.4?"のんびり練習中":"今日はぼんやり日和";
+      const finalMood=total>=max*.75?"happy":total>=max*.6?"neutral":"flustered";
+      document.getElementById("finalRank").textContent=rank;
+      document.getElementById("finalScore").innerHTML=`${total}<small> / ${max}点</small>`;
+      document.getElementById("finalList").innerHTML=ROUNDS.map((r,i)=>`<div class="roundRow"><span>${i+1}. ${r.label}</span><b>${scores[i]}点</b></div>`).join("");
+      const finalChibi=document.getElementById("finalChibi");
+      finalChibi.src=CHIBI_ASSETS[finalMood];
+      finalChibi.alt=finalMood==="happy"?"笑顔の折れ耳の招き猫":finalMood==="flustered"?"少し困った折れ耳の招き猫":"結果を見守る折れ耳の招き猫";
+      document.getElementById("chibiGuide").classList.add("hidden");
+      document.getElementById("finalScreen").classList.remove("hidden");
+    }
+
+    cv.addEventListener("pointerdown",e=>{
+      if(state!=="play") return;
+      state="drawing"; currentStroke=[{x:e.clientX,y:e.clientY}];
+      setChibi("serious");
+      try{cv.setPointerCapture(e.pointerId);}catch{}
+    });
+    cv.addEventListener("pointermove",e=>{
+      if(state!=="drawing"||!currentStroke) return;
+      const last=currentStroke[currentStroke.length-1];
+      if(Math.hypot(e.clientX-last.x,e.clientY-last.y)>2.5) currentStroke.push({x:e.clientX,y:e.clientY});
+    });
+    function endStroke() {
+      if(state!=="drawing") return;
+      state="play";
+      if(currentStroke) {
+        let len=0;
+        for(let i=1;i<currentStroke.length;i++) len+=Math.hypot(currentStroke[i].x-currentStroke[i-1].x,currentStroke[i].y-currentStroke[i-1].y);
+        if(len>=25) strokes.push(currentStroke);
+      }
+      currentStroke=null;
+      if(!strokes.length) setChibi("neutral");
+      updateCutBar();
+    }
+    cv.addEventListener("pointerup",endStroke);
+    cv.addEventListener("pointercancel",endStroke);
+    cv.addEventListener("pointerleave",()=>{if(state==="drawing")endStroke();});
+    addEventListener("touchmove",e=>e.preventDefault(),{passive:false});
+
+    document.getElementById("startBtn").addEventListener("click",()=>{
+      document.getElementById("titleScreen").classList.add("hidden");
+      document.getElementById("topHud").classList.remove("hidden");
+      document.getElementById("hint").classList.remove("hidden");
+      document.getElementById("chibiGuide").classList.remove("hidden");
+      scores=[]; startRound(0);
+    });
+    document.getElementById("clearBtn").addEventListener("click",()=>{strokes=[];currentStroke=null;setChibi("neutral");updateCutBar();});
+    document.getElementById("judgeBtn").addEventListener("click",()=>{if(state==="play"&&strokes.length)judge();});
+    document.getElementById("retryBtn").addEventListener("click",()=>startRound(roundIdx));
+    document.getElementById("nextBtn").addEventListener("click",()=>{
+      scores[roundIdx]=judged?.score||0;
+      roundIdx===ROUNDS.length-1?finishGame():startRound(roundIdx+1);
+    });
+    document.getElementById("againBtn").addEventListener("click",()=>{
+      document.getElementById("finalScreen").classList.add("hidden");
+      document.getElementById("chibiGuide").classList.remove("hidden");
+      scores=[]; startRound(0);
+    });
+
+    window.__game={
+      get state(){return state;}, get judged(){return judged;}, get strokes(){return strokes;},
+      startRound, judge, setStroke(s){strokes=[s];updateCutBar();}
+    };
+    render();
+  })();
+  </script>
+</body>
+</html>

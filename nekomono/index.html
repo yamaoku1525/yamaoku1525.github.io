@@ -7,9 +7,9 @@
   <meta property="og:title" content="ねこのモノづくり小屋" />
   <meta property="og:description" content="山や地域の物語を、持ち帰れる形に。木頭杉や山の家まわりの小さなグッズを作っています。" />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="https://yamaoku1525.github.io/nekomono/img/nekomono-koya-illustration.jpg" />
+  <meta property="og:image" content="https://nekoneko44444.github.io/yamaoku1525.github.io/nekomono/img/nekomono-koya-illustration.jpg" />
   <title>ねこのモノづくり小屋 | 山や地域の物語を、持ち帰れる形に。</title>
-  <link rel="stylesheet" href="./styles.css" />
+  <link rel="stylesheet" href="./styles.css?v=20260728-maneki1" />
 </head>
 <body>
   <header class="site-header" aria-label="サイトヘッダー">
@@ -21,11 +21,11 @@
       </span>
     </a>
     <nav class="nav" aria-label="ページ内ナビゲーション">
-      <a href="#surprise">小屋ガチャ</a>
-      <a href="#play">木札あそび</a>
+      <a href="#play">小屋ゲーム</a>
       <a href="#works">できること</a>
       <a href="#gallery">作品</a>
       <a href="#about">小屋について</a>
+      <a href="#contact">問い合わせ</a>
     </nav>
   </header>
 
@@ -44,8 +44,8 @@
           <span>刺しゅう</span>
         </div>
         <div class="hero-actions">
-          <a class="button primary" href="#surprise">小屋ガチャを回す</a>
-          <a class="button secondary" href="#play">木札で遊ぶ</a>
+          <a class="button primary" href="#play">豆腐を切ってみる</a>
+          <a class="button secondary" href="#play">割り箸に挑戦</a>
         </div>
       </div>
       <div class="hero-visual" aria-label="山と地域のものづくりを表すイラストコラージュ">
@@ -71,116 +71,43 @@
       </figure>
     </section>
 
-    <section class="section surprise-section" id="surprise">
-      <div class="section-head">
-        <p class="eyebrow">Craft Gacha</p>
-        <h2>小屋ガチャ</h2>
-      </div>
-      <div class="gacha-box">
-        <figure class="section-illustration gacha-illustration">
-          <img src="./img/nekomono-gacha-illustration.jpg" alt="木製のガチャ機から山やゆずや木札の小さなアイデアが出てくるイラスト" />
-          <figcaption>何が出るかは、回してからのお楽しみ。</figcaption>
-        </figure>
-        <div class="gacha-panel">
-          <p class="gacha-copy">
-            何を作るか迷ったら、素材・形・場面をひとつずつ引いてみる。小さなグッズの種が、ぽんっと出てきます。
-          </p>
-          <div class="parts-tray" aria-label="小さな素材パーツ">
-            <span class="part-card">
-              <img src="./img/part-yuzu.png" alt="" aria-hidden="true" />
-              <span>ゆず</span>
-            </span>
-            <span class="part-card">
-              <img src="./img/part-wood.png" alt="" aria-hidden="true" />
-              <span>木</span>
-            </span>
-            <span class="part-card">
-              <img src="./img/part-wood-tag.png" alt="" aria-hidden="true" />
-              <span>木札</span>
-            </span>
-            <span class="part-card">
-              <img src="./img/part-mountain.png" alt="" aria-hidden="true" />
-              <span>山</span>
-            </span>
-          </div>
-          <button class="button primary gacha-button" id="draw-idea" type="button">今日の小さな物語を引く</button>
-          <div class="idea-output" id="idea-output" aria-live="polite">
-            <div class="idea-result-visual">
-              <img id="idea-image" src="./img/gacha-result-bookmark.png" alt="木頭杉の山歩きしおりのイラスト" />
-            </div>
-            <div class="idea-result-body">
-              <p class="idea-label">今日出た小物</p>
-              <h3 id="idea-title">木頭杉の山歩きしおり</h3>
-              <div class="idea-row">
-                <span class="idea-chip" id="idea-material">
-                  <img class="idea-chip-icon" src="./img/part-wood.png" alt="" aria-hidden="true" />
-                  <span class="idea-chip-text">木頭杉</span>
-                </span>
-                <span class="idea-plus" aria-hidden="true">+</span>
-                <span class="idea-chip" id="idea-shape">
-                  <img class="idea-chip-icon" src="./img/part-wood-tag.png" alt="" aria-hidden="true" />
-                  <span class="idea-chip-text">しおり</span>
-                </span>
-                <span class="idea-plus" aria-hidden="true">+</span>
-                <span class="idea-chip" id="idea-scene">
-                  <img class="idea-chip-icon" src="./img/part-mountain.png" alt="" aria-hidden="true" />
-                  <span class="idea-chip-text">山の家の記念</span>
-                </span>
-              </div>
-              <p id="idea-copy">山歩きのあとに、ページを開くたび思い出せる小さな記念品。</p>
-              <a class="idea-link" href="#play">この雰囲気で木札を試す</a>
-            </div>
-          </div>
+    <section class="section game-portals" id="play">
+      <div class="game-portals-heading">
+        <div class="section-head">
+          <p class="eyebrow">Nekomono Mini Games</p>
+          <h2>小屋の、ちいさな遊び</h2>
+          <p class="game-portals-lead">豆腐を等分する雨の日と、割り箸を気持ちよく割るひととき。どちらも独立した一つのゲームとして、ゆっくり遊べます。</p>
+        </div>
+        <div class="portal-guide">
+          <img src="./game-assets/maneki-crafter-neutral-v3.webp" alt="静かに遊びを見守る折れ耳の招き猫" />
+          <p><strong>静かな小屋番です。</strong><br />うまくいく日も、少しずれる日も。となりでのんびり見守ります。</p>
         </div>
       </div>
-    </section>
 
-    <section class="section play-section" id="play">
-      <div class="section-head">
-        <p class="eyebrow">Try It</p>
-        <h2>木札おためし工房</h2>
-      </div>
-      <figure class="section-illustration tag-workshop-illustration">
-        <img src="./img/nekomono-tag-workshop-illustration.jpg" alt="木札や小さな山とゆずのモチーフが並ぶ手づくり工房のイラスト" />
-        <figcaption>文字を入れる前の木札を、机の上に並べて考える時間。</figcaption>
-      </figure>
-      <div class="tag-maker" aria-label="木札プレビュー作成">
-        <div class="maker-panel">
-          <label class="maker-label" for="tag-input">木札に入れる文字</label>
-          <input id="tag-input" class="tag-input" type="text" maxlength="14" value="奥槍戸の思い出" />
-          <p class="maker-hint">14文字まで。実際の制作を想像するための小さな遊びです。</p>
-
-          <div class="maker-label">モチーフ</div>
-          <div class="motif-buttons" role="group" aria-label="木札のモチーフを選ぶ">
-            <button class="motif-button is-active" type="button" data-motif="山" data-icon="mountain">
-              <img src="./img/part-mountain.png" alt="" aria-hidden="true" />
-              <span>山</span>
-            </button>
-            <button class="motif-button" type="button" data-motif="木" data-icon="wood">
-              <img src="./img/part-wood.png" alt="" aria-hidden="true" />
-              <span>木</span>
-            </button>
-            <button class="motif-button" type="button" data-motif="ゆず" data-icon="yuzu">
-              <img src="./img/part-yuzu.png" alt="" aria-hidden="true" />
-              <span>ゆず</span>
-            </button>
+      <div class="game-portal-grid">
+        <a class="game-portal game-portal--tofu" href="./tofu/">
+          <div class="game-portal-visual">
+            <img src="./tofu/assets/title-rainy-cafe-maneki-v3.webp" alt="雨の日の喫茶店で豆腐を見守る折れ耳の招き猫" loading="lazy" decoding="async" />
           </div>
+          <div class="game-portal-copy">
+            <span class="game-portal-number">01 / TOFU</span>
+            <h3>おとうふ等分帖</h3>
+            <p>形の違うお豆腐を、2等分から4等分まで。全6問の記録に挑戦します。</p>
+            <span class="game-portal-cta">雨宿りして遊ぶ <b>→</b></span>
+          </div>
+        </a>
 
-          <button class="button primary maker-button" id="make-tag" type="button">木札を作る</button>
-          <p class="maker-result" id="maker-result" aria-live="polite">木の香りがしそうな木札ができました。</p>
-        </div>
-
-        <div class="tag-preview" aria-label="木札プレビュー">
-          <div class="tag-cord" aria-hidden="true"></div>
-          <div class="tag-hole" aria-hidden="true"></div>
-          <div class="tag-grain" aria-hidden="true"></div>
-          <span class="tag-motif" aria-hidden="true">
-            <img id="tag-motif-image" src="./img/part-mountain.png" alt="" />
-            <span id="tag-motif-label">山</span>
-          </span>
-          <strong id="tag-name">奥槍戸の思い出</strong>
-          <small>ねこのモノづくり小屋</small>
-        </div>
+        <a class="game-portal game-portal--pakitto" href="./pakitto/">
+          <div class="game-portal-visual">
+            <img src="./game-assets/pakitto-chopstick-mountain-thumbnail-v3.webp" alt="ファミレスのテーブル中央に積み上がった割り箸の山" loading="lazy" decoding="async" />
+          </div>
+          <div class="game-portal-copy">
+            <span class="game-portal-number">02 / WARIBASHI</span>
+            <h3>パキット。</h3>
+            <p>左右の力、同時性、角度、速さを採点。気持ちのよい一本を何度でも狙えます。</p>
+            <span class="game-portal-cta">割り箸を持つ <b>→</b></span>
+          </div>
+        </a>
       </div>
     </section>
 
@@ -211,20 +138,63 @@
     <section class="section gallery-section" id="gallery">
       <div class="section-head">
         <p class="eyebrow">Works</p>
-        <h2>作品の方向性</h2>
+        <h2>これまでの成果物</h2>
+        <p class="works-intro">
+          山の家の風景や物語を、持ち帰れるかたちに。カード、Tシャツ、木の小物など、これまでに生まれた品々です。
+        </p>
       </div>
-      <div class="gallery">
-        <figure>
-          <img src="./img/gallery-wood-goods.jpg" alt="木頭杉の小物を並べた手づくり工房のイラスト" />
-          <figcaption>木頭杉の小物</figcaption>
+      <div class="works-gallery" aria-label="これまでの成果物 13点">
+        <figure class="work-piece">
+          <img src="./img/works/yamanoie_goods_01_trading_card_counter.webp" alt="山の家の売場に並ぶトレーディングカード" loading="lazy" decoding="async" />
+          <figcaption><span class="work-kind">カード・印刷物</span>トレーディングカード売場</figcaption>
         </figure>
-        <figure>
-          <img src="./img/gallery-local-story.jpg" alt="ゆずや山や木の素材から地域の物語を考えるイラスト" />
-          <figcaption>地域の物語</figcaption>
+        <figure class="work-piece">
+          <img src="./img/works/yamanoie_goods_02_orange_tshirt_flowers.webp" alt="花と一緒に飾られたオレンジ色の山の家Tシャツ" loading="lazy" decoding="async" />
+          <figcaption><span class="work-kind">アパレル</span>オレンジTシャツ</figcaption>
         </figure>
-        <figure>
-          <img src="./img/gallery-yamanoie-keepsakes.jpg" alt="山の家の思い出を小さな記念品にしたイラスト" />
-          <figcaption>山の家の記念品</figcaption>
+        <figure class="work-piece">
+          <img src="./img/works/yamanoie_goods_03_towels_flatlay.webp" alt="山のモチーフを描いた色違いのタオル" loading="lazy" decoding="async" />
+          <figcaption><span class="work-kind">布もの</span>山の家タオル</figcaption>
+        </figure>
+        <figure class="work-piece">
+          <img src="./img/works/yamanoie_goods_04_badge_order_display.webp" alt="注文票と一緒に並ぶ色とりどりのオリジナル缶バッジ" loading="lazy" decoding="async" />
+          <figcaption><span class="work-kind">記念品</span>オリジナル缶バッジ</figcaption>
+        </figure>
+        <figure class="work-piece">
+          <img src="./img/works/yamanoie_goods_05_drivers_card_board.webp" alt="ボードに掲示された山の家ドライバーカード" loading="lazy" decoding="async" />
+          <figcaption><span class="work-kind">カード</span>ドライバーカード</figcaption>
+        </figure>
+        <figure class="work-piece">
+          <img src="./img/works/yamanoie_goods_06_blue_trading_card_pack.webp" alt="青い台紙に並べられたトレーディングカードパック" loading="lazy" decoding="async" />
+          <figcaption><span class="work-kind">カード</span>トレーディングカードパック</figcaption>
+        </figure>
+        <figure class="work-piece">
+          <img src="./img/works/yamanoie_goods_07_wooden_goods_counter.webp" alt="カウンターに並ぶ木製のキーホルダーや小物" loading="lazy" decoding="async" />
+          <figcaption><span class="work-kind">木のグッズ</span>木製グッズ</figcaption>
+        </figure>
+        <figure class="work-piece">
+          <img src="./img/works/yamanoie_goods_08_trail_completion_charm.webp" alt="次郎笈トレイル踏破を記念する木製チャーム" loading="lazy" decoding="async" />
+          <figcaption><span class="work-kind">記念品</span>次郎笈トレイル踏破記念チャーム</figcaption>
+        </figure>
+        <figure class="work-piece">
+          <img src="./img/works/yamanoie_goods_09_brochures_access_leaflet.webp" alt="山の家へのアクセスを案内するパンフレット" loading="lazy" decoding="async" />
+          <figcaption><span class="work-kind">印刷物</span>山の家パンフレット</figcaption>
+        </figure>
+        <figure class="work-piece">
+          <img src="./img/works/yamanoie_goods_10_yellow_tshirt_lodge.webp" alt="山の家の前に置かれた黄色いオリジナルTシャツ" loading="lazy" decoding="async" />
+          <figcaption><span class="work-kind">アパレル</span>山の家Tシャツ</figcaption>
+        </figure>
+        <figure class="work-piece">
+          <img src="./img/works/yamanoie_goods_11_shop_cards_stamp_card.webp" alt="山の家のショップカードとスタンプカード" loading="lazy" decoding="async" />
+          <figcaption><span class="work-kind">カード・印刷物</span>ショップカード・スタンプカード</figcaption>
+        </figure>
+        <figure class="work-piece">
+          <img src="./img/works/yamanoie_goods_12_trading_cards_spread.webp" alt="木のテーブルいっぱいに広げられたトレーディングカード" loading="lazy" decoding="async" />
+          <figcaption><span class="work-kind">カード</span>トレーディングカード</figcaption>
+        </figure>
+        <figure class="work-piece">
+          <img src="./img/works/yamanoie_goods_13_mugs_brochures.webp" alt="山の家のマグカップとパンフレットを並べた展示" loading="lazy" decoding="async" />
+          <figcaption><span class="work-kind">陶器・印刷物</span>マグカップ・パンフレット</figcaption>
         </figure>
       </div>
     </section>
@@ -238,147 +208,25 @@
         大量生産ではなく、必要な分だけ、ひとつずつ。山の家、イベント、旅の思い出にそっと残るものづくりを目指しています。
       </p>
     </section>
+
+    <section class="contact-band" id="contact" aria-labelledby="contact-title">
+      <div>
+        <p class="eyebrow">Contact</p>
+        <h2 id="contact-title">つくりたいもの、聞かせてください。</h2>
+        <p>
+          小さなグッズや記念品、イベントで使うものなど、まずはGoogleフォームから気軽にご相談ください。
+        </p>
+      </div>
+      <a class="contact-button" href="https://forms.gle/gPArrFuPRfBSRHjFA" target="_blank" rel="noopener noreferrer">
+        問い合わせフォームを開く
+        <span aria-hidden="true">↗</span>
+      </a>
+    </section>
   </main>
 
   <footer class="footer">
     <small>© ねこのモノづくり小屋</small>
   </footer>
 
-  <script>
-    (function () {
-      var input = document.getElementById('tag-input');
-      var previewName = document.getElementById('tag-name');
-      var previewMotifImage = document.getElementById('tag-motif-image');
-      var previewMotifLabel = document.getElementById('tag-motif-label');
-      var result = document.getElementById('maker-result');
-      var makeButton = document.getElementById('make-tag');
-      var tagPreview = document.querySelector('.tag-preview');
-      var motifButtons = Array.prototype.slice.call(document.querySelectorAll('.motif-button'));
-      var drawButton = document.getElementById('draw-idea');
-      var ideaOutput = document.getElementById('idea-output');
-      var ideaImage = document.getElementById('idea-image');
-      var ideaTitle = document.getElementById('idea-title');
-      var ideaMaterial = document.getElementById('idea-material');
-      var ideaShape = document.getElementById('idea-shape');
-      var ideaScene = document.getElementById('idea-scene');
-      var ideaCopy = document.getElementById('idea-copy');
-      var messages = [
-        '木の香りがしそうな木札ができました。',
-        '山歩きのあとに持ち帰りたくなる仕上がりです。',
-        '小さな記念品にちょうどいい雰囲気です。',
-        'イベントの参加証にもよさそうです。'
-      ];
-      var partIcons = {
-        mountain: './img/part-mountain.png',
-        tag: './img/part-wood-tag.png',
-        wood: './img/part-wood.png',
-        yuzu: './img/part-yuzu.png'
-      };
-      var ideaSeeds = [
-        {
-          title: '木頭杉の山歩きしおり',
-          image: './img/gacha-result-bookmark.png',
-          alt: '木頭杉の山歩きしおりのイラスト',
-          material: ['木頭杉', 'wood'],
-          shape: ['しおり', 'tag'],
-          scene: ['山の家の記念', 'mountain'],
-          copy: '山歩きのあとに、ページを開くたび思い出せる小さな記念品。'
-        },
-        {
-          title: 'ゆず色の刺しゅうワッペン',
-          image: './img/gacha-result-yuzu-patch.png',
-          alt: 'ゆず色の刺しゅうワッペンのイラスト',
-          material: ['ゆず色の糸', 'yuzu'],
-          shape: ['刺しゅうワッペン', 'tag'],
-          scene: ['イベント出展', 'mountain'],
-          copy: '帽子やバッグに付けて、会場の空気をそのまま連れて帰れるワンポイント。'
-        },
-        {
-          title: '小さな木片の参加証チャーム',
-          image: './img/gacha-result-wood-charm.png',
-          alt: '小さな木片の参加証チャームのイラスト',
-          material: ['小さな木片', 'wood'],
-          shape: ['参加証チャーム', 'tag'],
-          scene: ['体験ツアー', 'mountain'],
-          copy: '体験が終わったあとも、今日の一歩を手元に残せるチャーム。'
-        },
-        {
-          title: '山の写真入りミニカード',
-          image: './img/gacha-result-mini-card.png',
-          alt: '山の写真入りミニカードのイラスト',
-          material: ['山の写真', 'mountain'],
-          shape: ['ミニカード', 'tag'],
-          scene: ['おみやげセット', 'yuzu'],
-          copy: '誰かに渡すとき、場所の物語も一緒に話したくなるカード。'
-        },
-        {
-          title: '布バッグのワンポイント名入れ',
-          image: './img/gacha-result-tote-bag.png',
-          alt: '布バッグのワンポイント名入れのイラスト',
-          material: ['布バッグ', 'tag'],
-          shape: ['ワンポイント名入れ', 'wood'],
-          scene: ['日常づかい', 'yuzu'],
-          copy: '毎日の買い物にも、好きな山の気配を少しだけ連れていけるグッズ。'
-        }
-      ];
-      var ideaIndex = 0;
-
-      function updatePreview() {
-        var value = input.value.trim() || '奥槍戸の思い出';
-        previewName.textContent = value;
-      }
-
-      function restartClass(element, className) {
-        element.classList.remove(className);
-        window.requestAnimationFrame(function () {
-          element.classList.add(className);
-        });
-      }
-
-      function setIdeaChip(element, text, iconKey) {
-        var icon = element.querySelector('.idea-chip-icon');
-        var label = element.querySelector('.idea-chip-text');
-        icon.src = partIcons[iconKey];
-        label.textContent = text;
-      }
-
-      function setIdeaResult(seed) {
-        ideaImage.src = seed.image;
-        ideaImage.alt = seed.alt;
-        ideaTitle.textContent = seed.title;
-        setIdeaChip(ideaMaterial, seed.material[0], seed.material[1]);
-        setIdeaChip(ideaShape, seed.shape[0], seed.shape[1]);
-        setIdeaChip(ideaScene, seed.scene[0], seed.scene[1]);
-        ideaCopy.textContent = seed.copy;
-      }
-
-      input.addEventListener('input', updatePreview);
-
-      motifButtons.forEach(function (button) {
-        button.addEventListener('click', function () {
-          motifButtons.forEach(function (item) { item.classList.remove('is-active'); });
-          button.classList.add('is-active');
-          previewMotifImage.src = partIcons[button.dataset.icon];
-          previewMotifLabel.textContent = button.dataset.motif;
-        });
-      });
-
-      drawButton.addEventListener('click', function () {
-        ideaIndex = (ideaIndex + 1 + Math.floor(Math.random() * (ideaSeeds.length - 1))) % ideaSeeds.length;
-        var seed = ideaSeeds[ideaIndex];
-        setIdeaResult(seed);
-        restartClass(ideaOutput, 'is-drawn');
-        restartClass(drawButton, 'is-popped');
-      });
-
-      makeButton.addEventListener('click', function () {
-        updatePreview();
-        var message = messages[Math.floor(Math.random() * messages.length)];
-        result.textContent = message;
-        restartClass(makeButton, 'is-popped');
-        restartClass(tagPreview, 'is-finished');
-      });
-    })();
-  </script>
 </body>
 </html>
