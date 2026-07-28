@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.awasanga.com/sitemap.xml
+Sitemap: https://awasanga.com/sitemap.xml
