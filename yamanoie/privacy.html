@@ -9,6 +9,32 @@
   <link rel="stylesheet" href="../about-styles.css" />
   <script src="../common-nav.js" defer></script>
   <script src="../common-footer.js" defer></script>
+  <style>
+    /* プライバシーポリシー専用（2026-08-11）
+       共通の .mission-card は「文章＋画像」の2カラム部品で、文章だけだと
+       左半分に寄って読みにくいため、1カラムの専用カードにする。 */
+    .support-card{
+      max-width:900px;
+      margin:0 auto;
+      background:rgba(255,250,240,.96);
+      border:1px solid rgba(36,75,55,.12);
+      border-radius:36px;
+      padding:clamp(28px,5vw,58px);
+      box-shadow:var(--shadow);
+    }
+    .support-card h2.section-title{
+      margin:48px 0 8px;
+      padding-top:26px;
+      border-top:1px solid rgba(36,75,55,.14);
+    }
+    .support-card > h2.section-title:first-of-type{margin-top:24px;}
+    .support-card p{margin:10px 0 0;line-height:1.95;}
+    .support-card ul{margin:10px 0 0;padding-left:1.4em;line-height:1.9;}
+    @media (max-width:640px){
+      .support-card{padding:24px;border-radius:26px;}
+      .support-card h2.section-title{margin-top:36px;}
+    }
+  </style>
 </head>
 <body>
   <div class="page">
@@ -23,7 +49,7 @@
     </header>
     <main>
       <header class="page-header"><div class="page-header-inner"><div class="breadcrumb"><a href="../index.html">ホーム</a><span class="breadcrumb-sep">›</span><span>やまのいえアプリ プライバシーポリシー</span></div><h1>やまのいえアプリ プライバシーポリシー</h1><p>奥槍戸山の家の来訪記念アプリ「やまのいえ（山の家のしおり）」における情報の取り扱いについてご案内します。</p></div></header>
-      <section><div class="container"><div class="mission-card"><div class="mission-copy">
+      <section><div class="container"><div class="support-card">
 
         <p>「やまのいえ（山の家のしおり）」（以下「本アプリ」）は、協同組合阿波山雅（以下「当組合」）が提供する、奥槍戸山の家の来訪記念アプリです。当組合は、利用者のプライバシーを尊重し、本アプリにおける情報の取り扱いを以下のとおり定めます。</p>
 
@@ -84,7 +110,7 @@
 
         <p>制定日：2026年7月8日<br />改定日：2026年8月8日<br />協同組合阿波山雅</p>
 
-      </div></div></div></section>
+      </div></div></section>
     </main>
     <footer class="footer" id="contact"><div class="container"><div class="footer-inner"><div class="footer-brand">協同組合 阿波山雅</div><nav class="footer-links" aria-label="フッターナビゲーション" data-common-footer></nav></div><p class="copyright">© 協同組合阿波山雅（あわさんが） All Rights Reserved.</p></div></footer>
   </div>
