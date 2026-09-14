@@ -2,17 +2,17 @@
   "_comment": "自動反映用データ（news.json とは分離）。Instagram(@yamanoie.okuyarido)の新着投稿と rindonavi.com のスーパー林道関連投稿のみを automation/ のスクリプト＋ローカルLLMが自動追記します。手動編集は原則不要。スキーマ: id, source(instagram|rindonavi), sourceId(dedupeキー), pinned(trueなら先頭表示), date, displayDate, category(山の家|林道情報), title, summary, image, url, firstSeen(ISO8601・NEWバッジ/通知dedupe用)。",
   "items": [
     {
-      "id": "rindo-17891004971658",
+      "id": "rindo-1789354573979",
       "source": "rindonavi",
-      "sourceId": "17891004971658",
-      "date": "2026-09-11",
-      "displayDate": "2026/09/11",
+      "sourceId": "1789354573979",
+      "date": "2026-09-14",
+      "displayDate": "2026/09/14",
       "category": "林道情報",
-      "title": "【町道剣山線(スーパー林道)】全面通行止めについて",
-      "summary": "とくしま林道ナビの剣山スーパー林道 関連情報です。【町道剣山線(スーパー林道)】全面通行止めについて",
+      "title": "【町道剣山線(スーパー林道)木頭館内】全面通行止め解除について",
+      "summary": "とくしま林道ナビの剣山スーパー林道 関連情報です。【町道剣山線(スーパー林道)木頭館内】全面通行止め解除について",
       "image": "https://awasanga.com/img/news-traffic-regulation.png",
-      "url": "https://rindonavi.com/traffic.html?traffic_id=17891004971658",
-      "firstSeen": "2026-09-11T21:00:08+09:00",
+      "url": "https://rindonavi.com/traffic.html?traffic_id=1789354573979",
+      "firstSeen": "2026-09-14T21:00:30+09:00",
       "pinned": true
     },
     {
@@ -40,6 +40,19 @@
       "image": "./img/news2/ig-DdLy6hihbjB.jpg",
       "url": "https://www.instagram.com/p/DdLy6hihbjB/",
       "firstSeen": "2026-09-12T21:00:10+09:00"
+    },
+    {
+      "id": "rindo-17891004971658",
+      "source": "rindonavi",
+      "sourceId": "17891004971658",
+      "date": "2026-09-11",
+      "displayDate": "2026/09/11",
+      "category": "林道情報",
+      "title": "【町道剣山線(スーパー林道)】全面通行止めについて",
+      "summary": "とくしま林道ナビの剣山スーパー林道 関連情報です。【町道剣山線(スーパー林道)】全面通行止めについて",
+      "image": "https://awasanga.com/img/news-traffic-regulation.png",
+      "url": "https://rindonavi.com/traffic.html?traffic_id=17891004971658",
+      "firstSeen": "2026-09-11T21:00:08+09:00"
     },
     {
       "id": "ig-DdGh305n5iU",
