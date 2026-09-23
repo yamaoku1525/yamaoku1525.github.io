@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#1c3930">
+  <meta name="description" content="奥槍戸 山の家の室内を、スマホやパソコンで見渡せる3D体験。入口、窓際、カウンター、畳の部屋をめぐれます。現在は制作途中のモデルです。">
+  <title>山の家を、のぞいてみる。｜奥槍戸 山の家 3D</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231c3930'/%3E%3Cpath d='M8 48L27 16l11 19 8-12 14 25Z' fill='%23e8dfc9'/%3E%3C/svg%3E">
+  <script type="importmap">{"imports":{"three":"./vendor/three.module.js"}}</script>
+</head>
+<body>
+  <header class="header">
+    <a class="brand" href="https://awasanga.com/" aria-label="阿波山雅ホームページへ">
+      <svg width="38" height="34" viewBox="0 0 48 40" fill="none" aria-hidden="true"><path d="M2 35 19 5l10 17 6-11 11 24" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><path d="m14 15 5 3 4-4" stroke="currentColor" stroke-width="2"/></svg>
+      <span><small>奥槍戸</small>山の家</span>
+    </a>
+    <span class="edition">室内3D <span>制作中</span></span>
+    <button class="icon-btn" id="help-open" aria-label="操作方法を見る">？</button>
+  </header>
+  <main>
+    <section class="intro"><div><p class="eyebrow">山の上の、小さな居場所。</p><h1>山の家を、のぞいてみる。</h1></div><p class="intro-note">画面をなぞって見渡す。<br>気になる場所へ、ひと跳び。</p></section>
+    <section class="viewer" aria-label="山の家の3Dビュー">
+      <div id="canvas-host" role="application" aria-label="3D操作画面。矢印キーで見回し、プラス・マイナスで拡大縮小できます。" tabindex="0"></div>
+      <div class="view-tag"><span class="dot"></span><span id="view-name">入口と三角窓</span></div>
+      <div class="view-actions"><button id="reset" aria-label="現在の場所の向きを戻す" title="向きを戻す">↺</button><button id="fullscreen" aria-label="3Dを全画面で見る" title="全画面">⛶</button></div>
+      <div class="welcome" id="welcome">
+        <img src="./poster.jpg" alt="青い椅子と、その後ろに続く窓際の空間を再現した3Dモデル" width="1440" height="780">
+        <div class="welcome-content"><span class="label">OKUYARIDO YAMANOIE</span><h2>今日は、画面の中から。</h2><p>入口から奥の部屋まで、<br>ゆっくり見ていってください。</p><button id="start">3Dを開く <span aria-hidden="true">→</span></button><small id="load-hint">通信が発生します。Wi-Fiでの閲覧がおすすめです。</small></div>
+      </div>
+      <div class="loading" id="loading" hidden role="status"><span class="spinner"></span><strong>山の家を準備しています</strong><span id="progress">読み込み中</span></div>
+      <div class="error" id="error" hidden role="alert"><h2>3Dを表示できませんでした</h2><p id="error-detail">ブラウザを新しいバージョンに更新して、もう一度お試しください。</p><button id="retry">もう一度開く</button></div>
+      <p class="gesture" id="gesture">場所を選んで、指で見回せます</p>
+      <div class="zoom"><button id="zoom-out" aria-label="少し引いて見る">−</button><button id="zoom-in" aria-label="少し拡大する">＋</button></div>
+    </section>
+    <nav class="places" aria-label="見る場所を選ぶ">
+      <button data-view="entry" aria-pressed="true"><span>01</span>入口と三角窓</button>
+      <button data-view="blue" aria-pressed="false"><span>02</span>青い椅子の奥</button>
+      <button data-view="counter" aria-pressed="false"><span>03</span>カウンター</button>
+      <button data-view="dining" aria-pressed="false"><span>04</span>窓側の机席</button>
+      <button data-view="tatami" aria-pressed="false"><span>05</span>畳の部屋</button>
+      <button data-view="overview" aria-pressed="false"><span>⌂</span>全体を見る</button>
+    </nav>
+    <section class="caption"><p id="scene-note">三角窓のある入口から、山の家の空気を感じてみる。</p><button class="share" id="share">この景色を共有 <span aria-hidden="true">↗</span></button></section>
+    <p class="status-note">この3Dは制作途中です。寸法や配置は調整中で、窓の外の景色と見えていない部屋の内部は未再現です。</p>
+    <p id="announcement" class="sr-only" role="status" aria-live="polite"></p>
+  </main>
+  <footer><a href="https://awasanga.com/">協同組合 阿波山雅</a><span>山の家 室内3D / 2026.09</span></footer>
+  <dialog id="help"><button class="close" id="help-close" aria-label="操作方法を閉じる">×</button><p class="eyebrow">ゆっくり、お好きな場所から。</p><h2>見方のご案内</h2><dl><dt>室内を見回す</dt><dd>1本指で上下左右になぞります。2本指の間隔で拡大・縮小できます。</dd><dt>別の場所へ移る</dt><dd>画面下の場所のボタンを選びます。建物内を自由に歩く操作には対応していません。</dd><dt>全体を見る</dt><dd>屋根を外して部屋のつながりを見られます。1本指で回転、2本指で移動・拡大します。</dd><dt>パソコンの場合</dt><dd>ドラッグで見回し、ホイールで拡大。操作画面にフォーカスすると矢印キーでも見回せます。</dd></dl><p class="status-note">3Dの材質・明るさは端末によって異なります。実測の間取り図や設備案内ではありません。</p></dialog>
+  <script type="module" src="./app.js"></script>
+  <noscript><p>3Dを見るにはJavaScriptを有効にしてください。</p></noscript>
+</body>
+</html>
