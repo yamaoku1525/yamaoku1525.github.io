@@ -8,7 +8,7 @@ const vec=([x,y,z])=>new THREE.Vector3(x,z,-y);
 const clamp=THREE.MathUtils.clamp;
 const reducedMotion=matchMedia('(prefers-reduced-motion: reduce)');
 // MODEL_ASSETS_START — generated from the actual public GLB bytes.
-const modelAssets={"exterior":{"url":"./exterior.glb?v=5ba92ee7bf042a28","bytes":15300760},"interior":{"url":"./yamanoie-illustrated.glb?v=cbabad53a9863fd1","bytes":4119068}};
+const modelAssets={"exterior":{"url":"./exterior.glb?v=5ba92ee7bf042a28","bytes":15300760},"interior":{"url":"./yamanoie-illustrated.glb?v=0b83f67a7c9b4b5d","bytes":4332648}};
 // MODEL_ASSETS_END
 function modelProgressText(loaded,total){
  if(!Number.isFinite(loaded)||!Number.isFinite(total)||total<=0)return 'データを読み込み中';
@@ -99,6 +99,8 @@ function discoveries(){
   b.onclick=()=>{if(!ready)return;focused=null;beforeFocus=null;$('focus-card').hidden=true;camera.position.copy(vec([.60,-.18,1.62]));const d=vec([-2.60,-.18,.62]).sub(camera.position).normalize();animateLook({yaw:Math.atan2(d.x,-d.z),pitch:Math.asin(d.y),fov:68});document.querySelector('.viewer').scrollIntoView({behavior:reducedMotion.matches?'instant':'smooth',block:'center'});};$('spot-list').append(b);
   const kitchen=document.createElement('button');kitchen.className='spot-card';kitchen.id='kitchen-aisle-view';kitchen.textContent='流しと奥のキッチンを見る ↗';
   kitchen.onclick=()=>{if(!ready)return;focused=null;beforeFocus=null;$('focus-card').hidden=true;camera.position.copy(vec([-.50,1.98,1.60]));const d=vec([-2.60,2.10,.85]).sub(camera.position).normalize();animateLook({yaw:Math.atan2(d.x,-d.z),pitch:Math.asin(d.y),fov:72});document.querySelector('.viewer').scrollIntoView({behavior:reducedMotion.matches?'instant':'smooth',block:'center'});};$('spot-list').append(kitchen);
+  const checkout=document.createElement('button');checkout.className='spot-card';checkout.id='checkout-view';checkout.textContent='会計台とガチャガチャを見る ↗';
+  checkout.onclick=()=>{if(!ready)return;focused=null;beforeFocus=null;$('focus-card').hidden=true;camera.position.copy(vec([.95,-.55,1.40]));const d=vec([-.26,1.01,.95]).sub(camera.position).normalize();animateLook({yaw:Math.atan2(d.x,-d.z),pitch:Math.asin(d.y),fov:64});document.querySelector('.viewer').scrollIntoView({behavior:reducedMotion.matches?'instant':'smooth',block:'center'});};$('spot-list').append(checkout);
  }
 }
 function refreshUI(){
