@@ -7,6 +7,14 @@ const $=id=>document.getElementById(id), host=$('canvas-host');
 const vec=([x,y,z])=>new THREE.Vector3(x,z,-y);
 const clamp=THREE.MathUtils.clamp;
 const reducedMotion=matchMedia('(prefers-reduced-motion: reduce)');
+// MODEL_ASSETS_START — generated from the actual public GLB bytes.
+const modelAssets={"exterior":{"url":"./exterior.glb?v=5ba92ee7bf042a28","bytes":15300760},"interior":{"url":"./yamanoie-illustrated.glb?v=b09db06cdd659318","bytes":4070544}};
+// MODEL_ASSETS_END
+function modelProgressText(loaded,total){
+ if(!Number.isFinite(loaded)||!Number.isFinite(total)||total<=0)return 'データを読み込み中';
+ const percent=Math.floor(Math.min(1,Math.max(0,loaded/total))*100);
+ return percent===100?'読み込み100% · 表示を準備中':`読み込み ${percent}%`;
+}
 const views={
  exterior:{label:'赤い屋根の外観',note:'写真を見比べて、屋根、雨戸、玄関の形を作り直しました。正面や入口に寄って、木の家を眺めてみてください。'},
  entry:{label:'入口と三角窓',p:[.45,1.15,1.61],t:[1.8,-2.8,2.0],note:'見上げると三角の窓。その下には山の写真と、たくさんの札。'},
@@ -128,7 +136,9 @@ function optimizeExterior(root){
 async function loadModel(kind){
  if(models[kind])return models[kind];if(pending[kind])return pending[kind];
  pending[kind]=(async()=>{
-  const gltf=await new GLTFLoader().loadAsync(kind==='exterior'?'./exterior.glb?v=20260925-bear':'./yamanoie-illustrated.glb?v=20260925-watercolor',e=>{if(kind===modelKind())$('progress').textContent=e.total?Math.round(e.loaded/e.total*100)+'%':'データを読み込み中';});
+  const asset=modelAssets[kind];
+  // FileLoader counts decompressed bytes; HTTP Content-Length can be gzip size.
+  const gltf=await new GLTFLoader().loadAsync(asset.url,e=>{if(kind===modelKind())$('progress').textContent=modelProgressText(e.loaded,asset.bytes);});
   const root=kind==='exterior'?optimizeExterior(gltf.scene):gltf.scene;
   const roof=[];root.traverse(o=>{
    if(o.isMesh){o.castShadow=kind==='exterior';o.receiveShadow=kind==='exterior';}
@@ -177,7 +187,7 @@ async function selectView(next,updateHash=true){
  if($('photo-dialog').open)$('photo-dialog').close();
  refreshUI();if(updateHash)history.replaceState(null,'','#'+key);
  if(!started)return;
- ready=false;if(orbit)orbit.enabled=false;$('error').hidden=true;$('welcome').hidden=true;$('loading').hidden=false;$('hotspots').hidden=true;
+ ready=false;if(orbit)orbit.enabled=false;$('error').hidden=true;$('welcome').hidden=true;$('loading').hidden=false;$('progress').textContent='データを読み込み中';$('hotspots').hidden=true;
  try{
   initialize();const kind=modelKind(),data=await loadModel(kind);if(version!==requestVersion)return;
   for(const [k,m] of Object.entries(models))m.root.visible=k===kind;
