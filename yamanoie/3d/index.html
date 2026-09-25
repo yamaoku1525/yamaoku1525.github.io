@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <meta name="theme-color" content="#1c3930">
-  <meta name="description" content="奥槍戸 山の家の室内を、スマホやパソコンで見渡せる3D体験。入口、窓際、カウンター、畳の部屋をめぐれます。現在は制作途中のモデルです。">
-  <title>山の家を、のぞいてみる。｜奥槍戸 山の家 3D</title>
+  <meta name="description" content="奥槍戸 山の家の外観と室内をめぐる3Dさんぽ。気になる場所に寄って、イラストでも眺められます。現在は制作途中のモデルです。">
+  <title>より道しながら、山の家。｜奥槍戸 山の家 3D</title>
   <link rel="stylesheet" href="./style.css">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231c3930'/%3E%3Cpath d='M8 48L27 16l11 19 8-12 14 25Z' fill='%23e8dfc9'/%3E%3C/svg%3E">
   <script type="importmap">{"imports":{"three":"./vendor/three.module.js"}}</script>
@@ -16,39 +16,51 @@
       <svg width="38" height="34" viewBox="0 0 48 40" fill="none" aria-hidden="true"><path d="M2 35 19 5l10 17 6-11 11 24" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"/><path d="m14 15 5 3 4-4" stroke="currentColor" stroke-width="2"/></svg>
       <span><small>奥槍戸</small>山の家</span>
     </a>
-    <span class="edition">室内3D <span>制作中</span></span>
+    <span class="edition">山の家さんぽ <span>制作中</span></span>
     <button class="icon-btn" id="help-open" aria-label="操作方法を見る">？</button>
   </header>
   <main>
-    <section class="intro"><div><p class="eyebrow">山の上の、小さな居場所。</p><h1>山の家を、のぞいてみる。</h1></div><p class="intro-note">画面をなぞって見渡す。<br>気になる場所へ、ひと跳び。</p></section>
+    <section class="intro"><div><p class="eyebrow">山の上の、小さな居場所。</p><h1>より道しながら、山の家。</h1></div><p class="intro-note">外から眺めて、中をめぐる。<br>気になるものは、イラストでもう少し。</p></section>
     <section class="viewer" aria-label="山の家の3Dビュー">
       <div id="canvas-host" role="application" aria-label="3D操作画面。矢印キーで見回し、プラス・マイナスで拡大縮小できます。" tabindex="0"></div>
+      <div id="hotspots" class="hotspots" aria-label="3Dの中のみどころ"></div>
       <div class="view-tag"><span class="dot"></span><span id="view-name">入口と三角窓</span></div>
       <div class="view-actions"><button id="reset" aria-label="現在の場所の向きを戻す" title="向きを戻す">↺</button><button id="fullscreen" aria-label="3Dを全画面で見る" title="全画面">⛶</button></div>
       <div class="welcome" id="welcome">
-        <img src="./poster.jpg" alt="青い椅子と、その後ろに続く窓際の空間を再現した3Dモデル" width="1440" height="780">
-        <div class="welcome-content"><span class="label">OKUYARIDO YAMANOIE</span><h2>今日は、画面の中から。</h2><p>入口から奥の部屋まで、<br>ゆっくり見ていってください。</p><button id="start">3Dを開く <span aria-hidden="true">→</span></button><small id="load-hint">通信が発生します。Wi-Fiでの閲覧がおすすめです。</small></div>
+        <img src="./poster.jpg?v=20260925-watercolor" alt="三角窓と青い椅子、入口のクマを描いた水彩イラスト" width="1672" height="941">
+        <div class="welcome-content"><span class="label">OKUYARIDO YAMANOIE</span><h2>今日は、画面の中から。</h2><p>赤い屋根の外から、奥の畳の部屋へ。<br>気になるものを、ひとつずつ。</p><button id="start">さんぽを始める <span aria-hidden="true">→</span></button><small id="load-hint">場所を開くと3Dを読み込みます。</small></div>
       </div>
       <div class="loading" id="loading" hidden role="status"><span class="spinner"></span><strong>山の家を準備しています</strong><span id="progress">読み込み中</span></div>
       <div class="error" id="error" hidden role="alert"><h2>3Dを表示できませんでした</h2><p id="error-detail">ブラウザを新しいバージョンに更新して、もう一度お試しください。</p><button id="retry">もう一度開く</button></div>
       <p class="gesture" id="gesture">場所を選んで、指で見回せます</p>
       <div class="zoom"><button id="zoom-out" aria-label="少し引いて見る">−</button><button id="zoom-in" aria-label="少し拡大する">＋</button></div>
+      <aside id="focus-card" class="focus-card" hidden aria-label="選んだみどころ"><div><span class="eyebrow">もう少し、近くで。</span><strong id="focus-title"></strong></div><button id="photo-open">イラストで見る ↗</button><button id="focus-close" aria-label="拡大前の眺めに戻る">×</button></aside>
     </section>
     <nav class="places" aria-label="見る場所を選ぶ">
+      <button data-view="exterior" aria-pressed="false"><span>⌂</span>外観</button>
       <button data-view="entry" aria-pressed="true"><span>01</span>入口と三角窓</button>
       <button data-view="blue" aria-pressed="false"><span>02</span>青い椅子の奥</button>
       <button data-view="counter" aria-pressed="false"><span>03</span>カウンター</button>
       <button data-view="dining" aria-pressed="false"><span>04</span>窓側の机席</button>
       <button data-view="tatami" aria-pressed="false"><span>05</span>畳の部屋</button>
-      <button data-view="overview" aria-pressed="false"><span>⌂</span>全体を見る</button>
+      <button data-view="overview" aria-pressed="false"><span>▱</span>室内の全体</button>
     </nav>
+    <nav class="route" aria-label="さんぽの順路"><button id="route-prev">← 前の場所</button><span id="route-position"></span><button id="route-next">次の場所へ →</button></nav>
     <section class="caption"><p id="scene-note">三角窓のある入口から、山の家の空気を感じてみる。</p><button class="share" id="share">この景色を共有 <span aria-hidden="true">↗</span></button></section>
-    <p class="status-note">この3Dは制作途中です。寸法や配置は調整中で、窓の外の景色と見えていない部屋の内部は未再現です。</p>
+    <section class="discover" aria-labelledby="discover-title"><div class="discover-heading"><div><p class="eyebrow">目をとめたら、タップ。</p><h2 id="discover-title">この場所のみどころ</h2></div><span id="discovery-count" role="status"></span></div><div id="spot-list" class="spot-list"></div><p id="discovery-note">印やカードを押すと近くへ寄れます。「イラストで見る」で、写真をもとに描いた風景を枠の中に。</p></section>
+    <p class="status-note">この3Dは制作途中です。外観と室内は別々の模型で、寸法や配置は調整中です。窓外の景色と見えていない部屋の内部は未再現です。</p>
     <p id="announcement" class="sr-only" role="status" aria-live="polite"></p>
   </main>
-  <footer><a href="https://awasanga.com/">協同組合 阿波山雅</a><span>山の家 室内3D / 2026.09</span></footer>
-  <dialog id="help"><button class="close" id="help-close" aria-label="操作方法を閉じる">×</button><p class="eyebrow">ゆっくり、お好きな場所から。</p><h2>見方のご案内</h2><dl><dt>室内を見回す</dt><dd>1本指で上下左右になぞります。2本指の間隔で拡大・縮小できます。</dd><dt>別の場所へ移る</dt><dd>画面下の場所のボタンを選びます。建物内を自由に歩く操作には対応していません。</dd><dt>全体を見る</dt><dd>屋根を外して部屋のつながりを見られます。1本指で回転、2本指で移動・拡大します。</dd><dt>パソコンの場合</dt><dd>ドラッグで見回し、ホイールで拡大。操作画面にフォーカスすると矢印キーでも見回せます。</dd></dl><p class="status-note">3Dの材質・明るさは端末によって異なります。実測の間取り図や設備案内ではありません。</p></dialog>
-  <script type="module" src="./app.js"></script>
+  <footer><a href="https://awasanga.com/">協同組合 阿波山雅</a><span>山の家さんぽ / 2026.09</span></footer>
+  <dialog id="photo-dialog" class="photo-dialog" aria-labelledby="photo-title">
+    <div class="photo-heading"><div><p class="eyebrow">写真から描く、山の家。</p><h2 id="photo-title"></h2></div><button id="photo-close" class="close" aria-label="イラストを閉じて3Dへ戻る">×</button></div>
+    <div id="photo-frame" class="photo-frame" tabindex="0" role="region" aria-label="拡大できるイラスト。プラス・マイナスで拡大縮小、矢印キーで移動、Homeで全体表示。"><img id="photo-image" alt="" draggable="false"><p id="photo-error" hidden role="alert">イラストを読み込めませんでした。閉じて、もう一度お試しください。</p></div>
+    <div class="photo-tools"><span id="photo-scale">100%</span><button id="photo-out" aria-label="イラストを縮小">−</button><button id="photo-in" aria-label="イラストを拡大">＋</button><button id="photo-fit">イラスト全体</button><button id="photo-detail">みどころへ</button></div>
+    <p id="photo-caption"></p><p class="photo-source">写真をもとにAIで描いたイラストです。撮影時の人物や再生ボタンは除いています。細部や窓外の景色には描画上の表現を含みます。</p>
+    <button id="photo-return" class="photo-return">イラストを閉じて、さんぽの続きへ →</button>
+  </dialog>
+  <dialog id="help"><button class="close" id="help-close" aria-label="操作方法を閉じる">×</button><p class="eyebrow">ゆっくり、お好きな場所から。</p><h2>見方のご案内</h2><dl><dt>室内を見回す</dt><dd>1本指で上下左右になぞります。2本指の間隔で拡大・縮小できます。</dd><dt>さんぽする</dt><dd>場所のボタンや順路から、外観・入口・奥の部屋をめぐれます。室内では決まった場所から見回します。</dd><dt>気になるものを近くで</dt><dd>3Dの＋印や「みどころ」のカードを押すと、その場所へ寄れます。「イラストで見る」で写真をもとにした風景も開けます。</dd><dt>イラストを拡大する</dt><dd>イラストの＋・−、2本指の間隔、ホイールで拡大縮小。拡大後は指でなぞって移動できます。「イラスト全体」で元に戻せます。</dd><dt>室内の全体を見る</dt><dd>屋根を外して部屋のつながりを見られます。1本指で回転、2本指で移動・拡大します。</dd><dt>パソコンの場合</dt><dd>ドラッグで見回し、ホイールで拡大。操作画面にフォーカスすると矢印キーでも見回せます。</dd></dl><p class="status-note">3Dの材質・明るさは端末によって異なります。実測の間取り図や設備案内ではありません。</p></dialog>
+  <script type="module" src="./app.js?v=20260925-watercolor"></script>
   <noscript><p>3Dを見るにはJavaScriptを有効にしてください。</p></noscript>
 </body>
 </html>
