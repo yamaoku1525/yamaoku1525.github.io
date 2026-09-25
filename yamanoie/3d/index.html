@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#1c3930">
   <meta name="description" content="奥槍戸 山の家の外観と室内をめぐる3Dさんぽ。気になる場所に寄って、イラストでも眺められます。現在は制作途中のモデルです。">
   <title>より道しながら、山の家。｜奥槍戸 山の家 3D</title>
-  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./style.css?v=20260926-recovery">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231c3930'/%3E%3Cpath d='M8 48L27 16l11 19 8-12 14 25Z' fill='%23e8dfc9'/%3E%3C/svg%3E">
   <script type="importmap">{"imports":{"three":"./vendor/three.module.js"}}</script>
 </head>
@@ -31,7 +31,7 @@
         <div class="welcome-content"><span class="label">OKUYARIDO YAMANOIE</span><h2>今日は、画面の中から。</h2><p>赤い屋根の外から、奥の畳の部屋へ。<br>気になるものを、ひとつずつ。</p><button id="start">さんぽを始める <span aria-hidden="true">→</span></button><small id="load-hint">場所を開くと3Dを読み込みます。</small></div>
       </div>
       <div class="loading" id="loading" hidden role="status"><span class="spinner"></span><strong>山の家を準備しています</strong><span id="progress">読み込み中</span></div>
-      <div class="error" id="error" hidden role="alert"><h2>3Dを表示できませんでした</h2><p id="error-detail">ブラウザを新しいバージョンに更新して、もう一度お試しください。</p><button id="retry">もう一度開く</button></div>
+      <div class="error" id="error" hidden role="alert"><h2>3Dを表示できませんでした</h2><p id="error-detail">軽い設定で再試行するか、イラストをご覧ください。</p><div class="error-actions"><button id="retry">もう一度読み込む</button><button id="error-illustration">イラストを見る</button></div></div>
       <p class="gesture" id="gesture">場所を選んで、指で見回せます</p>
       <div class="zoom"><button id="zoom-out" aria-label="少し引いて見る">−</button><button id="zoom-in" aria-label="少し拡大する">＋</button></div>
       <aside id="focus-card" class="focus-card" hidden aria-label="選んだみどころ"><div><span class="eyebrow">もう少し、近くで。</span><strong id="focus-title"></strong></div><button id="photo-open">イラストで見る ↗</button><button id="focus-close" aria-label="拡大前の眺めに戻る">×</button></aside>
@@ -54,13 +54,14 @@
   <footer><a href="https://awasanga.com/">協同組合 阿波山雅</a><span>山の家さんぽ / 2026.09</span></footer>
   <dialog id="photo-dialog" class="photo-dialog" aria-labelledby="photo-title">
     <div class="photo-heading"><div><p class="eyebrow">写真から描く、山の家。</p><h2 id="photo-title"></h2></div><button id="photo-close" class="close" aria-label="イラストを閉じて3Dへ戻る">×</button></div>
+    <label class="photo-location-label">イラストの場所 <select id="photo-location"><option value="entry">入口と青い椅子</option><option value="counter">カウンター</option><option value="dining">窓側の机席</option><option value="tatami">畳の部屋</option></select></label>
     <div id="photo-frame" class="photo-frame" tabindex="0" role="region" aria-label="拡大できるイラスト。プラス・マイナスで拡大縮小、矢印キーで移動、Homeで全体表示。"><img id="photo-image" alt="" draggable="false"><p id="photo-error" hidden role="alert">イラストを読み込めませんでした。閉じて、もう一度お試しください。</p></div>
     <div class="photo-tools"><span id="photo-scale">100%</span><button id="photo-out" aria-label="イラストを縮小">−</button><button id="photo-in" aria-label="イラストを拡大">＋</button><button id="photo-fit">イラスト全体</button><button id="photo-detail">みどころへ</button></div>
     <p id="photo-caption"></p><p class="photo-source">写真をもとにAIで描いたイラストです。撮影時の人物や再生ボタンは除いています。細部や窓外の景色には描画上の表現を含みます。</p>
     <button id="photo-return" class="photo-return">イラストを閉じて、さんぽの続きへ →</button>
   </dialog>
   <dialog id="help"><button class="close" id="help-close" aria-label="操作方法を閉じる">×</button><p class="eyebrow">ゆっくり、お好きな場所から。</p><h2>見方のご案内</h2><dl><dt>室内を見回す</dt><dd>1本指で上下左右になぞります。2本指の間隔で拡大・縮小できます。</dd><dt>さんぽする</dt><dd>場所のボタンや順路から、外観・入口・奥の部屋をめぐれます。室内では決まった場所から見回します。</dd><dt>気になるものを近くで</dt><dd>3Dの＋印や「みどころ」のカードを押すと、その場所へ寄れます。「イラストで見る」で写真をもとにした風景も開けます。</dd><dt>イラストを拡大する</dt><dd>イラストの＋・−、2本指の間隔、ホイールで拡大縮小。拡大後は指でなぞって移動できます。「イラスト全体」で元に戻せます。</dd><dt>室内の全体を見る</dt><dd>屋根を外して部屋のつながりを見られます。1本指で回転、2本指で移動・拡大します。</dd><dt>パソコンの場合</dt><dd>ドラッグで見回し、ホイールで拡大。操作画面にフォーカスすると矢印キーでも見回せます。</dd></dl><p class="status-note">3Dの材質・明るさは端末によって異なります。実測の間取り図や設備案内ではありません。</p></dialog>
-  <script type="module" src="./app.js?v=20260925-checkout"></script>
+  <script type="module" src="./app.js?v=20260926-recovery"></script>
   <noscript><p>3Dを見るにはJavaScriptを有効にしてください。</p></noscript>
 </body>
 </html>

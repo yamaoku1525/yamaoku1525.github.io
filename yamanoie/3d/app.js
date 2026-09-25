@@ -7,6 +7,9 @@ const $=id=>document.getElementById(id), host=$('canvas-host');
 const vec=([x,y,z])=>new THREE.Vector3(x,z,-y);
 const clamp=THREE.MathUtils.clamp;
 const reducedMotion=matchMedia('(prefers-reduced-motion: reduce)');
+let lightMode=matchMedia('(pointer: coarse)').matches||matchMedia('(max-width: 700px)').matches;
+try{lightMode ||= sessionStorage.getItem('yamanoie-light-mode')==='1';}catch{}
+function preferLightMode(){lightMode=true;try{sessionStorage.setItem('yamanoie-light-mode','1');}catch{}}
 // MODEL_ASSETS_START — generated from the actual public GLB bytes.
 const modelAssets={"exterior":{"url":"./exterior.glb?v=5ba92ee7bf042a28","bytes":15300760},"interior":{"url":"./yamanoie-illustrated.glb?v=0b83f67a7c9b4b5d","bytes":4332648}};
 // MODEL_ASSETS_END
@@ -39,6 +42,7 @@ const photos={entry:{src:'./illustrations/entry.webp',alt:'三角窓のある入
 let key=views[location.hash.slice(1)]?location.hash.slice(1):'exterior';
 let renderer,scene,camera,orbit,interiorLights,daylight,ready=false,started=false,dirty=true;
 let yaw=0,pitch=0,fov=70,transition=null,requestVersion=0;
+let graphicsGeneration=0,contextLost=false,graphicsFailed=false,loadQueue=Promise.resolve(),resizeObserver,graphicsEvents,gestureEvents;
 const models={},pending={},points=new Map(),pins=[],seen=new Set();
 let pinchDistance=0,focused=null,beforeFocus=null;
 const announce=t=>{$('announcement').textContent=t;};
@@ -118,7 +122,39 @@ function resize(){
  if(!renderer)return;const w=host.clientWidth,h=host.clientHeight;if(!w||!h)return;
  camera.aspect=w/h;camera.updateProjectionMatrix();renderer.setSize(w,h,false);invalidate();
 }
-function showError(message){$('loading').hidden=true;$('error').hidden=false;$('error-detail').textContent=message;}
+function showError(message,code='MODEL_LOAD'){
+ ready=false;dirty=false;host.dataset.loaded='false';host.dataset.errorCode=code;
+ if(orbit)orbit.enabled=false;$('hotspots').hidden=true;$('focus-card').hidden=true;
+ $('loading').hidden=true;$('error').hidden=false;$('error-detail').textContent=message;
+ $('retry').textContent=code.startsWith('GRAPHICS')?'軽い設定で再試行':'もう一度読み込む';
+}
+function disposeRoot(root){
+ const geometries=new Set(),materials=new Set(),textures=new Set(),images=new Set();
+ root.removeFromParent();root.traverse(o=>{if(o.geometry)geometries.add(o.geometry);if(o.material)for(const m of (Array.isArray(o.material)?o.material:[o.material]))materials.add(m);});
+ for(const m of materials){for(const value of Object.values(m))if(value?.isTexture)textures.add(value);m.dispose();}
+ for(const t of textures){const data=t.source?.data;for(const im of (Array.isArray(data)?data:[data]))if(im)images.add(im);t.dispose();}
+ geometries.forEach(g=>g.dispose());images.forEach(im=>im.close?.());
+}
+function releaseOtherModels(keep){
+ for(const [kind,data] of Object.entries(models))if(kind!==keep){disposeRoot(data.root);delete models[kind];}
+ host.dataset.residentModels=Object.keys(models).join(',');renderer?.renderLists.dispose();
+}
+function tuneMaterial(m){
+ if(lightMode&&m.transmission>0){m.transmission=0;m.transparent=true;m.opacity=Math.min(m.opacity,.25);m.depthWrite=false;}
+ if(m.map)m.map.anisotropy=lightMode?1:Math.min(renderer.capabilities.getMaxAnisotropy(),4);m.needsUpdate=true;
+}
+function applyRenderQuality(){
+ renderer.setPixelRatio(Math.min(devicePixelRatio||1,lightMode?1:1.7));renderer.shadowMap.enabled=!lightMode;
+ host.dataset.renderMode=lightMode?'light':'standard';
+ for(const data of Object.values(models))data.root.traverse(o=>{if(o.isMesh)for(const m of (Array.isArray(o.material)?o.material:[o.material]))tuneMaterial(m);});
+}
+function disposeGraphics(){
+ graphicsGeneration++;ready=false;contextLost=false;transition=null;points.clear();
+ graphicsEvents?.abort();gestureEvents?.abort();resizeObserver?.disconnect();orbit?.dispose();
+ if(renderer){renderer.setAnimationLoop(null);releaseOtherModels(null);scene?.traverse(o=>o.shadow?.dispose());renderer.dispose();renderer.forceContextLoss();renderer.domElement.remove();}
+ renderer=scene=camera=orbit=daylight=interiorLights=null;
+ delete host.dataset.contextLost;host.dataset.loaded='false';
+}
 function optimizeExterior(root){
  // Merge static geometry by material; keep the saved source model untouched.
  root.updateMatrixWorld(true);const groups=new Map(),result=new THREE.Group();
@@ -139,29 +175,35 @@ function optimizeExterior(root){
 }
 async function loadModel(kind){
  if(models[kind])return models[kind];if(pending[kind])return pending[kind];
- pending[kind]=(async()=>{
+ const generation=graphicsGeneration;
+ const task=loadQueue.catch(()=>{}).then(async()=>{
+  if(generation!==graphicsGeneration||kind!==modelKind())return null;
+  releaseOtherModels(kind);
   const asset=modelAssets[kind];
   // FileLoader counts decompressed bytes; HTTP Content-Length can be gzip size.
-  const gltf=await new GLTFLoader().loadAsync(asset.url,e=>{if(kind===modelKind())$('progress').textContent=modelProgressText(e.loaded,asset.bytes);});
-  const root=kind==='exterior'?optimizeExterior(gltf.scene):gltf.scene;
+  const gltf=await new GLTFLoader().loadAsync(asset.url,e=>{if(generation===graphicsGeneration&&kind===modelKind()&&!contextLost)$('progress').textContent=modelProgressText(e.loaded,asset.bytes);});
+  if(generation!==graphicsGeneration||kind!==modelKind()){disposeRoot(gltf.scene);return null;}
+  let root;
+  try{root=kind==='exterior'?optimizeExterior(gltf.scene):gltf.scene;}catch(e){disposeRoot(gltf.scene);throw e;}
   const roof=[];root.traverse(o=>{
    if(o.isMesh){o.castShadow=kind==='exterior';o.receiveShadow=kind==='exterior';}
    if(o.userData.web_layer==='roof')roof.push(o);
    if(o.isMesh)for(const m of (Array.isArray(o.material)?o.material:[o.material])){
     m.side=THREE.DoubleSide;
     if(/glass/i.test(m.name)){m.transmission=0;m.color.set('#c4d1ca');m.roughness=.8;m.metalness=0;m.emissive.set('#68766f');m.emissiveIntensity=.12;}
-    if(m.map)m.map.anisotropy=Math.min(renderer.capabilities.getMaxAnisotropy(),4);m.needsUpdate=true;
+    tuneMaterial(m);
    }
   });
-  root.visible=false;scene.add(root);models[kind]={root,roof};return models[kind];
- })();
- try{return await pending[kind];}finally{delete pending[kind];}
+  root.visible=false;scene.add(root);models[kind]={root,roof};host.dataset.residentModels=Object.keys(models).join(',');return models[kind];
+ });
+ pending[kind]=task;loadQueue=task.catch(()=>{});
+ try{return await task;}finally{if(pending[kind]===task)delete pending[kind];}
 }
 function initialize(){
  if(renderer)return;
- renderer=new THREE.WebGLRenderer({antialias:true,alpha:false,powerPreference:'low-power'});
- renderer.setPixelRatio(Math.min(devicePixelRatio||1,1.7));renderer.outputColorSpace=THREE.SRGBColorSpace;
- renderer.shadowMap.enabled=true;renderer.shadowMap.type=THREE.PCFSoftShadowMap;
+ renderer=new THREE.WebGLRenderer({antialias:!lightMode,alpha:false,powerPreference:'default'});
+ applyRenderQuality();renderer.outputColorSpace=THREE.SRGBColorSpace;
+ renderer.shadowMap.type=THREE.PCFSoftShadowMap;
  renderer.toneMapping=THREE.ACESFilmicToneMapping;renderer.toneMappingExposure=1.05;host.appendChild(renderer.domElement);
  scene=new THREE.Scene();scene.background=new THREE.Color('#dfe5df');camera=new THREE.PerspectiveCamera(70,1,.035,240);
  const hemisphere=new THREE.HemisphereLight(0xf2f2e8,0x656050,1.9);scene.add(hemisphere);
@@ -175,15 +217,22 @@ function initialize(){
   const l=new THREE.PointLight(0xffe7c1,14,9,2);l.position.copy(vec(p));interiorLights.add(l);
  }
  orbit=new OrbitControls(camera,renderer.domElement);orbit.enabled=false;orbit.enableDamping=false;orbit.rotateSpeed=.65;orbit.zoomSpeed=.75;orbit.addEventListener('change',invalidate);
- renderer.domElement.addEventListener('webglcontextlost',e=>{e.preventDefault();ready=false;showError('3Dの表示が中断されました。もう一度開くとページを読み直します。');host.dataset.contextLost='true';});
- new ResizeObserver(resize).observe(host);bindGestures();resize();
+ graphicsEvents=new AbortController();const {signal}=graphicsEvents;
+ renderer.domElement.addEventListener('webglcontextlost',e=>{
+  e.preventDefault();contextLost=true;transition=null;points.clear();preferLightMode();host.dataset.contextLost='true';
+  showError('スマホ・ブラウザー側で3Dの描画が中断されました。復帰すれば自動で再表示します。戻らない場合は軽い設定で再試行できます。','GRAPHICS_LOST');
+ },{signal});
+ renderer.domElement.addEventListener('webglcontextrestored',()=>{
+  contextLost=false;graphicsFailed=false;delete host.dataset.contextLost;applyRenderQuality();if(started)selectView(key,false);
+ },{signal});
+ resizeObserver=new ResizeObserver(resize);resizeObserver.observe(host);bindGestures();resize();
  renderer.setAnimationLoop(time=>{
-  if(document.hidden)return;
+  if(document.hidden||contextLost||!ready)return;
   if(transition){
    const u=clamp((time-transition.start)/transition.duration,0,1),t=u*u*(3-2*u);
    yaw=THREE.MathUtils.lerp(transition.from.yaw,transition.to.yaw,t);pitch=THREE.MathUtils.lerp(transition.from.pitch,transition.to.pitch,t);fov=THREE.MathUtils.lerp(transition.from.fov,transition.to.fov,t);look();if(u===1)transition=null;
   }
-  if(dirty){renderer.render(scene,camera);updatePins();dirty=false;}
+  if(dirty){try{renderer.render(scene,camera);updatePins();dirty=false;}catch(e){console.error('3D render failed',e);graphicsFailed=true;showError('3Dの描画を続けられませんでした。軽い設定で再試行するか、イラストをご覧ください。','GRAPHICS_RENDER');}}
  });
 }
 async function selectView(next,updateHash=true){
@@ -191,12 +240,17 @@ async function selectView(next,updateHash=true){
  if($('photo-dialog').open)$('photo-dialog').close();
  refreshUI();if(updateHash)history.replaceState(null,'','#'+key);
  if(!started)return;
- ready=false;if(orbit)orbit.enabled=false;$('error').hidden=true;$('welcome').hidden=true;$('loading').hidden=false;$('progress').textContent='データを読み込み中';$('hotspots').hidden=true;
+ if(contextLost){showError('3Dの描画が中断されています。復帰を待つか、軽い設定で再試行してください。','GRAPHICS_LOST');return;}
+ if(graphicsFailed){showError('3Dの描画を再開するには、軽い設定で再試行してください。','GRAPHICS_RENDER');return;}
+ ready=false;host.dataset.loaded='false';if(orbit)orbit.enabled=false;$('error').hidden=true;$('welcome').hidden=true;$('loading').hidden=false;$('progress').textContent='データを読み込み中';$('hotspots').hidden=true;
+ let phase='graphics';
  try{
-  initialize();const kind=modelKind(),data=await loadModel(kind);if(version!==requestVersion)return;
+  try{initialize();}catch(e){if(lightMode)throw e;preferLightMode();disposeGraphics();initialize();}
+  phase='model';const kind=modelKind(),data=await loadModel(kind);if(version!==requestVersion||contextLost)return;
+  if(!data){return selectView(key,false);}
   for(const [k,m] of Object.entries(models))m.root.visible=k===kind;
   data.roof.forEach(o=>o.visible=key!=='overview');interiorLights.visible=kind==='interior';orbit.enabled=orbitView();
-  daylight.hemisphere.intensity=kind==='exterior'?1.2:1.9;daylight.sun.intensity=kind==='exterior'?2.2:1.3;daylight.fill.intensity=kind==='exterior'?.4:.8;daylight.sun.castShadow=kind==='exterior';
+  daylight.hemisphere.intensity=kind==='exterior'?1.2:1.9;daylight.sun.intensity=kind==='exterior'?2.2:1.3;daylight.fill.intensity=kind==='exterior'?.4:.8;daylight.sun.castShadow=kind==='exterior'&&!lightMode;
   daylight.entryFill.visible=kind==='exterior';
   daylight.sun.position.set(...(kind==='exterior'?[-10,18,8]:[-2,7,5]));
   if(orbit.enabled){
@@ -210,9 +264,18 @@ async function selectView(next,updateHash=true){
   }
   camera.updateProjectionMatrix();ready=true;$('loading').hidden=true;$('hotspots').hidden=false;
   host.dataset.loaded='true';host.dataset.activeView=key;host.dataset.model=kind;resize();announce(views[key].label+'を表示しています');
- }catch(e){if(version!==requestVersion)return;console.error('3D load failed',e);showError('読み込みに失敗しました。通信を確認して「もう一度開く」を押してください。');}
+  delete host.dataset.errorCode;
+ }catch(e){
+  if(version!==requestVersion||contextLost)return;console.error('3D '+phase+' failed',e);
+  if(phase==='graphics'){disposeGraphics();graphicsFailed=true;showError('このブラウザーで3D描画を開始できませんでした。ほかのタブを閉じて再試行するか、Safari・Chromeで直接開いてください。イラストはこのまま見られます。','GRAPHICS_START');}
+  else showError('3Dデータを読み込めませんでした。通信を確認して、もう一度読み込んでください。イラストも選べます。');
+ }
 }
 async function start(){started=true;await selectView(key,false);}
+function retry(){
+ if(contextLost||graphicsFailed){preferLightMode();disposeGraphics();graphicsFailed=false;}
+ return start();
+}
 function animateLook(to){
  let dy=to.yaw-yaw;dy=Math.atan2(Math.sin(dy),Math.cos(dy));to={...to,yaw:yaw+dy};
  if(reducedMotion.matches){({yaw,pitch,fov}=to);look();}else transition={from:{yaw,pitch,fov},to,start:performance.now(),duration:600};invalidate();
@@ -235,6 +298,7 @@ function zoom(delta){
 }
 function bindGestures(){
  const canvas=renderer.domElement;
+ gestureEvents=new AbortController();const {signal}=gestureEvents;
  canvas.addEventListener('pointerdown',e=>{
   if(!ready||orbitView())return;transition=null;canvas.setPointerCapture(e.pointerId);points.set(e.pointerId,{x:e.clientX,y:e.clientY});
   if(points.size===2){const[a,b]=[...points.values()];pinchDistance=Math.hypot(a.x-b.x,a.y-b.y);}
@@ -253,12 +317,12 @@ function bindGestures(){
   if(orbitView()){
    const s=new THREE.Spherical().setFromVector3(camera.position.clone().sub(orbit.target));s.theta+=e.key==='ArrowLeft'?.12:e.key==='ArrowRight'?-.12:0;s.phi=clamp(s.phi+(e.key==='ArrowUp'?-.08:e.key==='ArrowDown'?.08:0),orbit.minPolarAngle,orbit.maxPolarAngle);camera.position.copy(orbit.target).add(new THREE.Vector3().setFromSpherical(s));orbit.update();invalidate();
   }else{yaw+=e.key==='ArrowLeft'?-.1:e.key==='ArrowRight'?.1:0;pitch+=e.key==='ArrowUp'?.08:e.key==='ArrowDown'?-.08:0;look();}
- });
+ },{signal});
 }
 
 // Photo viewer: bounded pan and zoom; the 3D camera is preserved while open.
 const frame=$('photo-frame'),photo=$('photo-image'),photoPoints=new Map();
-let photoScale=1,photoX=0,photoY=0,photoPinch=0,photoSpot=null,photoToken=0;
+let photoScale=1,photoX=0,photoY=0,photoPinch=0,photoSpot=null,photoToken=0,photoReturnFocus=null;
 function photoDimensions(){
  const ratio=photo.naturalWidth/photo.naturalHeight;if(!Number.isFinite(ratio))return {w:frame.clientWidth,h:frame.clientHeight};
  const w=Math.min(frame.clientWidth,frame.clientHeight*ratio);return {w,h:w/ratio};
@@ -273,13 +337,13 @@ function drawPhoto(){
 function fitPhoto(){photoScale=1;photoX=photoY=0;drawPhoto();}
 function detailPhoto(){if(!photoSpot)return;const[x,y,s]=photoSpot.focus,{w,h}=photoDimensions();photoScale=s;photoX=(.5-x)*w*s;photoY=(.5-y)*h*s;drawPhoto();}
 function zoomPhoto(multiplier){const previous=photoScale;photoScale=clamp(photoScale*multiplier,1,5);photoX*=photoScale/previous;photoY*=photoScale/previous;drawPhoto();}
-async function openPhoto(){
- if(!focused)return;transition=null;const version=++photoToken;photoSpot=focused;
+async function openPhoto(spot=focused,trigger=$('photo-open'),whole=false){
+ if(!spot)return;transition=null;const version=++photoToken;photoSpot=spot;photoReturnFocus=trigger;
  if(document.fullscreenElement)await document.exitFullscreen();
  $('photo-title').textContent=photoSpot.title;$('photo-caption').textContent=photoSpot.text;$('photo-error').hidden=true;
  photo.hidden=true;photo.alt=photos[photoSpot.photo].alt;photo.src=photos[photoSpot.photo].src;
- $('photo-dialog').showModal();
- try{await photo.decode();if(version!==photoToken||!$('photo-dialog').open)return;photo.hidden=false;detailPhoto();}catch{$('photo-error').hidden=false;}
+ $('photo-location').value=photoSpot.photo;if(!$('photo-dialog').open)$('photo-dialog').showModal();
+ try{await photo.decode();if(version!==photoToken||!$('photo-dialog').open)return;photo.hidden=false;if(whole)fitPhoto();else detailPhoto();}catch{if(version===photoToken)$('photo-error').hidden=false;}
 }
 photo.addEventListener('dragstart',e=>e.preventDefault());
 frame.addEventListener('pointerdown',e=>{frame.setPointerCapture(e.pointerId);photoPoints.set(e.pointerId,{x:e.clientX,y:e.clientY});if(photoPoints.size===2){const[a,b]=[...photoPoints.values()];photoPinch=Math.hypot(a.x-b.x,a.y-b.y);}});
@@ -296,11 +360,13 @@ frame.addEventListener('keydown',e=>{
  else{photoX+=e.key==='ArrowLeft'?30:e.key==='ArrowRight'?-30:0;photoY+=e.key==='ArrowUp'?30:e.key==='ArrowDown'?-30:0;drawPhoto();}
 });
 new ResizeObserver(()=>{if($('photo-dialog').open)drawPhoto();}).observe(frame);
-$('photo-dialog').addEventListener('close',()=>{photoToken++;photoPoints.clear();photoPinch=0;invalidate();$('photo-open').focus();});
+$('photo-dialog').addEventListener('close',()=>{photoToken++;photoPoints.clear();photoPinch=0;invalidate();photoReturnFocus?.focus();});
 for(const id of ['photo-close','photo-return'])$(id).addEventListener('click',()=>$('photo-dialog').close());
 $('photo-in').onclick=()=>zoomPhoto(1.25);$('photo-out').onclick=()=>zoomPhoto(.8);$('photo-fit').onclick=fitPhoto;$('photo-detail').onclick=detailPhoto;
-$('photo-open').onclick=openPhoto;$('focus-close').onclick=leaveFocus;
-$('start').onclick=start;$('retry').onclick=()=>host.dataset.contextLost?location.reload():start();
+$('photo-open').onclick=()=>openPhoto();$('focus-close').onclick=leaveFocus;
+$('error-illustration').onclick=()=>openPhoto(spots.find(s=>s.view===key)||spots[0],$('error-illustration'),true);
+$('photo-location').onchange=()=>openPhoto(spots.find(s=>s.photo===$('photo-location').value),photoReturnFocus,true);
+$('start').onclick=start;$('retry').onclick=retry;
 document.querySelectorAll('[data-view]').forEach(b=>b.addEventListener('click',()=>{started=true;selectView(b.dataset.view);}));
 $('reset').onclick=()=>selectView(key);$('zoom-in').onclick=()=>zoom(-6);$('zoom-out').onclick=()=>zoom(6);
 for(const[id,direction]of [['route-prev',-1],['route-next',1]])$(id).onclick=()=>{const next=route[route.indexOf(key)+direction];if(next){started=true;selectView(next);}};
