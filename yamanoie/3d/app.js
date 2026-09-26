@@ -11,7 +11,7 @@ let lightMode=matchMedia('(pointer: coarse)').matches||matchMedia('(max-width: 7
 try{lightMode ||= sessionStorage.getItem('yamanoie-light-mode')==='1';}catch{}
 function preferLightMode(){lightMode=true;try{sessionStorage.setItem('yamanoie-light-mode','1');}catch{}}
 // MODEL_ASSETS_START — generated from the actual public GLB bytes.
-const modelAssets={"exterior":{"url":"./exterior.glb?v=5ba92ee7bf042a28","bytes":15300760},"interior":{"url":"./yamanoie-illustrated.glb?v=0b83f67a7c9b4b5d","bytes":4332648}};
+const modelAssets={"exterior":{"url":"./exterior.glb?v=b21a04b328453c0c","bytes":15230216},"interior":{"url":"./yamanoie-illustrated.glb?v=87efa2f094a8322f","bytes":4332664}};
 // MODEL_ASSETS_END
 function modelProgressText(loaded,total){
  if(!Number.isFinite(loaded)||!Number.isFinite(total)||total<=0)return 'データを読み込み中';
