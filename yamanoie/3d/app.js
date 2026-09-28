@@ -377,4 +377,8 @@ $('share').onclick=async()=>{
  try{if(navigator.share)await navigator.share(data);else{await navigator.clipboard.writeText(data.url);$('share').textContent='リンクをコピーしました';setTimeout(()=>{$('share').textContent='この景色を共有 ↗';},2500);}}catch(e){if(e.name!=='AbortError')announce('アドレス欄のURLをコピーして共有してください。');}
 };
 window.addEventListener('hashchange',()=>selectView(location.hash.slice(1),false));
+// Release the viewer before entering the walking experience, including when
+// this page is cached for Back navigation. Rebuild only if it had been opened.
+window.addEventListener('pagehide',()=>{requestVersion++;disposeGraphics();});
+window.addEventListener('pageshow',e=>{if(e.persisted&&started)selectView(key,false);});
 document.addEventListener('visibilitychange',invalidate);refreshUI();

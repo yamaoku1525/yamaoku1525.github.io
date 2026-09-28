@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#1c3930">
   <meta name="description" content="奥槍戸 山の家の外観と室内をめぐる3Dさんぽ。気になる場所に寄って、イラストでも眺められます。現在は制作途中のモデルです。">
   <title>より道しながら、山の家。｜奥槍戸 山の家 3D</title>
-  <link rel="stylesheet" href="./style.css?v=20260926-recovery">
+  <link rel="stylesheet" href="./style.css?v=20260928-experiences">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231c3930'/%3E%3Cpath d='M8 48L27 16l11 19 8-12 14 25Z' fill='%23e8dfc9'/%3E%3C/svg%3E">
   <script type="importmap">{"imports":{"three":"./vendor/three.module.js"}}</script>
 </head>
@@ -21,6 +21,10 @@
   </header>
   <main>
     <section class="intro"><div><p class="eyebrow">山の上の、小さな居場所。</p><h1>より道しながら、山の家。</h1></div><p class="intro-note">外から眺めて、中をめぐる。<br>気になるものは、イラストでもう少し。</p></section>
+    <nav class="experience-nav" aria-label="体験を切り替える">
+      <span class="experience-current" aria-current="page">3Dで眺める <span>全体を見渡す・拡大する</span></span>
+      <a href="./walk/">なぎかと歩く <span>室内と外を自由にさんぽ →</span></a>
+    </nav>
     <section class="viewer" aria-label="山の家の3Dビュー">
       <div id="canvas-host" role="application" aria-label="3D操作画面。矢印キーで見回し、プラス・マイナスで拡大縮小できます。" tabindex="0"></div>
       <div id="hotspots" class="hotspots" aria-label="3Dの中のみどころ"></div>
@@ -61,7 +65,7 @@
     <button id="photo-return" class="photo-return">イラストを閉じて、さんぽの続きへ →</button>
   </dialog>
   <dialog id="help"><button class="close" id="help-close" aria-label="操作方法を閉じる">×</button><p class="eyebrow">ゆっくり、お好きな場所から。</p><h2>見方のご案内</h2><dl><dt>室内を見回す</dt><dd>1本指で上下左右になぞります。2本指の間隔で拡大・縮小できます。</dd><dt>さんぽする</dt><dd>場所のボタンや順路から、外観・入口・奥の部屋をめぐれます。室内では決まった場所から見回します。</dd><dt>気になるものを近くで</dt><dd>3Dの＋印や「みどころ」のカードを押すと、その場所へ寄れます。「イラストで見る」で写真をもとにした風景も開けます。</dd><dt>イラストを拡大する</dt><dd>イラストの＋・−、2本指の間隔、ホイールで拡大縮小。拡大後は指でなぞって移動できます。「イラスト全体」で元に戻せます。</dd><dt>室内の全体を見る</dt><dd>屋根を外して部屋のつながりを見られます。1本指で回転、2本指で移動・拡大します。</dd><dt>パソコンの場合</dt><dd>ドラッグで見回し、ホイールで拡大。操作画面にフォーカスすると矢印キーでも見回せます。</dd></dl><p class="status-note">3Dの材質・明るさは端末によって異なります。実測の間取り図や設備案内ではありません。</p></dialog>
-  <script type="module" src="./app.js?v=20260926-woodroad"></script>
+  <script type="module" src="./app.js?v=20260928-experiences"></script>
   <noscript><p>3Dを見るにはJavaScriptを有効にしてください。</p></noscript>
 </body>
 </html>

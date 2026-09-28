@@ -1,0 +1,7986 @@
+{
+  "sourceSha256": "6eb2a262087f303c8d4ab6e249e5fbcc161b0dce7416daba164435edb302968e",
+  "sourceRevision": "interior_20260927_entry_depth",
+  "units": "relative model units; not surveyed metres",
+  "method": "conservative world AABB, body interval .235..1.65",
+  "radius": 0.2,
+  "eyeHeight": 1.48,
+  "avatarProfile": [
+    {
+      "radius": 0.2,
+      "bottom": 0.235,
+      "top": 0.882
+    },
+    {
+      "radius": 0.245,
+      "bottom": 0.882,
+      "top": 1.224
+    },
+    {
+      "radius": 0.392,
+      "bottom": 1.228,
+      "top": 1.263
+    }
+  ],
+  "floors": [
+    {
+      "id": "door",
+      "label": "玄関・外へ",
+      "minX": 0.34,
+      "maxX": 2.16,
+      "minZ": 2.65,
+      "maxZ": 3.575,
+      "height": 0
+    },
+    {
+      "id": "main",
+      "label": "入口とカウンター",
+      "minX": -4.2,
+      "maxX": 4.2,
+      "minZ": -2.8,
+      "maxZ": 2.8,
+      "height": 0
+    },
+    {
+      "id": "blue",
+      "label": "青い椅子の奥",
+      "minX": 4.2,
+      "maxX": 6.475,
+      "minZ": -2.65,
+      "maxZ": 2.8,
+      "height": 0.12
+    },
+    {
+      "id": "dining",
+      "label": "窓側の机席",
+      "minX": -7.7,
+      "maxX": -4.2,
+      "minZ": 0,
+      "maxZ": 2.8,
+      "height": 0
+    },
+    {
+      "id": "tatami",
+      "label": "畳の部屋",
+      "minX": -11.8,
+      "maxX": -7.7,
+      "minZ": -1,
+      "maxZ": 2.8,
+      "height": 0.18
+    }
+  ],
+  "spawns": [
+    {
+      "id": "entry",
+      "label": "入口",
+      "x": 1.6,
+      "z": 0.8,
+      "yaw": 0
+    },
+    {
+      "id": "counter",
+      "label": "カウンター",
+      "x": 0.7,
+      "z": 0,
+      "yaw": -1.57
+    },
+    {
+      "id": "dining",
+      "label": "机席",
+      "x": -7.2,
+      "z": 1.0,
+      "yaw": 1.57
+    },
+    {
+      "id": "tatami",
+      "label": "畳",
+      "x": -8.3,
+      "z": 0.2,
+      "yaw": -1.57
+    },
+    {
+      "id": "blue",
+      "label": "青い椅子の奥",
+      "x": 5.1,
+      "z": 0.4,
+      "yaw": 1.57
+    }
+  ],
+  "obstacles": [
+    {
+      "name": "Front wall board.002",
+      "minX": -4.2,
+      "maxX": 0.425,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 0.131,
+      "top": 0.259
+    },
+    {
+      "name": "Front wall board.003",
+      "minX": 2.075,
+      "maxX": 4.2,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 0.131,
+      "top": 0.259
+    },
+    {
+      "name": "Front wall board.004",
+      "minX": -4.2,
+      "maxX": 0.425,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 0.261,
+      "top": 0.389
+    },
+    {
+      "name": "Front wall board.005",
+      "minX": 2.075,
+      "maxX": 4.2,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 0.261,
+      "top": 0.389
+    },
+    {
+      "name": "Front wall board.006",
+      "minX": -4.2,
+      "maxX": 0.425,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 0.391,
+      "top": 0.519
+    },
+    {
+      "name": "Front wall board.007",
+      "minX": 2.075,
+      "maxX": 4.2,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 0.391,
+      "top": 0.519
+    },
+    {
+      "name": "Front wall board.008",
+      "minX": -4.2,
+      "maxX": 0.425,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 0.521,
+      "top": 0.649
+    },
+    {
+      "name": "Front wall board.009",
+      "minX": 2.075,
+      "maxX": 4.2,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 0.521,
+      "top": 0.649
+    },
+    {
+      "name": "Front wall board.010",
+      "minX": -4.2,
+      "maxX": 0.425,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 0.651,
+      "top": 0.779
+    },
+    {
+      "name": "Front wall board.011",
+      "minX": 2.075,
+      "maxX": 4.2,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 0.651,
+      "top": 0.779
+    },
+    {
+      "name": "Front wall board.012",
+      "minX": -4.2,
+      "maxX": 0.425,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 0.781,
+      "top": 0.909
+    },
+    {
+      "name": "Front wall board.013",
+      "minX": 2.075,
+      "maxX": 4.2,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 0.781,
+      "top": 0.909
+    },
+    {
+      "name": "Front wall board.014",
+      "minX": -4.2,
+      "maxX": -3.6,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 0.911,
+      "top": 1.039
+    },
+    {
+      "name": "Front wall board.015",
+      "minX": -1.4,
+      "maxX": 0.425,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 0.911,
+      "top": 1.039
+    },
+    {
+      "name": "Front wall board.016",
+      "minX": 2.075,
+      "maxX": 2.7,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 0.911,
+      "top": 1.039
+    },
+    {
+      "name": "Front wall board.017",
+      "minX": 4.0,
+      "maxX": 4.2,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 0.911,
+      "top": 1.039
+    },
+    {
+      "name": "Front wall board.018",
+      "minX": -4.2,
+      "maxX": -3.6,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 1.041,
+      "top": 1.169
+    },
+    {
+      "name": "Front wall board.019",
+      "minX": -1.4,
+      "maxX": 0.425,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 1.041,
+      "top": 1.169
+    },
+    {
+      "name": "Front wall board.020",
+      "minX": 2.075,
+      "maxX": 2.7,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 1.041,
+      "top": 1.169
+    },
+    {
+      "name": "Front wall board.021",
+      "minX": 4.0,
+      "maxX": 4.2,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 1.041,
+      "top": 1.169
+    },
+    {
+      "name": "Front wall board.022",
+      "minX": -4.2,
+      "maxX": -3.6,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 1.171,
+      "top": 1.299
+    },
+    {
+      "name": "Front wall board.023",
+      "minX": -1.4,
+      "maxX": 0.425,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 1.171,
+      "top": 1.299
+    },
+    {
+      "name": "Front wall board.024",
+      "minX": 2.075,
+      "maxX": 2.7,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 1.171,
+      "top": 1.299
+    },
+    {
+      "name": "Front wall board.025",
+      "minX": 4.0,
+      "maxX": 4.2,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 1.171,
+      "top": 1.299
+    },
+    {
+      "name": "Front wall board.026",
+      "minX": -4.2,
+      "maxX": -3.6,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 1.301,
+      "top": 1.429
+    },
+    {
+      "name": "Front wall board.027",
+      "minX": -1.4,
+      "maxX": 0.425,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 1.301,
+      "top": 1.429
+    },
+    {
+      "name": "Front wall board.028",
+      "minX": 2.075,
+      "maxX": 2.7,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 1.301,
+      "top": 1.429
+    },
+    {
+      "name": "Front wall board.029",
+      "minX": 4.0,
+      "maxX": 4.2,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 1.301,
+      "top": 1.429
+    },
+    {
+      "name": "Front wall board.030",
+      "minX": -4.2,
+      "maxX": -3.6,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 1.431,
+      "top": 1.559
+    },
+    {
+      "name": "Front wall board.031",
+      "minX": -1.4,
+      "maxX": 0.425,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 1.431,
+      "top": 1.559
+    },
+    {
+      "name": "Front wall board.032",
+      "minX": 2.075,
+      "maxX": 2.7,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 1.431,
+      "top": 1.559
+    },
+    {
+      "name": "Front wall board.033",
+      "minX": 4.0,
+      "maxX": 4.2,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 1.431,
+      "top": 1.559
+    },
+    {
+      "name": "Front wall board.034",
+      "minX": -4.2,
+      "maxX": -3.6,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 1.561,
+      "top": 1.689
+    },
+    {
+      "name": "Front wall board.035",
+      "minX": -1.4,
+      "maxX": 0.425,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 1.561,
+      "top": 1.689
+    },
+    {
+      "name": "Front wall board.036",
+      "minX": 2.075,
+      "maxX": 2.7,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 1.561,
+      "top": 1.689
+    },
+    {
+      "name": "Front wall board.037",
+      "minX": 4.0,
+      "maxX": 4.2,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 1.561,
+      "top": 1.689
+    },
+    {
+      "name": "Rear wall board.003",
+      "minX": -4.2,
+      "maxX": -4.165,
+      "minZ": -2.86,
+      "maxZ": -2.74,
+      "bottom": 0.131,
+      "top": 0.259
+    },
+    {
+      "name": "Rear wall board.004",
+      "minX": -1.035,
+      "maxX": -0.26,
+      "minZ": -2.86,
+      "maxZ": -2.74,
+      "bottom": 0.131,
+      "top": 0.259
+    },
+    {
+      "name": "Rear wall board.005",
+      "minX": 0.66,
+      "maxX": 4.2,
+      "minZ": -2.86,
+      "maxZ": -2.74,
+      "bottom": 0.131,
+      "top": 0.259
+    },
+    {
+      "name": "Rear wall board.006",
+      "minX": -4.2,
+      "maxX": -4.165,
+      "minZ": -2.86,
+      "maxZ": -2.74,
+      "bottom": 0.261,
+      "top": 0.389
+    },
+    {
+      "name": "Rear wall board.007",
+      "minX": -1.035,
+      "maxX": -0.26,
+      "minZ": -2.86,
+      "maxZ": -2.74,
+      "bottom": 0.261,
+      "top": 0.389
+    },
+    {
+      "name": "Rear wall board.008",
+      "minX": 0.66,
+      "maxX": 4.2,
+      "minZ": -2.86,
+      "maxZ": -2.74,
+      "bottom": 0.261,
+      "top": 0.389
+    },
+    {
+      "name": "Rear wall board.009",
+      "minX": -4.2,
+      "maxX": -4.165,
+      "minZ": -2.86,
+      "maxZ": -2.74,
+      "bottom": 0.391,
+      "top": 0.519
+    },
+    {
+      "name": "Rear wall board.010",
+      "minX": -1.035,
+      "maxX": -0.26,
+      "minZ": -2.86,
+      "maxZ": -2.74,
+      "bottom": 0.391,
+      "top": 0.519
+    },
+    {
+      "name": "Rear wall board.011",
+      "minX": 0.66,
+      "maxX": 4.2,
+      "minZ": -2.86,
+      "maxZ": -2.74,
+      "bottom": 0.391,
+      "top": 0.519
+    },
+    {
+      "name": "Rear wall board.012",
+      "minX": -4.2,
+      "maxX": -4.165,
+      "minZ": -2.86,
+      "maxZ": -2.74,
+      "bottom": 0.521,
+      "top": 0.649
+    },
+    {
+      "name": "Rear wall board.013",
+      "minX": -1.035,
+      "maxX": -0.26,
+      "minZ": -2.86,
+      "maxZ": -2.74,
+      "bottom": 0.521,
+      "top": 0.649
+    },
+    {
+      "name": "Rear wall board.014",
+      "minX": 0.66,
+      "maxX": 4.2,
+      "minZ": -2.86,
+      "maxZ": -2.74,
+      "bottom": 0.521,
+      "top": 0.649
+    },
+    {
+      "name": "Rear wall board.015",
+      "minX": -4.2,
+      "maxX": -4.165,
+      "minZ": -2.86,
+      "maxZ": -2.74,
+      "bottom": 0.651,
+      "top": 0.779
+    },
+    {
+      "name": "Rear wall board.016",
+      "minX": -1.035,
+      "maxX": -0.26,
+      "minZ": -2.86,
+      "maxZ": -2.74,
+      "bottom": 0.651,
+      "top": 0.779
+    },
+    {
+      "name": "Rear wall board.017",
+      "minX": 0.66,
+      "maxX": 4.2,
+      "minZ": -2.86,
+      "maxZ": -2.74,
+      "bottom": 0.651,
+      "top": 0.779
+    },
+    {
+      "name": "Rear wall board.018",
+      "minX": -4.2,
+      "maxX": -4.165,
+      "minZ": -2.86,
+      "maxZ": -2.74,
+      "bottom": 0.781,
+      "top": 0.909
+    },
+    {
+      "name": "Rear wall board.019",
+      "minX": -1.035,
+      "maxX": -0.26,
+      "minZ": -2.86,
+      "maxZ": -2.74,
+      "bottom": 0.781,
+      "top": 0.909
+    },
+    {
+      "name": "Rear wall board.020",
+      "minX": 0.66,
+      "maxX": 4.2,
+      "minZ": -2.86,
+      "maxZ": -2.74,
+      "bottom": 0.781,
+      "top": 0.909
+    },
+    {
+      "name": "Rear wall board.021",
+      "minX": -4.2,
+      "maxX": -4.165,
+      "minZ": -2.86,
+      "maxZ": -2.74,
+      "bottom": 0.911,
+      "top": 1.039
+    },
+    {
+      "name": "Rear wall board.022",
+      "minX": -1.035,
+      "maxX": -0.26,
+      "minZ": -2.86,
+      "maxZ": -2.74,
+      "bottom": 0.911,
+      "top": 1.039
+    },
+    {
+      "name": "Rear wall board.023",
+      "minX": 0.66,
+      "maxX": 4.2,
+      "minZ": -2.86,
+      "maxZ": -2.74,
+      "bottom": 0.911,
+      "top": 1.039
+    },
+    {
+      "name": "Rear wall board.024",
+      "minX": -4.2,
+      "maxX": -4.165,
+      "minZ": -2.86,
+      "maxZ": -2.74,
+      "bottom": 1.041,
+      "top": 1.169
+    },
+    {
+      "name": "Rear wall board.025",
+      "minX": -1.035,
+      "maxX": -0.26,
+      "minZ": -2.86,
+      "maxZ": -2.74,
+      "bottom": 1.041,
+      "top": 1.169
+    },
+    {
+      "name": "Rear wall board.026",
+      "minX": 0.66,
+      "maxX": 4.2,
+      "minZ": -2.86,
+      "maxZ": -2.74,
+      "bottom": 1.041,
+      "top": 1.169
+    },
+    {
+      "name": "Rear wall board.027",
+      "minX": -4.2,
+      "maxX": -4.165,
+      "minZ": -2.86,
+      "maxZ": -2.74,
+      "bottom": 1.171,
+      "top": 1.299
+    },
+    {
+      "name": "Rear wall board.028",
+      "minX": -1.035,
+      "maxX": -0.26,
+      "minZ": -2.86,
+      "maxZ": -2.74,
+      "bottom": 1.171,
+      "top": 1.299
+    },
+    {
+      "name": "Rear wall board.029",
+      "minX": 0.66,
+      "maxX": 4.2,
+      "minZ": -2.86,
+      "maxZ": -2.74,
+      "bottom": 1.171,
+      "top": 1.299
+    },
+    {
+      "name": "Rear wall board.030",
+      "minX": -4.2,
+      "maxX": -4.165,
+      "minZ": -2.86,
+      "maxZ": -2.74,
+      "bottom": 1.301,
+      "top": 1.429
+    },
+    {
+      "name": "Rear wall board.031",
+      "minX": -1.035,
+      "maxX": -0.26,
+      "minZ": -2.86,
+      "maxZ": -2.74,
+      "bottom": 1.301,
+      "top": 1.429
+    },
+    {
+      "name": "Rear wall board.032",
+      "minX": 0.66,
+      "maxX": 4.2,
+      "minZ": -2.86,
+      "maxZ": -2.74,
+      "bottom": 1.301,
+      "top": 1.429
+    },
+    {
+      "name": "Rear wall board.033",
+      "minX": -4.2,
+      "maxX": -4.165,
+      "minZ": -2.86,
+      "maxZ": -2.74,
+      "bottom": 1.431,
+      "top": 1.559
+    },
+    {
+      "name": "Rear wall board.034",
+      "minX": -1.035,
+      "maxX": -0.26,
+      "minZ": -2.86,
+      "maxZ": -2.74,
+      "bottom": 1.431,
+      "top": 1.559
+    },
+    {
+      "name": "Rear wall board.035",
+      "minX": 0.66,
+      "maxX": 4.2,
+      "minZ": -2.86,
+      "maxZ": -2.74,
+      "bottom": 1.431,
+      "top": 1.559
+    },
+    {
+      "name": "Rear wall board.036",
+      "minX": -4.2,
+      "maxX": -4.165,
+      "minZ": -2.86,
+      "maxZ": -2.74,
+      "bottom": 1.561,
+      "top": 1.689
+    },
+    {
+      "name": "Rear wall board.037",
+      "minX": -1.035,
+      "maxX": -0.26,
+      "minZ": -2.86,
+      "maxZ": -2.74,
+      "bottom": 1.561,
+      "top": 1.689
+    },
+    {
+      "name": "Rear wall board.038",
+      "minX": 0.66,
+      "maxX": 4.2,
+      "minZ": -2.86,
+      "maxZ": -2.74,
+      "bottom": 1.561,
+      "top": 1.689
+    },
+    {
+      "name": "Blue chair bay portal header board.003",
+      "minX": 4.14,
+      "maxX": 4.26,
+      "minZ": 2.72,
+      "maxZ": 2.8,
+      "bottom": 0.131,
+      "top": 0.259
+    },
+    {
+      "name": "Blue chair bay portal header board.004",
+      "minX": 4.14,
+      "maxX": 4.26,
+      "minZ": -0.295,
+      "maxZ": -0.18,
+      "bottom": 0.131,
+      "top": 0.259
+    },
+    {
+      "name": "Blue chair bay portal header board.005",
+      "minX": 4.14,
+      "maxX": 4.26,
+      "minZ": -2.8,
+      "maxZ": -2.645,
+      "bottom": 0.131,
+      "top": 0.259
+    },
+    {
+      "name": "Blue chair bay portal header board.006",
+      "minX": 4.14,
+      "maxX": 4.26,
+      "minZ": 2.72,
+      "maxZ": 2.8,
+      "bottom": 0.261,
+      "top": 0.389
+    },
+    {
+      "name": "Blue chair bay portal header board.007",
+      "minX": 4.14,
+      "maxX": 4.26,
+      "minZ": -0.295,
+      "maxZ": -0.18,
+      "bottom": 0.261,
+      "top": 0.389
+    },
+    {
+      "name": "Blue chair bay portal header board.008",
+      "minX": 4.14,
+      "maxX": 4.26,
+      "minZ": -2.8,
+      "maxZ": -2.645,
+      "bottom": 0.261,
+      "top": 0.389
+    },
+    {
+      "name": "Blue chair bay portal header board.009",
+      "minX": 4.14,
+      "maxX": 4.26,
+      "minZ": 2.72,
+      "maxZ": 2.8,
+      "bottom": 0.391,
+      "top": 0.519
+    },
+    {
+      "name": "Blue chair bay portal header board.010",
+      "minX": 4.14,
+      "maxX": 4.26,
+      "minZ": -0.295,
+      "maxZ": -0.18,
+      "bottom": 0.391,
+      "top": 0.519
+    },
+    {
+      "name": "Blue chair bay portal header board.011",
+      "minX": 4.14,
+      "maxX": 4.26,
+      "minZ": -2.8,
+      "maxZ": -2.645,
+      "bottom": 0.391,
+      "top": 0.519
+    },
+    {
+      "name": "Blue chair bay portal header board.012",
+      "minX": 4.14,
+      "maxX": 4.26,
+      "minZ": 2.72,
+      "maxZ": 2.8,
+      "bottom": 0.521,
+      "top": 0.649
+    },
+    {
+      "name": "Blue chair bay portal header board.013",
+      "minX": 4.14,
+      "maxX": 4.26,
+      "minZ": -0.295,
+      "maxZ": -0.18,
+      "bottom": 0.521,
+      "top": 0.649
+    },
+    {
+      "name": "Blue chair bay portal header board.014",
+      "minX": 4.14,
+      "maxX": 4.26,
+      "minZ": -2.8,
+      "maxZ": -2.645,
+      "bottom": 0.521,
+      "top": 0.649
+    },
+    {
+      "name": "Blue chair bay portal header board.015",
+      "minX": 4.14,
+      "maxX": 4.26,
+      "minZ": 2.72,
+      "maxZ": 2.8,
+      "bottom": 0.651,
+      "top": 0.779
+    },
+    {
+      "name": "Blue chair bay portal header board.016",
+      "minX": 4.14,
+      "maxX": 4.26,
+      "minZ": -0.295,
+      "maxZ": -0.18,
+      "bottom": 0.651,
+      "top": 0.779
+    },
+    {
+      "name": "Blue chair bay portal header board.017",
+      "minX": 4.14,
+      "maxX": 4.26,
+      "minZ": -2.8,
+      "maxZ": -2.645,
+      "bottom": 0.651,
+      "top": 0.779
+    },
+    {
+      "name": "Blue chair bay portal header board.018",
+      "minX": 4.14,
+      "maxX": 4.26,
+      "minZ": 2.72,
+      "maxZ": 2.8,
+      "bottom": 0.781,
+      "top": 0.909
+    },
+    {
+      "name": "Blue chair bay portal header board.019",
+      "minX": 4.14,
+      "maxX": 4.26,
+      "minZ": -0.295,
+      "maxZ": -0.18,
+      "bottom": 0.781,
+      "top": 0.909
+    },
+    {
+      "name": "Blue chair bay portal header board.020",
+      "minX": 4.14,
+      "maxX": 4.26,
+      "minZ": -2.8,
+      "maxZ": -2.645,
+      "bottom": 0.781,
+      "top": 0.909
+    },
+    {
+      "name": "Blue chair bay portal header board.021",
+      "minX": 4.14,
+      "maxX": 4.26,
+      "minZ": 2.72,
+      "maxZ": 2.8,
+      "bottom": 0.911,
+      "top": 1.039
+    },
+    {
+      "name": "Blue chair bay portal header board.022",
+      "minX": 4.14,
+      "maxX": 4.26,
+      "minZ": -0.295,
+      "maxZ": -0.18,
+      "bottom": 0.911,
+      "top": 1.039
+    },
+    {
+      "name": "Blue chair bay portal header board.023",
+      "minX": 4.14,
+      "maxX": 4.26,
+      "minZ": -2.8,
+      "maxZ": -2.645,
+      "bottom": 0.911,
+      "top": 1.039
+    },
+    {
+      "name": "Blue chair bay portal header board.024",
+      "minX": 4.14,
+      "maxX": 4.26,
+      "minZ": 2.72,
+      "maxZ": 2.8,
+      "bottom": 1.041,
+      "top": 1.169
+    },
+    {
+      "name": "Blue chair bay portal header board.025",
+      "minX": 4.14,
+      "maxX": 4.26,
+      "minZ": -0.295,
+      "maxZ": -0.18,
+      "bottom": 1.041,
+      "top": 1.169
+    },
+    {
+      "name": "Blue chair bay portal header board.026",
+      "minX": 4.14,
+      "maxX": 4.26,
+      "minZ": -2.8,
+      "maxZ": -2.645,
+      "bottom": 1.041,
+      "top": 1.169
+    },
+    {
+      "name": "Blue chair bay portal header board.027",
+      "minX": 4.14,
+      "maxX": 4.26,
+      "minZ": 2.72,
+      "maxZ": 2.8,
+      "bottom": 1.171,
+      "top": 1.299
+    },
+    {
+      "name": "Blue chair bay portal header board.028",
+      "minX": 4.14,
+      "maxX": 4.26,
+      "minZ": -0.295,
+      "maxZ": -0.18,
+      "bottom": 1.171,
+      "top": 1.299
+    },
+    {
+      "name": "Blue chair bay portal header board.029",
+      "minX": 4.14,
+      "maxX": 4.26,
+      "minZ": -2.8,
+      "maxZ": -2.645,
+      "bottom": 1.171,
+      "top": 1.299
+    },
+    {
+      "name": "Blue chair bay portal header board.030",
+      "minX": 4.14,
+      "maxX": 4.26,
+      "minZ": 2.72,
+      "maxZ": 2.8,
+      "bottom": 1.301,
+      "top": 1.429
+    },
+    {
+      "name": "Blue chair bay portal header board.031",
+      "minX": 4.14,
+      "maxX": 4.26,
+      "minZ": -0.295,
+      "maxZ": -0.18,
+      "bottom": 1.301,
+      "top": 1.429
+    },
+    {
+      "name": "Blue chair bay portal header board.032",
+      "minX": 4.14,
+      "maxX": 4.26,
+      "minZ": -2.8,
+      "maxZ": -2.645,
+      "bottom": 1.301,
+      "top": 1.429
+    },
+    {
+      "name": "Blue chair bay portal header board.033",
+      "minX": 4.14,
+      "maxX": 4.26,
+      "minZ": 2.72,
+      "maxZ": 2.8,
+      "bottom": 1.431,
+      "top": 1.559
+    },
+    {
+      "name": "Blue chair bay portal header board.034",
+      "minX": 4.14,
+      "maxX": 4.26,
+      "minZ": -0.295,
+      "maxZ": -0.18,
+      "bottom": 1.431,
+      "top": 1.559
+    },
+    {
+      "name": "Blue chair bay portal header board.035",
+      "minX": 4.14,
+      "maxX": 4.26,
+      "minZ": -2.8,
+      "maxZ": -2.645,
+      "bottom": 1.431,
+      "top": 1.559
+    },
+    {
+      "name": "Blue chair bay portal header board.036",
+      "minX": 4.14,
+      "maxX": 4.26,
+      "minZ": 2.72,
+      "maxZ": 2.8,
+      "bottom": 1.561,
+      "top": 1.689
+    },
+    {
+      "name": "Blue chair bay portal header board.037",
+      "minX": 4.14,
+      "maxX": 4.26,
+      "minZ": -0.295,
+      "maxZ": -0.18,
+      "bottom": 1.561,
+      "top": 1.689
+    },
+    {
+      "name": "Blue chair bay portal header board.038",
+      "minX": 4.14,
+      "maxX": 4.26,
+      "minZ": -2.8,
+      "maxZ": -2.645,
+      "bottom": 1.561,
+      "top": 1.689
+    },
+    {
+      "name": "Main left portal wall board.002",
+      "minX": -4.26,
+      "maxX": -4.14,
+      "minZ": 2.71,
+      "maxZ": 2.8,
+      "bottom": 0.131,
+      "top": 0.259
+    },
+    {
+      "name": "Main left portal wall board.003",
+      "minX": -4.26,
+      "maxX": -4.14,
+      "minZ": -2.8,
+      "maxZ": 0.09,
+      "bottom": 0.131,
+      "top": 0.259
+    },
+    {
+      "name": "Main left portal wall board.004",
+      "minX": -4.26,
+      "maxX": -4.14,
+      "minZ": 2.71,
+      "maxZ": 2.8,
+      "bottom": 0.261,
+      "top": 0.389
+    },
+    {
+      "name": "Main left portal wall board.005",
+      "minX": -4.26,
+      "maxX": -4.14,
+      "minZ": -2.8,
+      "maxZ": 0.09,
+      "bottom": 0.261,
+      "top": 0.389
+    },
+    {
+      "name": "Main left portal wall board.006",
+      "minX": -4.26,
+      "maxX": -4.14,
+      "minZ": 2.71,
+      "maxZ": 2.8,
+      "bottom": 0.391,
+      "top": 0.519
+    },
+    {
+      "name": "Main left portal wall board.007",
+      "minX": -4.26,
+      "maxX": -4.14,
+      "minZ": -2.8,
+      "maxZ": 0.09,
+      "bottom": 0.391,
+      "top": 0.519
+    },
+    {
+      "name": "Main left portal wall board.008",
+      "minX": -4.26,
+      "maxX": -4.14,
+      "minZ": 2.71,
+      "maxZ": 2.8,
+      "bottom": 0.521,
+      "top": 0.649
+    },
+    {
+      "name": "Main left portal wall board.009",
+      "minX": -4.26,
+      "maxX": -4.14,
+      "minZ": -2.8,
+      "maxZ": 0.09,
+      "bottom": 0.521,
+      "top": 0.649
+    },
+    {
+      "name": "Main left portal wall board.010",
+      "minX": -4.26,
+      "maxX": -4.14,
+      "minZ": 2.71,
+      "maxZ": 2.8,
+      "bottom": 0.651,
+      "top": 0.779
+    },
+    {
+      "name": "Main left portal wall board.011",
+      "minX": -4.26,
+      "maxX": -4.14,
+      "minZ": -2.8,
+      "maxZ": 0.09,
+      "bottom": 0.651,
+      "top": 0.779
+    },
+    {
+      "name": "Main left portal wall board.012",
+      "minX": -4.26,
+      "maxX": -4.14,
+      "minZ": 2.71,
+      "maxZ": 2.8,
+      "bottom": 0.781,
+      "top": 0.909
+    },
+    {
+      "name": "Main left portal wall board.013",
+      "minX": -4.26,
+      "maxX": -4.14,
+      "minZ": -2.8,
+      "maxZ": 0.09,
+      "bottom": 0.781,
+      "top": 0.909
+    },
+    {
+      "name": "Main left portal wall board.014",
+      "minX": -4.26,
+      "maxX": -4.14,
+      "minZ": 2.71,
+      "maxZ": 2.8,
+      "bottom": 0.911,
+      "top": 1.039
+    },
+    {
+      "name": "Main left portal wall board.015",
+      "minX": -4.26,
+      "maxX": -4.14,
+      "minZ": -2.8,
+      "maxZ": 0.09,
+      "bottom": 0.911,
+      "top": 1.039
+    },
+    {
+      "name": "Main left portal wall board.016",
+      "minX": -4.26,
+      "maxX": -4.14,
+      "minZ": 2.71,
+      "maxZ": 2.8,
+      "bottom": 1.041,
+      "top": 1.169
+    },
+    {
+      "name": "Main left portal wall board.017",
+      "minX": -4.26,
+      "maxX": -4.14,
+      "minZ": -2.8,
+      "maxZ": 0.09,
+      "bottom": 1.041,
+      "top": 1.169
+    },
+    {
+      "name": "Main left portal wall board.018",
+      "minX": -4.26,
+      "maxX": -4.14,
+      "minZ": 2.71,
+      "maxZ": 2.8,
+      "bottom": 1.171,
+      "top": 1.299
+    },
+    {
+      "name": "Main left portal wall board.019",
+      "minX": -4.26,
+      "maxX": -4.14,
+      "minZ": -2.8,
+      "maxZ": 0.09,
+      "bottom": 1.171,
+      "top": 1.299
+    },
+    {
+      "name": "Main left portal wall board.020",
+      "minX": -4.26,
+      "maxX": -4.14,
+      "minZ": 2.71,
+      "maxZ": 2.8,
+      "bottom": 1.301,
+      "top": 1.429
+    },
+    {
+      "name": "Main left portal wall board.021",
+      "minX": -4.26,
+      "maxX": -4.14,
+      "minZ": -2.8,
+      "maxZ": 0.09,
+      "bottom": 1.301,
+      "top": 1.429
+    },
+    {
+      "name": "Main left portal wall board.022",
+      "minX": -4.26,
+      "maxX": -4.14,
+      "minZ": 2.71,
+      "maxZ": 2.8,
+      "bottom": 1.431,
+      "top": 1.559
+    },
+    {
+      "name": "Main left portal wall board.023",
+      "minX": -4.26,
+      "maxX": -4.14,
+      "minZ": -2.8,
+      "maxZ": 0.09,
+      "bottom": 1.431,
+      "top": 1.559
+    },
+    {
+      "name": "Main left portal wall board.024",
+      "minX": -4.26,
+      "maxX": -4.14,
+      "minZ": 2.71,
+      "maxZ": 2.8,
+      "bottom": 1.561,
+      "top": 1.689
+    },
+    {
+      "name": "Main left portal wall board.025",
+      "minX": -4.26,
+      "maxX": -4.14,
+      "minZ": -2.8,
+      "maxZ": 0.09,
+      "bottom": 1.561,
+      "top": 1.689
+    },
+    {
+      "name": "Front window timber jamb",
+      "minX": -3.655,
+      "maxX": -3.545,
+      "minZ": 2.715,
+      "maxZ": 2.885,
+      "bottom": 0.78,
+      "top": 2.32
+    },
+    {
+      "name": "Front window timber jamb.001",
+      "minX": -1.455,
+      "maxX": -1.345,
+      "minZ": 2.715,
+      "maxZ": 2.885,
+      "bottom": 0.78,
+      "top": 2.32
+    },
+    {
+      "name": "Front window timber lintel",
+      "minX": -3.7,
+      "maxX": -1.3,
+      "minZ": 2.705,
+      "maxZ": 2.895,
+      "bottom": 0.82,
+      "top": 0.92
+    },
+    {
+      "name": "Front window aluminium mullion",
+      "minX": -3.558,
+      "maxX": -3.522,
+      "minZ": 2.7775,
+      "maxZ": 2.8225,
+      "bottom": 0.87,
+      "top": 2.23
+    },
+    {
+      "name": "Front window aluminium mullion.001",
+      "minX": -2.518,
+      "maxX": -2.482,
+      "minZ": 2.7775,
+      "maxZ": 2.8225,
+      "bottom": 0.87,
+      "top": 2.23
+    },
+    {
+      "name": "Front window aluminium mullion.002",
+      "minX": -1.478,
+      "maxX": -1.442,
+      "minZ": 2.7775,
+      "maxZ": 2.8225,
+      "bottom": 0.87,
+      "top": 2.23
+    },
+    {
+      "name": "Front window meeting rail",
+      "minX": -3.6,
+      "maxX": -1.4,
+      "minZ": 2.775,
+      "maxZ": 2.825,
+      "bottom": 1.5053,
+      "top": 1.5403
+    },
+    {
+      "name": "Front window latch",
+      "minX": -2.4825,
+      "maxX": -2.4475,
+      "minZ": 2.7675,
+      "maxZ": 2.8325,
+      "bottom": 1.4578,
+      "top": 1.5878
+    },
+    {
+      "name": "Front window timber jamb.002",
+      "minX": 2.645,
+      "maxX": 2.755,
+      "minZ": 2.715,
+      "maxZ": 2.885,
+      "bottom": 0.79,
+      "top": 2.32
+    },
+    {
+      "name": "Front window timber jamb.003",
+      "minX": 3.945,
+      "maxX": 4.055,
+      "minZ": 2.715,
+      "maxZ": 2.885,
+      "bottom": 0.79,
+      "top": 2.32
+    },
+    {
+      "name": "Front window timber lintel.002",
+      "minX": 2.6,
+      "maxX": 4.1,
+      "minZ": 2.705,
+      "maxZ": 2.895,
+      "bottom": 0.83,
+      "top": 0.93
+    },
+    {
+      "name": "Front window aluminium mullion.003",
+      "minX": 2.742,
+      "maxX": 2.778,
+      "minZ": 2.7775,
+      "maxZ": 2.8225,
+      "bottom": 0.88,
+      "top": 2.23
+    },
+    {
+      "name": "Front window aluminium mullion.004",
+      "minX": 3.332,
+      "maxX": 3.368,
+      "minZ": 2.7775,
+      "maxZ": 2.8225,
+      "bottom": 0.88,
+      "top": 2.23
+    },
+    {
+      "name": "Front window aluminium mullion.005",
+      "minX": 3.922,
+      "maxX": 3.958,
+      "minZ": 2.7775,
+      "maxZ": 2.8225,
+      "bottom": 0.88,
+      "top": 2.23
+    },
+    {
+      "name": "Front window meeting rail.001",
+      "minX": 2.7,
+      "maxX": 4.0,
+      "minZ": 2.775,
+      "maxZ": 2.825,
+      "bottom": 1.5105,
+      "top": 1.5455
+    },
+    {
+      "name": "Front window latch.001",
+      "minX": 3.3675,
+      "maxX": 3.4025,
+      "minZ": 2.7675,
+      "maxZ": 2.8325,
+      "bottom": 1.463,
+      "top": 1.593
+    },
+    {
+      "name": "Entrance jamb",
+      "minX": 0.33,
+      "maxX": 0.44,
+      "minZ": 2.71,
+      "maxZ": 2.89,
+      "bottom": 0.0,
+      "top": 2.2
+    },
+    {
+      "name": "Entrance jamb.001",
+      "minX": 2.06,
+      "maxX": 2.17,
+      "minZ": 2.71,
+      "maxZ": 2.89,
+      "bottom": 0.0,
+      "top": 2.2
+    },
+    {
+      "name": "Entrance open leaf jamb",
+      "minX": 2.1425,
+      "maxX": 2.1975,
+      "minZ": 3.5575,
+      "maxZ": 3.6125,
+      "bottom": 0.01,
+      "top": 2.11
+    },
+    {
+      "name": "Entrance open leaf jamb.001",
+      "minX": 2.1425,
+      "maxX": 2.1975,
+      "minZ": 2.7875,
+      "maxZ": 2.8425,
+      "bottom": 0.01,
+      "top": 2.11
+    },
+    {
+      "name": "Entrance open leaf rail.001",
+      "minX": 2.1425,
+      "maxX": 2.1975,
+      "minZ": 2.7875,
+      "maxZ": 3.6125,
+      "bottom": 0.6125,
+      "top": 0.6675
+    },
+    {
+      "name": "Entrance open leaf rail.002",
+      "minX": 2.1425,
+      "maxX": 2.1975,
+      "minZ": 2.7875,
+      "maxZ": 3.6125,
+      "bottom": 1.3325,
+      "top": 1.3875
+    },
+    {
+      "name": "Entrance open leaf frosted pane",
+      "minX": 2.161,
+      "maxX": 2.179,
+      "minZ": 2.8425,
+      "maxZ": 3.5575,
+      "bottom": 0.12,
+      "top": 0.6
+    },
+    {
+      "name": "Entrance open leaf frosted pane.001",
+      "minX": 2.161,
+      "maxX": 2.179,
+      "minZ": 2.8425,
+      "maxZ": 3.5575,
+      "bottom": 0.67,
+      "top": 1.33
+    },
+    {
+      "name": "Entrance open leaf frosted pane.002",
+      "minX": 2.161,
+      "maxX": 2.179,
+      "minZ": 2.8425,
+      "maxZ": 3.5575,
+      "bottom": 1.4,
+      "top": 2.06
+    },
+    {
+      "name": "Round support post",
+      "minX": 2.605,
+      "maxX": 2.835,
+      "minZ": 2.5879,
+      "maxZ": 2.8121,
+      "bottom": 0.0,
+      "top": 2.65
+    },
+    {
+      "name": "Round support post.001",
+      "minX": 3.935,
+      "maxX": 4.165,
+      "minZ": -0.3621,
+      "maxZ": -0.1379,
+      "bottom": 0.0,
+      "top": 4.2
+    },
+    {
+      "name": "Round support post.002",
+      "minX": -4.165,
+      "maxX": -3.935,
+      "minZ": -0.0921,
+      "maxZ": 0.1321,
+      "bottom": 0.0,
+      "top": 2.65
+    },
+    {
+      "name": "Main table 0 solid top",
+      "minX": -3.275,
+      "maxX": -1.625,
+      "minZ": 0.87,
+      "maxZ": 1.59,
+      "bottom": 0.7275,
+      "top": 0.7925
+    },
+    {
+      "name": "Main table 0 leg",
+      "minX": -3.16,
+      "maxX": -3.09,
+      "minZ": 1.435,
+      "maxZ": 1.505,
+      "bottom": 0.0,
+      "top": 0.725
+    },
+    {
+      "name": "Main table 0 leg.001",
+      "minX": -3.16,
+      "maxX": -3.09,
+      "minZ": 0.955,
+      "maxZ": 1.025,
+      "bottom": 0.0,
+      "top": 0.725
+    },
+    {
+      "name": "Main table 0 leg.002",
+      "minX": -1.81,
+      "maxX": -1.74,
+      "minZ": 1.435,
+      "maxZ": 1.505,
+      "bottom": 0.0,
+      "top": 0.725
+    },
+    {
+      "name": "Main table 0 leg.003",
+      "minX": -1.81,
+      "maxX": -1.74,
+      "minZ": 0.955,
+      "maxZ": 1.025,
+      "bottom": 0.0,
+      "top": 0.725
+    },
+    {
+      "name": "Main table 0 apron",
+      "minX": -3.195,
+      "maxX": -1.705,
+      "minZ": 1.465,
+      "maxZ": 1.515,
+      "bottom": 0.56,
+      "top": 0.72
+    },
+    {
+      "name": "Main table 0 apron.001",
+      "minX": -3.195,
+      "maxX": -1.705,
+      "minZ": 0.945,
+      "maxZ": 0.995,
+      "bottom": 0.56,
+      "top": 0.72
+    },
+    {
+      "name": "Main bench front 0 seat",
+      "minX": -3.275,
+      "maxX": -1.625,
+      "minZ": 1.52,
+      "maxZ": 1.82,
+      "bottom": 0.41,
+      "top": 0.47
+    },
+    {
+      "name": "Main bench front 0 leg",
+      "minX": -3.1425,
+      "maxX": -3.0875,
+      "minZ": 1.7375,
+      "maxZ": 1.7925,
+      "bottom": 0.0,
+      "top": 0.42
+    },
+    {
+      "name": "Main bench front 0 leg.001",
+      "minX": -3.1425,
+      "maxX": -3.0875,
+      "minZ": 1.5475,
+      "maxZ": 1.6025,
+      "bottom": 0.0,
+      "top": 0.42
+    },
+    {
+      "name": "Main bench front 0 leg.002",
+      "minX": -1.8125,
+      "maxX": -1.7575,
+      "minZ": 1.7375,
+      "maxZ": 1.7925,
+      "bottom": 0.0,
+      "top": 0.42
+    },
+    {
+      "name": "Main bench front 0 leg.003",
+      "minX": -1.8125,
+      "maxX": -1.7575,
+      "minZ": 1.5475,
+      "maxZ": 1.6025,
+      "bottom": 0.0,
+      "top": 0.42
+    },
+    {
+      "name": "Main bench front 0 back post",
+      "minX": -3.185,
+      "maxX": -3.145,
+      "minZ": 1.77,
+      "maxZ": 1.81,
+      "bottom": 0.21,
+      "top": 0.99
+    },
+    {
+      "name": "Main bench front 0 back post.001",
+      "minX": -1.755,
+      "maxX": -1.715,
+      "minZ": 1.77,
+      "maxZ": 1.81,
+      "bottom": 0.21,
+      "top": 0.99
+    },
+    {
+      "name": "Main bench front 0 back rail",
+      "minX": -3.275,
+      "maxX": -1.625,
+      "minZ": 1.7625,
+      "maxZ": 1.8175,
+      "bottom": 0.89,
+      "top": 0.99
+    },
+    {
+      "name": "Main bench front 0 back spindle",
+      "minX": -3.0895,
+      "maxX": -3.0645,
+      "minZ": 1.7775,
+      "maxZ": 1.8025,
+      "bottom": 0.595,
+      "top": 0.905
+    },
+    {
+      "name": "Main bench front 0 back spindle.001",
+      "minX": -2.8387,
+      "maxX": -2.8137,
+      "minZ": 1.7775,
+      "maxZ": 1.8025,
+      "bottom": 0.595,
+      "top": 0.905
+    },
+    {
+      "name": "Main bench front 0 back spindle.002",
+      "minX": -2.5879,
+      "maxX": -2.5629,
+      "minZ": 1.7775,
+      "maxZ": 1.8025,
+      "bottom": 0.595,
+      "top": 0.905
+    },
+    {
+      "name": "Main bench front 0 back spindle.003",
+      "minX": -2.3371,
+      "maxX": -2.3121,
+      "minZ": 1.7775,
+      "maxZ": 1.8025,
+      "bottom": 0.595,
+      "top": 0.905
+    },
+    {
+      "name": "Main bench front 0 back spindle.004",
+      "minX": -2.0863,
+      "maxX": -2.0613,
+      "minZ": 1.7775,
+      "maxZ": 1.8025,
+      "bottom": 0.595,
+      "top": 0.905
+    },
+    {
+      "name": "Main bench front 0 back spindle.005",
+      "minX": -1.8355,
+      "maxX": -1.8105,
+      "minZ": 1.7775,
+      "maxZ": 1.8025,
+      "bottom": 0.595,
+      "top": 0.905
+    },
+    {
+      "name": "Main bench rear 0 seat",
+      "minX": -3.275,
+      "maxX": -1.625,
+      "minZ": 0.65,
+      "maxZ": 0.95,
+      "bottom": 0.41,
+      "top": 0.47
+    },
+    {
+      "name": "Main bench rear 0 leg",
+      "minX": -3.1425,
+      "maxX": -3.0875,
+      "minZ": 0.8675,
+      "maxZ": 0.9225,
+      "bottom": 0.0,
+      "top": 0.42
+    },
+    {
+      "name": "Main bench rear 0 leg.001",
+      "minX": -3.1425,
+      "maxX": -3.0875,
+      "minZ": 0.6775,
+      "maxZ": 0.7325,
+      "bottom": 0.0,
+      "top": 0.42
+    },
+    {
+      "name": "Main bench rear 0 leg.002",
+      "minX": -1.8125,
+      "maxX": -1.7575,
+      "minZ": 0.8675,
+      "maxZ": 0.9225,
+      "bottom": 0.0,
+      "top": 0.42
+    },
+    {
+      "name": "Main bench rear 0 leg.003",
+      "minX": -1.8125,
+      "maxX": -1.7575,
+      "minZ": 0.6775,
+      "maxZ": 0.7325,
+      "bottom": 0.0,
+      "top": 0.42
+    },
+    {
+      "name": "Main bench rear 0 back post",
+      "minX": -3.185,
+      "maxX": -3.145,
+      "minZ": 0.66,
+      "maxZ": 0.7,
+      "bottom": 0.21,
+      "top": 0.99
+    },
+    {
+      "name": "Main bench rear 0 back post.001",
+      "minX": -1.755,
+      "maxX": -1.715,
+      "minZ": 0.66,
+      "maxZ": 0.7,
+      "bottom": 0.21,
+      "top": 0.99
+    },
+    {
+      "name": "Main bench rear 0 back rail",
+      "minX": -3.275,
+      "maxX": -1.625,
+      "minZ": 0.6525,
+      "maxZ": 0.7075,
+      "bottom": 0.89,
+      "top": 0.99
+    },
+    {
+      "name": "Main bench rear 0 back spindle",
+      "minX": -3.0895,
+      "maxX": -3.0645,
+      "minZ": 0.6675,
+      "maxZ": 0.6925,
+      "bottom": 0.595,
+      "top": 0.905
+    },
+    {
+      "name": "Main bench rear 0 back spindle.001",
+      "minX": -2.8387,
+      "maxX": -2.8137,
+      "minZ": 0.6675,
+      "maxZ": 0.6925,
+      "bottom": 0.595,
+      "top": 0.905
+    },
+    {
+      "name": "Main bench rear 0 back spindle.002",
+      "minX": -2.5879,
+      "maxX": -2.5629,
+      "minZ": 0.6675,
+      "maxZ": 0.6925,
+      "bottom": 0.595,
+      "top": 0.905
+    },
+    {
+      "name": "Main bench rear 0 back spindle.003",
+      "minX": -2.3371,
+      "maxX": -2.3121,
+      "minZ": 0.6675,
+      "maxZ": 0.6925,
+      "bottom": 0.595,
+      "top": 0.905
+    },
+    {
+      "name": "Main bench rear 0 back spindle.004",
+      "minX": -2.0863,
+      "maxX": -2.0613,
+      "minZ": 0.6675,
+      "maxZ": 0.6925,
+      "bottom": 0.595,
+      "top": 0.905
+    },
+    {
+      "name": "Main bench rear 0 back spindle.005",
+      "minX": -1.8355,
+      "maxX": -1.8105,
+      "minZ": 0.6675,
+      "maxZ": 0.6925,
+      "bottom": 0.595,
+      "top": 0.905
+    },
+    {
+      "name": "Tissue box",
+      "minX": -2.145,
+      "maxX": -1.915,
+      "minZ": 1.17,
+      "maxZ": 1.29,
+      "bottom": 0.8,
+      "top": 0.89
+    },
+    {
+      "name": "Single tissue",
+      "minX": -2.07,
+      "maxX": -1.99,
+      "minZ": 1.22,
+      "maxZ": 1.25,
+      "bottom": 0.896,
+      "top": 0.96
+    },
+    {
+      "name": "White cup",
+      "minX": -2.841,
+      "maxX": -2.759,
+      "minZ": 1.189,
+      "maxZ": 1.271,
+      "bottom": 0.8,
+      "top": 0.895
+    },
+    {
+      "name": "Main table 1 solid top",
+      "minX": -1.025,
+      "maxX": 0.625,
+      "minZ": 0.87,
+      "maxZ": 1.59,
+      "bottom": 0.7275,
+      "top": 0.7925
+    },
+    {
+      "name": "Main table 1 leg",
+      "minX": -0.91,
+      "maxX": -0.84,
+      "minZ": 1.435,
+      "maxZ": 1.505,
+      "bottom": 0.0,
+      "top": 0.725
+    },
+    {
+      "name": "Main table 1 leg.001",
+      "minX": -0.91,
+      "maxX": -0.84,
+      "minZ": 0.955,
+      "maxZ": 1.025,
+      "bottom": 0.0,
+      "top": 0.725
+    },
+    {
+      "name": "Main table 1 leg.002",
+      "minX": 0.44,
+      "maxX": 0.51,
+      "minZ": 1.435,
+      "maxZ": 1.505,
+      "bottom": 0.0,
+      "top": 0.725
+    },
+    {
+      "name": "Main table 1 leg.003",
+      "minX": 0.44,
+      "maxX": 0.51,
+      "minZ": 0.955,
+      "maxZ": 1.025,
+      "bottom": 0.0,
+      "top": 0.725
+    },
+    {
+      "name": "Main table 1 apron",
+      "minX": -0.945,
+      "maxX": 0.545,
+      "minZ": 1.465,
+      "maxZ": 1.515,
+      "bottom": 0.56,
+      "top": 0.72
+    },
+    {
+      "name": "Main table 1 apron.001",
+      "minX": -0.945,
+      "maxX": 0.545,
+      "minZ": 0.945,
+      "maxZ": 0.995,
+      "bottom": 0.56,
+      "top": 0.72
+    },
+    {
+      "name": "Main bench front 1 seat",
+      "minX": -1.025,
+      "maxX": 0.625,
+      "minZ": 1.52,
+      "maxZ": 1.82,
+      "bottom": 0.41,
+      "top": 0.47
+    },
+    {
+      "name": "Main bench front 1 leg",
+      "minX": -0.8925,
+      "maxX": -0.8375,
+      "minZ": 1.7375,
+      "maxZ": 1.7925,
+      "bottom": 0.0,
+      "top": 0.42
+    },
+    {
+      "name": "Main bench front 1 leg.001",
+      "minX": -0.8925,
+      "maxX": -0.8375,
+      "minZ": 1.5475,
+      "maxZ": 1.6025,
+      "bottom": 0.0,
+      "top": 0.42
+    },
+    {
+      "name": "Main bench front 1 leg.002",
+      "minX": 0.4375,
+      "maxX": 0.4925,
+      "minZ": 1.7375,
+      "maxZ": 1.7925,
+      "bottom": 0.0,
+      "top": 0.42
+    },
+    {
+      "name": "Main bench front 1 leg.003",
+      "minX": 0.4375,
+      "maxX": 0.4925,
+      "minZ": 1.5475,
+      "maxZ": 1.6025,
+      "bottom": 0.0,
+      "top": 0.42
+    },
+    {
+      "name": "Main bench front 1 back post",
+      "minX": -0.935,
+      "maxX": -0.895,
+      "minZ": 1.77,
+      "maxZ": 1.81,
+      "bottom": 0.21,
+      "top": 0.99
+    },
+    {
+      "name": "Main bench front 1 back post.001",
+      "minX": 0.495,
+      "maxX": 0.535,
+      "minZ": 1.77,
+      "maxZ": 1.81,
+      "bottom": 0.21,
+      "top": 0.99
+    },
+    {
+      "name": "Main bench front 1 back rail",
+      "minX": -1.025,
+      "maxX": 0.625,
+      "minZ": 1.7625,
+      "maxZ": 1.8175,
+      "bottom": 0.89,
+      "top": 0.99
+    },
+    {
+      "name": "Main bench front 1 back spindle",
+      "minX": -0.8395,
+      "maxX": -0.8145,
+      "minZ": 1.7775,
+      "maxZ": 1.8025,
+      "bottom": 0.595,
+      "top": 0.905
+    },
+    {
+      "name": "Main bench front 1 back spindle.001",
+      "minX": -0.5887,
+      "maxX": -0.5637,
+      "minZ": 1.7775,
+      "maxZ": 1.8025,
+      "bottom": 0.595,
+      "top": 0.905
+    },
+    {
+      "name": "Main bench front 1 back spindle.002",
+      "minX": -0.3379,
+      "maxX": -0.3129,
+      "minZ": 1.7775,
+      "maxZ": 1.8025,
+      "bottom": 0.595,
+      "top": 0.905
+    },
+    {
+      "name": "Main bench front 1 back spindle.003",
+      "minX": -0.0871,
+      "maxX": -0.0621,
+      "minZ": 1.7775,
+      "maxZ": 1.8025,
+      "bottom": 0.595,
+      "top": 0.905
+    },
+    {
+      "name": "Main bench front 1 back spindle.004",
+      "minX": 0.1637,
+      "maxX": 0.1887,
+      "minZ": 1.7775,
+      "maxZ": 1.8025,
+      "bottom": 0.595,
+      "top": 0.905
+    },
+    {
+      "name": "Main bench front 1 back spindle.005",
+      "minX": 0.4145,
+      "maxX": 0.4395,
+      "minZ": 1.7775,
+      "maxZ": 1.8025,
+      "bottom": 0.595,
+      "top": 0.905
+    },
+    {
+      "name": "Main bench rear 1 seat",
+      "minX": -1.025,
+      "maxX": 0.625,
+      "minZ": 0.65,
+      "maxZ": 0.95,
+      "bottom": 0.41,
+      "top": 0.47
+    },
+    {
+      "name": "Main bench rear 1 leg",
+      "minX": -0.8925,
+      "maxX": -0.8375,
+      "minZ": 0.8675,
+      "maxZ": 0.9225,
+      "bottom": 0.0,
+      "top": 0.42
+    },
+    {
+      "name": "Main bench rear 1 leg.001",
+      "minX": -0.8925,
+      "maxX": -0.8375,
+      "minZ": 0.6775,
+      "maxZ": 0.7325,
+      "bottom": 0.0,
+      "top": 0.42
+    },
+    {
+      "name": "Main bench rear 1 leg.002",
+      "minX": 0.4375,
+      "maxX": 0.4925,
+      "minZ": 0.8675,
+      "maxZ": 0.9225,
+      "bottom": 0.0,
+      "top": 0.42
+    },
+    {
+      "name": "Main bench rear 1 leg.003",
+      "minX": 0.4375,
+      "maxX": 0.4925,
+      "minZ": 0.6775,
+      "maxZ": 0.7325,
+      "bottom": 0.0,
+      "top": 0.42
+    },
+    {
+      "name": "Main bench rear 1 back post",
+      "minX": -0.935,
+      "maxX": -0.895,
+      "minZ": 0.66,
+      "maxZ": 0.7,
+      "bottom": 0.21,
+      "top": 0.99
+    },
+    {
+      "name": "Main bench rear 1 back post.001",
+      "minX": 0.495,
+      "maxX": 0.535,
+      "minZ": 0.66,
+      "maxZ": 0.7,
+      "bottom": 0.21,
+      "top": 0.99
+    },
+    {
+      "name": "Main bench rear 1 back rail",
+      "minX": -1.025,
+      "maxX": 0.625,
+      "minZ": 0.6525,
+      "maxZ": 0.7075,
+      "bottom": 0.89,
+      "top": 0.99
+    },
+    {
+      "name": "Main bench rear 1 back spindle",
+      "minX": -0.8395,
+      "maxX": -0.8145,
+      "minZ": 0.6675,
+      "maxZ": 0.6925,
+      "bottom": 0.595,
+      "top": 0.905
+    },
+    {
+      "name": "Main bench rear 1 back spindle.001",
+      "minX": -0.5887,
+      "maxX": -0.5637,
+      "minZ": 0.6675,
+      "maxZ": 0.6925,
+      "bottom": 0.595,
+      "top": 0.905
+    },
+    {
+      "name": "Main bench rear 1 back spindle.002",
+      "minX": -0.3379,
+      "maxX": -0.3129,
+      "minZ": 0.6675,
+      "maxZ": 0.6925,
+      "bottom": 0.595,
+      "top": 0.905
+    },
+    {
+      "name": "Main bench rear 1 back spindle.003",
+      "minX": -0.0871,
+      "maxX": -0.0621,
+      "minZ": 0.6675,
+      "maxZ": 0.6925,
+      "bottom": 0.595,
+      "top": 0.905
+    },
+    {
+      "name": "Main bench rear 1 back spindle.004",
+      "minX": 0.1637,
+      "maxX": 0.1887,
+      "minZ": 0.6675,
+      "maxZ": 0.6925,
+      "bottom": 0.595,
+      "top": 0.905
+    },
+    {
+      "name": "Main bench rear 1 back spindle.005",
+      "minX": 0.4145,
+      "maxX": 0.4395,
+      "minZ": 0.6675,
+      "maxZ": 0.6925,
+      "bottom": 0.595,
+      "top": 0.905
+    },
+    {
+      "name": "Tissue box.001",
+      "minX": 0.105,
+      "maxX": 0.335,
+      "minZ": 1.17,
+      "maxZ": 1.29,
+      "bottom": 0.8,
+      "top": 0.89
+    },
+    {
+      "name": "Single tissue.001",
+      "minX": 0.18,
+      "maxX": 0.26,
+      "minZ": 1.22,
+      "maxZ": 1.25,
+      "bottom": 0.896,
+      "top": 0.96
+    },
+    {
+      "name": "White cup.001",
+      "minX": -0.591,
+      "maxX": -0.509,
+      "minZ": 1.189,
+      "maxZ": 1.271,
+      "bottom": 0.8,
+      "top": 0.895
+    },
+    {
+      "name": "Entrance wall shelf side",
+      "minX": -3.3433,
+      "maxX": -3.3058,
+      "minZ": 2.5567,
+      "maxZ": 2.7433,
+      "bottom": 0.02,
+      "top": 0.84
+    },
+    {
+      "name": "Entrance wall shelf side.001",
+      "minX": -1.7342,
+      "maxX": -1.6967,
+      "minZ": 2.5567,
+      "maxZ": 2.7433,
+      "bottom": 0.02,
+      "top": 0.84
+    },
+    {
+      "name": "Entrance wall shelf back",
+      "minX": -3.3245,
+      "maxX": -1.7155,
+      "minZ": 2.7273,
+      "maxZ": 2.746,
+      "bottom": 0.02,
+      "top": 0.84
+    },
+    {
+      "name": "Entrance wall shelf board.001",
+      "minX": -3.345,
+      "maxX": -1.695,
+      "minZ": 2.55,
+      "maxZ": 2.75,
+      "bottom": 0.3975,
+      "top": 0.4425
+    },
+    {
+      "name": "Entrance wall shelf board.002",
+      "minX": -3.345,
+      "maxX": -1.695,
+      "minZ": 2.55,
+      "maxZ": 2.75,
+      "bottom": 0.8075,
+      "top": 0.8525
+    },
+    {
+      "name": "Entrance wall shelf divider",
+      "minX": -2.7978,
+      "maxX": -2.774,
+      "minZ": 2.56,
+      "maxZ": 2.74,
+      "bottom": 0.055,
+      "top": 0.805
+    },
+    {
+      "name": "Entrance wall shelf divider.001",
+      "minX": -2.266,
+      "maxX": -2.2422,
+      "minZ": 2.56,
+      "maxZ": 2.74,
+      "bottom": 0.055,
+      "top": 0.805
+    },
+    {
+      "name": "Camp chair 0 folding tube",
+      "minX": 3.2583,
+      "maxX": 3.8317,
+      "minZ": 1.136,
+      "maxZ": 1.164,
+      "bottom": 0.0323,
+      "top": 0.8777
+    },
+    {
+      "name": "Camp chair 0 folding tube.001",
+      "minX": 3.3294,
+      "maxX": 3.8806,
+      "minZ": 1.136,
+      "maxZ": 1.164,
+      "bottom": 0.0308,
+      "top": 0.6592
+    },
+    {
+      "name": "Camp chair 0 back support",
+      "minX": 3.7363,
+      "maxX": 3.8837,
+      "minZ": 1.136,
+      "maxZ": 1.164,
+      "bottom": 0.4173,
+      "top": 1.0327
+    },
+    {
+      "name": "Camp chair 0 folding tube.002",
+      "minX": 3.2583,
+      "maxX": 3.8317,
+      "minZ": 1.736,
+      "maxZ": 1.764,
+      "bottom": 0.0323,
+      "top": 0.8777
+    },
+    {
+      "name": "Camp chair 0 folding tube.003",
+      "minX": 3.3294,
+      "maxX": 3.8806,
+      "minZ": 1.736,
+      "maxZ": 1.764,
+      "bottom": 0.0308,
+      "top": 0.6592
+    },
+    {
+      "name": "Camp chair 0 back support.001",
+      "minX": 3.7363,
+      "maxX": 3.8837,
+      "minZ": 1.736,
+      "maxZ": 1.764,
+      "bottom": 0.4173,
+      "top": 1.0327
+    },
+    {
+      "name": "Camp chair 0 seat sling",
+      "minX": 3.35,
+      "maxX": 3.8,
+      "minZ": 1.14,
+      "maxZ": 1.76,
+      "bottom": 0.42,
+      "top": 0.48
+    },
+    {
+      "name": "Camp chair 0 back fabric",
+      "minX": 3.8,
+      "maxX": 3.87,
+      "minZ": 1.12,
+      "maxZ": 1.78,
+      "bottom": 0.42,
+      "top": 1.0
+    },
+    {
+      "name": "Camp chair 0 fabric arm",
+      "minX": 3.33,
+      "maxX": 3.81,
+      "minZ": 1.0875,
+      "maxZ": 1.1725,
+      "bottom": 0.6675,
+      "top": 0.6925
+    },
+    {
+      "name": "Camp chair 0 fabric arm.001",
+      "minX": 3.33,
+      "maxX": 3.81,
+      "minZ": 1.7275,
+      "maxZ": 1.8125,
+      "bottom": 0.6675,
+      "top": 0.6925
+    },
+    {
+      "name": "Camp chair 1 folding tube",
+      "minX": 3.2583,
+      "maxX": 3.8317,
+      "minZ": 0.236,
+      "maxZ": 0.264,
+      "bottom": 0.0323,
+      "top": 0.8777
+    },
+    {
+      "name": "Camp chair 1 folding tube.001",
+      "minX": 3.3294,
+      "maxX": 3.8806,
+      "minZ": 0.236,
+      "maxZ": 0.264,
+      "bottom": 0.0308,
+      "top": 0.6592
+    },
+    {
+      "name": "Camp chair 1 back support",
+      "minX": 3.7363,
+      "maxX": 3.8837,
+      "minZ": 0.236,
+      "maxZ": 0.264,
+      "bottom": 0.4173,
+      "top": 1.0327
+    },
+    {
+      "name": "Camp chair 1 folding tube.002",
+      "minX": 3.2583,
+      "maxX": 3.8317,
+      "minZ": 0.836,
+      "maxZ": 0.864,
+      "bottom": 0.0323,
+      "top": 0.8777
+    },
+    {
+      "name": "Camp chair 1 folding tube.003",
+      "minX": 3.3294,
+      "maxX": 3.8806,
+      "minZ": 0.836,
+      "maxZ": 0.864,
+      "bottom": 0.0308,
+      "top": 0.6592
+    },
+    {
+      "name": "Camp chair 1 back support.001",
+      "minX": 3.7363,
+      "maxX": 3.8837,
+      "minZ": 0.836,
+      "maxZ": 0.864,
+      "bottom": 0.4173,
+      "top": 1.0327
+    },
+    {
+      "name": "Camp chair 1 seat sling",
+      "minX": 3.35,
+      "maxX": 3.8,
+      "minZ": 0.24,
+      "maxZ": 0.86,
+      "bottom": 0.42,
+      "top": 0.48
+    },
+    {
+      "name": "Camp chair 1 back fabric",
+      "minX": 3.8,
+      "maxX": 3.87,
+      "minZ": 0.22,
+      "maxZ": 0.88,
+      "bottom": 0.42,
+      "top": 1.0
+    },
+    {
+      "name": "Camp chair 1 fabric arm",
+      "minX": 3.33,
+      "maxX": 3.81,
+      "minZ": 0.1875,
+      "maxZ": 0.2725,
+      "bottom": 0.6675,
+      "top": 0.6925
+    },
+    {
+      "name": "Camp chair 1 fabric arm.001",
+      "minX": 3.33,
+      "maxX": 3.81,
+      "minZ": 0.8275,
+      "maxZ": 0.9125,
+      "bottom": 0.6675,
+      "top": 0.6925
+    },
+    {
+      "name": "Camp chair 2 folding tube",
+      "minX": 3.2583,
+      "maxX": 3.8317,
+      "minZ": -0.964,
+      "maxZ": -0.936,
+      "bottom": 0.0323,
+      "top": 0.8777
+    },
+    {
+      "name": "Camp chair 2 folding tube.001",
+      "minX": 3.3294,
+      "maxX": 3.8806,
+      "minZ": -0.964,
+      "maxZ": -0.936,
+      "bottom": 0.0308,
+      "top": 0.6592
+    },
+    {
+      "name": "Camp chair 2 back support",
+      "minX": 3.7363,
+      "maxX": 3.8837,
+      "minZ": -0.964,
+      "maxZ": -0.936,
+      "bottom": 0.4173,
+      "top": 1.0327
+    },
+    {
+      "name": "Camp chair 2 folding tube.002",
+      "minX": 3.2583,
+      "maxX": 3.8317,
+      "minZ": -0.364,
+      "maxZ": -0.336,
+      "bottom": 0.0323,
+      "top": 0.8777
+    },
+    {
+      "name": "Camp chair 2 folding tube.003",
+      "minX": 3.3294,
+      "maxX": 3.8806,
+      "minZ": -0.364,
+      "maxZ": -0.336,
+      "bottom": 0.0308,
+      "top": 0.6592
+    },
+    {
+      "name": "Camp chair 2 back support.001",
+      "minX": 3.7363,
+      "maxX": 3.8837,
+      "minZ": -0.364,
+      "maxZ": -0.336,
+      "bottom": 0.4173,
+      "top": 1.0327
+    },
+    {
+      "name": "Camp chair 2 seat sling",
+      "minX": 3.35,
+      "maxX": 3.8,
+      "minZ": -0.96,
+      "maxZ": -0.34,
+      "bottom": 0.42,
+      "top": 0.48
+    },
+    {
+      "name": "Camp chair 2 back fabric",
+      "minX": 3.8,
+      "maxX": 3.87,
+      "minZ": -0.98,
+      "maxZ": -0.32,
+      "bottom": 0.42,
+      "top": 1.0
+    },
+    {
+      "name": "Camp chair 2 fabric arm",
+      "minX": 3.33,
+      "maxX": 3.81,
+      "minZ": -1.0125,
+      "maxZ": -0.9275,
+      "bottom": 0.6675,
+      "top": 0.6925
+    },
+    {
+      "name": "Camp chair 2 fabric arm.001",
+      "minX": 3.33,
+      "maxX": 3.81,
+      "minZ": -0.3725,
+      "maxZ": -0.2875,
+      "bottom": 0.6675,
+      "top": 0.6925
+    },
+    {
+      "name": "Water station cabinet",
+      "minX": -0.6,
+      "maxX": 0.3,
+      "minZ": 2.555,
+      "maxZ": 2.775,
+      "bottom": 0.0,
+      "top": 0.96
+    },
+    {
+      "name": "Water station top",
+      "minX": -0.65,
+      "maxX": 0.35,
+      "minZ": 2.545,
+      "maxZ": 2.785,
+      "bottom": 0.965,
+      "top": 1.015
+    },
+    {
+      "name": "Water flask",
+      "minX": -0.52,
+      "maxX": -0.32,
+      "minZ": 2.56,
+      "maxZ": 2.76,
+      "bottom": 1.02,
+      "top": 1.41
+    },
+    {
+      "name": "Water flask lid",
+      "minX": -0.505,
+      "maxX": -0.335,
+      "minZ": 2.575,
+      "maxZ": 2.745,
+      "bottom": 1.4075,
+      "top": 1.4325
+    },
+    {
+      "name": "Water tap",
+      "minX": -0.432,
+      "maxX": -0.408,
+      "minZ": 2.74,
+      "maxZ": 2.8,
+      "bottom": 1.148,
+      "top": 1.172
+    },
+    {
+      "name": "Water flask.001",
+      "minX": -0.21,
+      "maxX": -0.01,
+      "minZ": 2.56,
+      "maxZ": 2.76,
+      "bottom": 1.02,
+      "top": 1.41
+    },
+    {
+      "name": "Water flask lid.001",
+      "minX": -0.195,
+      "maxX": -0.025,
+      "minZ": 2.575,
+      "maxZ": 2.745,
+      "bottom": 1.4075,
+      "top": 1.4325
+    },
+    {
+      "name": "Water tap.001",
+      "minX": -0.122,
+      "maxX": -0.098,
+      "minZ": 2.74,
+      "maxZ": 2.8,
+      "bottom": 1.148,
+      "top": 1.172
+    },
+    {
+      "name": "Stacked water cup",
+      "minX": 0.205,
+      "maxX": 0.295,
+      "minZ": 2.615,
+      "maxZ": 2.705,
+      "bottom": 1.01,
+      "top": 1.08
+    },
+    {
+      "name": "Stacked water cup.001",
+      "minX": 0.205,
+      "maxX": 0.295,
+      "minZ": 2.615,
+      "maxZ": 2.705,
+      "bottom": 1.038,
+      "top": 1.108
+    },
+    {
+      "name": "Stacked water cup.002",
+      "minX": 0.205,
+      "maxX": 0.295,
+      "minZ": 2.615,
+      "maxZ": 2.705,
+      "bottom": 1.066,
+      "top": 1.136
+    },
+    {
+      "name": "Stacked water cup.003",
+      "minX": 0.205,
+      "maxX": 0.295,
+      "minZ": 2.615,
+      "maxZ": 2.705,
+      "bottom": 1.094,
+      "top": 1.164
+    },
+    {
+      "name": "Stacked water cup.004",
+      "minX": 0.205,
+      "maxX": 0.295,
+      "minZ": 2.615,
+      "maxZ": 2.705,
+      "bottom": 1.122,
+      "top": 1.192
+    },
+    {
+      "name": "Stacked water cup.005",
+      "minX": 0.205,
+      "maxX": 0.295,
+      "minZ": 2.615,
+      "maxZ": 2.705,
+      "bottom": 1.15,
+      "top": 1.22
+    },
+    {
+      "name": "Stacked water cup.006",
+      "minX": 0.205,
+      "maxX": 0.295,
+      "minZ": 2.615,
+      "maxZ": 2.705,
+      "bottom": 1.178,
+      "top": 1.248
+    },
+    {
+      "name": "Stacked water cup.007",
+      "minX": 0.205,
+      "maxX": 0.295,
+      "minZ": 2.615,
+      "maxZ": 2.705,
+      "bottom": 1.206,
+      "top": 1.276
+    },
+    {
+      "name": "Literature rack ledge",
+      "minX": -0.26,
+      "maxX": 0.26,
+      "minZ": 2.555,
+      "maxZ": 2.615,
+      "bottom": 0.3325,
+      "top": 0.3675
+    },
+    {
+      "name": "Literature rack ledge.001",
+      "minX": -0.26,
+      "maxX": 0.26,
+      "minZ": 2.555,
+      "maxZ": 2.615,
+      "bottom": 0.5325,
+      "top": 0.5675
+    },
+    {
+      "name": "Literature rack ledge.002",
+      "minX": -0.26,
+      "maxX": 0.26,
+      "minZ": 2.555,
+      "maxZ": 2.615,
+      "bottom": 0.7325,
+      "top": 0.7675
+    },
+    {
+      "name": "Literature rack ledge.003",
+      "minX": -0.26,
+      "maxX": 0.26,
+      "minZ": 2.555,
+      "maxZ": 2.615,
+      "bottom": 0.9325,
+      "top": 0.9675
+    },
+    {
+      "name": "Counter front",
+      "minX": -4.125,
+      "maxX": -1.075,
+      "minZ": -0.7,
+      "maxZ": -0.54,
+      "bottom": 0.0,
+      "top": 0.96
+    },
+    {
+      "name": "Counter vertical slat",
+      "minX": -4.118,
+      "maxX": -4.032,
+      "minZ": -0.543,
+      "maxZ": -0.515,
+      "bottom": 0.03,
+      "top": 0.91
+    },
+    {
+      "name": "Counter vertical slat.001",
+      "minX": -4.02,
+      "maxX": -3.934,
+      "minZ": -0.543,
+      "maxZ": -0.515,
+      "bottom": 0.03,
+      "top": 0.91
+    },
+    {
+      "name": "Counter vertical slat.002",
+      "minX": -3.922,
+      "maxX": -3.836,
+      "minZ": -0.543,
+      "maxZ": -0.515,
+      "bottom": 0.03,
+      "top": 0.91
+    },
+    {
+      "name": "Counter vertical slat.003",
+      "minX": -3.824,
+      "maxX": -3.738,
+      "minZ": -0.543,
+      "maxZ": -0.515,
+      "bottom": 0.03,
+      "top": 0.91
+    },
+    {
+      "name": "Counter vertical slat.004",
+      "minX": -3.726,
+      "maxX": -3.64,
+      "minZ": -0.543,
+      "maxZ": -0.515,
+      "bottom": 0.03,
+      "top": 0.91
+    },
+    {
+      "name": "Counter vertical slat.005",
+      "minX": -3.628,
+      "maxX": -3.542,
+      "minZ": -0.543,
+      "maxZ": -0.515,
+      "bottom": 0.03,
+      "top": 0.91
+    },
+    {
+      "name": "Counter vertical slat.006",
+      "minX": -3.53,
+      "maxX": -3.444,
+      "minZ": -0.543,
+      "maxZ": -0.515,
+      "bottom": 0.03,
+      "top": 0.91
+    },
+    {
+      "name": "Counter vertical slat.007",
+      "minX": -3.432,
+      "maxX": -3.346,
+      "minZ": -0.543,
+      "maxZ": -0.515,
+      "bottom": 0.03,
+      "top": 0.91
+    },
+    {
+      "name": "Counter vertical slat.008",
+      "minX": -3.334,
+      "maxX": -3.248,
+      "minZ": -0.543,
+      "maxZ": -0.515,
+      "bottom": 0.03,
+      "top": 0.91
+    },
+    {
+      "name": "Counter vertical slat.009",
+      "minX": -3.236,
+      "maxX": -3.15,
+      "minZ": -0.543,
+      "maxZ": -0.515,
+      "bottom": 0.03,
+      "top": 0.91
+    },
+    {
+      "name": "Counter vertical slat.010",
+      "minX": -3.138,
+      "maxX": -3.052,
+      "minZ": -0.543,
+      "maxZ": -0.515,
+      "bottom": 0.03,
+      "top": 0.91
+    },
+    {
+      "name": "Counter vertical slat.011",
+      "minX": -3.04,
+      "maxX": -2.954,
+      "minZ": -0.543,
+      "maxZ": -0.515,
+      "bottom": 0.03,
+      "top": 0.91
+    },
+    {
+      "name": "Counter vertical slat.012",
+      "minX": -2.942,
+      "maxX": -2.856,
+      "minZ": -0.543,
+      "maxZ": -0.515,
+      "bottom": 0.03,
+      "top": 0.91
+    },
+    {
+      "name": "Counter vertical slat.013",
+      "minX": -2.844,
+      "maxX": -2.758,
+      "minZ": -0.543,
+      "maxZ": -0.515,
+      "bottom": 0.03,
+      "top": 0.91
+    },
+    {
+      "name": "Counter vertical slat.014",
+      "minX": -2.746,
+      "maxX": -2.66,
+      "minZ": -0.543,
+      "maxZ": -0.515,
+      "bottom": 0.03,
+      "top": 0.91
+    },
+    {
+      "name": "Counter vertical slat.015",
+      "minX": -2.648,
+      "maxX": -2.562,
+      "minZ": -0.543,
+      "maxZ": -0.515,
+      "bottom": 0.03,
+      "top": 0.91
+    },
+    {
+      "name": "Counter vertical slat.016",
+      "minX": -2.55,
+      "maxX": -2.464,
+      "minZ": -0.543,
+      "maxZ": -0.515,
+      "bottom": 0.03,
+      "top": 0.91
+    },
+    {
+      "name": "Counter vertical slat.017",
+      "minX": -2.452,
+      "maxX": -2.366,
+      "minZ": -0.543,
+      "maxZ": -0.515,
+      "bottom": 0.03,
+      "top": 0.91
+    },
+    {
+      "name": "Counter vertical slat.018",
+      "minX": -2.354,
+      "maxX": -2.268,
+      "minZ": -0.543,
+      "maxZ": -0.515,
+      "bottom": 0.03,
+      "top": 0.91
+    },
+    {
+      "name": "Counter vertical slat.019",
+      "minX": -2.256,
+      "maxX": -2.17,
+      "minZ": -0.543,
+      "maxZ": -0.515,
+      "bottom": 0.03,
+      "top": 0.91
+    },
+    {
+      "name": "Counter vertical slat.020",
+      "minX": -2.158,
+      "maxX": -2.072,
+      "minZ": -0.543,
+      "maxZ": -0.515,
+      "bottom": 0.03,
+      "top": 0.91
+    },
+    {
+      "name": "Counter vertical slat.021",
+      "minX": -2.06,
+      "maxX": -1.974,
+      "minZ": -0.543,
+      "maxZ": -0.515,
+      "bottom": 0.03,
+      "top": 0.91
+    },
+    {
+      "name": "Counter vertical slat.022",
+      "minX": -1.962,
+      "maxX": -1.876,
+      "minZ": -0.543,
+      "maxZ": -0.515,
+      "bottom": 0.03,
+      "top": 0.91
+    },
+    {
+      "name": "Counter vertical slat.023",
+      "minX": -1.864,
+      "maxX": -1.778,
+      "minZ": -0.543,
+      "maxZ": -0.515,
+      "bottom": 0.03,
+      "top": 0.91
+    },
+    {
+      "name": "Counter vertical slat.024",
+      "minX": -1.766,
+      "maxX": -1.68,
+      "minZ": -0.543,
+      "maxZ": -0.515,
+      "bottom": 0.03,
+      "top": 0.91
+    },
+    {
+      "name": "Counter vertical slat.025",
+      "minX": -1.668,
+      "maxX": -1.582,
+      "minZ": -0.543,
+      "maxZ": -0.515,
+      "bottom": 0.03,
+      "top": 0.91
+    },
+    {
+      "name": "Counter vertical slat.026",
+      "minX": -1.57,
+      "maxX": -1.484,
+      "minZ": -0.543,
+      "maxZ": -0.515,
+      "bottom": 0.03,
+      "top": 0.91
+    },
+    {
+      "name": "Counter vertical slat.027",
+      "minX": -1.472,
+      "maxX": -1.386,
+      "minZ": -0.543,
+      "maxZ": -0.515,
+      "bottom": 0.03,
+      "top": 0.91
+    },
+    {
+      "name": "Counter vertical slat.028",
+      "minX": -1.374,
+      "maxX": -1.288,
+      "minZ": -0.543,
+      "maxZ": -0.515,
+      "bottom": 0.03,
+      "top": 0.91
+    },
+    {
+      "name": "Counter vertical slat.029",
+      "minX": -1.276,
+      "maxX": -1.19,
+      "minZ": -0.543,
+      "maxZ": -0.515,
+      "bottom": 0.03,
+      "top": 0.91
+    },
+    {
+      "name": "Counter vertical slat.030",
+      "minX": -1.178,
+      "maxX": -1.092,
+      "minZ": -0.543,
+      "maxZ": -0.515,
+      "bottom": 0.03,
+      "top": 0.91
+    },
+    {
+      "name": "Counter thick worktop",
+      "minX": -4.215,
+      "maxX": -0.985,
+      "minZ": -0.915,
+      "maxZ": -0.265,
+      "bottom": 0.9775,
+      "top": 1.0625
+    },
+    {
+      "name": "Counter opening post",
+      "minX": -4.245,
+      "maxX": -4.005,
+      "minZ": -0.737,
+      "maxZ": -0.503,
+      "bottom": 0.0,
+      "top": 2.46
+    },
+    {
+      "name": "Counter opening post.001",
+      "minX": -1.195,
+      "maxX": -0.955,
+      "minZ": -0.737,
+      "maxZ": -0.503,
+      "bottom": 0.0,
+      "top": 2.46
+    },
+    {
+      "name": "Kitchen recess rear wall",
+      "minX": -4.285,
+      "maxX": -0.915,
+      "minZ": -3.675,
+      "maxZ": -3.555,
+      "bottom": 0.0,
+      "top": 2.6
+    },
+    {
+      "name": "Kitchen recess side return",
+      "minX": -4.285,
+      "maxX": -4.165,
+      "minZ": -3.675,
+      "maxZ": -2.8,
+      "bottom": 0.0,
+      "top": 2.6
+    },
+    {
+      "name": "Kitchen recess side return.001",
+      "minX": -1.035,
+      "maxX": -0.915,
+      "minZ": -3.675,
+      "maxZ": -2.8,
+      "bottom": 0.0,
+      "top": 2.6
+    },
+    {
+      "name": "Visible rear metal backsplash",
+      "minX": -4.125,
+      "maxX": -1.075,
+      "minZ": -3.5525,
+      "maxZ": -3.5175,
+      "bottom": 0.7,
+      "top": 2.095
+    },
+    {
+      "name": "Visible cooking bench",
+      "minX": -4.125,
+      "maxX": -1.075,
+      "minZ": -3.39,
+      "maxZ": -2.74,
+      "bottom": 0.0,
+      "top": 0.705
+    },
+    {
+      "name": "Visible steel worktop",
+      "minX": -4.125,
+      "maxX": -1.075,
+      "minZ": -3.44,
+      "maxZ": -2.74,
+      "bottom": 0.7088,
+      "top": 0.7463
+    },
+    {
+      "name": "Visible pan",
+      "minX": -3.6,
+      "maxX": -3.24,
+      "minZ": -3.125,
+      "maxZ": -2.765,
+      "bottom": 0.7613,
+      "top": 0.8513
+    },
+    {
+      "name": "Pan handle",
+      "minX": -3.251,
+      "maxX": -2.999,
+      "minZ": -2.97,
+      "maxZ": -2.92,
+      "bottom": 0.7963,
+      "top": 0.8562
+    },
+    {
+      "name": "Cooking burner",
+      "minX": -3.55,
+      "maxX": -3.29,
+      "minZ": -3.075,
+      "maxZ": -2.815,
+      "bottom": 0.7213,
+      "top": 0.7563
+    },
+    {
+      "name": "Visible pan.001",
+      "minX": -2.98,
+      "maxX": -2.62,
+      "minZ": -3.125,
+      "maxZ": -2.765,
+      "bottom": 0.7613,
+      "top": 0.8513
+    },
+    {
+      "name": "Pan handle.001",
+      "minX": -2.631,
+      "maxX": -2.379,
+      "minZ": -2.97,
+      "maxZ": -2.92,
+      "bottom": 0.7963,
+      "top": 0.8562
+    },
+    {
+      "name": "Cooking burner.001",
+      "minX": -2.93,
+      "maxX": -2.67,
+      "minZ": -3.075,
+      "maxZ": -2.815,
+      "bottom": 0.7213,
+      "top": 0.7563
+    },
+    {
+      "name": "Visible pan.002",
+      "minX": -2.3,
+      "maxX": -1.94,
+      "minZ": -3.125,
+      "maxZ": -2.765,
+      "bottom": 0.7613,
+      "top": 0.8513
+    },
+    {
+      "name": "Pan handle.002",
+      "minX": -1.951,
+      "maxX": -1.699,
+      "minZ": -2.97,
+      "maxZ": -2.92,
+      "bottom": 0.7963,
+      "top": 0.8562
+    },
+    {
+      "name": "Cooking burner.002",
+      "minX": -2.25,
+      "maxX": -1.99,
+      "minZ": -3.075,
+      "maxZ": -2.815,
+      "bottom": 0.7213,
+      "top": 0.7563
+    },
+    {
+      "name": "Visible pot",
+      "minX": -4.02,
+      "maxX": -3.68,
+      "minZ": -3.095,
+      "maxZ": -2.755,
+      "bottom": 0.7513,
+      "top": 1.0113
+    },
+    {
+      "name": "Pot lid",
+      "minX": -4.02,
+      "maxX": -3.68,
+      "minZ": -3.095,
+      "maxZ": -2.755,
+      "bottom": 1.0113,
+      "top": 1.0293
+    },
+    {
+      "name": "Pot lid knob",
+      "minX": -3.877,
+      "maxX": -3.823,
+      "minZ": -2.952,
+      "maxZ": -2.898,
+      "bottom": 1.0113,
+      "top": 1.0563
+    },
+    {
+      "name": "Visible pot.001",
+      "minX": -1.84,
+      "maxX": -1.48,
+      "minZ": -3.375,
+      "maxZ": -3.015,
+      "bottom": 0.7513,
+      "top": 0.9312
+    },
+    {
+      "name": "Pot lid.001",
+      "minX": -1.84,
+      "maxX": -1.48,
+      "minZ": -3.375,
+      "maxZ": -3.015,
+      "bottom": 0.9312,
+      "top": 0.9492
+    },
+    {
+      "name": "Pot lid knob.001",
+      "minX": -1.687,
+      "maxX": -1.633,
+      "minZ": -3.222,
+      "maxZ": -3.168,
+      "bottom": 0.9312,
+      "top": 0.9763
+    },
+    {
+      "name": "Visible pot.002",
+      "minX": -2.69,
+      "maxX": -2.43,
+      "minZ": -3.375,
+      "maxZ": -3.115,
+      "bottom": 0.7513,
+      "top": 1.0512
+    },
+    {
+      "name": "Pot lid.002",
+      "minX": -2.69,
+      "maxX": -2.43,
+      "minZ": -3.375,
+      "maxZ": -3.115,
+      "bottom": 1.0512,
+      "top": 1.0692
+    },
+    {
+      "name": "Pot lid knob.002",
+      "minX": -2.587,
+      "maxX": -2.533,
+      "minZ": -3.272,
+      "maxZ": -3.218,
+      "bottom": 1.0512,
+      "top": 1.0963
+    },
+    {
+      "name": "Kitchen sink steel leg",
+      "minX": -4.0975,
+      "maxX": -4.0425,
+      "minZ": -0.9575,
+      "maxZ": -0.9025,
+      "bottom": 0.015,
+      "top": 0.66
+    },
+    {
+      "name": "Kitchen sink steel leg.001",
+      "minX": -4.0975,
+      "maxX": -4.0425,
+      "minZ": -1.4975,
+      "maxZ": -1.4425,
+      "bottom": 0.015,
+      "top": 0.66
+    },
+    {
+      "name": "Kitchen sink steel leg.002",
+      "minX": -1.1575,
+      "maxX": -1.1025,
+      "minZ": -0.9575,
+      "maxZ": -0.9025,
+      "bottom": 0.015,
+      "top": 0.66
+    },
+    {
+      "name": "Kitchen sink steel leg.003",
+      "minX": -1.1575,
+      "maxX": -1.1025,
+      "minZ": -1.4975,
+      "maxZ": -1.4425,
+      "bottom": 0.015,
+      "top": 0.66
+    },
+    {
+      "name": "Kitchen sink front apron",
+      "minX": -4.125,
+      "maxX": -1.075,
+      "minZ": -0.902,
+      "maxZ": -0.874,
+      "bottom": 0.5362,
+      "top": 0.7237
+    },
+    {
+      "name": "Kitchen sink rim",
+      "minX": -4.125,
+      "maxX": -1.075,
+      "minZ": -0.958,
+      "maxZ": -0.858,
+      "bottom": 0.7256,
+      "top": 0.7519
+    },
+    {
+      "name": "Kitchen sink rim.001",
+      "minX": -4.125,
+      "maxX": -1.075,
+      "minZ": -1.542,
+      "maxZ": -1.442,
+      "bottom": 0.7256,
+      "top": 0.7519
+    },
+    {
+      "name": "Kitchen sink left worktop",
+      "minX": -4.125,
+      "maxX": -3.69,
+      "minZ": -1.445,
+      "maxZ": -0.955,
+      "bottom": 0.7256,
+      "top": 0.7519
+    },
+    {
+      "name": "Kitchen sink draining board",
+      "minX": -2.67,
+      "maxX": -1.075,
+      "minZ": -1.445,
+      "maxZ": -0.955,
+      "bottom": 0.7256,
+      "top": 0.7519
+    },
+    {
+      "name": "Kitchen sink bowl bottom",
+      "minX": -3.6725,
+      "maxX": -2.6875,
+      "minZ": -1.415,
+      "maxZ": -0.985,
+      "bottom": 0.5512,
+      "top": 0.5707
+    },
+    {
+      "name": "Kitchen sink bowl side",
+      "minX": -3.7025,
+      "maxX": -3.6775,
+      "minZ": -1.43,
+      "maxZ": -0.97,
+      "bottom": 0.5621,
+      "top": 0.7384
+    },
+    {
+      "name": "Kitchen sink bowl side.001",
+      "minX": -2.6825,
+      "maxX": -2.6575,
+      "minZ": -1.43,
+      "maxZ": -0.97,
+      "bottom": 0.5621,
+      "top": 0.7384
+    },
+    {
+      "name": "Kitchen sink bowl end",
+      "minX": -3.69,
+      "maxX": -2.67,
+      "minZ": -0.9825,
+      "maxZ": -0.9575,
+      "bottom": 0.5621,
+      "top": 0.7384
+    },
+    {
+      "name": "Kitchen sink bowl end.001",
+      "minX": -3.69,
+      "maxX": -2.67,
+      "minZ": -1.4425,
+      "maxZ": -1.4175,
+      "bottom": 0.5621,
+      "top": 0.7384
+    },
+    {
+      "name": "Kitchen sink drain opening",
+      "minX": -3.222,
+      "maxX": -3.138,
+      "minZ": -1.242,
+      "maxZ": -1.158,
+      "bottom": 0.5715,
+      "top": 0.576
+    },
+    {
+      "name": "Kitchen sink mixer lever",
+      "minX": -3.096,
+      "maxX": -3.064,
+      "minZ": -1.4801,
+      "maxZ": -1.3499,
+      "bottom": 0.7814,
+      "top": 0.8961
+    },
+    {
+      "name": "Condiment bottle",
+      "minX": -3.539,
+      "maxX": -3.461,
+      "minZ": -0.589,
+      "maxZ": -0.511,
+      "bottom": 1.065,
+      "top": 1.2113
+    },
+    {
+      "name": "Bottle cap",
+      "minX": -3.523,
+      "maxX": -3.477,
+      "minZ": -0.573,
+      "maxZ": -0.527,
+      "bottom": 1.2113,
+      "top": 1.2263
+    },
+    {
+      "name": "Condiment bottle.001",
+      "minX": -3.399,
+      "maxX": -3.321,
+      "minZ": -0.659,
+      "maxZ": -0.581,
+      "bottom": 1.065,
+      "top": 1.3009
+    },
+    {
+      "name": "Bottle cap.001",
+      "minX": -3.383,
+      "maxX": -3.337,
+      "minZ": -0.643,
+      "maxZ": -0.597,
+      "bottom": 1.3009,
+      "top": 1.3159
+    },
+    {
+      "name": "Condiment bottle.002",
+      "minX": -3.259,
+      "maxX": -3.181,
+      "minZ": -0.589,
+      "maxZ": -0.511,
+      "bottom": 1.065,
+      "top": 1.2032
+    },
+    {
+      "name": "Bottle cap.002",
+      "minX": -3.243,
+      "maxX": -3.197,
+      "minZ": -0.573,
+      "maxZ": -0.527,
+      "bottom": 1.2032,
+      "top": 1.2182
+    },
+    {
+      "name": "Condiment bottle.003",
+      "minX": -3.119,
+      "maxX": -3.041,
+      "minZ": -0.659,
+      "maxZ": -0.581,
+      "bottom": 1.065,
+      "top": 1.2022
+    },
+    {
+      "name": "Bottle cap.003",
+      "minX": -3.103,
+      "maxX": -3.057,
+      "minZ": -0.643,
+      "maxZ": -0.597,
+      "bottom": 1.2022,
+      "top": 1.2172
+    },
+    {
+      "name": "Condiment bottle.004",
+      "minX": -2.979,
+      "maxX": -2.901,
+      "minZ": -0.589,
+      "maxZ": -0.511,
+      "bottom": 1.065,
+      "top": 1.2978
+    },
+    {
+      "name": "Bottle cap.004",
+      "minX": -2.963,
+      "maxX": -2.917,
+      "minZ": -0.573,
+      "maxZ": -0.527,
+      "bottom": 1.2978,
+      "top": 1.3128
+    },
+    {
+      "name": "Condiment bottle.005",
+      "minX": -2.839,
+      "maxX": -2.761,
+      "minZ": -0.659,
+      "maxZ": -0.581,
+      "bottom": 1.065,
+      "top": 1.2127
+    },
+    {
+      "name": "Bottle cap.005",
+      "minX": -2.823,
+      "maxX": -2.777,
+      "minZ": -0.643,
+      "maxZ": -0.597,
+      "bottom": 1.2127,
+      "top": 1.2277
+    },
+    {
+      "name": "Condiment bottle.006",
+      "minX": -2.699,
+      "maxX": -2.621,
+      "minZ": -0.589,
+      "maxZ": -0.511,
+      "bottom": 1.065,
+      "top": 1.2482
+    },
+    {
+      "name": "Bottle cap.006",
+      "minX": -2.683,
+      "maxX": -2.637,
+      "minZ": -0.573,
+      "maxZ": -0.527,
+      "bottom": 1.2482,
+      "top": 1.2632
+    },
+    {
+      "name": "Condiment bottle.007",
+      "minX": -2.559,
+      "maxX": -2.481,
+      "minZ": -0.659,
+      "maxZ": -0.581,
+      "bottom": 1.065,
+      "top": 1.1882
+    },
+    {
+      "name": "Bottle cap.007",
+      "minX": -2.543,
+      "maxX": -2.497,
+      "minZ": -0.643,
+      "maxZ": -0.597,
+      "bottom": 1.1882,
+      "top": 1.2032
+    },
+    {
+      "name": "Condiment bottle.008",
+      "minX": -2.419,
+      "maxX": -2.341,
+      "minZ": -0.589,
+      "maxZ": -0.511,
+      "bottom": 1.065,
+      "top": 1.2495
+    },
+    {
+      "name": "Bottle cap.008",
+      "minX": -2.403,
+      "maxX": -2.357,
+      "minZ": -0.573,
+      "maxZ": -0.527,
+      "bottom": 1.2495,
+      "top": 1.2645
+    },
+    {
+      "name": "Condiment bottle.009",
+      "minX": -2.279,
+      "maxX": -2.201,
+      "minZ": -0.659,
+      "maxZ": -0.581,
+      "bottom": 1.065,
+      "top": 1.26
+    },
+    {
+      "name": "Bottle cap.009",
+      "minX": -2.263,
+      "maxX": -2.217,
+      "minZ": -0.643,
+      "maxZ": -0.597,
+      "bottom": 1.26,
+      "top": 1.275
+    },
+    {
+      "name": "Condiment bottle.010",
+      "minX": -2.139,
+      "maxX": -2.061,
+      "minZ": -0.589,
+      "maxZ": -0.511,
+      "bottom": 1.065,
+      "top": 1.2154
+    },
+    {
+      "name": "Bottle cap.010",
+      "minX": -2.123,
+      "maxX": -2.077,
+      "minZ": -0.573,
+      "maxZ": -0.527,
+      "bottom": 1.2154,
+      "top": 1.2304
+    },
+    {
+      "name": "Condiment bottle.011",
+      "minX": -1.999,
+      "maxX": -1.921,
+      "minZ": -0.659,
+      "maxZ": -0.581,
+      "bottom": 1.065,
+      "top": 1.205
+    },
+    {
+      "name": "Bottle cap.011",
+      "minX": -1.983,
+      "maxX": -1.937,
+      "minZ": -0.643,
+      "maxZ": -0.597,
+      "bottom": 1.205,
+      "top": 1.22
+    },
+    {
+      "name": "White cup.002",
+      "minX": -3.991,
+      "maxX": -3.909,
+      "minZ": -0.431,
+      "maxZ": -0.349,
+      "bottom": 1.065,
+      "top": 1.16
+    },
+    {
+      "name": "White cup.003",
+      "minX": -3.441,
+      "maxX": -3.359,
+      "minZ": -0.431,
+      "maxZ": -0.349,
+      "bottom": 1.065,
+      "top": 1.16
+    },
+    {
+      "name": "White cup.004",
+      "minX": -2.191,
+      "maxX": -2.109,
+      "minZ": -0.431,
+      "maxZ": -0.349,
+      "bottom": 1.065,
+      "top": 1.16
+    },
+    {
+      "name": "Counter upright menu frame",
+      "minX": -1.305,
+      "maxX": -1.015,
+      "minZ": -0.23,
+      "maxZ": -0.19,
+      "bottom": 1.085,
+      "top": 1.125
+    },
+    {
+      "name": "Counter upright menu frame.001",
+      "minX": -1.035,
+      "maxX": -0.995,
+      "minZ": -0.23,
+      "maxZ": -0.19,
+      "bottom": 1.105,
+      "top": 1.555
+    },
+    {
+      "name": "Counter upright menu frame.002",
+      "minX": -1.305,
+      "maxX": -1.015,
+      "minZ": -0.23,
+      "maxZ": -0.19,
+      "bottom": 1.535,
+      "top": 1.575
+    },
+    {
+      "name": "Counter upright menu frame.003",
+      "minX": -1.325,
+      "maxX": -1.285,
+      "minZ": -0.23,
+      "maxZ": -0.19,
+      "bottom": 1.105,
+      "top": 1.555
+    },
+    {
+      "name": "Checkout table solid top",
+      "minX": -1.055,
+      "maxX": 0.525,
+      "minZ": -1.43,
+      "maxZ": -0.49,
+      "bottom": 0.6969,
+      "top": 0.7519
+    },
+    {
+      "name": "Checkout table leg",
+      "minX": -1.0125,
+      "maxX": -0.9475,
+      "minZ": -0.5975,
+      "maxZ": -0.5325,
+      "bottom": 0.0,
+      "top": 0.6969
+    },
+    {
+      "name": "Checkout table leg.001",
+      "minX": -1.0125,
+      "maxX": -0.9475,
+      "minZ": -1.3875,
+      "maxZ": -1.3225,
+      "bottom": 0.0,
+      "top": 0.6969
+    },
+    {
+      "name": "Checkout table leg.002",
+      "minX": 0.4175,
+      "maxX": 0.4825,
+      "minZ": -0.5975,
+      "maxZ": -0.5325,
+      "bottom": 0.0,
+      "top": 0.6969
+    },
+    {
+      "name": "Checkout table leg.003",
+      "minX": 0.4175,
+      "maxX": 0.4825,
+      "minZ": -1.3875,
+      "maxZ": -1.3225,
+      "bottom": 0.0,
+      "top": 0.6969
+    },
+    {
+      "name": "Checkout table apron",
+      "minX": -1.02,
+      "maxX": 0.49,
+      "minZ": -0.5575,
+      "maxZ": -0.5025,
+      "bottom": 0.5319,
+      "top": 0.7119
+    },
+    {
+      "name": "Checkout table apron.001",
+      "minX": -1.02,
+      "maxX": 0.49,
+      "minZ": -1.4175,
+      "maxZ": -1.3625,
+      "bottom": 0.5319,
+      "top": 0.7119
+    },
+    {
+      "name": "Checkout payment tray",
+      "minX": -0.86,
+      "maxX": -0.54,
+      "minZ": -0.745,
+      "maxZ": -0.555,
+      "bottom": 0.7519,
+      "top": 0.7799
+    },
+    {
+      "name": "Checkout tray rim",
+      "minX": -0.874,
+      "maxX": -0.856,
+      "minZ": -0.755,
+      "maxZ": -0.545,
+      "bottom": 0.7714,
+      "top": 0.7984
+    },
+    {
+      "name": "Checkout tray rim.001",
+      "minX": -0.544,
+      "maxX": -0.526,
+      "minZ": -0.755,
+      "maxZ": -0.545,
+      "bottom": 0.7714,
+      "top": 0.7984
+    },
+    {
+      "name": "Checkout tray rim.002",
+      "minX": -0.865,
+      "maxX": -0.535,
+      "minZ": -0.559,
+      "maxZ": -0.541,
+      "bottom": 0.7714,
+      "top": 0.7984
+    },
+    {
+      "name": "Checkout tray rim.003",
+      "minX": -0.865,
+      "maxX": -0.535,
+      "minZ": -0.759,
+      "maxZ": -0.741,
+      "bottom": 0.7714,
+      "top": 0.7984
+    },
+    {
+      "name": "Checkout capsule machine foot",
+      "minX": -0.24,
+      "maxX": 0.12,
+      "minZ": -1.19,
+      "maxZ": -0.87,
+      "bottom": 0.7519,
+      "top": 0.7859
+    },
+    {
+      "name": "Checkout capsule machine base",
+      "minX": -0.22,
+      "maxX": 0.1,
+      "minZ": -1.175,
+      "maxZ": -0.885,
+      "bottom": 0.7669,
+      "top": 0.9969
+    },
+    {
+      "name": "Checkout capsule machine lid",
+      "minX": -0.23,
+      "maxX": 0.11,
+      "minZ": -1.185,
+      "maxZ": -0.875,
+      "bottom": 1.3014,
+      "top": 1.3464
+    },
+    {
+      "name": "Checkout capsule chamber frame",
+      "minX": -0.227,
+      "maxX": -0.203,
+      "minZ": -0.902,
+      "maxZ": -0.878,
+      "bottom": 0.9969,
+      "top": 1.3019
+    },
+    {
+      "name": "Checkout capsule chamber frame.001",
+      "minX": -0.227,
+      "maxX": -0.203,
+      "minZ": -1.182,
+      "maxZ": -1.158,
+      "bottom": 0.9969,
+      "top": 1.3019
+    },
+    {
+      "name": "Checkout capsule chamber frame.002",
+      "minX": 0.083,
+      "maxX": 0.107,
+      "minZ": -0.902,
+      "maxZ": -0.878,
+      "bottom": 0.9969,
+      "top": 1.3019
+    },
+    {
+      "name": "Checkout capsule chamber frame.003",
+      "minX": 0.083,
+      "maxX": 0.107,
+      "minZ": -1.182,
+      "maxZ": -1.158,
+      "bottom": 0.9969,
+      "top": 1.3019
+    },
+    {
+      "name": "Checkout capsule turning knob",
+      "minX": -0.107,
+      "maxX": -0.013,
+      "minZ": -0.86,
+      "maxZ": -0.84,
+      "bottom": 0.8859,
+      "top": 0.9799
+    },
+    {
+      "name": "Checkout capsule turning handle",
+      "minX": -0.096,
+      "maxX": -0.024,
+      "minZ": -0.8325,
+      "maxZ": -0.8075,
+      "bottom": 0.9244,
+      "top": 0.9414
+    },
+    {
+      "name": "Checkout colored capsule",
+      "minX": -0.184,
+      "maxX": -0.106,
+      "minZ": -0.991,
+      "maxZ": -0.913,
+      "bottom": 1.0399,
+      "top": 1.0789
+    },
+    {
+      "name": "Checkout colored capsule.001",
+      "minX": -0.184,
+      "maxX": -0.106,
+      "minZ": -0.991,
+      "maxZ": -0.913,
+      "bottom": 1.0009,
+      "top": 1.0399
+    },
+    {
+      "name": "Checkout colored capsule.002",
+      "minX": -0.099,
+      "maxX": -0.021,
+      "minZ": -0.991,
+      "maxZ": -0.913,
+      "bottom": 1.0399,
+      "top": 1.0789
+    },
+    {
+      "name": "Checkout colored capsule.003",
+      "minX": -0.099,
+      "maxX": -0.021,
+      "minZ": -0.991,
+      "maxZ": -0.913,
+      "bottom": 1.0009,
+      "top": 1.0399
+    },
+    {
+      "name": "Checkout colored capsule.004",
+      "minX": -0.014,
+      "maxX": 0.064,
+      "minZ": -0.991,
+      "maxZ": -0.913,
+      "bottom": 1.0399,
+      "top": 1.0789
+    },
+    {
+      "name": "Checkout colored capsule.005",
+      "minX": -0.014,
+      "maxX": 0.064,
+      "minZ": -0.991,
+      "maxZ": -0.913,
+      "bottom": 1.0009,
+      "top": 1.0399
+    },
+    {
+      "name": "Checkout colored capsule.006",
+      "minX": -0.184,
+      "maxX": -0.106,
+      "minZ": -1.069,
+      "maxZ": -0.991,
+      "bottom": 1.0399,
+      "top": 1.0789
+    },
+    {
+      "name": "Checkout colored capsule.007",
+      "minX": -0.184,
+      "maxX": -0.106,
+      "minZ": -1.069,
+      "maxZ": -0.991,
+      "bottom": 1.0009,
+      "top": 1.0399
+    },
+    {
+      "name": "Checkout colored capsule.008",
+      "minX": -0.099,
+      "maxX": -0.021,
+      "minZ": -1.069,
+      "maxZ": -0.991,
+      "bottom": 1.0399,
+      "top": 1.0789
+    },
+    {
+      "name": "Checkout colored capsule.009",
+      "minX": -0.099,
+      "maxX": -0.021,
+      "minZ": -1.069,
+      "maxZ": -0.991,
+      "bottom": 1.0009,
+      "top": 1.0399
+    },
+    {
+      "name": "Checkout colored capsule.010",
+      "minX": -0.014,
+      "maxX": 0.064,
+      "minZ": -1.069,
+      "maxZ": -0.991,
+      "bottom": 1.0399,
+      "top": 1.0789
+    },
+    {
+      "name": "Checkout colored capsule.011",
+      "minX": -0.014,
+      "maxX": 0.064,
+      "minZ": -1.069,
+      "maxZ": -0.991,
+      "bottom": 1.0009,
+      "top": 1.0399
+    },
+    {
+      "name": "Checkout colored capsule.012",
+      "minX": -0.184,
+      "maxX": -0.106,
+      "minZ": -1.147,
+      "maxZ": -1.069,
+      "bottom": 1.0399,
+      "top": 1.0789
+    },
+    {
+      "name": "Checkout colored capsule.013",
+      "minX": -0.184,
+      "maxX": -0.106,
+      "minZ": -1.147,
+      "maxZ": -1.069,
+      "bottom": 1.0009,
+      "top": 1.0399
+    },
+    {
+      "name": "Checkout colored capsule.014",
+      "minX": -0.099,
+      "maxX": -0.021,
+      "minZ": -1.147,
+      "maxZ": -1.069,
+      "bottom": 1.0399,
+      "top": 1.0789
+    },
+    {
+      "name": "Checkout colored capsule.015",
+      "minX": -0.099,
+      "maxX": -0.021,
+      "minZ": -1.147,
+      "maxZ": -1.069,
+      "bottom": 1.0009,
+      "top": 1.0399
+    },
+    {
+      "name": "Checkout colored capsule.016",
+      "minX": -0.014,
+      "maxX": 0.064,
+      "minZ": -1.147,
+      "maxZ": -1.069,
+      "bottom": 1.0399,
+      "top": 1.0789
+    },
+    {
+      "name": "Checkout colored capsule.017",
+      "minX": -0.014,
+      "maxX": 0.064,
+      "minZ": -1.147,
+      "maxZ": -1.069,
+      "bottom": 1.0009,
+      "top": 1.0399
+    },
+    {
+      "name": "Checkout colored capsule.018",
+      "minX": -0.184,
+      "maxX": -0.106,
+      "minZ": -0.991,
+      "maxZ": -0.913,
+      "bottom": 1.1159,
+      "top": 1.1549
+    },
+    {
+      "name": "Checkout colored capsule.019",
+      "minX": -0.184,
+      "maxX": -0.106,
+      "minZ": -0.991,
+      "maxZ": -0.913,
+      "bottom": 1.0769,
+      "top": 1.1159
+    },
+    {
+      "name": "Checkout colored capsule.020",
+      "minX": -0.099,
+      "maxX": -0.021,
+      "minZ": -0.991,
+      "maxZ": -0.913,
+      "bottom": 1.1159,
+      "top": 1.1549
+    },
+    {
+      "name": "Checkout colored capsule.021",
+      "minX": -0.099,
+      "maxX": -0.021,
+      "minZ": -0.991,
+      "maxZ": -0.913,
+      "bottom": 1.0769,
+      "top": 1.1159
+    },
+    {
+      "name": "Checkout colored capsule.022",
+      "minX": -0.014,
+      "maxX": 0.064,
+      "minZ": -0.991,
+      "maxZ": -0.913,
+      "bottom": 1.1159,
+      "top": 1.1549
+    },
+    {
+      "name": "Checkout colored capsule.023",
+      "minX": -0.014,
+      "maxX": 0.064,
+      "minZ": -0.991,
+      "maxZ": -0.913,
+      "bottom": 1.0769,
+      "top": 1.1159
+    },
+    {
+      "name": "Checkout colored capsule.024",
+      "minX": -0.184,
+      "maxX": -0.106,
+      "minZ": -1.069,
+      "maxZ": -0.991,
+      "bottom": 1.1159,
+      "top": 1.1549
+    },
+    {
+      "name": "Checkout colored capsule.025",
+      "minX": -0.184,
+      "maxX": -0.106,
+      "minZ": -1.069,
+      "maxZ": -0.991,
+      "bottom": 1.0769,
+      "top": 1.1159
+    },
+    {
+      "name": "Checkout colored capsule.026",
+      "minX": -0.099,
+      "maxX": -0.021,
+      "minZ": -1.069,
+      "maxZ": -0.991,
+      "bottom": 1.1159,
+      "top": 1.1549
+    },
+    {
+      "name": "Checkout colored capsule.027",
+      "minX": -0.099,
+      "maxX": -0.021,
+      "minZ": -1.069,
+      "maxZ": -0.991,
+      "bottom": 1.0769,
+      "top": 1.1159
+    },
+    {
+      "name": "Checkout colored capsule.028",
+      "minX": -0.014,
+      "maxX": 0.064,
+      "minZ": -1.069,
+      "maxZ": -0.991,
+      "bottom": 1.1159,
+      "top": 1.1549
+    },
+    {
+      "name": "Checkout colored capsule.029",
+      "minX": -0.014,
+      "maxX": 0.064,
+      "minZ": -1.069,
+      "maxZ": -0.991,
+      "bottom": 1.0769,
+      "top": 1.1159
+    },
+    {
+      "name": "Checkout leaflet stack",
+      "minX": -0.815,
+      "maxX": -0.465,
+      "minZ": -1.25,
+      "maxZ": -1.03,
+      "bottom": 0.7564,
+      "top": 0.7734
+    },
+    {
+      "name": "Checkout leaflet stack.001",
+      "minX": -0.815,
+      "maxX": -0.465,
+      "minZ": -1.25,
+      "maxZ": -1.03,
+      "bottom": 0.7744,
+      "top": 0.7914
+    },
+    {
+      "name": "Checkout leaflet stack.002",
+      "minX": -0.815,
+      "maxX": -0.465,
+      "minZ": -1.25,
+      "maxZ": -1.03,
+      "bottom": 0.7924,
+      "top": 0.8094
+    },
+    {
+      "name": "Checkout standing notice base",
+      "minX": -1.005,
+      "maxX": -0.815,
+      "minZ": -1.32,
+      "maxZ": -1.2,
+      "bottom": 0.7519,
+      "top": 0.7799
+    },
+    {
+      "name": "Checkout standing notice frame",
+      "minX": -0.995,
+      "maxX": -0.825,
+      "minZ": -1.2855,
+      "maxZ": -1.2585,
+      "bottom": 0.7919,
+      "top": 0.9819
+    },
+    {
+      "name": "Checkout standing notice base.001",
+      "minX": 0.225,
+      "maxX": 0.415,
+      "minZ": -1.29,
+      "maxZ": -1.17,
+      "bottom": 0.7519,
+      "top": 0.7799
+    },
+    {
+      "name": "Checkout standing notice frame.001",
+      "minX": 0.235,
+      "maxX": 0.405,
+      "minZ": -1.2555,
+      "maxZ": -1.2285,
+      "bottom": 0.7919,
+      "top": 1.0619
+    },
+    {
+      "name": "Checkout small goods box",
+      "minX": -0.535,
+      "maxX": -0.385,
+      "minZ": -1.295,
+      "maxZ": -1.145,
+      "bottom": 0.7519,
+      "top": 0.8719
+    },
+    {
+      "name": "Checkout goods box lid",
+      "minX": -0.54,
+      "maxX": -0.38,
+      "minZ": -1.3,
+      "maxZ": -1.14,
+      "bottom": 0.8719,
+      "top": 0.8899
+    },
+    {
+      "name": "Checkout small goods box.001",
+      "minX": 0.225,
+      "maxX": 0.415,
+      "minZ": -0.855,
+      "maxZ": -0.705,
+      "bottom": 0.7519,
+      "top": 0.8369
+    },
+    {
+      "name": "Checkout goods box lid.001",
+      "minX": 0.22,
+      "maxX": 0.42,
+      "minZ": -0.86,
+      "maxZ": -0.7,
+      "bottom": 0.8369,
+      "top": 0.8549
+    },
+    {
+      "name": "EQUIPMENT_ROOM_DOOR__INTERIOR_UNSEEN",
+      "minX": -0.235,
+      "maxX": 0.635,
+      "minZ": -2.8125,
+      "maxZ": -2.7575,
+      "bottom": 0.01,
+      "top": 2.07
+    },
+    {
+      "name": "Equipment door jamb",
+      "minX": -0.335,
+      "maxX": -0.245,
+      "minZ": -2.78,
+      "maxZ": -2.66,
+      "bottom": 0.0,
+      "top": 2.18
+    },
+    {
+      "name": "Equipment door jamb.001",
+      "minX": 0.645,
+      "maxX": 0.735,
+      "minZ": -2.78,
+      "maxZ": -2.66,
+      "bottom": 0.0,
+      "top": 2.18
+    },
+    {
+      "name": "Equipment door lower brown panel",
+      "minX": -0.19,
+      "maxX": 0.59,
+      "minZ": -2.757,
+      "maxZ": -2.737,
+      "bottom": 0.02,
+      "top": 0.64
+    },
+    {
+      "name": "Equipment door knob",
+      "minX": 0.508,
+      "maxX": 0.572,
+      "minZ": -2.68,
+      "maxZ": -2.59,
+      "bottom": 0.878,
+      "top": 0.942
+    },
+    {
+      "name": "Door hinge",
+      "minX": -0.2475,
+      "maxX": -0.2125,
+      "minZ": -2.7175,
+      "maxZ": -2.6825,
+      "bottom": 0.2,
+      "top": 0.3
+    },
+    {
+      "name": "Hand basin wall bracket",
+      "minX": 1.19,
+      "maxX": 1.57,
+      "minZ": -2.77,
+      "maxZ": -2.63,
+      "bottom": 0.59,
+      "top": 0.83
+    },
+    {
+      "name": "Hand wash bowl",
+      "minX": 1.0925,
+      "maxX": 1.6675,
+      "minZ": -2.684,
+      "maxZ": -2.316,
+      "bottom": 0.75,
+      "top": 0.867
+    },
+    {
+      "name": "Basin rectangular rear ceramic",
+      "minX": 1.115,
+      "maxX": 1.645,
+      "minZ": -2.705,
+      "maxZ": -2.595,
+      "bottom": 0.83,
+      "top": 0.91
+    },
+    {
+      "name": "Hand wash drain",
+      "minX": 1.357,
+      "maxX": 1.403,
+      "minZ": -2.523,
+      "maxZ": -2.477,
+      "bottom": 0.43,
+      "top": 0.75
+    },
+    {
+      "name": "Shelf under sink",
+      "minX": 1.065,
+      "maxX": 1.695,
+      "minZ": -2.735,
+      "maxZ": -2.185,
+      "bottom": 0.43,
+      "top": 0.47
+    },
+    {
+      "name": "Mandala bookcase back",
+      "minX": 2.09,
+      "maxX": 3.21,
+      "minZ": -2.68,
+      "maxZ": -2.62,
+      "bottom": 0.0,
+      "top": 0.94
+    },
+    {
+      "name": "Bookcase shelf.001",
+      "minX": 2.09,
+      "maxX": 3.21,
+      "minZ": -2.665,
+      "maxZ": -2.295,
+      "bottom": 0.3425,
+      "top": 0.3975
+    },
+    {
+      "name": "Bookcase shelf.002",
+      "minX": 2.09,
+      "maxX": 3.21,
+      "minZ": -2.665,
+      "maxZ": -2.295,
+      "bottom": 0.6525,
+      "top": 0.7075
+    },
+    {
+      "name": "Bookcase shelf.003",
+      "minX": 2.09,
+      "maxX": 3.21,
+      "minZ": -2.665,
+      "maxZ": -2.295,
+      "bottom": 0.9525,
+      "top": 1.0075
+    },
+    {
+      "name": "Bookcase upright",
+      "minX": 2.05,
+      "maxX": 2.09,
+      "minZ": -2.675,
+      "maxZ": -2.285,
+      "bottom": 0.01,
+      "top": 0.99
+    },
+    {
+      "name": "Bookcase upright.001",
+      "minX": 2.63,
+      "maxX": 2.67,
+      "minZ": -2.675,
+      "maxZ": -2.285,
+      "bottom": 0.01,
+      "top": 0.99
+    },
+    {
+      "name": "Bookcase upright.002",
+      "minX": 3.2,
+      "maxX": 3.24,
+      "minZ": -2.675,
+      "maxZ": -2.285,
+      "bottom": 0.01,
+      "top": 0.99
+    },
+    {
+      "name": "Book spine",
+      "minX": 2.125,
+      "maxX": 2.175,
+      "minZ": -2.46,
+      "maxZ": -2.28,
+      "bottom": 0.4,
+      "top": 0.5767
+    },
+    {
+      "name": "Book spine.001",
+      "minX": 2.209,
+      "maxX": 2.259,
+      "minZ": -2.46,
+      "maxZ": -2.28,
+      "bottom": 0.4,
+      "top": 0.5736
+    },
+    {
+      "name": "Book spine.002",
+      "minX": 2.293,
+      "maxX": 2.343,
+      "minZ": -2.46,
+      "maxZ": -2.28,
+      "bottom": 0.4,
+      "top": 0.6438
+    },
+    {
+      "name": "Book spine.003",
+      "minX": 2.377,
+      "maxX": 2.427,
+      "minZ": -2.46,
+      "maxZ": -2.28,
+      "bottom": 0.4,
+      "top": 0.6051
+    },
+    {
+      "name": "Book spine.004",
+      "minX": 2.461,
+      "maxX": 2.511,
+      "minZ": -2.46,
+      "maxZ": -2.28,
+      "bottom": 0.4,
+      "top": 0.574
+    },
+    {
+      "name": "Book spine.005",
+      "minX": 2.545,
+      "maxX": 2.595,
+      "minZ": -2.46,
+      "maxZ": -2.28,
+      "bottom": 0.4,
+      "top": 0.5655
+    },
+    {
+      "name": "Book spine.006",
+      "minX": 2.629,
+      "maxX": 2.679,
+      "minZ": -2.46,
+      "maxZ": -2.28,
+      "bottom": 0.4,
+      "top": 0.5874
+    },
+    {
+      "name": "Book spine.007",
+      "minX": 2.713,
+      "maxX": 2.763,
+      "minZ": -2.46,
+      "maxZ": -2.28,
+      "bottom": 0.4,
+      "top": 0.615
+    },
+    {
+      "name": "Book spine.008",
+      "minX": 2.797,
+      "maxX": 2.847,
+      "minZ": -2.46,
+      "maxZ": -2.28,
+      "bottom": 0.4,
+      "top": 0.6325
+    },
+    {
+      "name": "Book spine.009",
+      "minX": 2.881,
+      "maxX": 2.931,
+      "minZ": -2.46,
+      "maxZ": -2.28,
+      "bottom": 0.4,
+      "top": 0.5991
+    },
+    {
+      "name": "Book spine.010",
+      "minX": 2.965,
+      "maxX": 3.015,
+      "minZ": -2.46,
+      "maxZ": -2.28,
+      "bottom": 0.4,
+      "top": 0.5704
+    },
+    {
+      "name": "Book spine.011",
+      "minX": 3.049,
+      "maxX": 3.099,
+      "minZ": -2.46,
+      "maxZ": -2.28,
+      "bottom": 0.4,
+      "top": 0.5988
+    },
+    {
+      "name": "Book spine.012",
+      "minX": 2.125,
+      "maxX": 2.175,
+      "minZ": -2.46,
+      "maxZ": -2.28,
+      "bottom": 0.73,
+      "top": 0.9751
+    },
+    {
+      "name": "Book spine.013",
+      "minX": 2.209,
+      "maxX": 2.259,
+      "minZ": -2.46,
+      "maxZ": -2.28,
+      "bottom": 0.73,
+      "top": 0.9025
+    },
+    {
+      "name": "Book spine.014",
+      "minX": 2.293,
+      "maxX": 2.343,
+      "minZ": -2.46,
+      "maxZ": -2.28,
+      "bottom": 0.73,
+      "top": 0.9165
+    },
+    {
+      "name": "Book spine.015",
+      "minX": 2.377,
+      "maxX": 2.427,
+      "minZ": -2.46,
+      "maxZ": -2.28,
+      "bottom": 0.73,
+      "top": 0.9272
+    },
+    {
+      "name": "Book spine.016",
+      "minX": 2.461,
+      "maxX": 2.511,
+      "minZ": -2.46,
+      "maxZ": -2.28,
+      "bottom": 0.73,
+      "top": 0.9083
+    },
+    {
+      "name": "Book spine.017",
+      "minX": 2.545,
+      "maxX": 2.595,
+      "minZ": -2.46,
+      "maxZ": -2.28,
+      "bottom": 0.73,
+      "top": 0.964
+    },
+    {
+      "name": "Book spine.018",
+      "minX": 2.629,
+      "maxX": 2.679,
+      "minZ": -2.46,
+      "maxZ": -2.28,
+      "bottom": 0.73,
+      "top": 0.9148
+    },
+    {
+      "name": "Book spine.019",
+      "minX": 2.713,
+      "maxX": 2.763,
+      "minZ": -2.46,
+      "maxZ": -2.28,
+      "bottom": 0.73,
+      "top": 0.8984
+    },
+    {
+      "name": "Book spine.020",
+      "minX": 2.797,
+      "maxX": 2.847,
+      "minZ": -2.46,
+      "maxZ": -2.28,
+      "bottom": 0.73,
+      "top": 0.9375
+    },
+    {
+      "name": "Book spine.021",
+      "minX": 2.881,
+      "maxX": 2.931,
+      "minZ": -2.46,
+      "maxZ": -2.28,
+      "bottom": 0.73,
+      "top": 0.9105
+    },
+    {
+      "name": "Book spine.022",
+      "minX": 2.965,
+      "maxX": 3.015,
+      "minZ": -2.46,
+      "maxZ": -2.28,
+      "bottom": 0.73,
+      "top": 0.9724
+    },
+    {
+      "name": "Book spine.023",
+      "minX": 3.049,
+      "maxX": 3.099,
+      "minZ": -2.46,
+      "maxZ": -2.28,
+      "bottom": 0.73,
+      "top": 0.9043
+    },
+    {
+      "name": "Low bay front wall board.002",
+      "minX": -7.7,
+      "maxX": -5.07,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 0.131,
+      "top": 0.259
+    },
+    {
+      "name": "Low bay front wall board.003",
+      "minX": -4.39,
+      "maxX": -4.2,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 0.131,
+      "top": 0.259
+    },
+    {
+      "name": "Low bay front wall board.004",
+      "minX": -7.7,
+      "maxX": -5.07,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 0.261,
+      "top": 0.389
+    },
+    {
+      "name": "Low bay front wall board.005",
+      "minX": -4.39,
+      "maxX": -4.2,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 0.261,
+      "top": 0.389
+    },
+    {
+      "name": "Low bay front wall board.006",
+      "minX": -7.7,
+      "maxX": -5.07,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 0.391,
+      "top": 0.519
+    },
+    {
+      "name": "Low bay front wall board.007",
+      "minX": -4.39,
+      "maxX": -4.2,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 0.391,
+      "top": 0.519
+    },
+    {
+      "name": "Low bay front wall board.008",
+      "minX": -7.7,
+      "maxX": -5.07,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 0.521,
+      "top": 0.649
+    },
+    {
+      "name": "Low bay front wall board.009",
+      "minX": -4.39,
+      "maxX": -4.2,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 0.521,
+      "top": 0.649
+    },
+    {
+      "name": "Low bay front wall board.010",
+      "minX": -7.7,
+      "maxX": -5.07,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 0.651,
+      "top": 0.779
+    },
+    {
+      "name": "Low bay front wall board.011",
+      "minX": -4.39,
+      "maxX": -4.2,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 0.651,
+      "top": 0.779
+    },
+    {
+      "name": "Low bay front wall board.012",
+      "minX": -7.7,
+      "maxX": -7.425,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 0.781,
+      "top": 0.909
+    },
+    {
+      "name": "Low bay front wall board.013",
+      "minX": -5.675,
+      "maxX": -5.07,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 0.781,
+      "top": 0.909
+    },
+    {
+      "name": "Low bay front wall board.014",
+      "minX": -4.39,
+      "maxX": -4.2,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 0.781,
+      "top": 0.909
+    },
+    {
+      "name": "Low bay front wall board.015",
+      "minX": -7.7,
+      "maxX": -7.425,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 0.911,
+      "top": 1.039
+    },
+    {
+      "name": "Low bay front wall board.016",
+      "minX": -5.675,
+      "maxX": -5.07,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 0.911,
+      "top": 1.039
+    },
+    {
+      "name": "Low bay front wall board.017",
+      "minX": -4.39,
+      "maxX": -4.2,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 0.911,
+      "top": 1.039
+    },
+    {
+      "name": "Low bay front wall board.018",
+      "minX": -7.7,
+      "maxX": -7.425,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 1.041,
+      "top": 1.169
+    },
+    {
+      "name": "Low bay front wall board.019",
+      "minX": -5.675,
+      "maxX": -5.07,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 1.041,
+      "top": 1.169
+    },
+    {
+      "name": "Low bay front wall board.020",
+      "minX": -4.39,
+      "maxX": -4.2,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 1.041,
+      "top": 1.169
+    },
+    {
+      "name": "Low bay front wall board.021",
+      "minX": -7.7,
+      "maxX": -7.425,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 1.171,
+      "top": 1.299
+    },
+    {
+      "name": "Low bay front wall board.022",
+      "minX": -5.675,
+      "maxX": -5.07,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 1.171,
+      "top": 1.299
+    },
+    {
+      "name": "Low bay front wall board.023",
+      "minX": -4.39,
+      "maxX": -4.2,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 1.171,
+      "top": 1.299
+    },
+    {
+      "name": "Low bay front wall board.024",
+      "minX": -7.7,
+      "maxX": -7.425,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 1.301,
+      "top": 1.429
+    },
+    {
+      "name": "Low bay front wall board.025",
+      "minX": -5.675,
+      "maxX": -5.07,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 1.301,
+      "top": 1.429
+    },
+    {
+      "name": "Low bay front wall board.026",
+      "minX": -4.39,
+      "maxX": -4.2,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 1.301,
+      "top": 1.429
+    },
+    {
+      "name": "Low bay front wall board.027",
+      "minX": -7.7,
+      "maxX": -7.425,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 1.431,
+      "top": 1.559
+    },
+    {
+      "name": "Low bay front wall board.028",
+      "minX": -5.675,
+      "maxX": -5.07,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 1.431,
+      "top": 1.559
+    },
+    {
+      "name": "Low bay front wall board.029",
+      "minX": -4.39,
+      "maxX": -4.2,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 1.431,
+      "top": 1.559
+    },
+    {
+      "name": "Low bay front wall board.030",
+      "minX": -7.7,
+      "maxX": -7.425,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 1.561,
+      "top": 1.689
+    },
+    {
+      "name": "Low bay front wall board.031",
+      "minX": -5.675,
+      "maxX": -5.07,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 1.561,
+      "top": 1.689
+    },
+    {
+      "name": "Low bay front wall board.032",
+      "minX": -4.39,
+      "maxX": -4.2,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 1.561,
+      "top": 1.689
+    },
+    {
+      "name": "Low bay inner wall board.002",
+      "minX": -7.7,
+      "maxX": -5.88,
+      "minZ": -0.06,
+      "maxZ": 0.06,
+      "bottom": 0.131,
+      "top": 0.259
+    },
+    {
+      "name": "Low bay inner wall board.003",
+      "minX": -5.08,
+      "maxX": -4.2,
+      "minZ": -0.06,
+      "maxZ": 0.06,
+      "bottom": 0.131,
+      "top": 0.259
+    },
+    {
+      "name": "Low bay inner wall board.004",
+      "minX": -7.7,
+      "maxX": -5.88,
+      "minZ": -0.06,
+      "maxZ": 0.06,
+      "bottom": 0.261,
+      "top": 0.389
+    },
+    {
+      "name": "Low bay inner wall board.005",
+      "minX": -5.08,
+      "maxX": -4.2,
+      "minZ": -0.06,
+      "maxZ": 0.06,
+      "bottom": 0.261,
+      "top": 0.389
+    },
+    {
+      "name": "Low bay inner wall board.006",
+      "minX": -7.7,
+      "maxX": -5.88,
+      "minZ": -0.06,
+      "maxZ": 0.06,
+      "bottom": 0.391,
+      "top": 0.519
+    },
+    {
+      "name": "Low bay inner wall board.007",
+      "minX": -5.08,
+      "maxX": -4.2,
+      "minZ": -0.06,
+      "maxZ": 0.06,
+      "bottom": 0.391,
+      "top": 0.519
+    },
+    {
+      "name": "Low bay inner wall board.008",
+      "minX": -7.7,
+      "maxX": -5.88,
+      "minZ": -0.06,
+      "maxZ": 0.06,
+      "bottom": 0.521,
+      "top": 0.649
+    },
+    {
+      "name": "Low bay inner wall board.009",
+      "minX": -5.08,
+      "maxX": -4.2,
+      "minZ": -0.06,
+      "maxZ": 0.06,
+      "bottom": 0.521,
+      "top": 0.649
+    },
+    {
+      "name": "Low bay inner wall board.010",
+      "minX": -7.7,
+      "maxX": -5.88,
+      "minZ": -0.06,
+      "maxZ": 0.06,
+      "bottom": 0.651,
+      "top": 0.779
+    },
+    {
+      "name": "Low bay inner wall board.011",
+      "minX": -5.08,
+      "maxX": -4.2,
+      "minZ": -0.06,
+      "maxZ": 0.06,
+      "bottom": 0.651,
+      "top": 0.779
+    },
+    {
+      "name": "Low bay inner wall board.012",
+      "minX": -7.7,
+      "maxX": -5.88,
+      "minZ": -0.06,
+      "maxZ": 0.06,
+      "bottom": 0.781,
+      "top": 0.909
+    },
+    {
+      "name": "Low bay inner wall board.013",
+      "minX": -5.08,
+      "maxX": -4.2,
+      "minZ": -0.06,
+      "maxZ": 0.06,
+      "bottom": 0.781,
+      "top": 0.909
+    },
+    {
+      "name": "Low bay inner wall board.014",
+      "minX": -7.7,
+      "maxX": -5.88,
+      "minZ": -0.06,
+      "maxZ": 0.06,
+      "bottom": 0.911,
+      "top": 1.039
+    },
+    {
+      "name": "Low bay inner wall board.015",
+      "minX": -5.08,
+      "maxX": -4.2,
+      "minZ": -0.06,
+      "maxZ": 0.06,
+      "bottom": 0.911,
+      "top": 1.039
+    },
+    {
+      "name": "Low bay inner wall board.016",
+      "minX": -7.7,
+      "maxX": -5.88,
+      "minZ": -0.06,
+      "maxZ": 0.06,
+      "bottom": 1.041,
+      "top": 1.169
+    },
+    {
+      "name": "Low bay inner wall board.017",
+      "minX": -5.08,
+      "maxX": -4.2,
+      "minZ": -0.06,
+      "maxZ": 0.06,
+      "bottom": 1.041,
+      "top": 1.169
+    },
+    {
+      "name": "Low bay inner wall board.018",
+      "minX": -7.7,
+      "maxX": -5.88,
+      "minZ": -0.06,
+      "maxZ": 0.06,
+      "bottom": 1.171,
+      "top": 1.299
+    },
+    {
+      "name": "Low bay inner wall board.019",
+      "minX": -5.08,
+      "maxX": -4.2,
+      "minZ": -0.06,
+      "maxZ": 0.06,
+      "bottom": 1.171,
+      "top": 1.299
+    },
+    {
+      "name": "Low bay inner wall board.020",
+      "minX": -7.7,
+      "maxX": -5.88,
+      "minZ": -0.06,
+      "maxZ": 0.06,
+      "bottom": 1.301,
+      "top": 1.429
+    },
+    {
+      "name": "Low bay inner wall board.021",
+      "minX": -5.08,
+      "maxX": -4.2,
+      "minZ": -0.06,
+      "maxZ": 0.06,
+      "bottom": 1.301,
+      "top": 1.429
+    },
+    {
+      "name": "Low bay inner wall board.022",
+      "minX": -7.7,
+      "maxX": -5.88,
+      "minZ": -0.06,
+      "maxZ": 0.06,
+      "bottom": 1.431,
+      "top": 1.559
+    },
+    {
+      "name": "Low bay inner wall board.023",
+      "minX": -5.08,
+      "maxX": -4.2,
+      "minZ": -0.06,
+      "maxZ": 0.06,
+      "bottom": 1.431,
+      "top": 1.559
+    },
+    {
+      "name": "Low bay inner wall board.024",
+      "minX": -7.7,
+      "maxX": -5.88,
+      "minZ": -0.06,
+      "maxZ": 0.06,
+      "bottom": 1.561,
+      "top": 1.689
+    },
+    {
+      "name": "Low bay inner wall board.025",
+      "minX": -5.08,
+      "maxX": -4.2,
+      "minZ": -0.06,
+      "maxZ": 0.06,
+      "bottom": 1.561,
+      "top": 1.689
+    },
+    {
+      "name": "Low bay large window timber jamb",
+      "minX": -7.48,
+      "maxX": -7.37,
+      "minZ": 2.715,
+      "maxZ": 2.885,
+      "bottom": 0.75,
+      "top": 2.25
+    },
+    {
+      "name": "Low bay large window timber jamb.001",
+      "minX": -5.73,
+      "maxX": -5.62,
+      "minZ": 2.715,
+      "maxZ": 2.885,
+      "bottom": 0.75,
+      "top": 2.25
+    },
+    {
+      "name": "Low bay large window timber lintel",
+      "minX": -7.525,
+      "maxX": -5.575,
+      "minZ": 2.705,
+      "maxZ": 2.895,
+      "bottom": 0.79,
+      "top": 0.89
+    },
+    {
+      "name": "Low bay large window aluminium mullion",
+      "minX": -7.383,
+      "maxX": -7.347,
+      "minZ": 2.7775,
+      "maxZ": 2.8225,
+      "bottom": 0.84,
+      "top": 2.16
+    },
+    {
+      "name": "Low bay large window aluminium mullion.001",
+      "minX": -6.568,
+      "maxX": -6.532,
+      "minZ": 2.7775,
+      "maxZ": 2.8225,
+      "bottom": 0.84,
+      "top": 2.16
+    },
+    {
+      "name": "Low bay large window aluminium mullion.002",
+      "minX": -5.753,
+      "maxX": -5.717,
+      "minZ": 2.7775,
+      "maxZ": 2.8225,
+      "bottom": 0.84,
+      "top": 2.16
+    },
+    {
+      "name": "Low bay large window meeting rail",
+      "minX": -7.425,
+      "maxX": -5.675,
+      "minZ": 2.775,
+      "maxZ": 2.825,
+      "bottom": 1.4561,
+      "top": 1.4911
+    },
+    {
+      "name": "Low bay large window latch",
+      "minX": -6.5325,
+      "maxX": -6.4975,
+      "minZ": 2.7675,
+      "maxZ": 2.8325,
+      "bottom": 1.4086,
+      "top": 1.5386
+    },
+    {
+      "name": "Low bay narrow glass door timber jamb",
+      "minX": -5.125,
+      "maxX": -5.015,
+      "minZ": 2.715,
+      "maxZ": 2.885,
+      "bottom": -0.04,
+      "top": 2.21
+    },
+    {
+      "name": "Low bay narrow glass door timber jamb.001",
+      "minX": -4.445,
+      "maxX": -4.335,
+      "minZ": 2.715,
+      "maxZ": 2.885,
+      "bottom": -0.04,
+      "top": 2.21
+    },
+    {
+      "name": "Low bay narrow glass door aluminium mullion",
+      "minX": -5.028,
+      "maxX": -4.992,
+      "minZ": 2.7775,
+      "maxZ": 2.8225,
+      "bottom": 0.05,
+      "top": 2.12
+    },
+    {
+      "name": "Low bay narrow glass door aluminium mullion.001",
+      "minX": -4.748,
+      "maxX": -4.712,
+      "minZ": 2.7775,
+      "maxZ": 2.8225,
+      "bottom": 0.05,
+      "top": 2.12
+    },
+    {
+      "name": "Low bay narrow glass door aluminium mullion.002",
+      "minX": -4.468,
+      "maxX": -4.432,
+      "minZ": 2.7775,
+      "maxZ": 2.8225,
+      "bottom": 0.05,
+      "top": 2.12
+    },
+    {
+      "name": "Low bay narrow glass door meeting rail",
+      "minX": -5.07,
+      "maxX": -4.39,
+      "minZ": 2.775,
+      "maxZ": 2.825,
+      "bottom": 1.0261,
+      "top": 1.0611
+    },
+    {
+      "name": "Low bay narrow glass door latch",
+      "minX": -4.7125,
+      "maxX": -4.6775,
+      "minZ": 2.7675,
+      "maxZ": 2.8325,
+      "bottom": 0.9786,
+      "top": 1.1086
+    },
+    {
+      "name": "Low bay glass door handle",
+      "minX": -4.502,
+      "maxX": -4.478,
+      "minZ": 2.695,
+      "maxZ": 2.765,
+      "bottom": 1.0,
+      "top": 1.16
+    },
+    {
+      "name": "Low bay window table rear solid top",
+      "minX": -7.65,
+      "maxX": -6.45,
+      "minZ": 1.69,
+      "maxZ": 2.37,
+      "bottom": 0.7075,
+      "top": 0.7725
+    },
+    {
+      "name": "Low bay window table rear leg",
+      "minX": -7.535,
+      "maxX": -7.465,
+      "minZ": 2.215,
+      "maxZ": 2.285,
+      "bottom": 0.0,
+      "top": 0.705
+    },
+    {
+      "name": "Low bay window table rear leg.001",
+      "minX": -7.535,
+      "maxX": -7.465,
+      "minZ": 1.775,
+      "maxZ": 1.845,
+      "bottom": 0.0,
+      "top": 0.705
+    },
+    {
+      "name": "Low bay window table rear leg.002",
+      "minX": -6.635,
+      "maxX": -6.565,
+      "minZ": 2.215,
+      "maxZ": 2.285,
+      "bottom": 0.0,
+      "top": 0.705
+    },
+    {
+      "name": "Low bay window table rear leg.003",
+      "minX": -6.635,
+      "maxX": -6.565,
+      "minZ": 1.775,
+      "maxZ": 1.845,
+      "bottom": 0.0,
+      "top": 0.705
+    },
+    {
+      "name": "Low bay window table rear apron",
+      "minX": -7.57,
+      "maxX": -6.53,
+      "minZ": 2.245,
+      "maxZ": 2.295,
+      "bottom": 0.54,
+      "top": 0.7
+    },
+    {
+      "name": "Low bay window table rear apron.001",
+      "minX": -7.57,
+      "maxX": -6.53,
+      "minZ": 1.765,
+      "maxZ": 1.815,
+      "bottom": 0.54,
+      "top": 0.7
+    },
+    {
+      "name": "Low bay window table front solid top",
+      "minX": -5.88,
+      "maxX": -4.68,
+      "minZ": 1.69,
+      "maxZ": 2.37,
+      "bottom": 0.7075,
+      "top": 0.7725
+    },
+    {
+      "name": "Low bay window table front leg",
+      "minX": -5.765,
+      "maxX": -5.695,
+      "minZ": 2.215,
+      "maxZ": 2.285,
+      "bottom": 0.0,
+      "top": 0.705
+    },
+    {
+      "name": "Low bay window table front leg.001",
+      "minX": -5.765,
+      "maxX": -5.695,
+      "minZ": 1.775,
+      "maxZ": 1.845,
+      "bottom": 0.0,
+      "top": 0.705
+    },
+    {
+      "name": "Low bay window table front leg.002",
+      "minX": -4.865,
+      "maxX": -4.795,
+      "minZ": 2.215,
+      "maxZ": 2.285,
+      "bottom": 0.0,
+      "top": 0.705
+    },
+    {
+      "name": "Low bay window table front leg.003",
+      "minX": -4.865,
+      "maxX": -4.795,
+      "minZ": 1.775,
+      "maxZ": 1.845,
+      "bottom": 0.0,
+      "top": 0.705
+    },
+    {
+      "name": "Low bay window table front apron",
+      "minX": -5.8,
+      "maxX": -4.76,
+      "minZ": 2.245,
+      "maxZ": 2.295,
+      "bottom": 0.54,
+      "top": 0.7
+    },
+    {
+      "name": "Low bay window table front apron.001",
+      "minX": -5.8,
+      "maxX": -4.76,
+      "minZ": 1.765,
+      "maxZ": 1.815,
+      "bottom": 0.54,
+      "top": 0.7
+    },
+    {
+      "name": "Low bay bench rear seat",
+      "minX": -7.64,
+      "maxX": -6.46,
+      "minZ": 1.3,
+      "maxZ": 1.6,
+      "bottom": 0.41,
+      "top": 0.47
+    },
+    {
+      "name": "Low bay bench rear leg",
+      "minX": -7.5075,
+      "maxX": -7.4525,
+      "minZ": 1.5175,
+      "maxZ": 1.5725,
+      "bottom": 0.0,
+      "top": 0.42
+    },
+    {
+      "name": "Low bay bench rear leg.001",
+      "minX": -7.5075,
+      "maxX": -7.4525,
+      "minZ": 1.3275,
+      "maxZ": 1.3825,
+      "bottom": 0.0,
+      "top": 0.42
+    },
+    {
+      "name": "Low bay bench rear leg.002",
+      "minX": -6.6475,
+      "maxX": -6.5925,
+      "minZ": 1.5175,
+      "maxZ": 1.5725,
+      "bottom": 0.0,
+      "top": 0.42
+    },
+    {
+      "name": "Low bay bench rear leg.003",
+      "minX": -6.6475,
+      "maxX": -6.5925,
+      "minZ": 1.3275,
+      "maxZ": 1.3825,
+      "bottom": 0.0,
+      "top": 0.42
+    },
+    {
+      "name": "Low bay bench rear back post",
+      "minX": -7.55,
+      "maxX": -7.51,
+      "minZ": 1.31,
+      "maxZ": 1.35,
+      "bottom": 0.21,
+      "top": 0.99
+    },
+    {
+      "name": "Low bay bench rear back post.001",
+      "minX": -6.59,
+      "maxX": -6.55,
+      "minZ": 1.31,
+      "maxZ": 1.35,
+      "bottom": 0.21,
+      "top": 0.99
+    },
+    {
+      "name": "Low bay bench rear back rail",
+      "minX": -7.64,
+      "maxX": -6.46,
+      "minZ": 1.3025,
+      "maxZ": 1.3575,
+      "bottom": 0.89,
+      "top": 0.99
+    },
+    {
+      "name": "Low bay bench rear back spindle",
+      "minX": -7.5109,
+      "maxX": -7.4859,
+      "minZ": 1.3175,
+      "maxZ": 1.3425,
+      "bottom": 0.595,
+      "top": 0.905
+    },
+    {
+      "name": "Low bay bench rear back spindle.001",
+      "minX": -7.3315,
+      "maxX": -7.3065,
+      "minZ": 1.3175,
+      "maxZ": 1.3425,
+      "bottom": 0.595,
+      "top": 0.905
+    },
+    {
+      "name": "Low bay bench rear back spindle.002",
+      "minX": -7.1522,
+      "maxX": -7.1272,
+      "minZ": 1.3175,
+      "maxZ": 1.3425,
+      "bottom": 0.595,
+      "top": 0.905
+    },
+    {
+      "name": "Low bay bench rear back spindle.003",
+      "minX": -6.9728,
+      "maxX": -6.9478,
+      "minZ": 1.3175,
+      "maxZ": 1.3425,
+      "bottom": 0.595,
+      "top": 0.905
+    },
+    {
+      "name": "Low bay bench rear back spindle.004",
+      "minX": -6.7935,
+      "maxX": -6.7685,
+      "minZ": 1.3175,
+      "maxZ": 1.3425,
+      "bottom": 0.595,
+      "top": 0.905
+    },
+    {
+      "name": "Low bay bench rear back spindle.005",
+      "minX": -6.6141,
+      "maxX": -6.5891,
+      "minZ": 1.3175,
+      "maxZ": 1.3425,
+      "bottom": 0.595,
+      "top": 0.905
+    },
+    {
+      "name": "Low bay bench front seat",
+      "minX": -5.87,
+      "maxX": -4.69,
+      "minZ": 1.3,
+      "maxZ": 1.6,
+      "bottom": 0.41,
+      "top": 0.47
+    },
+    {
+      "name": "Low bay bench front leg",
+      "minX": -5.7375,
+      "maxX": -5.6825,
+      "minZ": 1.5175,
+      "maxZ": 1.5725,
+      "bottom": 0.0,
+      "top": 0.42
+    },
+    {
+      "name": "Low bay bench front leg.001",
+      "minX": -5.7375,
+      "maxX": -5.6825,
+      "minZ": 1.3275,
+      "maxZ": 1.3825,
+      "bottom": 0.0,
+      "top": 0.42
+    },
+    {
+      "name": "Low bay bench front leg.002",
+      "minX": -4.8775,
+      "maxX": -4.8225,
+      "minZ": 1.5175,
+      "maxZ": 1.5725,
+      "bottom": 0.0,
+      "top": 0.42
+    },
+    {
+      "name": "Low bay bench front leg.003",
+      "minX": -4.8775,
+      "maxX": -4.8225,
+      "minZ": 1.3275,
+      "maxZ": 1.3825,
+      "bottom": 0.0,
+      "top": 0.42
+    },
+    {
+      "name": "Low bay bench front back post",
+      "minX": -5.78,
+      "maxX": -5.74,
+      "minZ": 1.31,
+      "maxZ": 1.35,
+      "bottom": 0.21,
+      "top": 0.99
+    },
+    {
+      "name": "Low bay bench front back post.001",
+      "minX": -4.82,
+      "maxX": -4.78,
+      "minZ": 1.31,
+      "maxZ": 1.35,
+      "bottom": 0.21,
+      "top": 0.99
+    },
+    {
+      "name": "Low bay bench front back rail",
+      "minX": -5.87,
+      "maxX": -4.69,
+      "minZ": 1.3025,
+      "maxZ": 1.3575,
+      "bottom": 0.89,
+      "top": 0.99
+    },
+    {
+      "name": "Low bay bench front back spindle",
+      "minX": -5.7409,
+      "maxX": -5.7159,
+      "minZ": 1.3175,
+      "maxZ": 1.3425,
+      "bottom": 0.595,
+      "top": 0.905
+    },
+    {
+      "name": "Low bay bench front back spindle.001",
+      "minX": -5.5615,
+      "maxX": -5.5365,
+      "minZ": 1.3175,
+      "maxZ": 1.3425,
+      "bottom": 0.595,
+      "top": 0.905
+    },
+    {
+      "name": "Low bay bench front back spindle.002",
+      "minX": -5.3822,
+      "maxX": -5.3572,
+      "minZ": 1.3175,
+      "maxZ": 1.3425,
+      "bottom": 0.595,
+      "top": 0.905
+    },
+    {
+      "name": "Low bay bench front back spindle.003",
+      "minX": -5.2028,
+      "maxX": -5.1778,
+      "minZ": 1.3175,
+      "maxZ": 1.3425,
+      "bottom": 0.595,
+      "top": 0.905
+    },
+    {
+      "name": "Low bay bench front back spindle.004",
+      "minX": -5.0235,
+      "maxX": -4.9985,
+      "minZ": 1.3175,
+      "maxZ": 1.3425,
+      "bottom": 0.595,
+      "top": 0.905
+    },
+    {
+      "name": "Low bay bench front back spindle.005",
+      "minX": -4.8441,
+      "maxX": -4.8191,
+      "minZ": 1.3175,
+      "maxZ": 1.3425,
+      "bottom": 0.595,
+      "top": 0.905
+    },
+    {
+      "name": "Cream curtain__SPACE_BEHIND_UNKNOWN",
+      "minX": -5.91,
+      "maxX": -5.05,
+      "minZ": 0.0443,
+      "maxZ": 0.0957,
+      "bottom": 0.0122,
+      "top": 1.95
+    },
+    {
+      "name": "Low bay bookstand",
+      "minX": -4.925,
+      "maxX": -4.355,
+      "minZ": -0.005,
+      "maxZ": 0.445,
+      "bottom": 0.0,
+      "top": 1.06
+    },
+    {
+      "name": "Low bay paper list frame",
+      "minX": -4.84,
+      "maxX": -4.46,
+      "minZ": 0.44,
+      "maxZ": 0.48,
+      "bottom": 0.27,
+      "top": 0.31
+    },
+    {
+      "name": "Low bay paper list frame.001",
+      "minX": -4.48,
+      "maxX": -4.44,
+      "minZ": 0.44,
+      "maxZ": 0.48,
+      "bottom": 0.29,
+      "top": 0.85
+    },
+    {
+      "name": "Low bay paper list frame.002",
+      "minX": -4.84,
+      "maxX": -4.46,
+      "minZ": 0.44,
+      "maxZ": 0.48,
+      "bottom": 0.83,
+      "top": 0.87
+    },
+    {
+      "name": "Low bay paper list frame.003",
+      "minX": -4.86,
+      "maxX": -4.82,
+      "minZ": 0.44,
+      "maxZ": 0.48,
+      "bottom": 0.29,
+      "top": 0.85
+    },
+    {
+      "name": "Tissue box.002",
+      "minX": -7.415,
+      "maxX": -7.185,
+      "minZ": 2.0,
+      "maxZ": 2.12,
+      "bottom": 0.78,
+      "top": 0.87
+    },
+    {
+      "name": "Single tissue.002",
+      "minX": -7.34,
+      "maxX": -7.26,
+      "minZ": 2.05,
+      "maxZ": 2.08,
+      "bottom": 0.876,
+      "top": 0.94
+    },
+    {
+      "name": "Tatami outer window wall board",
+      "minX": -11.8,
+      "maxX": -7.7,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 0.181,
+      "top": 0.309
+    },
+    {
+      "name": "Tatami outer window wall board.001",
+      "minX": -11.8,
+      "maxX": -7.7,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 0.311,
+      "top": 0.439
+    },
+    {
+      "name": "Tatami outer window wall board.002",
+      "minX": -11.8,
+      "maxX": -7.7,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 0.441,
+      "top": 0.569
+    },
+    {
+      "name": "Tatami outer window wall board.003",
+      "minX": -11.8,
+      "maxX": -11.525,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 0.571,
+      "top": 0.699
+    },
+    {
+      "name": "Tatami outer window wall board.004",
+      "minX": -9.775,
+      "maxX": -9.45,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 0.571,
+      "top": 0.699
+    },
+    {
+      "name": "Tatami outer window wall board.005",
+      "minX": -7.85,
+      "maxX": -7.7,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 0.571,
+      "top": 0.699
+    },
+    {
+      "name": "Tatami outer window wall board.006",
+      "minX": -11.8,
+      "maxX": -11.525,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 0.701,
+      "top": 0.829
+    },
+    {
+      "name": "Tatami outer window wall board.007",
+      "minX": -9.775,
+      "maxX": -9.45,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 0.701,
+      "top": 0.829
+    },
+    {
+      "name": "Tatami outer window wall board.008",
+      "minX": -7.85,
+      "maxX": -7.7,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 0.701,
+      "top": 0.829
+    },
+    {
+      "name": "Tatami outer window wall board.009",
+      "minX": -11.8,
+      "maxX": -11.525,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 0.831,
+      "top": 0.959
+    },
+    {
+      "name": "Tatami outer window wall board.010",
+      "minX": -9.775,
+      "maxX": -9.45,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 0.831,
+      "top": 0.959
+    },
+    {
+      "name": "Tatami outer window wall board.011",
+      "minX": -7.85,
+      "maxX": -7.7,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 0.831,
+      "top": 0.959
+    },
+    {
+      "name": "Tatami outer window wall board.012",
+      "minX": -11.8,
+      "maxX": -11.525,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 0.961,
+      "top": 1.089
+    },
+    {
+      "name": "Tatami outer window wall board.013",
+      "minX": -9.775,
+      "maxX": -9.45,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 0.961,
+      "top": 1.089
+    },
+    {
+      "name": "Tatami outer window wall board.014",
+      "minX": -7.85,
+      "maxX": -7.7,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 0.961,
+      "top": 1.089
+    },
+    {
+      "name": "Tatami outer window wall board.015",
+      "minX": -11.8,
+      "maxX": -11.525,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 1.091,
+      "top": 1.219
+    },
+    {
+      "name": "Tatami outer window wall board.016",
+      "minX": -9.775,
+      "maxX": -9.45,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 1.091,
+      "top": 1.219
+    },
+    {
+      "name": "Tatami outer window wall board.017",
+      "minX": -7.85,
+      "maxX": -7.7,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 1.091,
+      "top": 1.219
+    },
+    {
+      "name": "Tatami outer window wall board.018",
+      "minX": -11.8,
+      "maxX": -11.525,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 1.221,
+      "top": 1.349
+    },
+    {
+      "name": "Tatami outer window wall board.019",
+      "minX": -9.775,
+      "maxX": -9.45,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 1.221,
+      "top": 1.349
+    },
+    {
+      "name": "Tatami outer window wall board.020",
+      "minX": -7.85,
+      "maxX": -7.7,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 1.221,
+      "top": 1.349
+    },
+    {
+      "name": "Tatami outer window wall board.021",
+      "minX": -11.8,
+      "maxX": -11.525,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 1.351,
+      "top": 1.479
+    },
+    {
+      "name": "Tatami outer window wall board.022",
+      "minX": -9.775,
+      "maxX": -9.45,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 1.351,
+      "top": 1.479
+    },
+    {
+      "name": "Tatami outer window wall board.023",
+      "minX": -7.85,
+      "maxX": -7.7,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 1.351,
+      "top": 1.479
+    },
+    {
+      "name": "Tatami outer window wall board.024",
+      "minX": -11.8,
+      "maxX": -11.525,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 1.481,
+      "top": 1.609
+    },
+    {
+      "name": "Tatami outer window wall board.025",
+      "minX": -9.775,
+      "maxX": -9.45,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 1.481,
+      "top": 1.609
+    },
+    {
+      "name": "Tatami outer window wall board.026",
+      "minX": -7.85,
+      "maxX": -7.7,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 1.481,
+      "top": 1.609
+    },
+    {
+      "name": "Tatami outer window wall board.027",
+      "minX": -11.8,
+      "maxX": -11.525,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 1.611,
+      "top": 1.739
+    },
+    {
+      "name": "Tatami outer window wall board.028",
+      "minX": -9.775,
+      "maxX": -9.45,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 1.611,
+      "top": 1.739
+    },
+    {
+      "name": "Tatami outer window wall board.029",
+      "minX": -7.85,
+      "maxX": -7.7,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 1.611,
+      "top": 1.739
+    },
+    {
+      "name": "Tatami rear window wall board",
+      "minX": -11.86,
+      "maxX": -11.74,
+      "minZ": -1.0,
+      "maxZ": 2.8,
+      "bottom": 0.181,
+      "top": 0.309
+    },
+    {
+      "name": "Tatami rear window wall board.001",
+      "minX": -11.86,
+      "maxX": -11.74,
+      "minZ": -1.0,
+      "maxZ": 2.8,
+      "bottom": 0.311,
+      "top": 0.439
+    },
+    {
+      "name": "Tatami rear window wall board.002",
+      "minX": -11.86,
+      "maxX": -11.74,
+      "minZ": -1.0,
+      "maxZ": 2.8,
+      "bottom": 0.441,
+      "top": 0.569
+    },
+    {
+      "name": "Tatami rear window wall board.003",
+      "minX": -11.86,
+      "maxX": -11.74,
+      "minZ": -1.0,
+      "maxZ": 2.8,
+      "bottom": 0.571,
+      "top": 0.699
+    },
+    {
+      "name": "Tatami rear window wall board.004",
+      "minX": -11.86,
+      "maxX": -11.74,
+      "minZ": 1.995,
+      "maxZ": 2.8,
+      "bottom": 0.701,
+      "top": 0.829
+    },
+    {
+      "name": "Tatami rear window wall board.005",
+      "minX": -11.86,
+      "maxX": -11.74,
+      "minZ": -1.0,
+      "maxZ": 0.145,
+      "bottom": 0.701,
+      "top": 0.829
+    },
+    {
+      "name": "Tatami rear window wall board.006",
+      "minX": -11.86,
+      "maxX": -11.74,
+      "minZ": 1.995,
+      "maxZ": 2.8,
+      "bottom": 0.831,
+      "top": 0.959
+    },
+    {
+      "name": "Tatami rear window wall board.007",
+      "minX": -11.86,
+      "maxX": -11.74,
+      "minZ": -1.0,
+      "maxZ": 0.145,
+      "bottom": 0.831,
+      "top": 0.959
+    },
+    {
+      "name": "Tatami rear window wall board.008",
+      "minX": -11.86,
+      "maxX": -11.74,
+      "minZ": 1.995,
+      "maxZ": 2.8,
+      "bottom": 0.961,
+      "top": 1.089
+    },
+    {
+      "name": "Tatami rear window wall board.009",
+      "minX": -11.86,
+      "maxX": -11.74,
+      "minZ": -1.0,
+      "maxZ": 0.145,
+      "bottom": 0.961,
+      "top": 1.089
+    },
+    {
+      "name": "Tatami rear window wall board.010",
+      "minX": -11.86,
+      "maxX": -11.74,
+      "minZ": 1.995,
+      "maxZ": 2.8,
+      "bottom": 1.091,
+      "top": 1.219
+    },
+    {
+      "name": "Tatami rear window wall board.011",
+      "minX": -11.86,
+      "maxX": -11.74,
+      "minZ": -1.0,
+      "maxZ": 0.145,
+      "bottom": 1.091,
+      "top": 1.219
+    },
+    {
+      "name": "Tatami rear window wall board.012",
+      "minX": -11.86,
+      "maxX": -11.74,
+      "minZ": 1.995,
+      "maxZ": 2.8,
+      "bottom": 1.221,
+      "top": 1.349
+    },
+    {
+      "name": "Tatami rear window wall board.013",
+      "minX": -11.86,
+      "maxX": -11.74,
+      "minZ": -1.0,
+      "maxZ": 0.145,
+      "bottom": 1.221,
+      "top": 1.349
+    },
+    {
+      "name": "Tatami rear window wall board.014",
+      "minX": -11.86,
+      "maxX": -11.74,
+      "minZ": 1.995,
+      "maxZ": 2.8,
+      "bottom": 1.351,
+      "top": 1.479
+    },
+    {
+      "name": "Tatami rear window wall board.015",
+      "minX": -11.86,
+      "maxX": -11.74,
+      "minZ": -1.0,
+      "maxZ": 0.145,
+      "bottom": 1.351,
+      "top": 1.479
+    },
+    {
+      "name": "Tatami rear window wall board.016",
+      "minX": -11.86,
+      "maxX": -11.74,
+      "minZ": 1.995,
+      "maxZ": 2.8,
+      "bottom": 1.481,
+      "top": 1.609
+    },
+    {
+      "name": "Tatami rear window wall board.017",
+      "minX": -11.86,
+      "maxX": -11.74,
+      "minZ": -1.0,
+      "maxZ": 0.145,
+      "bottom": 1.481,
+      "top": 1.609
+    },
+    {
+      "name": "Tatami rear window wall board.018",
+      "minX": -11.86,
+      "maxX": -11.74,
+      "minZ": 1.995,
+      "maxZ": 2.8,
+      "bottom": 1.611,
+      "top": 1.739
+    },
+    {
+      "name": "Tatami rear window wall board.019",
+      "minX": -11.86,
+      "maxX": -11.74,
+      "minZ": -1.0,
+      "maxZ": 0.145,
+      "bottom": 1.611,
+      "top": 1.739
+    },
+    {
+      "name": "Tatami inner wall board",
+      "minX": -11.8,
+      "maxX": -7.7,
+      "minZ": -1.06,
+      "maxZ": -0.94,
+      "bottom": 0.181,
+      "top": 0.309
+    },
+    {
+      "name": "Tatami inner wall board.001",
+      "minX": -11.8,
+      "maxX": -7.7,
+      "minZ": -1.06,
+      "maxZ": -0.94,
+      "bottom": 0.311,
+      "top": 0.439
+    },
+    {
+      "name": "Tatami inner wall board.002",
+      "minX": -11.8,
+      "maxX": -7.7,
+      "minZ": -1.06,
+      "maxZ": -0.94,
+      "bottom": 0.441,
+      "top": 0.569
+    },
+    {
+      "name": "Tatami inner wall board.003",
+      "minX": -11.8,
+      "maxX": -7.7,
+      "minZ": -1.06,
+      "maxZ": -0.94,
+      "bottom": 0.571,
+      "top": 0.699
+    },
+    {
+      "name": "Tatami inner wall board.004",
+      "minX": -11.8,
+      "maxX": -7.7,
+      "minZ": -1.06,
+      "maxZ": -0.94,
+      "bottom": 0.701,
+      "top": 0.829
+    },
+    {
+      "name": "Tatami inner wall board.005",
+      "minX": -11.8,
+      "maxX": -7.7,
+      "minZ": -1.06,
+      "maxZ": -0.94,
+      "bottom": 0.831,
+      "top": 0.959
+    },
+    {
+      "name": "Tatami inner wall board.006",
+      "minX": -11.8,
+      "maxX": -7.7,
+      "minZ": -1.06,
+      "maxZ": -0.94,
+      "bottom": 0.961,
+      "top": 1.089
+    },
+    {
+      "name": "Tatami inner wall board.007",
+      "minX": -11.8,
+      "maxX": -7.7,
+      "minZ": -1.06,
+      "maxZ": -0.94,
+      "bottom": 1.091,
+      "top": 1.219
+    },
+    {
+      "name": "Tatami inner wall board.008",
+      "minX": -11.8,
+      "maxX": -7.7,
+      "minZ": -1.06,
+      "maxZ": -0.94,
+      "bottom": 1.221,
+      "top": 1.349
+    },
+    {
+      "name": "Tatami inner wall board.009",
+      "minX": -11.8,
+      "maxX": -7.7,
+      "minZ": -1.06,
+      "maxZ": -0.94,
+      "bottom": 1.351,
+      "top": 1.479
+    },
+    {
+      "name": "Tatami inner wall board.010",
+      "minX": -11.8,
+      "maxX": -7.7,
+      "minZ": -1.06,
+      "maxZ": -0.94,
+      "bottom": 1.481,
+      "top": 1.609
+    },
+    {
+      "name": "Tatami inner wall board.011",
+      "minX": -11.8,
+      "maxX": -7.7,
+      "minZ": -1.06,
+      "maxZ": -0.94,
+      "bottom": 1.611,
+      "top": 1.739
+    },
+    {
+      "name": "Tatami portal infill board",
+      "minX": -7.76,
+      "maxX": -7.64,
+      "minZ": -1.0,
+      "maxZ": 0.02,
+      "bottom": 0.181,
+      "top": 0.309
+    },
+    {
+      "name": "Tatami portal infill board.001",
+      "minX": -7.76,
+      "maxX": -7.64,
+      "minZ": -1.0,
+      "maxZ": 0.02,
+      "bottom": 0.311,
+      "top": 0.439
+    },
+    {
+      "name": "Tatami portal infill board.002",
+      "minX": -7.76,
+      "maxX": -7.64,
+      "minZ": -1.0,
+      "maxZ": 0.02,
+      "bottom": 0.441,
+      "top": 0.569
+    },
+    {
+      "name": "Tatami portal infill board.003",
+      "minX": -7.76,
+      "maxX": -7.64,
+      "minZ": -1.0,
+      "maxZ": 0.02,
+      "bottom": 0.571,
+      "top": 0.699
+    },
+    {
+      "name": "Tatami portal infill board.004",
+      "minX": -7.76,
+      "maxX": -7.64,
+      "minZ": -1.0,
+      "maxZ": 0.02,
+      "bottom": 0.701,
+      "top": 0.829
+    },
+    {
+      "name": "Tatami portal infill board.005",
+      "minX": -7.76,
+      "maxX": -7.64,
+      "minZ": -1.0,
+      "maxZ": 0.02,
+      "bottom": 0.831,
+      "top": 0.959
+    },
+    {
+      "name": "Tatami portal infill board.006",
+      "minX": -7.76,
+      "maxX": -7.64,
+      "minZ": -1.0,
+      "maxZ": 0.02,
+      "bottom": 0.961,
+      "top": 1.089
+    },
+    {
+      "name": "Tatami portal infill board.007",
+      "minX": -7.76,
+      "maxX": -7.64,
+      "minZ": -1.0,
+      "maxZ": 0.02,
+      "bottom": 1.091,
+      "top": 1.219
+    },
+    {
+      "name": "Tatami portal infill board.008",
+      "minX": -7.76,
+      "maxX": -7.64,
+      "minZ": -1.0,
+      "maxZ": 0.02,
+      "bottom": 1.221,
+      "top": 1.349
+    },
+    {
+      "name": "Tatami portal infill board.009",
+      "minX": -7.76,
+      "maxX": -7.64,
+      "minZ": -1.0,
+      "maxZ": 0.02,
+      "bottom": 1.351,
+      "top": 1.479
+    },
+    {
+      "name": "Tatami portal infill board.010",
+      "minX": -7.76,
+      "maxX": -7.64,
+      "minZ": -1.0,
+      "maxZ": 0.02,
+      "bottom": 1.481,
+      "top": 1.609
+    },
+    {
+      "name": "Tatami portal infill board.011",
+      "minX": -7.76,
+      "maxX": -7.64,
+      "minZ": -1.0,
+      "maxZ": 0.02,
+      "bottom": 1.611,
+      "top": 1.739
+    },
+    {
+      "name": "Tatami wall timber post",
+      "minX": -11.8125,
+      "maxX": -11.7275,
+      "minZ": 2.7075,
+      "maxZ": 2.7925,
+      "bottom": 0.17,
+      "top": 2.37
+    },
+    {
+      "name": "Tatami wall timber post.001",
+      "minX": -11.8125,
+      "maxX": -11.7275,
+      "minZ": -0.9825,
+      "maxZ": -0.8975,
+      "bottom": 0.17,
+      "top": 2.37
+    },
+    {
+      "name": "Tatami wall timber post.002",
+      "minX": -9.7425,
+      "maxX": -9.6575,
+      "minZ": 2.7075,
+      "maxZ": 2.7925,
+      "bottom": 0.17,
+      "top": 2.37
+    },
+    {
+      "name": "Tatami wall timber post.003",
+      "minX": -9.7425,
+      "maxX": -9.6575,
+      "minZ": -0.9825,
+      "maxZ": -0.8975,
+      "bottom": 0.17,
+      "top": 2.37
+    },
+    {
+      "name": "Tatami wall timber post.004",
+      "minX": -7.8025,
+      "maxX": -7.7175,
+      "minZ": 2.7075,
+      "maxZ": 2.7925,
+      "bottom": 0.17,
+      "top": 2.37
+    },
+    {
+      "name": "Tatami wall timber post.005",
+      "minX": -7.8025,
+      "maxX": -7.7175,
+      "minZ": -0.9825,
+      "maxZ": -0.8975,
+      "bottom": 0.17,
+      "top": 2.37
+    },
+    {
+      "name": "Tatami rear window timber jamb",
+      "minX": -11.885,
+      "maxX": -11.715,
+      "minZ": 1.94,
+      "maxZ": 2.05,
+      "bottom": 0.57,
+      "top": 2.03
+    },
+    {
+      "name": "Tatami rear window timber jamb.001",
+      "minX": -11.885,
+      "maxX": -11.715,
+      "minZ": 0.09,
+      "maxZ": 0.2,
+      "bottom": 0.57,
+      "top": 2.03
+    },
+    {
+      "name": "Tatami rear window timber lintel",
+      "minX": -11.895,
+      "maxX": -11.705,
+      "minZ": 0.045,
+      "maxZ": 2.095,
+      "bottom": 0.61,
+      "top": 0.71
+    },
+    {
+      "name": "Tatami rear window aluminium mullion",
+      "minX": -11.8225,
+      "maxX": -11.7775,
+      "minZ": 1.917,
+      "maxZ": 1.953,
+      "bottom": 0.66,
+      "top": 1.94
+    },
+    {
+      "name": "Tatami rear window aluminium mullion.001",
+      "minX": -11.8225,
+      "maxX": -11.7775,
+      "minZ": 1.052,
+      "maxZ": 1.088,
+      "bottom": 0.66,
+      "top": 1.94
+    },
+    {
+      "name": "Tatami rear window aluminium mullion.002",
+      "minX": -11.8225,
+      "maxX": -11.7775,
+      "minZ": 0.187,
+      "maxZ": 0.223,
+      "bottom": 0.66,
+      "top": 1.94
+    },
+    {
+      "name": "Tatami rear window meeting rail",
+      "minX": -11.825,
+      "maxX": -11.775,
+      "minZ": 0.145,
+      "maxZ": 1.995,
+      "bottom": 1.2569,
+      "top": 1.2919
+    },
+    {
+      "name": "Tatami rear window latch",
+      "minX": -11.8325,
+      "maxX": -11.7675,
+      "minZ": 1.0175,
+      "maxZ": 1.0525,
+      "bottom": 1.2094,
+      "top": 1.3394
+    },
+    {
+      "name": "Tatami side window timber jamb",
+      "minX": -11.58,
+      "maxX": -11.47,
+      "minZ": 2.715,
+      "maxZ": 2.885,
+      "bottom": 0.54,
+      "top": 2.05
+    },
+    {
+      "name": "Tatami side window timber jamb.001",
+      "minX": -9.83,
+      "maxX": -9.72,
+      "minZ": 2.715,
+      "maxZ": 2.885,
+      "bottom": 0.54,
+      "top": 2.05
+    },
+    {
+      "name": "Tatami side window timber lintel",
+      "minX": -11.625,
+      "maxX": -9.675,
+      "minZ": 2.705,
+      "maxZ": 2.895,
+      "bottom": 0.58,
+      "top": 0.68
+    },
+    {
+      "name": "Tatami side window aluminium mullion",
+      "minX": -11.483,
+      "maxX": -11.447,
+      "minZ": 2.7775,
+      "maxZ": 2.8225,
+      "bottom": 0.63,
+      "top": 1.96
+    },
+    {
+      "name": "Tatami side window aluminium mullion.001",
+      "minX": -10.668,
+      "maxX": -10.632,
+      "minZ": 2.7775,
+      "maxZ": 2.8225,
+      "bottom": 0.63,
+      "top": 1.96
+    },
+    {
+      "name": "Tatami side window aluminium mullion.002",
+      "minX": -9.853,
+      "maxX": -9.817,
+      "minZ": 2.7775,
+      "maxZ": 2.8225,
+      "bottom": 0.63,
+      "top": 1.96
+    },
+    {
+      "name": "Tatami side window meeting rail",
+      "minX": -11.525,
+      "maxX": -9.775,
+      "minZ": 2.775,
+      "maxZ": 2.825,
+      "bottom": 1.2509,
+      "top": 1.2859
+    },
+    {
+      "name": "Tatami side window latch",
+      "minX": -10.6325,
+      "maxX": -10.5975,
+      "minZ": 2.7675,
+      "maxZ": 2.8325,
+      "bottom": 1.2034,
+      "top": 1.3334
+    },
+    {
+      "name": "Tatami side window timber jamb.002",
+      "minX": -9.505,
+      "maxX": -9.395,
+      "minZ": 2.715,
+      "maxZ": 2.885,
+      "bottom": 0.54,
+      "top": 2.05
+    },
+    {
+      "name": "Tatami side window timber jamb.003",
+      "minX": -7.905,
+      "maxX": -7.795,
+      "minZ": 2.715,
+      "maxZ": 2.885,
+      "bottom": 0.54,
+      "top": 2.05
+    },
+    {
+      "name": "Tatami side window timber lintel.002",
+      "minX": -9.55,
+      "maxX": -7.75,
+      "minZ": 2.705,
+      "maxZ": 2.895,
+      "bottom": 0.58,
+      "top": 0.68
+    },
+    {
+      "name": "Tatami side window aluminium mullion.003",
+      "minX": -9.408,
+      "maxX": -9.372,
+      "minZ": 2.7775,
+      "maxZ": 2.8225,
+      "bottom": 0.63,
+      "top": 1.96
+    },
+    {
+      "name": "Tatami side window aluminium mullion.004",
+      "minX": -8.668,
+      "maxX": -8.632,
+      "minZ": 2.7775,
+      "maxZ": 2.8225,
+      "bottom": 0.63,
+      "top": 1.96
+    },
+    {
+      "name": "Tatami side window aluminium mullion.005",
+      "minX": -7.928,
+      "maxX": -7.892,
+      "minZ": 2.7775,
+      "maxZ": 2.8225,
+      "bottom": 0.63,
+      "top": 1.96
+    },
+    {
+      "name": "Tatami side window meeting rail.001",
+      "minX": -9.45,
+      "maxX": -7.85,
+      "minZ": 2.775,
+      "maxZ": 2.825,
+      "bottom": 1.2509,
+      "top": 1.2859
+    },
+    {
+      "name": "Tatami side window latch.001",
+      "minX": -8.6325,
+      "maxX": -8.5975,
+      "minZ": 2.7675,
+      "maxZ": 2.8325,
+      "bottom": 1.2034,
+      "top": 1.3334
+    },
+    {
+      "name": "Tatami low red table solid top",
+      "minX": -11.125,
+      "maxX": -10.075,
+      "minZ": 2.02,
+      "maxZ": 2.7,
+      "bottom": 0.4975,
+      "top": 0.5625
+    },
+    {
+      "name": "Tatami low red table leg",
+      "minX": -11.01,
+      "maxX": -10.94,
+      "minZ": 2.545,
+      "maxZ": 2.615,
+      "bottom": 0.0,
+      "top": 0.495
+    },
+    {
+      "name": "Tatami low red table leg.001",
+      "minX": -11.01,
+      "maxX": -10.94,
+      "minZ": 2.105,
+      "maxZ": 2.175,
+      "bottom": 0.0,
+      "top": 0.495
+    },
+    {
+      "name": "Tatami low red table leg.002",
+      "minX": -10.26,
+      "maxX": -10.19,
+      "minZ": 2.545,
+      "maxZ": 2.615,
+      "bottom": 0.0,
+      "top": 0.495
+    },
+    {
+      "name": "Tatami low red table leg.003",
+      "minX": -10.26,
+      "maxX": -10.19,
+      "minZ": 2.105,
+      "maxZ": 2.175,
+      "bottom": 0.0,
+      "top": 0.495
+    },
+    {
+      "name": "Tatami low red table apron",
+      "minX": -11.045,
+      "maxX": -10.155,
+      "minZ": 2.575,
+      "maxZ": 2.625,
+      "bottom": 0.33,
+      "top": 0.49
+    },
+    {
+      "name": "Tatami low red table apron.001",
+      "minX": -11.045,
+      "maxX": -10.155,
+      "minZ": 2.095,
+      "maxZ": 2.145,
+      "bottom": 0.33,
+      "top": 0.49
+    },
+    {
+      "name": "Tatami cushion",
+      "minX": -11.1,
+      "maxX": -10.62,
+      "minZ": 1.45,
+      "maxZ": 1.87,
+      "bottom": 0.22,
+      "top": 0.32
+    },
+    {
+      "name": "Tatami cushion.001",
+      "minX": -10.58,
+      "maxX": -10.1,
+      "minZ": 1.45,
+      "maxZ": 1.87,
+      "bottom": 0.22,
+      "top": 0.32
+    },
+    {
+      "name": "Tissue box.003",
+      "minX": -10.555,
+      "maxX": -10.325,
+      "minZ": 2.3,
+      "maxZ": 2.42,
+      "bottom": 0.57,
+      "top": 0.66
+    },
+    {
+      "name": "Single tissue.003",
+      "minX": -10.48,
+      "maxX": -10.4,
+      "minZ": 2.35,
+      "maxZ": 2.38,
+      "bottom": 0.666,
+      "top": 0.73
+    },
+    {
+      "name": "Tatami low red table solid top.001",
+      "minX": -9.375,
+      "maxX": -8.325,
+      "minZ": 2.02,
+      "maxZ": 2.7,
+      "bottom": 0.4975,
+      "top": 0.5625
+    },
+    {
+      "name": "Tatami low red table leg.004",
+      "minX": -9.26,
+      "maxX": -9.19,
+      "minZ": 2.545,
+      "maxZ": 2.615,
+      "bottom": 0.0,
+      "top": 0.495
+    },
+    {
+      "name": "Tatami low red table leg.005",
+      "minX": -9.26,
+      "maxX": -9.19,
+      "minZ": 2.105,
+      "maxZ": 2.175,
+      "bottom": 0.0,
+      "top": 0.495
+    },
+    {
+      "name": "Tatami low red table leg.006",
+      "minX": -8.51,
+      "maxX": -8.44,
+      "minZ": 2.545,
+      "maxZ": 2.615,
+      "bottom": 0.0,
+      "top": 0.495
+    },
+    {
+      "name": "Tatami low red table leg.007",
+      "minX": -8.51,
+      "maxX": -8.44,
+      "minZ": 2.105,
+      "maxZ": 2.175,
+      "bottom": 0.0,
+      "top": 0.495
+    },
+    {
+      "name": "Tatami low red table apron.002",
+      "minX": -9.295,
+      "maxX": -8.405,
+      "minZ": 2.575,
+      "maxZ": 2.625,
+      "bottom": 0.33,
+      "top": 0.49
+    },
+    {
+      "name": "Tatami low red table apron.003",
+      "minX": -9.295,
+      "maxX": -8.405,
+      "minZ": 2.095,
+      "maxZ": 2.145,
+      "bottom": 0.33,
+      "top": 0.49
+    },
+    {
+      "name": "Tatami cushion.002",
+      "minX": -9.35,
+      "maxX": -8.87,
+      "minZ": 1.45,
+      "maxZ": 1.87,
+      "bottom": 0.22,
+      "top": 0.32
+    },
+    {
+      "name": "Tatami cushion.003",
+      "minX": -8.83,
+      "maxX": -8.35,
+      "minZ": 1.45,
+      "maxZ": 1.87,
+      "bottom": 0.22,
+      "top": 0.32
+    },
+    {
+      "name": "Tissue box.004",
+      "minX": -8.805,
+      "maxX": -8.575,
+      "minZ": 2.3,
+      "maxZ": 2.42,
+      "bottom": 0.57,
+      "top": 0.66
+    },
+    {
+      "name": "Single tissue.004",
+      "minX": -8.73,
+      "maxX": -8.65,
+      "minZ": 2.35,
+      "maxZ": 2.38,
+      "bottom": 0.666,
+      "top": 0.73
+    },
+    {
+      "name": "Observed stored objects silhouette",
+      "minX": -11.05,
+      "maxX": -9.75,
+      "minZ": -0.745,
+      "maxZ": -0.095,
+      "bottom": 0.18,
+      "top": 1.28
+    },
+    {
+      "name": "Stacked bedding base",
+      "minX": -9.08,
+      "maxX": -8.48,
+      "minZ": -0.88,
+      "maxZ": -0.18,
+      "bottom": 0.215,
+      "top": 0.685
+    },
+    {
+      "name": "Folded bedding",
+      "minX": -9.075,
+      "maxX": -8.485,
+      "minZ": -0.835,
+      "maxZ": -0.205,
+      "bottom": 0.735,
+      "top": 0.805
+    },
+    {
+      "name": "Folded bedding.001",
+      "minX": -9.075,
+      "maxX": -8.485,
+      "minZ": -0.835,
+      "maxZ": -0.205,
+      "bottom": 0.805,
+      "top": 0.875
+    },
+    {
+      "name": "Folded bedding.002",
+      "minX": -9.075,
+      "maxX": -8.485,
+      "minZ": -0.835,
+      "maxZ": -0.205,
+      "bottom": 0.875,
+      "top": 0.945
+    },
+    {
+      "name": "Stacked bedding base.001",
+      "minX": -8.65,
+      "maxX": -8.05,
+      "minZ": -0.88,
+      "maxZ": -0.18,
+      "bottom": 0.215,
+      "top": 0.685
+    },
+    {
+      "name": "Folded bedding.003",
+      "minX": -8.645,
+      "maxX": -8.055,
+      "minZ": -0.835,
+      "maxZ": -0.205,
+      "bottom": 0.735,
+      "top": 0.805
+    },
+    {
+      "name": "Folded bedding.004",
+      "minX": -8.645,
+      "maxX": -8.055,
+      "minZ": -0.835,
+      "maxZ": -0.205,
+      "bottom": 0.805,
+      "top": 0.875
+    },
+    {
+      "name": "Folded bedding.005",
+      "minX": -8.645,
+      "maxX": -8.055,
+      "minZ": -0.835,
+      "maxZ": -0.205,
+      "bottom": 0.875,
+      "top": 0.945
+    },
+    {
+      "name": "Stored folding chair back",
+      "minX": -9.095,
+      "maxX": -8.905,
+      "minZ": -0.33,
+      "maxZ": -0.27,
+      "bottom": 0.6,
+      "top": 1.2
+    },
+    {
+      "name": "Stored folding chair rail",
+      "minX": -9.126,
+      "maxX": -9.094,
+      "minZ": -0.336,
+      "maxZ": -0.244,
+      "bottom": 0.249,
+      "top": 1.191
+    },
+    {
+      "name": "Stored folding chair rail.001",
+      "minX": -8.906,
+      "maxX": -8.874,
+      "minZ": -0.336,
+      "maxZ": -0.244,
+      "bottom": 0.249,
+      "top": 1.191
+    },
+    {
+      "name": "Stored folding chair back.001",
+      "minX": -8.865,
+      "maxX": -8.675,
+      "minZ": -0.33,
+      "maxZ": -0.27,
+      "bottom": 0.6,
+      "top": 1.2
+    },
+    {
+      "name": "Stored folding chair rail.002",
+      "minX": -8.896,
+      "maxX": -8.864,
+      "minZ": -0.336,
+      "maxZ": -0.244,
+      "bottom": 0.249,
+      "top": 1.191
+    },
+    {
+      "name": "Stored folding chair rail.003",
+      "minX": -8.676,
+      "maxX": -8.644,
+      "minZ": -0.336,
+      "maxZ": -0.244,
+      "bottom": 0.249,
+      "top": 1.191
+    },
+    {
+      "name": "Stored folding chair back.002",
+      "minX": -8.635,
+      "maxX": -8.445,
+      "minZ": -0.33,
+      "maxZ": -0.27,
+      "bottom": 0.6,
+      "top": 1.2
+    },
+    {
+      "name": "Stored folding chair rail.004",
+      "minX": -8.666,
+      "maxX": -8.634,
+      "minZ": -0.336,
+      "maxZ": -0.244,
+      "bottom": 0.249,
+      "top": 1.191
+    },
+    {
+      "name": "Stored folding chair rail.005",
+      "minX": -8.446,
+      "maxX": -8.414,
+      "minZ": -0.336,
+      "maxZ": -0.244,
+      "bottom": 0.249,
+      "top": 1.191
+    },
+    {
+      "name": "Blue chair bay outer window wall board",
+      "minX": 6.415,
+      "maxX": 6.535,
+      "minZ": -2.65,
+      "maxZ": 2.8,
+      "bottom": 0.121,
+      "top": 0.249
+    },
+    {
+      "name": "Blue chair bay outer window wall board.001",
+      "minX": 6.415,
+      "maxX": 6.535,
+      "minZ": -2.65,
+      "maxZ": 2.8,
+      "bottom": 0.251,
+      "top": 0.379
+    },
+    {
+      "name": "Blue chair bay outer window wall board.002",
+      "minX": 6.415,
+      "maxX": 6.535,
+      "minZ": -2.65,
+      "maxZ": 2.8,
+      "bottom": 0.381,
+      "top": 0.509
+    },
+    {
+      "name": "Blue chair bay outer window wall board.003",
+      "minX": 6.415,
+      "maxX": 6.535,
+      "minZ": -2.65,
+      "maxZ": 2.8,
+      "bottom": 0.511,
+      "top": 0.639
+    },
+    {
+      "name": "Blue chair bay outer window wall board.004",
+      "minX": 6.415,
+      "maxX": 6.535,
+      "minZ": -2.65,
+      "maxZ": 2.8,
+      "bottom": 0.641,
+      "top": 0.769
+    },
+    {
+      "name": "Blue chair bay outer window wall board.005",
+      "minX": 6.415,
+      "maxX": 6.535,
+      "minZ": 2.31,
+      "maxZ": 2.8,
+      "bottom": 0.771,
+      "top": 0.899
+    },
+    {
+      "name": "Blue chair bay outer window wall board.006",
+      "minX": 6.415,
+      "maxX": 6.535,
+      "minZ": -0.44,
+      "maxZ": 0.29,
+      "bottom": 0.771,
+      "top": 0.899
+    },
+    {
+      "name": "Blue chair bay outer window wall board.007",
+      "minX": 6.415,
+      "maxX": 6.535,
+      "minZ": -2.65,
+      "maxZ": -2.4,
+      "bottom": 0.771,
+      "top": 0.899
+    },
+    {
+      "name": "Blue chair bay outer window wall board.008",
+      "minX": 6.415,
+      "maxX": 6.535,
+      "minZ": 2.31,
+      "maxZ": 2.8,
+      "bottom": 0.901,
+      "top": 1.029
+    },
+    {
+      "name": "Blue chair bay outer window wall board.009",
+      "minX": 6.415,
+      "maxX": 6.535,
+      "minZ": -0.44,
+      "maxZ": 0.29,
+      "bottom": 0.901,
+      "top": 1.029
+    },
+    {
+      "name": "Blue chair bay outer window wall board.010",
+      "minX": 6.415,
+      "maxX": 6.535,
+      "minZ": -2.65,
+      "maxZ": -2.4,
+      "bottom": 0.901,
+      "top": 1.029
+    },
+    {
+      "name": "Blue chair bay outer window wall board.011",
+      "minX": 6.415,
+      "maxX": 6.535,
+      "minZ": 2.31,
+      "maxZ": 2.8,
+      "bottom": 1.031,
+      "top": 1.159
+    },
+    {
+      "name": "Blue chair bay outer window wall board.012",
+      "minX": 6.415,
+      "maxX": 6.535,
+      "minZ": -0.44,
+      "maxZ": 0.29,
+      "bottom": 1.031,
+      "top": 1.159
+    },
+    {
+      "name": "Blue chair bay outer window wall board.013",
+      "minX": 6.415,
+      "maxX": 6.535,
+      "minZ": -2.65,
+      "maxZ": -2.4,
+      "bottom": 1.031,
+      "top": 1.159
+    },
+    {
+      "name": "Blue chair bay outer window wall board.014",
+      "minX": 6.415,
+      "maxX": 6.535,
+      "minZ": 2.31,
+      "maxZ": 2.8,
+      "bottom": 1.161,
+      "top": 1.289
+    },
+    {
+      "name": "Blue chair bay outer window wall board.015",
+      "minX": 6.415,
+      "maxX": 6.535,
+      "minZ": -0.44,
+      "maxZ": 0.29,
+      "bottom": 1.161,
+      "top": 1.289
+    },
+    {
+      "name": "Blue chair bay outer window wall board.016",
+      "minX": 6.415,
+      "maxX": 6.535,
+      "minZ": -2.65,
+      "maxZ": -2.4,
+      "bottom": 1.161,
+      "top": 1.289
+    },
+    {
+      "name": "Blue chair bay outer window wall board.017",
+      "minX": 6.415,
+      "maxX": 6.535,
+      "minZ": 2.31,
+      "maxZ": 2.8,
+      "bottom": 1.291,
+      "top": 1.419
+    },
+    {
+      "name": "Blue chair bay outer window wall board.018",
+      "minX": 6.415,
+      "maxX": 6.535,
+      "minZ": -0.44,
+      "maxZ": 0.29,
+      "bottom": 1.291,
+      "top": 1.419
+    },
+    {
+      "name": "Blue chair bay outer window wall board.019",
+      "minX": 6.415,
+      "maxX": 6.535,
+      "minZ": -2.65,
+      "maxZ": -2.4,
+      "bottom": 1.291,
+      "top": 1.419
+    },
+    {
+      "name": "Blue chair bay outer window wall board.020",
+      "minX": 6.415,
+      "maxX": 6.535,
+      "minZ": 2.31,
+      "maxZ": 2.8,
+      "bottom": 1.421,
+      "top": 1.549
+    },
+    {
+      "name": "Blue chair bay outer window wall board.021",
+      "minX": 6.415,
+      "maxX": 6.535,
+      "minZ": -0.44,
+      "maxZ": 0.29,
+      "bottom": 1.421,
+      "top": 1.549
+    },
+    {
+      "name": "Blue chair bay outer window wall board.022",
+      "minX": 6.415,
+      "maxX": 6.535,
+      "minZ": -2.65,
+      "maxZ": -2.4,
+      "bottom": 1.421,
+      "top": 1.549
+    },
+    {
+      "name": "Blue chair bay outer window wall board.023",
+      "minX": 6.415,
+      "maxX": 6.535,
+      "minZ": 2.31,
+      "maxZ": 2.8,
+      "bottom": 1.551,
+      "top": 1.679
+    },
+    {
+      "name": "Blue chair bay outer window wall board.024",
+      "minX": 6.415,
+      "maxX": 6.535,
+      "minZ": -0.44,
+      "maxZ": 0.29,
+      "bottom": 1.551,
+      "top": 1.679
+    },
+    {
+      "name": "Blue chair bay outer window wall board.025",
+      "minX": 6.415,
+      "maxX": 6.535,
+      "minZ": -2.65,
+      "maxZ": -2.4,
+      "bottom": 1.551,
+      "top": 1.679
+    },
+    {
+      "name": "Blue chair bay entrance-side return board",
+      "minX": 4.2,
+      "maxX": 6.475,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 0.121,
+      "top": 0.249
+    },
+    {
+      "name": "Blue chair bay entrance-side return board.001",
+      "minX": 4.2,
+      "maxX": 6.475,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 0.251,
+      "top": 0.379
+    },
+    {
+      "name": "Blue chair bay entrance-side return board.002",
+      "minX": 4.2,
+      "maxX": 6.475,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 0.381,
+      "top": 0.509
+    },
+    {
+      "name": "Blue chair bay entrance-side return board.003",
+      "minX": 4.2,
+      "maxX": 6.475,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 0.511,
+      "top": 0.639
+    },
+    {
+      "name": "Blue chair bay entrance-side return board.004",
+      "minX": 4.2,
+      "maxX": 6.475,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 0.641,
+      "top": 0.769
+    },
+    {
+      "name": "Blue chair bay entrance-side return board.005",
+      "minX": 4.2,
+      "maxX": 4.6425,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 0.771,
+      "top": 0.899
+    },
+    {
+      "name": "Blue chair bay entrance-side return board.006",
+      "minX": 6.0325,
+      "maxX": 6.475,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 0.771,
+      "top": 0.899
+    },
+    {
+      "name": "Blue chair bay entrance-side return board.007",
+      "minX": 4.2,
+      "maxX": 4.6425,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 0.901,
+      "top": 1.029
+    },
+    {
+      "name": "Blue chair bay entrance-side return board.008",
+      "minX": 6.0325,
+      "maxX": 6.475,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 0.901,
+      "top": 1.029
+    },
+    {
+      "name": "Blue chair bay entrance-side return board.009",
+      "minX": 4.2,
+      "maxX": 4.6425,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 1.031,
+      "top": 1.159
+    },
+    {
+      "name": "Blue chair bay entrance-side return board.010",
+      "minX": 6.0325,
+      "maxX": 6.475,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 1.031,
+      "top": 1.159
+    },
+    {
+      "name": "Blue chair bay entrance-side return board.011",
+      "minX": 4.2,
+      "maxX": 4.6425,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 1.161,
+      "top": 1.289
+    },
+    {
+      "name": "Blue chair bay entrance-side return board.012",
+      "minX": 6.0325,
+      "maxX": 6.475,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 1.161,
+      "top": 1.289
+    },
+    {
+      "name": "Blue chair bay entrance-side return board.013",
+      "minX": 4.2,
+      "maxX": 4.6425,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 1.291,
+      "top": 1.419
+    },
+    {
+      "name": "Blue chair bay entrance-side return board.014",
+      "minX": 6.0325,
+      "maxX": 6.475,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 1.291,
+      "top": 1.419
+    },
+    {
+      "name": "Blue chair bay entrance-side return board.015",
+      "minX": 4.2,
+      "maxX": 4.6425,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 1.421,
+      "top": 1.549
+    },
+    {
+      "name": "Blue chair bay entrance-side return board.016",
+      "minX": 6.0325,
+      "maxX": 6.475,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 1.421,
+      "top": 1.549
+    },
+    {
+      "name": "Blue chair bay entrance-side return board.017",
+      "minX": 4.2,
+      "maxX": 4.6425,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 1.551,
+      "top": 1.679
+    },
+    {
+      "name": "Blue chair bay entrance-side return board.018",
+      "minX": 6.0325,
+      "maxX": 6.475,
+      "minZ": 2.74,
+      "maxZ": 2.86,
+      "bottom": 1.551,
+      "top": 1.679
+    },
+    {
+      "name": "Blue chair bay set-back window timber jamb",
+      "minX": 6.39,
+      "maxX": 6.56,
+      "minZ": 2.255,
+      "maxZ": 2.365,
+      "bottom": 0.73,
+      "top": 2.32
+    },
+    {
+      "name": "Blue chair bay set-back window timber jamb.001",
+      "minX": 6.39,
+      "maxX": 6.56,
+      "minZ": 0.235,
+      "maxZ": 0.345,
+      "bottom": 0.73,
+      "top": 2.32
+    },
+    {
+      "name": "Blue chair bay set-back window timber lintel",
+      "minX": 6.38,
+      "maxX": 6.57,
+      "minZ": 0.19,
+      "maxZ": 2.41,
+      "bottom": 0.77,
+      "top": 0.87
+    },
+    {
+      "name": "Blue chair bay set-back window aluminium mullion",
+      "minX": 6.4525,
+      "maxX": 6.4975,
+      "minZ": 2.232,
+      "maxZ": 2.268,
+      "bottom": 0.82,
+      "top": 2.23
+    },
+    {
+      "name": "Blue chair bay set-back window aluminium mullion.001",
+      "minX": 6.4525,
+      "maxX": 6.4975,
+      "minZ": 1.282,
+      "maxZ": 1.318,
+      "bottom": 0.82,
+      "top": 2.23
+    },
+    {
+      "name": "Blue chair bay set-back window aluminium mullion.002",
+      "minX": 6.4525,
+      "maxX": 6.4975,
+      "minZ": 0.332,
+      "maxZ": 0.368,
+      "bottom": 0.82,
+      "top": 2.23
+    },
+    {
+      "name": "Blue chair bay set-back window meeting rail",
+      "minX": 6.45,
+      "maxX": 6.5,
+      "minZ": 0.29,
+      "maxZ": 2.31,
+      "bottom": 1.4793,
+      "top": 1.5143
+    },
+    {
+      "name": "Blue chair bay set-back window latch",
+      "minX": 6.4425,
+      "maxX": 6.5075,
+      "minZ": 1.2475,
+      "maxZ": 1.2825,
+      "bottom": 1.4318,
+      "top": 1.5618
+    },
+    {
+      "name": "Blue chair bay set-back window timber jamb.002",
+      "minX": 6.39,
+      "maxX": 6.56,
+      "minZ": -0.495,
+      "maxZ": -0.385,
+      "bottom": 0.73,
+      "top": 2.32
+    },
+    {
+      "name": "Blue chair bay set-back window timber jamb.003",
+      "minX": 6.39,
+      "maxX": 6.56,
+      "minZ": -2.455,
+      "maxZ": -2.345,
+      "bottom": 0.73,
+      "top": 2.32
+    },
+    {
+      "name": "Blue chair bay set-back window timber lintel.002",
+      "minX": 6.38,
+      "maxX": 6.57,
+      "minZ": -2.5,
+      "maxZ": -0.34,
+      "bottom": 0.77,
+      "top": 0.87
+    },
+    {
+      "name": "Blue chair bay set-back window aluminium mullion.003",
+      "minX": 6.4525,
+      "maxX": 6.4975,
+      "minZ": -0.518,
+      "maxZ": -0.482,
+      "bottom": 0.82,
+      "top": 2.23
+    },
+    {
+      "name": "Blue chair bay set-back window aluminium mullion.004",
+      "minX": 6.4525,
+      "maxX": 6.4975,
+      "minZ": -1.438,
+      "maxZ": -1.402,
+      "bottom": 0.82,
+      "top": 2.23
+    },
+    {
+      "name": "Blue chair bay set-back window aluminium mullion.005",
+      "minX": 6.4525,
+      "maxX": 6.4975,
+      "minZ": -2.358,
+      "maxZ": -2.322,
+      "bottom": 0.82,
+      "top": 2.23
+    },
+    {
+      "name": "Blue chair bay set-back window meeting rail.001",
+      "minX": 6.45,
+      "maxX": 6.5,
+      "minZ": -2.4,
+      "maxZ": -0.44,
+      "bottom": 1.4793,
+      "top": 1.5143
+    },
+    {
+      "name": "Blue chair bay set-back window latch.001",
+      "minX": 6.4425,
+      "maxX": 6.5075,
+      "minZ": -1.4725,
+      "maxZ": -1.4375,
+      "bottom": 1.4318,
+      "top": 1.5618
+    },
+    {
+      "name": "Blue chair bay return window timber jamb",
+      "minX": 4.5875,
+      "maxX": 4.6975,
+      "minZ": 2.715,
+      "maxZ": 2.885,
+      "bottom": 0.73,
+      "top": 2.32
+    },
+    {
+      "name": "Blue chair bay return window timber jamb.001",
+      "minX": 5.9775,
+      "maxX": 6.0875,
+      "minZ": 2.715,
+      "maxZ": 2.885,
+      "bottom": 0.73,
+      "top": 2.32
+    },
+    {
+      "name": "Blue chair bay return window timber lintel",
+      "minX": 4.5425,
+      "maxX": 6.1325,
+      "minZ": 2.705,
+      "maxZ": 2.895,
+      "bottom": 0.77,
+      "top": 0.87
+    },
+    {
+      "name": "Blue chair bay return window aluminium mullion",
+      "minX": 4.6845,
+      "maxX": 4.7205,
+      "minZ": 2.7775,
+      "maxZ": 2.8225,
+      "bottom": 0.82,
+      "top": 2.23
+    },
+    {
+      "name": "Blue chair bay return window aluminium mullion.001",
+      "minX": 5.3195,
+      "maxX": 5.3555,
+      "minZ": 2.7775,
+      "maxZ": 2.8225,
+      "bottom": 0.82,
+      "top": 2.23
+    },
+    {
+      "name": "Blue chair bay return window aluminium mullion.002",
+      "minX": 5.9545,
+      "maxX": 5.9905,
+      "minZ": 2.7775,
+      "maxZ": 2.8225,
+      "bottom": 0.82,
+      "top": 2.23
+    },
+    {
+      "name": "Blue chair bay return window meeting rail",
+      "minX": 4.6425,
+      "maxX": 6.0325,
+      "minZ": 2.775,
+      "maxZ": 2.825,
+      "bottom": 1.4793,
+      "top": 1.5143
+    },
+    {
+      "name": "Blue chair bay return window latch",
+      "minX": 5.355,
+      "maxX": 5.39,
+      "minZ": 2.7675,
+      "maxZ": 2.8325,
+      "bottom": 1.4318,
+      "top": 1.5618
+    },
+    {
+      "name": "Blue chair bay portal jamb",
+      "minX": 4.14,
+      "maxX": 4.26,
+      "minZ": 2.6825,
+      "maxZ": 2.7975,
+      "bottom": 0.0,
+      "top": 2.3
+    },
+    {
+      "name": "Blue chair bay portal jamb.001",
+      "minX": 4.14,
+      "maxX": 4.26,
+      "minZ": -0.2675,
+      "maxZ": -0.1525,
+      "bottom": 0.0,
+      "top": 2.3
+    },
+    {
+      "name": "Blue chair bay portal jamb.002",
+      "minX": 4.14,
+      "maxX": 4.26,
+      "minZ": -2.6475,
+      "maxZ": -2.5325,
+      "bottom": 0.0,
+      "top": 2.3
+    },
+    {
+      "name": "Blue chair bay shoji paper",
+      "minX": 4.1775,
+      "maxX": 4.2025,
+      "minZ": -2.56,
+      "maxZ": -1.52,
+      "bottom": 0.21,
+      "top": 2.27
+    },
+    {
+      "name": "Blue chair bay shoji stile",
+      "minX": 4.1325,
+      "maxX": 4.1975,
+      "minZ": -1.5225,
+      "maxZ": -1.4775,
+      "bottom": 0.18,
+      "top": 2.3
+    },
+    {
+      "name": "Blue chair bay shoji stile.001",
+      "minX": 4.1325,
+      "maxX": 4.1975,
+      "minZ": -2.6025,
+      "maxZ": -2.5575,
+      "bottom": 0.18,
+      "top": 2.3
+    },
+    {
+      "name": "Blue chair bay shoji crossbar.001",
+      "minX": 4.1275,
+      "maxX": 4.1725,
+      "minZ": -2.59,
+      "maxZ": -1.49,
+      "bottom": 0.519,
+      "top": 0.541
+    },
+    {
+      "name": "Blue chair bay shoji crossbar.002",
+      "minX": 4.1275,
+      "maxX": 4.1725,
+      "minZ": -2.59,
+      "maxZ": -1.49,
+      "bottom": 0.849,
+      "top": 0.871
+    },
+    {
+      "name": "Blue chair bay shoji crossbar.003",
+      "minX": 4.1275,
+      "maxX": 4.1725,
+      "minZ": -2.59,
+      "maxZ": -1.49,
+      "bottom": 1.179,
+      "top": 1.201
+    },
+    {
+      "name": "Blue chair bay shoji crossbar.004",
+      "minX": 4.1275,
+      "maxX": 4.1725,
+      "minZ": -2.59,
+      "maxZ": -1.49,
+      "bottom": 1.509,
+      "top": 1.531
+    },
+    {
+      "name": "Blue chair bay shoji vertical lattice.001",
+      "minX": 4.1275,
+      "maxX": 4.1725,
+      "minZ": -2.229,
+      "maxZ": -2.211,
+      "bottom": 0.205,
+      "top": 2.275
+    },
+    {
+      "name": "Blue chair bay low bench seat",
+      "minX": 5.915,
+      "maxX": 6.415,
+      "minZ": 0.66,
+      "maxZ": 2.14,
+      "bottom": 0.3975,
+      "top": 0.4625
+    },
+    {
+      "name": "Blue chair bay low bench leg",
+      "minX": 5.98,
+      "maxX": 6.35,
+      "minZ": 1.93,
+      "maxZ": 1.99,
+      "bottom": 0.13,
+      "top": 0.43
+    },
+    {
+      "name": "Blue chair bay low bench leg.001",
+      "minX": 5.98,
+      "maxX": 6.35,
+      "minZ": 0.81,
+      "maxZ": 0.87,
+      "bottom": 0.13,
+      "top": 0.43
+    },
+    {
+      "name": "Blue chair bay visible book shelf",
+      "minX": 5.745,
+      "maxX": 6.405,
+      "minZ": 2.18,
+      "maxZ": 2.62,
+      "bottom": 0.12,
+      "top": 0.76
+    },
+    {
+      "name": "Blue chair bay visible book",
+      "minX": 5.7625,
+      "maxX": 5.8075,
+      "minZ": 2.285,
+      "maxZ": 2.555,
+      "bottom": 0.76,
+      "top": 1.0
+    },
+    {
+      "name": "Blue chair bay visible book.001",
+      "minX": 5.8275,
+      "maxX": 5.8725,
+      "minZ": 2.285,
+      "maxZ": 2.555,
+      "bottom": 0.76,
+      "top": 1.025
+    },
+    {
+      "name": "Blue chair bay visible book.002",
+      "minX": 5.8925,
+      "maxX": 5.9375,
+      "minZ": 2.285,
+      "maxZ": 2.555,
+      "bottom": 0.76,
+      "top": 1.05
+    },
+    {
+      "name": "Blue chair bay visible book.003",
+      "minX": 5.9575,
+      "maxX": 6.0025,
+      "minZ": 2.285,
+      "maxZ": 2.555,
+      "bottom": 0.76,
+      "top": 1.0
+    },
+    {
+      "name": "Blue chair bay visible book.004",
+      "minX": 6.0225,
+      "maxX": 6.0675,
+      "minZ": 2.285,
+      "maxZ": 2.555,
+      "bottom": 0.76,
+      "top": 1.025
+    },
+    {
+      "name": "Blue chair bay visible book.005",
+      "minX": 6.0875,
+      "maxX": 6.1325,
+      "minZ": 2.285,
+      "maxZ": 2.555,
+      "bottom": 0.76,
+      "top": 1.05
+    },
+    {
+      "name": "Blue chair bay visible book.006",
+      "minX": 6.1525,
+      "maxX": 6.1975,
+      "minZ": 2.285,
+      "maxZ": 2.555,
+      "bottom": 0.76,
+      "top": 1.0
+    },
+    {
+      "name": "Blue chair bay visible book.007",
+      "minX": 6.2175,
+      "maxX": 6.2625,
+      "minZ": 2.285,
+      "maxZ": 2.555,
+      "bottom": 0.76,
+      "top": 1.025
+    },
+    {
+      "name": "Blue chair bay visible book.008",
+      "minX": 6.2825,
+      "maxX": 6.3275,
+      "minZ": 2.285,
+      "maxZ": 2.555,
+      "bottom": 0.76,
+      "top": 1.05
+    },
+    {
+      "name": "Blue chair bay storage unit front",
+      "minX": 4.0425,
+      "maxX": 4.0975,
+      "minZ": -2.54,
+      "maxZ": -1.54,
+      "bottom": 0.13,
+      "top": 1.07
+    },
+    {
+      "name": "Blue chair bay storage unit top",
+      "minX": 3.865,
+      "maxX": 4.195,
+      "minZ": -2.54,
+      "maxZ": -1.54,
+      "bottom": 1.0675,
+      "top": 1.1125
+    },
+    {
+      "name": "Blue chair bay frame on cabinet",
+      "minX": 3.9725,
+      "maxX": 4.0275,
+      "minZ": -1.89,
+      "maxZ": -1.67,
+      "bottom": 1.115,
+      "top": 1.385
+    },
+    {
+      "name": "Blue chair bay frame on cabinet.001",
+      "minX": 3.9725,
+      "maxX": 4.0275,
+      "minZ": -2.36,
+      "maxZ": -2.14,
+      "bottom": 1.115,
+      "top": 1.385
+    },
+    {
+      "name": "Bear continuous fur body",
+      "minX": 0.5209,
+      "maxX": 1.0786,
+      "minZ": 2.3207,
+      "maxZ": 3.4982,
+      "bottom": 0.0002,
+      "top": 0.8088
+    },
+    {
+      "name": "Bear short visible fur tufts",
+      "minX": 0.5172,
+      "maxX": 1.0793,
+      "minZ": 2.3133,
+      "maxZ": 3.506,
+      "bottom": 0.0709,
+      "top": 0.8107
+    },
+    {
+      "name": "Bear pale snout",
+      "minX": 0.7379,
+      "maxX": 0.8621,
+      "minZ": 3.41,
+      "maxZ": 3.5648,
+      "bottom": 0.5184,
+      "top": 0.7002
+    },
+    {
+      "name": "Bear lower jaw",
+      "minX": 0.7118,
+      "maxX": 0.8882,
+      "minZ": 3.3794,
+      "maxZ": 3.5432,
+      "bottom": 0.4959,
+      "top": 0.5751
+    },
+    {
+      "name": "Bear open mouth",
+      "minX": 0.7649,
+      "maxX": 0.8351,
+      "minZ": 3.5414,
+      "maxZ": 3.5684,
+      "bottom": 0.5265,
+      "top": 0.6111
+    },
+    {
+      "name": "Bear black nose",
+      "minX": 0.7712,
+      "maxX": 0.8288,
+      "minZ": 3.5459,
+      "maxZ": 3.5837,
+      "bottom": 0.6111,
+      "top": 0.6561
+    },
+    {
+      "name": "Bear small dark eye",
+      "minX": 0.6938,
+      "maxX": 0.7172,
+      "minZ": 3.4379,
+      "maxZ": 3.4667,
+      "bottom": 0.6633,
+      "top": 0.6867
+    },
+    {
+      "name": "Bear small dark eye.001",
+      "minX": 0.8828,
+      "maxX": 0.9062,
+      "minZ": 3.4379,
+      "maxZ": 3.4667,
+      "bottom": 0.6633,
+      "top": 0.6867
+    },
+    {
+      "name": "Bear photographed pale chest crescent",
+      "minX": 0.62,
+      "maxX": 0.98,
+      "minZ": 3.1974,
+      "maxZ": 3.2749,
+      "bottom": 0.4113,
+      "top": 0.5007
+    }
+  ],
+  "portal": {
+    "minX": 1.25,
+    "maxX": 1.95,
+    "minZ": 3.01,
+    "maxZ": 3.5,
+    "target": "exterior"
+  },
+  "excludedCollections12and13": [],
+  "sourceUnchanged": true
+}

@@ -1,0 +1,16 @@
+{
+  "interior": {
+    "model": "./room.glb?v=52df333ef2687542",
+    "bytes": 4348680,
+    "sha256": "52df333ef268754268a3095934cfb57c9a44819c58354d1256dcaf55c6419678",
+    "navigation": "./navigation.json?v=7ac40a17a3a5",
+    "route": "./demo-route.json?v=7ac40a17a3a5"
+  },
+  "exterior": {
+    "model": "../exterior.glb?v=b21a04b328453c0c",
+    "bytes": 15230216,
+    "sha256": "b21a04b328453c0c733faa3b65e8e3d20a5e7eed26ca6ab2eddd527085c5ecfc",
+    "navigation": "./exterior-navigation.json?v=7ac40a17a3a5",
+    "route": "./exterior-route.json?v=7ac40a17a3a5"
+  }
+}
