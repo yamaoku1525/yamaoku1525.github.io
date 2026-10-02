@@ -2,18 +2,31 @@
   "_comment": "自動反映用データ（news.json とは分離）。Instagram(@yamanoie.okuyarido)の新着投稿と rindonavi.com のスーパー林道関連投稿のみを automation/ のスクリプト＋ローカルLLMが自動追記します。手動編集は原則不要。スキーマ: id, source(instagram|rindonavi), sourceId(dedupeキー), pinned(trueなら先頭表示), date, displayDate, category(山の家|林道情報), title, summary, image, url, firstSeen(ISO8601・NEWバッジ/通知dedupe用)。",
   "items": [
     {
-      "id": "rindo-1789354573979",
+      "id": "rindo-17902473099588",
       "source": "rindonavi",
-      "sourceId": "1789354573979",
-      "date": "2026-09-14",
-      "displayDate": "2026/09/14",
+      "sourceId": "17902473099588",
+      "date": "2026-10-02",
+      "displayDate": "2026/10/02",
       "category": "林道情報",
-      "title": "【町道剣山線(スーパー林道)木頭館内】全面通行止め解除について",
-      "summary": "とくしま林道ナビの剣山スーパー林道 関連情報です。【町道剣山線(スーパー林道)木頭館内】全面通行止め解除について",
+      "title": "【11月1日（日）】剣山スーパー林道ミーティング２０２６ COFFEE DAY with 那賀町もみじまつり開催決定！",
+      "summary": "とくしま林道ナビの剣山スーパー林道 関連情報です。【11月1日（日）】剣山スーパー林道ミーティング２０２６ COFFEE DAY with 那賀町もみじまつり開催決定！",
       "image": "https://awasanga.com/img/news-traffic-regulation.png",
-      "url": "https://rindonavi.com/traffic.html?traffic_id=1789354573979",
-      "firstSeen": "2026-09-14T21:00:30+09:00",
+      "url": "https://rindonavi.com/info.html?news_id=17902473099588",
+      "firstSeen": "2026-10-02T21:00:23+09:00",
       "pinned": true
+    },
+    {
+      "id": "ig-Dd_DOmwEXu9",
+      "source": "instagram",
+      "sourceId": "Dd_DOmwEXu9",
+      "date": "2026-10-02",
+      "displayDate": "2026/10/02",
+      "category": "山の家",
+      "title": "今週もありがとうございました♪",
+      "summary": "今週もありがとうございました♪\n10月3日(土)メニュー少し少なくなります🙇🙇‍♀️\n(娘の部活の新人戦の為山の家嫁応援に行かせてください)\nよろしくお願いいたします\n#山の家奥槍戸 #奥槍戸山の家#ツキヨタケ",
+      "image": "./img/news2/ig-Dd_DOmwEXu9.jpg",
+      "url": "https://www.instagram.com/p/Dd_DOmwEXu9/",
+      "firstSeen": "2026-10-02T21:00:23+09:00"
     },
     {
       "id": "ig-DdyUmMCnyDU",
@@ -131,6 +144,19 @@
       "image": "./img/news2/ig-DdbVWGen0yN.jpg",
       "url": "https://www.instagram.com/p/DdbVWGen0yN/",
       "firstSeen": "2026-09-18T21:00:10+09:00"
+    },
+    {
+      "id": "rindo-1789354573979",
+      "source": "rindonavi",
+      "sourceId": "1789354573979",
+      "date": "2026-09-14",
+      "displayDate": "2026/09/14",
+      "category": "林道情報",
+      "title": "【町道剣山線(スーパー林道)木頭館内】全面通行止め解除について",
+      "summary": "とくしま林道ナビの剣山スーパー林道 関連情報です。【町道剣山線(スーパー林道)木頭館内】全面通行止め解除について",
+      "image": "https://awasanga.com/img/news-traffic-regulation.png",
+      "url": "https://rindonavi.com/traffic.html?traffic_id=1789354573979",
+      "firstSeen": "2026-09-14T21:00:30+09:00"
     },
     {
       "id": "ig-DdOItMnkQxl",
