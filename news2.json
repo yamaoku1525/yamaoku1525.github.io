@@ -2,18 +2,31 @@
   "_comment": "自動反映用データ（news.json とは分離）。Instagram(@yamanoie.okuyarido)の新着投稿と rindonavi.com のスーパー林道関連投稿のみを automation/ のスクリプト＋ローカルLLMが自動追記します。手動編集は原則不要。スキーマ: id, source(instagram|rindonavi), sourceId(dedupeキー), pinned(trueなら先頭表示), date, displayDate, category(山の家|林道情報), title, summary, image, url, firstSeen(ISO8601・NEWバッジ/通知dedupe用)。",
   "items": [
     {
-      "id": "rindo-17929928166704",
+      "id": "rindo-1795835038708",
       "source": "rindonavi",
-      "sourceId": "17929928166704",
-      "date": "2026-10-27",
-      "displayDate": "2026/10/27",
+      "sourceId": "1795835038708",
+      "date": "2026-11-27",
+      "displayDate": "2026/11/27",
       "category": "林道情報",
-      "title": "【剣山スーパー林道ミーティング２０２６ COFFEE DAY with 那賀町もみじまつり】 オリジナルステッカーの情報を公開！",
-      "summary": "とくしま林道ナビの剣山スーパー林道 関連情報です。【剣山スーパー林道ミーティング２０２６ COFFEE DAY with 那賀町もみじまつり】 オリジナルステッカーの情報を公開！",
+      "title": "【最新】スーパー林道の冬期全面通行止めについて【11/27】",
+      "summary": "とくしま林道ナビの剣山スーパー林道 関連情報です。【最新】スーパー林道の冬期全面通行止めについて【11/27】",
       "image": "https://awasanga.com/img/news-traffic-regulation.png",
-      "url": "https://rindonavi.com/info.html?news_id=17929928166704",
-      "firstSeen": "2026-10-30T21:00:07+09:00",
+      "url": "https://rindonavi.com/info.html?news_id=1795835038708",
+      "firstSeen": "2026-11-28T21:00:09+09:00",
       "pinned": true
+    },
+    {
+      "id": "ig-DgR8UWTH4Nf",
+      "source": "instagram",
+      "sourceId": "DgR8UWTH4Nf",
+      "date": "2026-11-28",
+      "displayDate": "2026/11/28",
+      "category": "山の家",
+      "title": "雨が降ったり晴れたり寒かったり",
+      "summary": "雨が降ったり晴れたり寒かったり\n忙しいお天気の土曜日\nご来店いただいたみなさま本当にありがとうございました♪\n山の家営業もあと1日です！\n明日もよろしくお願いいたします🙇🙇‍♀️\n明日は15時30分までの営業とさせていただきます\nよろしく…",
+      "image": "./img/news2/ig-DgR8UWTH4Nf.jpg",
+      "url": "https://www.instagram.com/p/DgR8UWTH4Nf/",
+      "firstSeen": "2026-11-28T21:00:09+09:00"
     },
     {
       "id": "ig-DgNddgHB3gF",
@@ -221,6 +234,19 @@
       "summary": "今日もご来店ありがとうございました♪\n急がせてしまいごめんなさい\nそして閉店後に来店して下さった方いらっしゃったら本当にごめんなさい\n\n#山の家奥槍戸 #奥槍戸山の家 #無事終わりました^ ^#明日イモンブランしまーす♪",
       "image": "./img/news2/ig-DfCLZd9H6nz.jpg",
       "url": "https://www.instagram.com/p/DfCLZd9H6nz/",
+      "firstSeen": "2026-10-30T21:00:07+09:00"
+    },
+    {
+      "id": "rindo-17929928166704",
+      "source": "rindonavi",
+      "sourceId": "17929928166704",
+      "date": "2026-10-27",
+      "displayDate": "2026/10/27",
+      "category": "林道情報",
+      "title": "【剣山スーパー林道ミーティング２０２６ COFFEE DAY with 那賀町もみじまつり】 オリジナルステッカーの情報を公開！",
+      "summary": "とくしま林道ナビの剣山スーパー林道 関連情報です。【剣山スーパー林道ミーティング２０２６ COFFEE DAY with 那賀町もみじまつり】 オリジナルステッカーの情報を公開！",
+      "image": "https://awasanga.com/img/news-traffic-regulation.png",
+      "url": "https://rindonavi.com/info.html?news_id=17929928166704",
       "firstSeen": "2026-10-30T21:00:07+09:00"
     },
     {
